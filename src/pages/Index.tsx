@@ -136,7 +136,7 @@ const Index = () => {
                   step={0.1}
                 />
                 <Button
-                  className="w-full bg-primary hover:bg-primary-dark transition-colors"
+                  className="w-full bg-primary hover:bg-primary-dark transition-colors px-8 py-4 mt-8"
                   onClick={handleCalculate}
                 >
                   Calculate Risk
