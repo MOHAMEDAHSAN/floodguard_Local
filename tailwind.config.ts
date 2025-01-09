@@ -49,6 +49,9 @@ export default {
       },
       backgroundImage: {
         'hero-pattern': "url('https://images.unsplash.com/photo-1469041797191-50ace28483c3?auto=format&fit=crop&q=80&w=4752&h=3168')",
+        'wave-pattern': "url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&q=80&w=3945')",
+        'mountain-pattern': "url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=7372')",
+        'river-pattern': "url('https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?auto=format&fit=crop&q=80&w=3648')",
       },
       borderRadius: {
         lg: "var(--radius)",
