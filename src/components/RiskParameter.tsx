@@ -20,10 +20,10 @@ export const RiskParameter = ({
   unit = "",
 }: RiskParameterProps) => {
   return (
-    <div className="space-y-3">
+    <div className="space-y-4 px-6">
       <div className="flex justify-between items-center">
-        <label className="text-sm font-medium text-primary-dark">{label}</label>
-        <span className="text-sm text-muted-foreground bg-primary-light/30 px-2 py-1 rounded-md">
+        <label className="text-base font-medium text-primary-dark">{label}</label>
+        <span className="text-base text-muted-foreground bg-primary-light/30 px-3 py-1.5 rounded-md">
           {value}
           {unit}
         </span>
