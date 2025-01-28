@@ -21,48 +21,54 @@ export const RetroHeader = () => {
     loader.load('https://threejs.org/examples/fonts/helvetiker_bold.typeface.json', (font) => {
       const textGeometry = new TextGeometry('FloodGuard', {
         font: font,
-        size: 0.8,
-        height: 0.3,
-        curveSegments: 12,
+        size: 1.2,
+        height: 0.4,
+        curveSegments: 16,
         bevelEnabled: true,
-        bevelThickness: 0.03,
-        bevelSize: 0.02,
+        bevelThickness: 0.05,
+        bevelSize: 0.03,
         bevelOffset: 0,
-        bevelSegments: 5
+        bevelSegments: 8
       });
       
-      // Create material with gradient-like effect
+      // Create material with modern metallic effect
       const textMaterial = new THREE.MeshPhongMaterial({ 
         color: 0x00BCD4,
         specular: 0xffffff,
-        shininess: 100,
-        reflectivity: 1
+        shininess: 150,
+        reflectivity: 1,
+        flatShading: false
       });
       
       const textMesh = new THREE.Mesh(textGeometry, textMaterial);
       textGeometry.center();
       scene.add(textMesh);
 
-      // Add subtle rotation animation
-      textMesh.rotation.x = 0.1;
+      // Add dynamic animation
+      textMesh.rotation.x = 0.15;
       const animate = () => {
         requestAnimationFrame(animate);
-        textMesh.rotation.y = Math.sin(Date.now() * 0.001) * 0.1;
+        textMesh.rotation.y = Math.sin(Date.now() * 0.0008) * 0.15;
+        textMesh.position.y = Math.sin(Date.now() * 0.001) * 0.05;
         renderer.render(scene, camera);
       };
       animate();
     });
 
-    // Add dramatic lighting
-    const frontLight = new THREE.DirectionalLight(0xffffff, 1);
-    frontLight.position.set(0, 0, 1);
+    // Enhanced dramatic lighting
+    const frontLight = new THREE.DirectionalLight(0xffffff, 1.2);
+    frontLight.position.set(0, 0, 2);
     scene.add(frontLight);
     
-    const topLight = new THREE.DirectionalLight(0x00BCD4, 0.8);
-    topLight.position.set(0, 1, 0);
+    const topLight = new THREE.DirectionalLight(0x00BCD4, 1);
+    topLight.position.set(0, 2, 0);
     scene.add(topLight);
     
-    const ambientLight = new THREE.AmbientLight(0x404040, 0.5);
+    const backLight = new THREE.DirectionalLight(0x4DD0E1, 0.8);
+    backLight.position.set(0, 0, -2);
+    scene.add(backLight);
+    
+    const ambientLight = new THREE.AmbientLight(0x404040, 0.6);
     scene.add(ambientLight);
 
     camera.position.z = 5;
@@ -88,9 +94,11 @@ export const RetroHeader = () => {
 
   return (
     <div className="relative">
-      <div ref={containerRef} className="h-40 w-full bg-gradient-to-b from-primary-dark/10 to-transparent" />
-      <div className="absolute bottom-0 left-0 w-full text-center text-primary-dark">
-        <p className="text-lg font-semibold italic">Never miss a flood warning</p>
+      <div ref={containerRef} className="h-52 w-full bg-gradient-to-b from-primary-dark/20 via-primary/10 to-transparent" />
+      <div className="absolute bottom-4 left-0 w-full text-center">
+        <p className="text-xl font-semibold italic text-primary-dark tracking-wide">
+          Never miss a flood warning
+        </p>
       </div>
     </div>
   );
