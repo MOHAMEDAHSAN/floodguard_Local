@@ -1,5 +1,7 @@
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
+import { FontLoader } from 'three/examples/jsm/loaders/FontLoader.js';
+import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry.js';
 
 export const RetroHeader = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -15,9 +17,9 @@ export const RetroHeader = () => {
     containerRef.current.appendChild(renderer.domElement);
 
     // Create text geometry
-    const loader = new THREE.FontLoader();
+    const loader = new FontLoader();
     loader.load('https://threejs.org/examples/fonts/helvetiker_regular.typeface.json', (font) => {
-      const textGeometry = new THREE.TextGeometry('FloodGuard', {
+      const textGeometry = new TextGeometry('FloodGuard', {
         font: font,
         size: 0.5,
         height: 0.2,
