@@ -19,12 +19,6 @@ interface Location {
     latitude: number;
     longitude: number;
   };
-  weather?: {
-    temperature: number;
-    condition: string;
-    humidity: number;
-    windSpeed: number;
-  };
   emergencyContacts: {
     police: string;
     floodControl: string;
@@ -36,12 +30,6 @@ const defaultLocation: Location = {
   city: "Chennai",
   state: "Tamil Nadu",
   country: "India",
-  weather: {
-    temperature: 30,
-    condition: "Clear",
-    humidity: 75,
-    windSpeed: 12
-  },
   emergencyContacts: {
     police: "100",
     floodControl: "1913",
@@ -58,7 +46,6 @@ const initialMessages: Message[] = [
       "Check emergency preparedness",
       "Get local flood alerts",
       "Post-flood recovery help",
-      "Check weather updates",
       "Set my location"
     ]
   }
@@ -70,73 +57,6 @@ export const NovaChat = () => {
   const [input, setInput] = useState("");
   const [location, setLocation] = useState<Location>(defaultLocation);
   const { toast } = useToast();
-
-  const handleResponse = (userInput: string) => {
-    const input = userInput.toLowerCase();
-    
-    setTimeout(() => {
-      let response: Message = { 
-        type: 'bot', 
-        content: "I'm not able to understand what you're trying to say. Could you please rephrase your question?" 
-      };
-
-      if (input.includes('weather') || input.includes('temperature') || input.includes('forecast')) {
-        response = {
-          type: 'bot',
-          content: `Current weather in ${location.city}:\n\nTemperature: ${location.weather?.temperature}°C\nCondition: ${location.weather?.condition}\nHumidity: ${location.weather?.humidity}%\nWind Speed: ${location.weather?.windSpeed} km/h`,
-          options: ["Check flood risk", "Set location"]
-        };
-      }
-      if (input.includes('location') || input.includes('set my location')) {
-        requestLocationPermission();
-        response = {
-          type: 'bot',
-          content: `I'm currently set to provide information for ${location.city}, ${location.state}. Your local emergency contacts are:\n\nPolice: ${location.emergencyContacts.police}\nFlood Control: ${location.emergencyContacts.floodControl}\nEmergency Services: ${location.emergencyContacts.emergencyServices}`,
-          options: ["Update location", "Back to main menu"]
-        };
-      }
-      else if (input.includes('risk')) {
-        response = {
-          type: 'bot',
-          content: `Based on your location in ${location.city}:\n\n1. Types of Floods:\n- Flash floods\n- River floods\n- Coastal floods\n\n2. Risk Factors:\n- Heavy rainfall\n- Snow melting\n- Storm surges\n- Urban development`,
-          options: ["Check local flood risks", "Preparation tips", "Back to main menu"]
-        };
-      }
-      else if (input.includes('prepare') || input.includes('preparedness')) {
-        response = {
-          type: 'bot',
-          content: "Essential flood preparation steps:\n\n1. Create an emergency kit with:\n- Water and non-perishable food\n- First aid supplies\n- Flashlights and batteries\n- Important documents in waterproof container\n\n2. Know your evacuation route\n3. Stay informed about weather updates\n4. Have emergency contacts ready",
-          options: ["Get evacuation routes", "Emergency contacts", "Back to main menu"]
-        };
-      }
-      else if (input.includes('recovery') || input.includes('after flood')) {
-        response = {
-          type: 'bot',
-          content: "Post-flood recovery guidance:\n\n1. Safety First:\n- Wait for official clearance to return\n- Watch for hazards\n\n2. Document Damage:\n- Take photos\n- Contact insurance\n\n3. Clean-up:\n- Wear protective gear\n- Prevent mold growth\n\n4. Seek assistance if needed",
-          options: ["Contact emergency services", "Clean-up tips", "Back to main menu"]
-        };
-      }
-      else if (input.includes('alert')) {
-        response = {
-          type: 'bot',
-          content: `Current flood alert status for ${location.city}:\nNo active flood warnings at this time.\n\nStay prepared by:\n1. Monitoring local weather\n2. Signing up for emergency alerts\n3. Keeping emergency supplies ready`,
-          options: ["Check another location", "Preparation tips", "Back to main menu"]
-        };
-      }
-      else if (input.includes('menu')) {
-        response = initialMessages[0];
-      }
-      else {
-        response = {
-          type: 'bot',
-          content: "I can help you with flood awareness, preparation, and emergency response. Could you please be more specific about what you'd like to know?",
-          options: ["Show all options", "Back to main menu"]
-        };
-      }
-      
-      setMessages(prev => [...prev, response]);
-    }, 1000);
-  };
 
   const requestLocationPermission = async () => {
     if ("geolocation" in navigator) {
@@ -190,18 +110,75 @@ export const NovaChat = () => {
     setInput("");
   };
 
+  const handleResponse = (userInput: string) => {
+    const input = userInput.toLowerCase();
+    
+    setTimeout(() => {
+      let response: Message = { type: 'bot', content: '' };
+
+      if (input.includes('location') || input.includes('set my location')) {
+        requestLocationPermission();
+        response = {
+          type: 'bot',
+          content: `I'm currently set to provide information for ${location.city}, ${location.state}. Your local emergency contacts are:\n\nPolice: ${location.emergencyContacts.police}\nFlood Control: ${location.emergencyContacts.floodControl}\nEmergency Services: ${location.emergencyContacts.emergencyServices}`,
+          options: ["Update location", "Back to main menu"]
+        };
+      }
+      else if (input.includes('risk')) {
+        response = {
+          type: 'bot',
+          content: `Based on your location in ${location.city}:\n\n1. Types of Floods:\n- Flash floods\n- River floods\n- Coastal floods\n\n2. Risk Factors:\n- Heavy rainfall\n- Snow melting\n- Storm surges\n- Urban development`,
+          options: ["Check local flood risks", "Preparation tips", "Back to main menu"]
+        };
+      }
+      else if (input.includes('prepare') || input.includes('preparedness')) {
+        response = {
+          type: 'bot',
+          content: "Essential flood preparation steps:\n\n1. Create an emergency kit with:\n- Water and non-perishable food\n- First aid supplies\n- Flashlights and batteries\n- Important documents in waterproof container\n\n2. Know your evacuation route\n3. Stay informed about weather updates\n4. Have emergency contacts ready",
+          options: ["Get evacuation routes", "Emergency contacts", "Back to main menu"]
+        };
+      }
+      else if (input.includes('recovery') || input.includes('after flood')) {
+        response = {
+          type: 'bot',
+          content: "Post-flood recovery guidance:\n\n1. Safety First:\n- Wait for official clearance to return\n- Watch for hazards\n\n2. Document Damage:\n- Take photos\n- Contact insurance\n\n3. Clean-up:\n- Wear protective gear\n- Prevent mold growth\n\n4. Seek assistance if needed",
+          options: ["Contact emergency services", "Clean-up tips", "Back to main menu"]
+        };
+      }
+      else if (input.includes('alert')) {
+        response = {
+          type: 'bot',
+          content: `Current flood alert status for ${location.city}:\nNo active flood warnings at this time.\n\nStay prepared by:\n1. Monitoring local weather\n2. Signing up for emergency alerts\n3. Keeping emergency supplies ready`,
+          options: ["Check another location", "Preparation tips", "Back to main menu"]
+        };
+      }
+      else if (input.includes('menu')) {
+        response = initialMessages[0];
+      }
+      else {
+        response = {
+          type: 'bot',
+          content: "I can help you with flood awareness, preparation, and emergency response. Could you please be more specific about what you'd like to know?",
+          options: ["Show all options", "Back to main menu"]
+        };
+      }
+
+      setMessages(prev => [...prev, response]);
+    }, 1000);
+  };
+
   return (
     <div className="fixed bottom-4 right-4 z-50">
       {!isOpen ? (
         <Button
           onClick={() => setIsOpen(true)}
-          className="rounded-full w-16 h-16 bg-[#243949] hover:bg-[#517fa4] shadow-lg"
+          className="rounded-full w-16 h-16 bg-primary hover:bg-primary/90 shadow-lg"
         >
           <MessageCircle className="w-8 h-8" />
         </Button>
       ) : (
         <div className="bg-white rounded-lg shadow-xl w-96 h-[500px] flex flex-col">
-          <div className="p-4 bg-gradient-to-r from-[#243949] to-[#517fa4] text-white flex justify-between items-center rounded-t-lg">
+          <div className="p-4 bg-primary text-white flex justify-between items-center rounded-t-lg">
             <div className="flex items-center space-x-2">
               <div className="w-2 h-2 rounded-full bg-white animate-pulse" />
               <span className="font-semibold">Nova - Flood Assistant</span>
@@ -210,7 +187,7 @@ export const NovaChat = () => {
               variant="ghost"
               size="icon"
               onClick={() => setIsOpen(false)}
-              className="hover:bg-white/10 rounded-full"
+              className="hover:bg-primary/90 rounded-full"
             >
               <X className="w-5 h-5 text-white" />
             </Button>
