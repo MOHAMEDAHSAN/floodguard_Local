@@ -1,53 +1,155 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { MessageCircle, X, Send } from "lucide-react";
+import { MessageCircle, X, Send, MapPin } from "lucide-react";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { useToast } from "@/components/ui/use-toast";
 
 interface Message {
   type: 'user' | 'bot';
   content: string;
+  options?: string[];
 }
+
+interface Location {
+  city: string;
+  state: string;
+  emergencyContacts: {
+    police: string;
+    floodControl: string;
+    emergencyServices: string;
+  };
+}
+
+const defaultLocation: Location = {
+  city: "San Francisco",
+  state: "CA",
+  emergencyContacts: {
+    police: "911",
+    floodControl: "(555) 123-4567",
+    emergencyServices: "(555) 789-0123"
+  }
+};
 
 const initialMessages: Message[] = [
   {
     type: 'bot',
-    content: "Hi! I'm Nova, your flood awareness assistant. How can I help you today? You can ask me about:\n- Flood risks and safety\n- Emergency preparedness\n- Current flood alerts\n- Post-flood recovery"
+    content: "Hi! I'm Nova, your flood awareness assistant. How can I help you today?",
+    options: [
+      "Learn about flood risks",
+      "Check emergency preparedness",
+      "Get local flood alerts",
+      "Post-flood recovery help",
+      "Set my location"
+    ]
   }
 ];
+
+const autocorrectInput = (input: string): string => {
+  const corrections: { [key: string]: string } = {
+    'flod': 'flood',
+    'emergensy': 'emergency',
+    'evacuaton': 'evacuation',
+    'preparness': 'preparedness',
+    'watr': 'water'
+  };
+  
+  return input.split(' ').map(word => 
+    corrections[word.toLowerCase()] || word
+  ).join(' ');
+};
 
 export const NovaChat = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>(initialMessages);
   const [input, setInput] = useState("");
+  const [location, setLocation] = useState<Location>(defaultLocation);
+  const { toast } = useToast();
+
+  const handleOptionClick = (option: string) => {
+    setMessages(prev => [...prev, { type: 'user', content: option }]);
+    handleResponse(option);
+  };
 
   const handleSend = () => {
     if (!input.trim()) return;
-
-    setMessages(prev => [...prev, { type: 'user', content: input }]);
     
-    // Simulate Nova's response
-    setTimeout(() => {
-      const response = generateResponse(input);
-      setMessages(prev => [...prev, { type: 'bot', content: response }]);
-    }, 1000);
+    const correctedInput = autocorrectInput(input);
+    if (correctedInput !== input) {
+      toast({
+        description: "I've corrected some spelling to better understand your question.",
+        duration: 3000
+      });
+    }
 
+    setMessages(prev => [...prev, { type: 'user', content: correctedInput }]);
+    handleResponse(correctedInput);
     setInput("");
   };
 
-  const generateResponse = (userInput: string) => {
+  const handleResponse = (userInput: string) => {
     const input = userInput.toLowerCase();
     
-    if (input.includes('hello') || input.includes('hi')) {
-      return "Hello! How can I assist you with flood-related information today?";
-    }
-    if (input.includes('flood') && input.includes('prepare')) {
-      return "Here are some key flood preparation steps:\n1. Create an emergency kit\n2. Keep important documents in a waterproof container\n3. Know your evacuation route\n4. Stay informed about weather updates\n5. Have emergency contacts ready";
-    }
-    if (input.includes('emergency')) {
-      return "For emergencies, please contact:\n- Emergency Services: 911\n- Local Flood Control: (555) 123-4567\n- Red Cross: (555) 789-0123\n\nAlways prioritize your safety and follow official evacuation orders.";
-    }
-    
-    return "I can help you with flood awareness, preparation, and emergency response. Could you please be more specific about what you'd like to know?";
+    setTimeout(() => {
+      let response: Message = { type: 'bot', content: '' };
+
+      if (input.includes('location') || input.includes('set my location')) {
+        response = {
+          type: 'bot',
+          content: `I'm currently set to provide information for ${location.city}, ${location.state}. Your local emergency contacts are:\n\nPolice: ${location.emergencyContacts.police}\nFlood Control: ${location.emergencyContacts.floodControl}\nEmergency Services: ${location.emergencyContacts.emergencyServices}`,
+          options: ["Update location", "Back to main menu"]
+        };
+      }
+      else if (input.includes('risk')) {
+        response = {
+          type: 'bot',
+          content: "Here's what you need to know about flood risks:\n\n1. Types of Floods:\n- Flash floods\n- River floods\n- Coastal floods\n\n2. Risk Factors:\n- Heavy rainfall\n- Snow melting\n- Storm surges\n- Urban development",
+          options: ["Check local flood risks", "Preparation tips", "Back to main menu"]
+        };
+      }
+      else if (input.includes('prepare') || input.includes('preparedness')) {
+        response = {
+          type: 'bot',
+          content: "Essential flood preparation steps:\n\n1. Create an emergency kit with:\n- Water and non-perishable food\n- First aid supplies\n- Flashlights and batteries\n- Important documents in waterproof container\n\n2. Know your evacuation route\n3. Stay informed about weather updates\n4. Have emergency contacts ready",
+          options: ["Get evacuation routes", "Emergency contacts", "Back to main menu"]
+        };
+      }
+      else if (input.includes('recovery') || input.includes('after flood')) {
+        response = {
+          type: 'bot',
+          content: "Post-flood recovery guidance:\n\n1. Safety First:\n- Wait for official clearance to return\n- Watch for hazards\n\n2. Document Damage:\n- Take photos\n- Contact insurance\n\n3. Clean-up:\n- Wear protective gear\n- Prevent mold growth\n\n4. Seek assistance if needed",
+          options: ["Contact emergency services", "Clean-up tips", "Back to main menu"]
+        };
+      }
+      else if (input.includes('alert')) {
+        response = {
+          type: 'bot',
+          content: `Current flood alert status for ${location.city}:\nNo active flood warnings at this time.\n\nStay prepared by:\n1. Monitoring local weather\n2. Signing up for emergency alerts\n3. Keeping emergency supplies ready`,
+          options: ["Check another location", "Preparation tips", "Back to main menu"]
+        };
+      }
+      else if (input.includes('menu')) {
+        response = {
+          type: 'bot',
+          content: "How can I help you today?",
+          options: [
+            "Learn about flood risks",
+            "Check emergency preparedness",
+            "Get local flood alerts",
+            "Post-flood recovery help",
+            "Set my location"
+          ]
+        };
+      }
+      else {
+        response = {
+          type: 'bot',
+          content: "I can help you with flood awareness, preparation, and emergency response. Could you please be more specific about what you'd like to know?",
+          options: ["Show all options", "Back to main menu"]
+        };
+      }
+
+      setMessages(prev => [...prev, response]);
+    }, 1000);
   };
 
   return (
@@ -55,7 +157,7 @@ export const NovaChat = () => {
       {!isOpen ? (
         <Button
           onClick={() => setIsOpen(true)}
-          className="rounded-full w-16 h-16 bg-primary hover:bg-primary-dark shadow-lg"
+          className="rounded-full w-16 h-16 bg-primary hover:bg-primary/90 shadow-lg"
         >
           <MessageCircle className="w-8 h-8" />
         </Button>
@@ -70,7 +172,7 @@ export const NovaChat = () => {
               variant="ghost"
               size="icon"
               onClick={() => setIsOpen(false)}
-              className="hover:bg-primary-dark rounded-full"
+              className="hover:bg-primary/90 rounded-full"
             >
               <X className="w-5 h-5 text-white" />
             </Button>
@@ -79,21 +181,37 @@ export const NovaChat = () => {
           <ScrollArea className="flex-1 p-4">
             <div className="space-y-4">
               {messages.map((message, index) => (
-                <div
-                  key={index}
-                  className={`flex ${
-                    message.type === 'user' ? 'justify-end' : 'justify-start'
-                  }`}
-                >
+                <div key={index} className="space-y-2">
                   <div
-                    className={`max-w-[80%] p-3 rounded-lg ${
-                      message.type === 'user'
-                        ? 'bg-primary text-white'
-                        : 'bg-gray-100 text-gray-800'
+                    className={`flex ${
+                      message.type === 'user' ? 'justify-end' : 'justify-start'
                     }`}
                   >
-                    <p className="whitespace-pre-line">{message.content}</p>
+                    <div
+                      className={`max-w-[80%] p-3 rounded-lg ${
+                        message.type === 'user'
+                          ? 'bg-primary text-white'
+                          : 'bg-gray-100 text-gray-800'
+                      }`}
+                    >
+                      <p className="whitespace-pre-line">{message.content}</p>
+                    </div>
                   </div>
+                  {message.options && message.type === 'bot' && (
+                    <div className="flex flex-wrap gap-2 mt-2">
+                      {message.options.map((option, optionIndex) => (
+                        <Button
+                          key={optionIndex}
+                          variant="outline"
+                          size="sm"
+                          className="text-sm"
+                          onClick={() => handleOptionClick(option)}
+                        >
+                          {option}
+                        </Button>
+                      ))}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
@@ -111,7 +229,7 @@ export const NovaChat = () => {
               />
               <Button
                 onClick={handleSend}
-                className="rounded-full bg-primary hover:bg-primary-dark"
+                className="rounded-full bg-primary hover:bg-primary/90"
               >
                 <Send className="w-4 h-4" />
               </Button>
