@@ -4,6 +4,7 @@ import { RiskScore } from "@/components/RiskScore";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 import { NovaChat } from "@/components/Nova/NovaChat";
+import { RetroHeader } from "@/components/RetroHeader";
 
 const Index = () => {
   const { toast } = useToast();
@@ -44,6 +45,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-primary-light/50 to-secondary">
+      <RetroHeader />
       <div className="h-[50vh] bg-hero-pattern bg-cover bg-center relative">
         <div className="absolute inset-0 bg-primary-dark/40 backdrop-blur-sm">
           <div className="container h-full flex items-center justify-center">

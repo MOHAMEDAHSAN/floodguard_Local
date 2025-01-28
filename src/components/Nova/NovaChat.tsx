@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { MessageCircle, X, Send, MapPin } from "lucide-react";
+import { MessageCircle, X, Send } from "lucide-react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { useToast } from "@/hooks/use-toast";
 import { autocorrect } from "@/utils/autocorrect";
@@ -14,6 +14,7 @@ interface Message {
 interface Location {
   city: string;
   state: string;
+  country: string;
   coordinates?: {
     latitude: number;
     longitude: number;
@@ -26,12 +27,13 @@ interface Location {
 }
 
 const defaultLocation: Location = {
-  city: "San Francisco",
-  state: "CA",
+  city: "Chennai",
+  state: "Tamil Nadu",
+  country: "India",
   emergencyContacts: {
-    police: "911",
-    floodControl: "(555) 123-4567",
-    emergencyServices: "(555) 789-0123"
+    police: "100",
+    floodControl: "1913",
+    emergencyServices: "108"
   }
 };
 
@@ -63,8 +65,8 @@ export const NovaChat = () => {
           navigator.geolocation.getCurrentPosition(resolve, reject);
         });
         
-        // Here you would typically make an API call to reverse geocode the coordinates
-        // For demo purposes, we'll just update the coordinates
+        // Here we would typically make an API call to reverse geocode the coordinates
+        // For now, we'll use the default Indian location
         setLocation(prev => ({
           ...prev,
           coordinates: {
@@ -74,13 +76,13 @@ export const NovaChat = () => {
         }));
 
         toast({
-          description: "Location updated successfully!",
+          description: "Location updated to Chennai, Tamil Nadu",
           duration: 3000
         });
       } catch (error) {
         toast({
           variant: "destructive",
-          description: "Unable to access location. Using default location.",
+          description: "Unable to access location. Using default Chennai location.",
           duration: 3000
         });
       }
