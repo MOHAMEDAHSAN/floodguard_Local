@@ -16,62 +16,61 @@ export const RetroHeader = () => {
     renderer.setSize(containerRef.current.clientWidth, containerRef.current.clientHeight);
     containerRef.current.appendChild(renderer.domElement);
 
-    // Create text geometry
+    // Create text geometry with new settings
     const loader = new FontLoader();
     loader.load('https://threejs.org/examples/fonts/helvetiker_bold.typeface.json', (font) => {
       const textGeometry = new TextGeometry('FloodGuard', {
         font: font,
-        size: 1.2,
-        height: 0.4,
-        curveSegments: 16,
+        size: 1.5,
+        height: 0.2,
+        curveSegments: 32,
         bevelEnabled: true,
-        bevelThickness: 0.05,
-        bevelSize: 0.03,
+        bevelThickness: 0.02,
+        bevelSize: 0.01,
         bevelOffset: 0,
-        bevelSegments: 8
+        bevelSegments: 16
       });
       
-      // Create material with modern metallic effect
-      const textMaterial = new THREE.MeshPhongMaterial({ 
-        color: 0x00BCD4,
-        specular: 0xffffff,
-        shininess: 150,
-        reflectivity: 1,
-        flatShading: false
+      // Create a sleek, modern material
+      const textMaterial = new THREE.MeshStandardMaterial({ 
+        color: 0x006064,
+        metalness: 0.7,
+        roughness: 0.2,
+        emissive: 0x006064,
+        emissiveIntensity: 0.1
       });
       
       const textMesh = new THREE.Mesh(textGeometry, textMaterial);
       textGeometry.center();
       scene.add(textMesh);
 
-      // Add dynamic animation
-      textMesh.rotation.x = 0.15;
+      // Smooth floating animation
       const animate = () => {
         requestAnimationFrame(animate);
-        textMesh.rotation.y = Math.sin(Date.now() * 0.0008) * 0.15;
-        textMesh.position.y = Math.sin(Date.now() * 0.001) * 0.05;
+        textMesh.rotation.y = Math.sin(Date.now() * 0.0005) * 0.1;
+        textMesh.position.y = Math.sin(Date.now() * 0.001) * 0.03;
         renderer.render(scene, camera);
       };
       animate();
     });
 
-    // Enhanced dramatic lighting
-    const frontLight = new THREE.DirectionalLight(0xffffff, 1.2);
-    frontLight.position.set(0, 0, 2);
-    scene.add(frontLight);
+    // Modern lighting setup
+    const mainLight = new THREE.DirectionalLight(0xffffff, 2);
+    mainLight.position.set(1, 1, 2);
+    scene.add(mainLight);
     
-    const topLight = new THREE.DirectionalLight(0x00BCD4, 1);
-    topLight.position.set(0, 2, 0);
-    scene.add(topLight);
+    const fillLight = new THREE.DirectionalLight(0xB2EBF2, 1);
+    fillLight.position.set(-1, 0.5, -1);
+    scene.add(fillLight);
     
-    const backLight = new THREE.DirectionalLight(0x4DD0E1, 0.8);
-    backLight.position.set(0, 0, -2);
-    scene.add(backLight);
+    const rimLight = new THREE.DirectionalLight(0x80DEEA, 1.5);
+    rimLight.position.set(0, -1, -2);
+    scene.add(rimLight);
     
-    const ambientLight = new THREE.AmbientLight(0x404040, 0.6);
+    const ambientLight = new THREE.AmbientLight(0xE0F7FA, 0.8);
     scene.add(ambientLight);
 
-    camera.position.z = 5;
+    camera.position.z = 6;
 
     // Handle window resize
     const handleResize = () => {
@@ -94,10 +93,10 @@ export const RetroHeader = () => {
 
   return (
     <div className="relative">
-      <div ref={containerRef} className="h-52 w-full bg-gradient-to-b from-primary-dark/20 via-primary/10 to-transparent" />
-      <div className="absolute bottom-4 left-0 w-full text-center">
-        <p className="text-xl font-semibold italic text-primary-dark tracking-wide">
-          Never miss a flood warning
+      <div ref={containerRef} className="h-64 w-full bg-gradient-to-b from-primary-dark via-primary/5 to-transparent" />
+      <div className="absolute bottom-6 left-0 w-full text-center">
+        <p className="text-2xl font-light text-primary-dark tracking-widest uppercase">
+          Advanced Flood Warning System
         </p>
       </div>
     </div>
