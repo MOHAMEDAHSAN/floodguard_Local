@@ -44,10 +44,10 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-primary-light/50 to-secondary">
+    <div className="min-h-screen bg-gradient-to-br from-[#243949] via-[#517fa4] to-[#243949]">
       <RetroHeader />
       <div className="h-[50vh] bg-hero-pattern bg-cover bg-center relative">
-        <div className="absolute inset-0 bg-primary-dark/40 backdrop-blur-sm">
+        <div className="absolute inset-0 bg-[#243949]/40 backdrop-blur-sm">
           <div className="container h-full flex items-center justify-center">
             <div className="text-center space-y-4 animate-fadeIn">
               <h1 className="text-6xl font-bold text-white drop-shadow-lg">
@@ -65,11 +65,11 @@ const Index = () => {
       <div className="container -mt-20 pb-20">
         <div className="max-w-4xl mx-auto space-y-8 animate-slideIn">
           <div className="grid gap-8 md:grid-cols-2">
-            <div className="bg-white/80 backdrop-blur-lg rounded-xl p-8 shadow-lg space-y-6 border border-primary-light">
+            <div className="bg-white/10 backdrop-blur-lg rounded-xl p-8 shadow-lg space-y-6 border border-white/20">
               <div className="h-40 rounded-lg overflow-hidden mb-6">
                 <div className="w-full h-full bg-wave-pattern bg-cover bg-center transform hover:scale-110 transition-transform duration-500"></div>
               </div>
-              <h2 className="text-2xl font-semibold text-primary-dark">
+              <h2 className="text-2xl font-semibold text-white">
                 Risk Parameters
               </h2>
               <div className="space-y-6">
@@ -148,22 +148,22 @@ const Index = () => {
             </div>
 
             <div className="space-y-8">
-              <div className="bg-white/80 backdrop-blur-lg rounded-xl p-8 shadow-lg space-y-6 border border-primary-light">
+              <div className="bg-white/10 backdrop-blur-lg rounded-xl p-8 shadow-lg space-y-6 border border-white/20">
                 <div className="h-40 rounded-lg overflow-hidden mb-6">
                   <div className="w-full h-full bg-mountain-pattern bg-cover bg-center transform hover:scale-110 transition-transform duration-500"></div>
                 </div>
                 <RiskScore score={calculateRiskScore()} />
               </div>
 
-              <div className="bg-white/80 backdrop-blur-lg rounded-xl p-8 shadow-lg space-y-6 border border-primary-light">
+              <div className="bg-white/10 backdrop-blur-lg rounded-xl p-8 shadow-lg space-y-6 border border-white/20">
                 <div className="h-40 rounded-lg overflow-hidden mb-6">
                   <div className="w-full h-full bg-river-pattern bg-cover bg-center transform hover:scale-110 transition-transform duration-500"></div>
                 </div>
                 <div className="space-y-4">
-                  <h3 className="text-xl font-semibold text-primary-dark">
+                  <h3 className="text-xl font-semibold text-white">
                     Risk Factors Analysis
                   </h3>
-                  <ul className="space-y-3 text-sm">
+                  <ul className="space-y-3 text-sm text-white/90">
                     <li className="flex items-center space-x-2">
                       <div className="w-1.5 h-1.5 rounded-full bg-primary"></div>
                       <span>High rainfall intensity increases flood risk significantly</span>
