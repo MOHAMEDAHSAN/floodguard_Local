@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, X, Send, MapPin } from "lucide-react";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
+import { autocorrect } from "@/utils/autocorrect";
 
 interface Message {
   type: 'user' | 'bot';
@@ -13,6 +14,10 @@ interface Message {
 interface Location {
   city: string;
   state: string;
+  coordinates?: {
+    latitude: number;
+    longitude: number;
+  };
   emergencyContacts: {
     police: string;
     floodControl: string;
@@ -44,26 +49,43 @@ const initialMessages: Message[] = [
   }
 ];
 
-const autocorrectInput = (input: string): string => {
-  const corrections: { [key: string]: string } = {
-    'flod': 'flood',
-    'emergensy': 'emergency',
-    'evacuaton': 'evacuation',
-    'preparness': 'preparedness',
-    'watr': 'water'
-  };
-  
-  return input.split(' ').map(word => 
-    corrections[word.toLowerCase()] || word
-  ).join(' ');
-};
-
 export const NovaChat = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>(initialMessages);
   const [input, setInput] = useState("");
   const [location, setLocation] = useState<Location>(defaultLocation);
   const { toast } = useToast();
+
+  const requestLocationPermission = async () => {
+    if ("geolocation" in navigator) {
+      try {
+        const position = await new Promise<GeolocationPosition>((resolve, reject) => {
+          navigator.geolocation.getCurrentPosition(resolve, reject);
+        });
+        
+        // Here you would typically make an API call to reverse geocode the coordinates
+        // For demo purposes, we'll just update the coordinates
+        setLocation(prev => ({
+          ...prev,
+          coordinates: {
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude
+          }
+        }));
+
+        toast({
+          description: "Location updated successfully!",
+          duration: 3000
+        });
+      } catch (error) {
+        toast({
+          variant: "destructive",
+          description: "Unable to access location. Using default location.",
+          duration: 3000
+        });
+      }
+    }
+  };
 
   const handleOptionClick = (option: string) => {
     setMessages(prev => [...prev, { type: 'user', content: option }]);
@@ -73,7 +95,7 @@ export const NovaChat = () => {
   const handleSend = () => {
     if (!input.trim()) return;
     
-    const correctedInput = autocorrectInput(input);
+    const correctedInput = autocorrect(input);
     if (correctedInput !== input) {
       toast({
         description: "I've corrected some spelling to better understand your question.",
@@ -93,6 +115,7 @@ export const NovaChat = () => {
       let response: Message = { type: 'bot', content: '' };
 
       if (input.includes('location') || input.includes('set my location')) {
+        requestLocationPermission();
         response = {
           type: 'bot',
           content: `I'm currently set to provide information for ${location.city}, ${location.state}. Your local emergency contacts are:\n\nPolice: ${location.emergencyContacts.police}\nFlood Control: ${location.emergencyContacts.floodControl}\nEmergency Services: ${location.emergencyContacts.emergencyServices}`,
@@ -102,7 +125,7 @@ export const NovaChat = () => {
       else if (input.includes('risk')) {
         response = {
           type: 'bot',
-          content: "Here's what you need to know about flood risks:\n\n1. Types of Floods:\n- Flash floods\n- River floods\n- Coastal floods\n\n2. Risk Factors:\n- Heavy rainfall\n- Snow melting\n- Storm surges\n- Urban development",
+          content: `Based on your location in ${location.city}:\n\n1. Types of Floods:\n- Flash floods\n- River floods\n- Coastal floods\n\n2. Risk Factors:\n- Heavy rainfall\n- Snow melting\n- Storm surges\n- Urban development`,
           options: ["Check local flood risks", "Preparation tips", "Back to main menu"]
         };
       }
@@ -128,17 +151,7 @@ export const NovaChat = () => {
         };
       }
       else if (input.includes('menu')) {
-        response = {
-          type: 'bot',
-          content: "How can I help you today?",
-          options: [
-            "Learn about flood risks",
-            "Check emergency preparedness",
-            "Get local flood alerts",
-            "Post-flood recovery help",
-            "Set my location"
-          ]
-        };
+        response = initialMessages[0];
       }
       else {
         response = {
