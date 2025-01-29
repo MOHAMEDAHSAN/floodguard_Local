@@ -3,7 +3,6 @@ import { RiskParameter } from "@/components/RiskParameter";
 import { RiskScore } from "@/components/RiskScore";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
-import { NovaChat } from "@/components/Nova/NovaChat";
 import { RetroHeader } from "@/components/RetroHeader";
 
 const Index = () => {
@@ -190,7 +189,6 @@ const Index = () => {
           </div>
         </div>
       </div>
-      <NovaChat />
     </div>
   );
 };
