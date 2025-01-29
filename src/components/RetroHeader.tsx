@@ -19,58 +19,51 @@ export const RetroHeader = () => {
     // Create text geometry with new settings
     const loader = new FontLoader();
     loader.load('https://threejs.org/examples/fonts/helvetiker_bold.typeface.json', (font) => {
-      const textGeometry = new TextGeometry('FloodGuard', {
+      const textGeometry = new TextGeometry('Here&Now', {
         font: font,
-        size: 1.5,
-        height: 0.2,
-        curveSegments: 32,
+        size: 2,
+        height: 0.1,
+        curveSegments: 12,
         bevelEnabled: true,
-        bevelThickness: 0.02,
-        bevelSize: 0.01,
+        bevelThickness: 0.03,
+        bevelSize: 0.02,
         bevelOffset: 0,
-        bevelSegments: 16
+        bevelSegments: 5
       });
       
-      // Create a sleek, modern material
+      // Create a modern material with our primary color
       const textMaterial = new THREE.MeshStandardMaterial({ 
-        color: 0x006064,
-        metalness: 0.7,
-        roughness: 0.2,
-        emissive: 0x006064,
-        emissiveIntensity: 0.1
+        color: 0x00BCD4,
+        metalness: 0.3,
+        roughness: 0.4,
       });
       
       const textMesh = new THREE.Mesh(textGeometry, textMaterial);
       textGeometry.center();
       scene.add(textMesh);
 
-      // Smooth floating animation
+      // Subtle rotation animation
       const animate = () => {
         requestAnimationFrame(animate);
-        textMesh.rotation.y = Math.sin(Date.now() * 0.0005) * 0.1;
-        textMesh.position.y = Math.sin(Date.now() * 0.001) * 0.03;
+        textMesh.rotation.y = Math.sin(Date.now() * 0.0003) * 0.05;
         renderer.render(scene, camera);
       };
       animate();
     });
 
     // Modern lighting setup
-    const mainLight = new THREE.DirectionalLight(0xffffff, 2);
-    mainLight.position.set(1, 1, 2);
+    const mainLight = new THREE.DirectionalLight(0xffffff, 1.5);
+    mainLight.position.set(1, 1, 1);
     scene.add(mainLight);
     
-    const fillLight = new THREE.DirectionalLight(0xB2EBF2, 1);
+    const fillLight = new THREE.DirectionalLight(0xB2EBF2, 0.8);
     fillLight.position.set(-1, 0.5, -1);
     scene.add(fillLight);
     
-    const rimLight = new THREE.DirectionalLight(0x80DEEA, 1.5);
-    rimLight.position.set(0, -1, -2);
-    scene.add(rimLight);
-    
-    const ambientLight = new THREE.AmbientLight(0xE0F7FA, 0.8);
+    const ambientLight = new THREE.AmbientLight(0xE0F7FA, 0.5);
     scene.add(ambientLight);
 
-    camera.position.z = 6;
+    camera.position.z = 8;
 
     // Handle window resize
     const handleResize = () => {
@@ -92,11 +85,11 @@ export const RetroHeader = () => {
   }, []);
 
   return (
-    <div className="relative">
-      <div ref={containerRef} className="h-64 w-full bg-gradient-to-b from-primary-dark via-primary/5 to-transparent" />
-      <div className="absolute bottom-6 left-0 w-full text-center">
-        <p className="text-2xl font-light text-primary-dark tracking-widest uppercase">
-          Advanced Flood Warning System
+    <div className="relative bg-gradient-to-r from-primary-dark via-primary to-primary-light">
+      <div ref={containerRef} className="h-48 w-full" />
+      <div className="absolute bottom-4 left-0 w-full text-center">
+        <p className="text-xl font-light text-white tracking-[0.2em] italic">
+          Never miss a moment, place, or time
         </p>
       </div>
     </div>
