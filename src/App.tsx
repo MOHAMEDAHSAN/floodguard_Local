@@ -3,6 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { NovaChat } from "@/components/Nova/NovaChat";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Chatbot from "./pages/Chatbot";
@@ -20,6 +21,7 @@ const App = () => (
           <Route path="/about" element={<About />} />
           <Route path="/chatbot" element={<Chatbot />} />
         </Routes>
+        <NovaChat />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

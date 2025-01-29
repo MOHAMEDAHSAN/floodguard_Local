@@ -179,12 +179,12 @@ export const NovaChat = ({ fullScreen = false }: NovaChatProps) => {
           <MessageCircle className="w-8 h-8" />
         </Button>
       ) : (
-        <div className={`bg-[#1A1F2C] text-white rounded-lg shadow-xl ${
+        <div className={`bg-white text-gray-800 rounded-lg shadow-xl ${
           fullScreen ? 'w-full h-full' : 'w-96 h-[500px]'
-        } flex flex-col`}>
-          <div className="p-4 bg-primary text-white flex justify-between items-center rounded-t-lg">
+        } flex flex-col border border-gray-200`}>
+          <div className="p-4 bg-primary/10 text-primary-dark flex justify-between items-center rounded-t-lg border-b border-gray-200">
             <div className="flex items-center space-x-2">
-              <div className="w-2 h-2 rounded-full bg-white animate-pulse" />
+              <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
               <span className="font-semibold">Nova - Flood Assistant</span>
             </div>
             {!fullScreen && (
@@ -192,9 +192,9 @@ export const NovaChat = ({ fullScreen = false }: NovaChatProps) => {
                 variant="ghost"
                 size="icon"
                 onClick={() => setIsOpen(false)}
-                className="hover:bg-primary/90 rounded-full"
+                className="hover:bg-primary/10 rounded-full"
               >
-                <X className="w-5 h-5 text-white" />
+                <X className="w-5 h-5 text-primary-dark" />
               </Button>
             )}
           </div>
@@ -211,7 +211,7 @@ export const NovaChat = ({ fullScreen = false }: NovaChatProps) => {
                     <div
                       className={`max-w-[80%] p-3 rounded-lg ${
                         message.type === 'user'
-                          ? 'bg-primary text-white'
+                          ? 'bg-primary/10 text-primary-dark'
                           : 'bg-gray-100 text-gray-800'
                       }`}
                     >
@@ -225,7 +225,7 @@ export const NovaChat = ({ fullScreen = false }: NovaChatProps) => {
                           key={optionIndex}
                           variant="outline"
                           size="sm"
-                          className="text-sm"
+                          className="text-sm border-primary text-primary hover:bg-primary/10"
                           onClick={() => handleOptionClick(option)}
                         >
                           {option}
@@ -238,7 +238,7 @@ export const NovaChat = ({ fullScreen = false }: NovaChatProps) => {
             </div>
           </ScrollArea>
 
-          <div className="p-4 border-t">
+          <div className="p-4 border-t border-gray-200">
             <div className="flex space-x-2">
               <input
                 type="text"
@@ -246,7 +246,7 @@ export const NovaChat = ({ fullScreen = false }: NovaChatProps) => {
                 onChange={(e) => setInput(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && handleSend()}
                 placeholder="Type your message..."
-                className="flex-1 px-4 py-2 border rounded-full focus:outline-none focus:ring-2 focus:ring-primary"
+                className="flex-1 px-4 py-2 border border-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-primary/50"
               />
               <Button
                 onClick={handleSend}
