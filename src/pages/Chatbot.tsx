@@ -3,11 +3,11 @@ import { NovaChat } from "@/components/Nova/NovaChat";
 
 const Chatbot = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-primary-light/50 to-secondary">
+    <div className="min-h-screen bg-[#1A1F2C]">
       <RetroHeader />
-      <div className="h-screen pt-16">
-        <div className="w-full h-full bg-gray-50">
-          <NovaChat />
+      <div className="h-[calc(100vh-4rem)] pt-16">
+        <div className="w-full h-full">
+          <NovaChat fullScreen={true} />
         </div>
       </div>
     </div>

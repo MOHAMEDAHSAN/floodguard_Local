@@ -51,8 +51,12 @@ const initialMessages: Message[] = [
   }
 ];
 
-export const NovaChat = () => {
-  const [isOpen, setIsOpen] = useState(false);
+interface NovaChatProps {
+  fullScreen?: boolean;
+}
+
+export const NovaChat = ({ fullScreen = false }: NovaChatProps) => {
+  const [isOpen, setIsOpen] = useState(fullScreen);
   const [messages, setMessages] = useState<Message[]>(initialMessages);
   const [input, setInput] = useState("");
   const [location, setLocation] = useState<Location>(defaultLocation);
@@ -65,8 +69,6 @@ export const NovaChat = () => {
           navigator.geolocation.getCurrentPosition(resolve, reject);
         });
         
-        // Here we would typically make an API call to reverse geocode the coordinates
-        // For now, we'll use the default Indian location
         setLocation(prev => ({
           ...prev,
           coordinates: {
@@ -168,8 +170,8 @@ export const NovaChat = () => {
   };
 
   return (
-    <div className="fixed bottom-4 right-4 z-50">
-      {!isOpen ? (
+    <div className={`${fullScreen ? 'h-full' : 'fixed bottom-4 right-4'} z-50`}>
+      {!isOpen && !fullScreen ? (
         <Button
           onClick={() => setIsOpen(true)}
           className="rounded-full w-16 h-16 bg-primary hover:bg-primary/90 shadow-lg"
@@ -177,20 +179,24 @@ export const NovaChat = () => {
           <MessageCircle className="w-8 h-8" />
         </Button>
       ) : (
-        <div className="bg-white rounded-lg shadow-xl w-96 h-[500px] flex flex-col">
+        <div className={`bg-[#1A1F2C] text-white rounded-lg shadow-xl ${
+          fullScreen ? 'w-full h-full' : 'w-96 h-[500px]'
+        } flex flex-col`}>
           <div className="p-4 bg-primary text-white flex justify-between items-center rounded-t-lg">
             <div className="flex items-center space-x-2">
               <div className="w-2 h-2 rounded-full bg-white animate-pulse" />
               <span className="font-semibold">Nova - Flood Assistant</span>
             </div>
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsOpen(false)}
-              className="hover:bg-primary/90 rounded-full"
-            >
-              <X className="w-5 h-5 text-white" />
-            </Button>
+            {!fullScreen && (
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setIsOpen(false)}
+                className="hover:bg-primary/90 rounded-full"
+              >
+                <X className="w-5 h-5 text-white" />
+              </Button>
+            )}
           </div>
           
           <ScrollArea className="flex-1 p-4">

@@ -4,6 +4,7 @@ import { RiskScore } from "@/components/RiskScore";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 import { RetroHeader } from "@/components/RetroHeader";
+import { WeatherWidget } from "@/components/WeatherWidget";
 
 const Index = () => {
   const { toast } = useToast();
@@ -144,7 +145,6 @@ const Index = () => {
                 </Button>
               </div>
             </div>
-
             <div className="space-y-8">
               <div className="bg-white/80 backdrop-blur-lg rounded-xl p-8 shadow-lg space-y-6 border border-primary-light">
                 <div className="h-40 rounded-lg overflow-hidden mb-6">
@@ -185,6 +185,7 @@ const Index = () => {
                   </ul>
                 </div>
               </div>
+              <WeatherWidget />
             </div>
           </div>
         </div>
