@@ -19,7 +19,7 @@ export const RetroHeader = () => {
     // Create text geometry with new settings
     const loader = new FontLoader();
     loader.load('https://threejs.org/examples/fonts/helvetiker_bold.typeface.json', (font) => {
-      const textGeometry = new TextGeometry('Here&Now', {
+      const textGeometry = new TextGeometry('FloodGuard', {
         font: font,
         size: 2,
         height: 0.1,
@@ -31,7 +31,7 @@ export const RetroHeader = () => {
         bevelSegments: 5
       });
       
-      // Create a modern material with our primary color
+      // Create a modern material with our primary color scheme
       const textMaterial = new THREE.MeshStandardMaterial({ 
         color: 0x00BCD4,
         metalness: 0.3,
@@ -51,7 +51,7 @@ export const RetroHeader = () => {
       animate();
     });
 
-    // Modern lighting setup
+    // Modern lighting setup with our color scheme
     const mainLight = new THREE.DirectionalLight(0xffffff, 1.5);
     mainLight.position.set(1, 1, 1);
     scene.add(mainLight);
@@ -87,9 +87,24 @@ export const RetroHeader = () => {
   return (
     <div className="relative bg-gradient-to-r from-primary-dark via-primary to-primary-light">
       <div ref={containerRef} className="h-48 w-full" />
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <h1 
+          className="text-6xl font-black tracking-tighter text-white"
+          style={{
+            textShadow: `
+              ${getComputedStyle(document.documentElement).getPropertyValue('--primary-light')} 2px 2px 0px,
+              ${getComputedStyle(document.documentElement).getPropertyValue('--primary')} 4px 4px 0px,
+              ${getComputedStyle(document.documentElement).getPropertyValue('--primary-dark')} 6px 6px 0px,
+              #006064 8px 8px 0px
+            `
+          }}
+        >
+          FloodGuard
+        </h1>
+      </div>
       <div className="absolute bottom-4 left-0 w-full text-center">
         <p className="text-xl font-light text-white tracking-[0.2em] italic">
-          Never miss a moment, place, or time
+          Advanced Flood Warning System
         </p>
       </div>
     </div>
