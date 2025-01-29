@@ -5,8 +5,8 @@ const Chatbot = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-primary-light/50 to-secondary">
       <RetroHeader />
-      <div className="container mx-auto px-6 pt-20">
-        <div className="w-full h-[calc(100vh-5rem)]">
+      <div className="h-screen pt-16">
+        <div className="w-full h-full bg-gray-50">
           <NovaChat />
         </div>
       </div>
