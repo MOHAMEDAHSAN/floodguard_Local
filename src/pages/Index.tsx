@@ -46,7 +46,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-primary-light/50 to-secondary">
       <RetroHeader />
-      <div className="h-[50vh] bg-hero-pattern bg-cover bg-center relative">
+      <div className="h-[50vh] bg-hero-pattern bg-cover bg-center relative mt-16">
         <div className="absolute inset-0 bg-primary-dark/40 backdrop-blur-sm">
           <div className="container h-full flex items-center justify-center">
             <div className="text-center space-y-4 animate-fadeIn">
@@ -61,7 +61,6 @@ const Index = () => {
           </div>
         </div>
       </div>
-
       <div className="container -mt-20 pb-20">
         <div className="max-w-4xl mx-auto space-y-8 animate-slideIn">
           <div className="grid gap-8 md:grid-cols-2">
