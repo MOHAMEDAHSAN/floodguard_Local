@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useToast } from "@/components/ui/use-toast";
-import { Thermometer, Cloud, Wind, Droplet } from "lucide-react";
+import { Thermometer, Cloud, Wind, Droplet, CloudRain, AlertTriangle, Clock } from "lucide-react";
 
 interface WeatherData {
   current: {
@@ -12,6 +12,7 @@ interface WeatherData {
     wind_kph: number;
     humidity: number;
     precip_mm: number;
+    feelslike_c: number;
   };
   location: {
     name: string;
@@ -48,7 +49,6 @@ export const WeatherWidget = () => {
         fetchWeather(position.coords.latitude, position.coords.longitude);
       },
       () => {
-        // Default to Chennai coordinates if geolocation is denied
         fetchWeather(13.0827, 80.2707);
         toast({
           description: "Using default location: Chennai",
@@ -59,13 +59,12 @@ export const WeatherWidget = () => {
 
   if (loading) {
     return (
-      <div className="animate-pulse bg-white/80 backdrop-blur-lg rounded-xl p-8 shadow-lg space-y-6 border border-primary-light">
-        <div className="h-40 bg-gray-200 rounded-lg"></div>
-        <div className="h-6 bg-gray-200 rounded w-3/4"></div>
-        <div className="space-y-3">
-          <div className="h-4 bg-gray-200 rounded"></div>
-          <div className="h-4 bg-gray-200 rounded"></div>
-          <div className="h-4 bg-gray-200 rounded"></div>
+      <div className="animate-pulse bg-white/80 backdrop-blur-lg rounded-xl p-8 shadow-lg space-y-6">
+        <div className="h-20 bg-gray-200 rounded"></div>
+        <div className="space-y-4">
+          <div className="h-8 bg-gray-200 rounded w-1/3"></div>
+          <div className="h-6 bg-gray-200 rounded w-1/2"></div>
+          <div className="h-6 bg-gray-200 rounded w-2/3"></div>
         </div>
       </div>
     );
@@ -74,40 +73,66 @@ export const WeatherWidget = () => {
   if (!weather) return null;
 
   return (
-    <div className="bg-white/80 backdrop-blur-lg rounded-xl p-8 shadow-lg space-y-6 border border-primary-light">
-      <div className="h-40 rounded-lg overflow-hidden mb-6">
-        <div className="w-full h-full bg-wave-pattern bg-cover bg-center transform hover:scale-110 transition-transform duration-500"></div>
+    <div className="bg-white/80 backdrop-blur-lg rounded-xl p-8 shadow-lg space-y-6">
+      <div className="flex items-center space-x-3 text-primary">
+        <Cloud className="w-6 h-6" />
+        <h2 className="text-xl font-semibold">Location Insights</h2>
       </div>
-      <h3 className="text-xl font-semibold text-primary-dark">
-        Weather Report Analysis
-      </h3>
-      <ul className="space-y-3 text-sm">
-        <li className="flex items-center space-x-2">
-          <div className="w-1.5 h-1.5 rounded-full bg-primary"></div>
-          <Thermometer className="w-5 h-5 text-primary" />
-          <span>Current temperature: {weather.current.temp_c}°C</span>
-        </li>
-        <li className="flex items-center space-x-2">
-          <div className="w-1.5 h-1.5 rounded-full bg-primary"></div>
-          <Cloud className="w-5 h-5 text-primary" />
-          <span>Condition: {weather.current.condition.text}</span>
-        </li>
-        <li className="flex items-center space-x-2">
-          <div className="w-1.5 h-1.5 rounded-full bg-primary"></div>
-          <Wind className="w-5 h-5 text-primary" />
-          <span>Wind speed: {weather.current.wind_kph} km/h</span>
-        </li>
-        <li className="flex items-center space-x-2">
-          <div className="w-1.5 h-1.5 rounded-full bg-primary"></div>
-          <Droplet className="w-5 h-5 text-primary" />
-          <span>Humidity: {weather.current.humidity}%</span>
-        </li>
-        <li className="flex items-center space-x-2">
-          <div className="w-1.5 h-1.5 rounded-full bg-primary"></div>
-          <Droplet className="w-5 h-5 text-primary" />
-          <span>Precipitation: {weather.current.precip_mm} mm</span>
-        </li>
-      </ul>
+
+      <div className="bg-primary/5 rounded-xl p-6 space-y-4">
+        <div className="flex items-center space-x-3">
+          <Thermometer className="w-6 h-6 text-primary" />
+          <h3 className="text-lg font-medium text-gray-700">Weather Conditions</h3>
+        </div>
+        
+        <div className="space-y-2">
+          <div className="text-4xl font-bold text-primary-dark">
+            {weather.current.temp_c}°C
+          </div>
+          <div className="text-lg text-gray-600">{weather.current.condition.text}</div>
+          <div className="text-sm text-gray-500">
+            Feels like {weather.current.feelslike_c}°C • UV Index: 0
+          </div>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-2 gap-4">
+        <div className="bg-primary/5 rounded-xl p-4 space-y-2">
+          <div className="flex items-center space-x-2 text-primary">
+            <Wind className="w-5 h-5" />
+            <span className="text-sm font-medium">Wind Speed</span>
+          </div>
+          <div className="text-2xl font-semibold text-primary-dark">
+            {weather.current.wind_kph} km/h
+          </div>
+        </div>
+
+        <div className="bg-primary/5 rounded-xl p-4 space-y-2">
+          <div className="flex items-center space-x-2 text-primary">
+            <Droplet className="w-5 h-5" />
+            <span className="text-sm font-medium">Humidity</span>
+          </div>
+          <div className="text-2xl font-semibold text-primary-dark">
+            {weather.current.humidity}%
+          </div>
+        </div>
+      </div>
+
+      <div className="border-t pt-4 space-y-4">
+        <div className="flex items-center space-x-2 text-gray-600">
+          <AlertTriangle className="w-5 h-5" />
+          <span className="text-sm">Nearby Alerts</span>
+        </div>
+        <div className="text-gray-500">No alerts in your area</div>
+      </div>
+
+      <div className="flex items-center justify-between text-sm text-gray-500">
+        <div className="flex items-center space-x-1">
+          <Clock className="w-4 h-4" />
+          <span>Last updated</span>
+        </div>
+        <span>{new Date().toLocaleTimeString()}</span>
+      </div>
     </div>
   );
 };
