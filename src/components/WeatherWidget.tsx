@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useToast } from "@/components/ui/use-toast";
+import { Thermometer, Cloud, Wind, Droplet } from "lucide-react";
 
 interface WeatherData {
   current: {
@@ -83,22 +84,27 @@ export const WeatherWidget = () => {
       <ul className="space-y-3 text-sm">
         <li className="flex items-center space-x-2">
           <div className="w-1.5 h-1.5 rounded-full bg-primary"></div>
+          <Thermometer className="w-5 h-5 text-primary" />
           <span>Current temperature: {weather.current.temp_c}°C</span>
         </li>
         <li className="flex items-center space-x-2">
           <div className="w-1.5 h-1.5 rounded-full bg-primary"></div>
+          <Cloud className="w-5 h-5 text-primary" />
           <span>Condition: {weather.current.condition.text}</span>
         </li>
         <li className="flex items-center space-x-2">
           <div className="w-1.5 h-1.5 rounded-full bg-primary"></div>
+          <Wind className="w-5 h-5 text-primary" />
           <span>Wind speed: {weather.current.wind_kph} km/h</span>
         </li>
         <li className="flex items-center space-x-2">
           <div className="w-1.5 h-1.5 rounded-full bg-primary"></div>
+          <Droplet className="w-5 h-5 text-primary" />
           <span>Humidity: {weather.current.humidity}%</span>
         </li>
         <li className="flex items-center space-x-2">
           <div className="w-1.5 h-1.5 rounded-full bg-primary"></div>
+          <Droplet className="w-5 h-5 text-primary" />
           <span>Precipitation: {weather.current.precip_mm} mm</span>
         </li>
       </ul>
