@@ -6,7 +6,7 @@ const About = () => {
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-primary-light/50 to-secondary">
       <RetroHeader />
       
-      <div className="container mx-auto px-6 py-12 flex-grow">
+      <div className="container mx-auto px-6 pt-32 pb-12 flex-grow"> {/* Changed py-12 to pt-32 pb-12 to add more top spacing */}
         <div className="max-w-4xl mx-auto space-y-8">
           <div className="bg-white/80 backdrop-blur-lg rounded-xl p-8 shadow-lg animate-fadeIn">
             <h2 className="text-3xl font-bold text-primary-dark mb-6">About Our Mission</h2>
