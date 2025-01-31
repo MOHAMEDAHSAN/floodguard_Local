@@ -1,6 +1,6 @@
 import { RetroHeader } from "@/components/RetroHeader";
 import { Footer } from "@/components/Footer";
-import { AlertTriangle, Droplet, Building2, TreePine, Brain, Users } from "lucide-react";
+import { AlertTriangle, Building2, Brain, Users } from "lucide-react";
 
 const About = () => {
   return (
@@ -9,14 +9,6 @@ const About = () => {
       
       <div className="container mx-auto px-6 py-12 flex-grow">
         <div className="max-w-4xl mx-auto space-y-8">
-          {/* Floating Elements */}
-          <div className="absolute top-32 left-10 animate-bounce opacity-30">
-            <Droplet className="w-8 h-8 text-primary" />
-          </div>
-          <div className="absolute top-48 right-20 animate-pulse opacity-30">
-            <TreePine className="w-10 h-10 text-green-600" />
-          </div>
-          
           <div className="bg-white/80 backdrop-blur-lg rounded-xl p-8 shadow-lg animate-fadeIn">
             <h2 className="text-3xl font-bold text-primary-dark mb-6">About Our Mission</h2>
             <div className="space-y-6">
@@ -41,21 +33,11 @@ const About = () => {
               </div>
 
               <div className="flex items-start space-x-4">
-                <Droplet className="w-6 h-6 text-blue-500 mt-1" />
+                <AlertTriangle className="w-6 h-6 text-blue-500 mt-1" />
                 <div>
                   <h3 className="text-xl font-semibold text-primary-dark mb-2">Current Challenges</h3>
                   <p className="text-gray-700">
                     Current flood management strategies lack accurate, localized forecasting, leading to resource mismanagement and reactive responses. Fragmented data sources and limited community involvement further hinder effective planning and mitigation efforts.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-4">
-                <TreePine className="w-6 h-6 text-green-600 mt-1" />
-                <div>
-                  <h3 className="text-xl font-semibold text-primary-dark mb-2">Environmental Impact</h3>
-                  <p className="text-gray-700">
-                    This persistent issue disrupts essential services, displaces millions, and poses a significant threat to India's socio-economic development and environmental sustainability. Climate change continues to exacerbate these challenges.
                   </p>
                 </div>
               </div>
@@ -97,6 +79,7 @@ const About = () => {
                   <p className="text-gray-700"><span className="font-medium">College:</span> Saveetha Engineering College</p>
                   <p className="text-gray-700"><span className="font-medium">Branch:</span> BTech AIML</p>
                   <p className="text-gray-700"><span className="font-medium">Semester:</span> III</p>
+                  <p className="text-gray-700"><span className="font-medium">Email:</span> ahsansaleem2006@gmail.com</p>
                 </div>
               </div>
             </div>

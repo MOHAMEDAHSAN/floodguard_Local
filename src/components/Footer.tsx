@@ -26,7 +26,7 @@ export const Footer = () => {
                      className="hover:text-primary-light transition-colors">
                     <Github className="w-5 h-5" />
                   </a>
-                  <a href="#" target="_blank" rel="noopener noreferrer" 
+                  <a href="https://www.linkedin.com/in/abishai-k-c-6a5288271/" target="_blank" rel="noopener noreferrer" 
                      className="hover:text-primary-light transition-colors">
                     <Linkedin className="w-5 h-5" />
                   </a>
@@ -39,6 +39,10 @@ export const Footer = () => {
                   <a href="https://github.com/MOHAMEDAHSAN" target="_blank" rel="noopener noreferrer" 
                      className="hover:text-primary-light transition-colors">
                     <Github className="w-5 h-5" />
+                  </a>
+                  <a href="https://www.linkedin.com/in/mohamedahsan037/" target="_blank" rel="noopener noreferrer" 
+                     className="hover:text-primary-light transition-colors">
+                    <Linkedin className="w-5 h-5" />
                   </a>
                 </div>
               </div>
@@ -55,9 +59,21 @@ export const Footer = () => {
                 </a>
               </div>
               <div className="flex items-center space-x-2">
+                <Mail className="w-4 h-4" />
+                <a href="mailto:ahsansaleem2006@gmail.com" className="hover:text-primary-light transition-colors">
+                  ahsansaleem2006@gmail.com
+                </a>
+              </div>
+              <div className="flex items-center space-x-2">
                 <Phone className="w-4 h-4" />
                 <a href="tel:8667331224" className="hover:text-primary-light transition-colors">
                   +91 8667331224
+                </a>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Phone className="w-4 h-4" />
+                <a href="tel:9884261429" className="hover:text-primary-light transition-colors">
+                  +91 9884261429
                 </a>
               </div>
             </div>
