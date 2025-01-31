@@ -1,13 +1,23 @@
 import { RetroHeader } from "@/components/RetroHeader";
-import { AlertTriangle, Droplet, Building2, TreePine, Brain } from "lucide-react";
+import { Footer } from "@/components/Footer";
+import { AlertTriangle, Droplet, Building2, TreePine, Brain, Users } from "lucide-react";
 
 const About = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-primary-light/50 to-secondary pt-20">
+    <div className="min-h-screen flex flex-col bg-gradient-to-b from-primary-light/50 to-secondary">
       <RetroHeader />
-      <div className="container mx-auto px-6 py-12">
+      
+      <div className="container mx-auto px-6 py-12 flex-grow">
         <div className="max-w-4xl mx-auto space-y-8">
-          <div className="bg-white/80 backdrop-blur-lg rounded-xl p-8 shadow-lg">
+          {/* Floating Elements */}
+          <div className="absolute top-32 left-10 animate-bounce opacity-30">
+            <Droplet className="w-8 h-8 text-primary" />
+          </div>
+          <div className="absolute top-48 right-20 animate-pulse opacity-30">
+            <TreePine className="w-10 h-10 text-green-600" />
+          </div>
+          
+          <div className="bg-white/80 backdrop-blur-lg rounded-xl p-8 shadow-lg animate-fadeIn">
             <h2 className="text-3xl font-bold text-primary-dark mb-6">About Our Mission</h2>
             <div className="space-y-6">
               <div className="flex items-start space-x-4">
@@ -62,14 +72,39 @@ const About = () => {
             </div>
           </div>
 
-          <div className="bg-primary/10 backdrop-blur-lg rounded-xl p-8 shadow-lg">
-            <h3 className="text-xl font-semibold text-primary-dark mb-4">Our Vision</h3>
-            <p className="text-gray-700">
-              By focusing on India's most flood-prone regions and integrating multi-source data, including meteorological, hydrological, and topographical inputs, we aim to create a comprehensive solution that reduces economic losses, protects human lives, and preserves our environment for future generations.
-            </p>
+          <div className="bg-primary/10 backdrop-blur-lg rounded-xl p-8 shadow-lg animate-slideIn">
+            <h2 className="text-3xl font-bold text-primary-dark mb-6 flex items-center gap-2">
+              <Users className="w-8 h-8" />
+              Meet Our Team
+            </h2>
+            
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="bg-white/50 rounded-lg p-6 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+                <h3 className="text-xl font-semibold text-primary-dark">Abishai K C</h3>
+                <p className="text-gray-600 font-medium">Team Leader</p>
+                <div className="mt-4 space-y-2">
+                  <p className="text-gray-700"><span className="font-medium">College:</span> Saveetha Engineering College</p>
+                  <p className="text-gray-700"><span className="font-medium">Branch:</span> BTech AIML</p>
+                  <p className="text-gray-700"><span className="font-medium">Semester:</span> III</p>
+                  <p className="text-gray-700"><span className="font-medium">Email:</span> abishaioff@gmail.com</p>
+                </div>
+              </div>
+              
+              <div className="bg-white/50 rounded-lg p-6 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+                <h3 className="text-xl font-semibold text-primary-dark">Mohamed Ahsan</h3>
+                <p className="text-gray-600 font-medium">Team Member</p>
+                <div className="mt-4 space-y-2">
+                  <p className="text-gray-700"><span className="font-medium">College:</span> Saveetha Engineering College</p>
+                  <p className="text-gray-700"><span className="font-medium">Branch:</span> BTech AIML</p>
+                  <p className="text-gray-700"><span className="font-medium">Semester:</span> III</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+      
+      <Footer />
     </div>
   );
 };
