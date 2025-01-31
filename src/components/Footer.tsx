@@ -33,7 +33,7 @@ export const Footer = () => {
                 </div>
               </div>
               <div>
-                <p className="font-semibold">Mohamed Ahsan</p>
+                <p className="font-semibold">S Mohamed Ahsan</p>
                 <p className="text-sm text-gray-300">Team Member</p>
                 <div className="flex space-x-2 mt-2">
                   <a href="https://github.com/MOHAMEDAHSAN" target="_blank" rel="noopener noreferrer" 
