@@ -24,6 +24,7 @@ const App = () => (
             <Route path="/chatbot" element={<Chatbot />} />
           </Routes>
           <NovaChat />
+          <Footer />
         </BrowserRouter>
       </div>
     </TooltipProvider>
