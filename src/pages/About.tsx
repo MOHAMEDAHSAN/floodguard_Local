@@ -1,5 +1,4 @@
 import { RetroHeader } from "@/components/RetroHeader";
-import { Footer } from "@/components/Footer";
 import { AlertTriangle, Building2, Brain, Users } from "lucide-react";
 
 const About = () => {
@@ -86,8 +85,6 @@ const About = () => {
           </div>
         </div>
       </div>
-      
-      <Footer />
     </div>
   );
 };
