@@ -179,10 +179,10 @@ const handleResponse = (userInput: string) => {
           <MessageCircle className="w-8 h-8" />
         </Button>
       ) : (
-        <div className={`bg-white text-gray-800 rounded-lg shadow-xl ${
+        <div className={`bg-background dark:bg-[#1A1F2C] text-foreground rounded-lg shadow-xl ${
           fullScreen ? 'w-full h-full' : 'w-96 h-[500px]'
-        } flex flex-col border border-gray-200`}>
-          <div className="p-4 bg-primary/10 text-primary-dark flex justify-between items-center rounded-t-lg border-b border-gray-200">
+        } flex flex-col border border-border`}>
+          <div className="p-4 bg-primary/10 dark:bg-primary/5 text-primary-dark dark:text-primary-foreground flex justify-between items-center rounded-t-lg border-b border-border">
             <div className="flex items-center space-x-2">
               <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
               <span className="font-semibold">Nova - Flood Assistant</span>
@@ -192,14 +192,14 @@ const handleResponse = (userInput: string) => {
                 variant="ghost"
                 size="icon"
                 onClick={() => setIsOpen(false)}
-                className="hover:bg-primary/10 rounded-full"
+                className="hover:bg-primary/10 dark:hover:bg-primary/5 rounded-full"
               >
-                <X className="w-5 h-5 text-primary-dark" />
+                <X className="w-5 h-5" />
               </Button>
             )}
           </div>
           
-          <ScrollArea className="flex-1 p-4">
+          <ScrollArea className="flex-1 p-4 dark:bg-[#1A1F2C]">
             <div className="space-y-4">
               {messages.map((message, index) => (
                 <div key={index} className="space-y-2">
@@ -211,8 +211,8 @@ const handleResponse = (userInput: string) => {
                     <div
                       className={`max-w-[80%] p-3 rounded-lg ${
                         message.type === 'user'
-                          ? 'bg-primary/10 text-primary-dark'
-                          : 'bg-gray-100 text-gray-800'
+                          ? 'bg-primary/10 dark:bg-primary/20 text-primary-dark dark:text-primary-foreground'
+                          : 'bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100'
                       }`}
                     >
                       <p className="whitespace-pre-line">{message.content}</p>
@@ -225,7 +225,7 @@ const handleResponse = (userInput: string) => {
                           key={optionIndex}
                           variant="outline"
                           size="sm"
-                          className="text-sm border-primary text-primary hover:bg-primary/10"
+                          className="text-sm border-primary text-primary dark:border-primary-foreground dark:text-primary-foreground hover:bg-primary/10 dark:hover:bg-primary/20"
                           onClick={() => handleOptionClick(option)}
                         >
                           {option}
@@ -238,7 +238,7 @@ const handleResponse = (userInput: string) => {
             </div>
           </ScrollArea>
 
-          <div className="p-4 border-t border-gray-200">
+          <div className="p-4 border-t border-border dark:bg-[#1A1F2C]">
             <div className="flex space-x-2">
               <input
                 type="text"
@@ -246,11 +246,11 @@ const handleResponse = (userInput: string) => {
                 onChange={(e) => setInput(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && handleSend()}
                 placeholder="Type your message..."
-                className="flex-1 px-4 py-2 border border-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-primary/50"
+                className="flex-1 px-4 py-2 border border-border dark:bg-gray-800 dark:text-gray-100 rounded-full focus:outline-none focus:ring-2 focus:ring-primary/50 dark:focus:ring-primary-foreground/50"
               />
               <Button
                 onClick={handleSend}
-                className="rounded-full bg-primary hover:bg-primary/90"
+                className="rounded-full bg-primary hover:bg-primary/90 dark:bg-primary-foreground dark:text-primary dark:hover:bg-primary-foreground/90"
               >
                 <Send className="w-4 h-4" />
               </Button>
