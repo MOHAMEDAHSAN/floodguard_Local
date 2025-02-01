@@ -16,8 +16,8 @@ export const RiskScore = ({ score }: RiskScoreProps) => {
 
   return (
     <div className="space-y-6">
-      <h3 className="text-2xl font-semibold text-primary-dark">Risk Assessment</h3>
-      <div className="relative h-3 bg-secondary rounded-full overflow-hidden shadow-inner">
+      <h3 className="text-2xl font-semibold text-primary dark:text-primary-light">Risk Assessment</h3>
+      <div className="relative h-3 bg-secondary dark:bg-primary-dark/30 rounded-full overflow-hidden shadow-inner">
         <div
           className={cn(
             "absolute h-full transition-all duration-500 shadow-lg",
@@ -28,7 +28,7 @@ export const RiskScore = ({ score }: RiskScoreProps) => {
       </div>
       <div className="flex justify-between items-center">
         <div>
-          <p className="text-sm font-medium text-primary-dark">Risk Level: {level}</p>
+          <p className="text-sm font-medium text-primary dark:text-primary-light">Risk Level: {level}</p>
           <p className="text-sm text-muted-foreground">
             Score: {(score * 100).toFixed(1)}%
           </p>
