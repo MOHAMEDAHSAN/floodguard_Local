@@ -5,10 +5,8 @@ const Chatbot = () => {
   return (
     <div className="min-h-screen bg-white">
       <RetroHeader />
-      <div className="h-[calc(100vh-64px)]">
-        <div className="w-full h-full">
-          <NovaChat fullScreen={true} />
-        </div>
+      <div className="flex-1 h-[calc(100vh-64px)] relative">
+        <NovaChat fullScreen={true} />
       </div>
     </div>
   );
