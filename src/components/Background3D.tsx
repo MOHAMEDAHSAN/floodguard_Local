@@ -17,57 +17,51 @@ export const Background3D = () => {
     // Create geometric shapes
     const shapes: THREE.Mesh[] = [];
     const geometries = [
+      new THREE.IcosahedronGeometry(1.5),
+      new THREE.OctahedronGeometry(1.5),
+      new THREE.TetrahedronGeometry(1.5),
+      new THREE.TorusGeometry(1.2, 0.4, 16, 100),
+      new THREE.DodecahedronGeometry(1.2),
+      new THREE.RingGeometry(0.8, 1.5, 32),
+      new THREE.TetrahedronGeometry(1.2),
       new THREE.IcosahedronGeometry(1),
-      new THREE.OctahedronGeometry(1),
-      new THREE.TetrahedronGeometry(1),
-      new THREE.TorusGeometry(0.8, 0.2, 16, 100),
-      new THREE.DodecahedronGeometry(0.8),
-      new THREE.RingGeometry(0.5, 1, 32),
-      new THREE.TetrahedronGeometry(0.8),
-      new THREE.IcosahedronGeometry(0.6),
+      new THREE.TorusKnotGeometry(1, 0.4, 64, 8),
+      new THREE.SphereGeometry(1.2, 32, 32),
     ];
 
     // Function to get a distributed position
     const getDistributedPosition = (index: number, total: number) => {
       const gridSize = Math.ceil(Math.sqrt(total));
-      const cellSize = 40; // Increased cell size for better spread
+      const cellSize = 50;
       
       const row = Math.floor(index / gridSize);
       const col = index % gridSize;
       
-      const randomOffset = () => (Math.random() - 0.5) * 25; // More randomness
+      const randomOffset = () => (Math.random() - 0.5) * 30;
       
       return {
         x: (col - gridSize/2) * cellSize + randomOffset(),
         y: (row - gridSize/2) * cellSize + randomOffset(),
-        z: Math.random() * 40 - 50 // More depth variation
+        z: Math.random() * 50 - 60
       };
     };
 
     // Create more shapes with distributed positions
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < 60; i++) {
       const geometry = geometries[Math.floor(Math.random() * geometries.length)];
       const material = new THREE.MeshPhongMaterial({
         color: new THREE.Color(0x00BCD4),
         transparent: true,
-        opacity: 0.35 + Math.random() * 0.45, // Increased opacity
+        opacity: 0.45 + Math.random() * 0.45,
         wireframe: true,
       });
       
       const shape = new THREE.Mesh(geometry, material);
       
-      const position = getDistributedPosition(i, 50);
+      const position = getDistributedPosition(i, 60);
       shape.position.set(position.x, position.y, position.z);
       
-      // Random initial rotation
-      shape.rotation.set(
-        Math.random() * Math.PI,
-        Math.random() * Math.PI,
-        Math.random() * Math.PI
-      );
-      
-      // Larger scale range
-      const scale = 1.5 + Math.random() * 4.5; // Increased size
+      const scale = 2 + Math.random() * 5;
       shape.scale.set(scale, scale, scale);
       
       shapes.push(shape);
@@ -147,7 +141,7 @@ export const Background3D = () => {
     <div 
       ref={containerRef} 
       className="fixed inset-0 -z-10 pointer-events-none"
-      style={{ opacity: 0.9 }} // Increased opacity
+      style={{ opacity: 0.95 }}
     />
   );
 };

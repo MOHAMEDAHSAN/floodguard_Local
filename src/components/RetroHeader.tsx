@@ -42,7 +42,7 @@ export const RetroHeader = () => {
   };
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-primary-dark via-primary to-primary-light py-4 dark:from-[#1A1F2C] dark:via-[#222222] dark:to-[#403E43] transition-colors duration-300">
+    <div className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-primary-dark via-primary to-primary-light py-4 dark:from-[#1A1F2C] dark:via-[#222222] dark:to-[#403E43] transition-all duration-500">
       <div className="container mx-auto px-6">
         <div className="flex justify-between items-center">
           <div className="flex items-center space-x-8">

@@ -45,7 +45,7 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-primary-light/50 to-secondary">
+    <div className="min-h-screen bg-gradient-to-b from-primary-light/50 to-secondary dark:from-black dark:to-[#1A1F2C] transition-colors duration-500">
       <Background3D />
       <RetroHeader />
       <div className="h-[50vh] bg-hero-pattern bg-cover bg-center relative mt-16">
@@ -66,7 +66,7 @@ const Index = () => {
       <div className="container -mt-20 pb-20">
         <div className="max-w-4xl mx-auto space-y-8 animate-slideIn">
           <div className="grid gap-8 md:grid-cols-2">
-            <div className="bg-white/80 backdrop-blur-lg rounded-xl p-8 shadow-lg space-y-6 border border-primary-light">
+            <div className="bg-white/80 backdrop-blur-lg rounded-xl p-8 shadow-lg space-y-6 border border-primary-light dark:bg-black/80 dark:border-primary/20 transition-all duration-500">
               <div className="h-40 rounded-lg overflow-hidden mb-6">
                 <div className="w-full h-full bg-wave-pattern bg-cover bg-center transform hover:scale-110 transition-transform duration-500"></div>
               </div>
@@ -148,14 +148,14 @@ const Index = () => {
               </div>
             </div>
             <div className="space-y-8">
-              <div className="bg-white/80 backdrop-blur-lg rounded-xl p-8 shadow-lg space-y-6 border border-primary-light">
+              <div className="bg-white/80 backdrop-blur-lg rounded-xl p-8 shadow-lg space-y-6 border border-primary-light dark:bg-black/80 dark:border-primary/20 transition-all duration-500">
                 <div className="h-40 rounded-lg overflow-hidden mb-6">
                   <div className="w-full h-full bg-mountain-pattern bg-cover bg-center transform hover:scale-110 transition-transform duration-500"></div>
                 </div>
                 <RiskScore score={calculateRiskScore()} />
               </div>
 
-              <div className="bg-white/80 backdrop-blur-lg rounded-xl p-8 shadow-lg space-y-6 border border-primary-light">
+              <div className="bg-white/80 backdrop-blur-lg rounded-xl p-8 shadow-lg space-y-6 border border-primary-light dark:bg-black/80 dark:border-primary/20 transition-all duration-500">
                 <div className="h-40 rounded-lg overflow-hidden mb-6">
                   <div className="w-full h-full bg-river-pattern bg-cover bg-center transform hover:scale-110 transition-transform duration-500"></div>
                 </div>

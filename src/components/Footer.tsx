@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export const Footer = () => {
   return (
-    <footer className="bg-primary-dark text-white py-12 mt-auto relative">
+    <footer className="bg-primary-dark text-white py-12 mt-auto relative dark:bg-black dark:text-primary transition-colors duration-500">
       {/* Background Pattern Overlay */}
       <div 
         className="absolute inset-0 opacity-5"
