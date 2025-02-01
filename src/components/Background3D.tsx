@@ -23,41 +23,40 @@ export const Background3D = () => {
       new THREE.TorusGeometry(0.8, 0.2, 16, 100),
       new THREE.DodecahedronGeometry(0.8),
       new THREE.RingGeometry(0.5, 1, 32),
+      new THREE.TetrahedronGeometry(0.8),
+      new THREE.IcosahedronGeometry(0.6),
     ];
 
     // Function to get a distributed position
     const getDistributedPosition = (index: number, total: number) => {
-      // Create a grid-like distribution around the viewport
       const gridSize = Math.ceil(Math.sqrt(total));
-      const cellSize = 30; // Size of each grid cell
+      const cellSize = 35; // Increased cell size
       
       const row = Math.floor(index / gridSize);
       const col = index % gridSize;
       
-      // Add some randomness to the grid positions
-      const randomOffset = () => (Math.random() - 0.5) * 15;
+      const randomOffset = () => (Math.random() - 0.5) * 20; // Increased randomness
       
       return {
         x: (col - gridSize/2) * cellSize + randomOffset(),
         y: (row - gridSize/2) * cellSize + randomOffset(),
-        z: Math.random() * 20 - 30 // Varied depth
+        z: Math.random() * 30 - 40 // More varied depth
       };
     };
 
     // Create more shapes with distributed positions
-    for (let i = 0; i < 35; i++) {
+    for (let i = 0; i < 50; i++) { // Increased number of shapes
       const geometry = geometries[Math.floor(Math.random() * geometries.length)];
       const material = new THREE.MeshPhongMaterial({
         color: new THREE.Color(0x00BCD4),
         transparent: true,
-        opacity: 0.2 + Math.random() * 0.3,
+        opacity: 0.15 + Math.random() * 0.25, // More varied opacity
         wireframe: true,
       });
       
       const shape = new THREE.Mesh(geometry, material);
       
-      // Get distributed position
-      const position = getDistributedPosition(i, 35);
+      const position = getDistributedPosition(i, 50);
       shape.position.set(position.x, position.y, position.z);
       
       // Random initial rotation
@@ -67,8 +66,8 @@ export const Background3D = () => {
         Math.random() * Math.PI
       );
       
-      // Random scale for variety, with some shapes being larger
-      const scale = 0.5 + Math.random() * 2;
+      // More varied scale
+      const scale = 0.3 + Math.random() * 2.5;
       shape.scale.set(scale, scale, scale);
       
       shapes.push(shape);
@@ -104,22 +103,20 @@ export const Background3D = () => {
       requestAnimationFrame(animate);
 
       shapes.forEach((shape, i) => {
-        // Unique rotation speeds for each shape
-        shape.rotation.x += 0.001 + (i * 0.0001);
-        shape.rotation.y += 0.002 + (i * 0.0001);
+        // More varied rotation speeds
+        shape.rotation.x += 0.0005 + (i * 0.0001);
+        shape.rotation.y += 0.001 + (i * 0.0001);
         
-        // More responsive mouse interaction
-        shape.position.x += (mouseX * 0.02 - shape.position.x * 0.001) * 0.01;
-        shape.position.y += (-mouseY * 0.02 - shape.position.y * 0.001) * 0.01;
+        // Enhanced mouse interaction
+        shape.position.x += (mouseX * 0.03 - shape.position.x * 0.001) * 0.01;
+        shape.position.y += (-mouseY * 0.03 - shape.position.y * 0.001) * 0.01;
         
-        // Add floating motion with different frequencies for each shape
+        // Enhanced floating motion
         const time = Date.now() * 0.001;
-        const floatSpeed = 0.002 + (i * 0.0001);
+        const floatSpeed = 0.003 + (i * 0.0002);
         shape.position.y += Math.sin(time + i * 0.5) * floatSpeed;
         shape.position.x += Math.cos(time + i * 0.7) * floatSpeed;
-        
-        // Add slight z-axis movement
-        shape.position.z += Math.sin(time * 0.5 + i) * 0.01;
+        shape.position.z += Math.sin(time * 0.3 + i) * 0.02;
       });
 
       renderer.render(scene, camera);

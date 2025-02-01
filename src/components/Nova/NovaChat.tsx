@@ -112,7 +112,7 @@ export const NovaChat = ({ fullScreen = false }: NovaChatProps) => {
     setInput("");
   };
 
-  const handleResponse = (userInput: string) => {
+const handleResponse = (userInput: string) => {
     const input = userInput.toLowerCase();
     
     setTimeout(() => {
@@ -161,7 +161,7 @@ export const NovaChat = ({ fullScreen = false }: NovaChatProps) => {
         response = {
           type: 'bot',
           content: "I can help you with flood awareness, preparation, and emergency response. Could you please be more specific about what you'd like to know?",
-          options: ["Show all options", "Back to main menu"]
+          options: ["Back to main menu"]
         };
       }
 
