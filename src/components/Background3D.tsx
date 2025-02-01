@@ -30,27 +30,27 @@ export const Background3D = () => {
     // Function to get a distributed position
     const getDistributedPosition = (index: number, total: number) => {
       const gridSize = Math.ceil(Math.sqrt(total));
-      const cellSize = 35; // Increased cell size
+      const cellSize = 40; // Increased cell size for better spread
       
       const row = Math.floor(index / gridSize);
       const col = index % gridSize;
       
-      const randomOffset = () => (Math.random() - 0.5) * 20; // Increased randomness
+      const randomOffset = () => (Math.random() - 0.5) * 25; // More randomness
       
       return {
         x: (col - gridSize/2) * cellSize + randomOffset(),
         y: (row - gridSize/2) * cellSize + randomOffset(),
-        z: Math.random() * 30 - 40 // More varied depth
+        z: Math.random() * 40 - 50 // More depth variation
       };
     };
 
     // Create more shapes with distributed positions
-    for (let i = 0; i < 50; i++) { // Increased number of shapes
+    for (let i = 0; i < 50; i++) {
       const geometry = geometries[Math.floor(Math.random() * geometries.length)];
       const material = new THREE.MeshPhongMaterial({
         color: new THREE.Color(0x00BCD4),
         transparent: true,
-        opacity: 0.15 + Math.random() * 0.25, // More varied opacity
+        opacity: 0.25 + Math.random() * 0.35, // Increased opacity
         wireframe: true,
       });
       
@@ -66,8 +66,8 @@ export const Background3D = () => {
         Math.random() * Math.PI
       );
       
-      // More varied scale
-      const scale = 0.3 + Math.random() * 2.5;
+      // Larger scale range
+      const scale = 0.8 + Math.random() * 3.5;
       shape.scale.set(scale, scale, scale);
       
       shapes.push(shape);
