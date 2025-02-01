@@ -238,7 +238,7 @@ const handleResponse = (userInput: string) => {
             </div>
           </ScrollArea>
 
-          <div className="p-4 border-t border-border dark:bg-[#1A1F2C]">
+          <div className="p-4 border-t border-border dark:bg-[#1A1F2C] mt-auto">
             <div className="flex space-x-2">
               <input
                 type="text"
@@ -250,7 +250,7 @@ const handleResponse = (userInput: string) => {
               />
               <Button
                 onClick={handleSend}
-                className="rounded-full bg-primary hover:bg-primary/90 dark:bg-primary-foreground dark:text-primary dark:hover:bg-primary-foreground/90"
+                className="rounded-full bg-[#222] hover:bg-[#333] dark:bg-[#333] dark:hover:bg-[#444] text-white"
               >
                 <Send className="w-4 h-4" />
               </Button>
