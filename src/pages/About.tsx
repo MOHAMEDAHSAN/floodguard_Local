@@ -1,9 +1,11 @@
 import { RetroHeader } from "@/components/RetroHeader";
 import { AlertTriangle, Building2, Brain, Users } from "lucide-react";
+import { Background3D } from "@/components/Background3D";
 
 const About = () => {
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-primary-light/50 to-secondary">
+      <Background3D />
       <RetroHeader />
       
       <div className="container mx-auto px-6 pt-32 pb-12 flex-grow"> {/* Changed py-12 to pt-32 pb-12 to add more top spacing */}
