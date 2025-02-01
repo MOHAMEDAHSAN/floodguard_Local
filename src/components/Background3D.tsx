@@ -50,7 +50,7 @@ export const Background3D = () => {
       const material = new THREE.MeshPhongMaterial({
         color: new THREE.Color(0x00BCD4),
         transparent: true,
-        opacity: 0.25 + Math.random() * 0.35, // Increased opacity
+        opacity: 0.35 + Math.random() * 0.45, // Increased opacity
         wireframe: true,
       });
       
@@ -67,7 +67,7 @@ export const Background3D = () => {
       );
       
       // Larger scale range
-      const scale = 0.8 + Math.random() * 3.5;
+      const scale = 1.5 + Math.random() * 4.5; // Increased size
       shape.scale.set(scale, scale, scale);
       
       shapes.push(shape);
@@ -104,19 +104,19 @@ export const Background3D = () => {
 
       shapes.forEach((shape, i) => {
         // More varied rotation speeds
-        shape.rotation.x += 0.0005 + (i * 0.0001);
-        shape.rotation.y += 0.001 + (i * 0.0001);
+        shape.rotation.x += 0.001 + (i * 0.0001);
+        shape.rotation.y += 0.002 + (i * 0.0001);
         
         // Enhanced mouse interaction
-        shape.position.x += (mouseX * 0.03 - shape.position.x * 0.001) * 0.01;
-        shape.position.y += (-mouseY * 0.03 - shape.position.y * 0.001) * 0.01;
+        shape.position.x += (mouseX * 0.05 - shape.position.x * 0.001) * 0.02;
+        shape.position.y += (-mouseY * 0.05 - shape.position.y * 0.001) * 0.02;
         
         // Enhanced floating motion
         const time = Date.now() * 0.001;
-        const floatSpeed = 0.003 + (i * 0.0002);
+        const floatSpeed = 0.005 + (i * 0.0002);
         shape.position.y += Math.sin(time + i * 0.5) * floatSpeed;
         shape.position.x += Math.cos(time + i * 0.7) * floatSpeed;
-        shape.position.z += Math.sin(time * 0.3 + i) * 0.02;
+        shape.position.z += Math.sin(time * 0.3 + i) * 0.03;
       });
 
       renderer.render(scene, camera);
@@ -147,7 +147,7 @@ export const Background3D = () => {
     <div 
       ref={containerRef} 
       className="fixed inset-0 -z-10 pointer-events-none"
-      style={{ opacity: 0.7 }}
+      style={{ opacity: 0.9 }} // Increased opacity
     />
   );
 };

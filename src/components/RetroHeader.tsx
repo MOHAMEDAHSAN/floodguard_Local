@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import { Sun, Moon } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useToast } from "@/components/ui/use-toast";
 
 export const RetroHeader = () => {
   const [isDark, setIsDark] = useState(false);
+  const { toast } = useToast();
 
   useEffect(() => {
     // Check if user prefers dark mode
@@ -11,15 +13,36 @@ export const RetroHeader = () => {
       setIsDark(true);
       document.documentElement.classList.add('dark');
     }
+
+    // Check for stored theme preference
+    const storedTheme = localStorage.getItem('theme');
+    if (storedTheme === 'dark') {
+      setIsDark(true);
+      document.documentElement.classList.add('dark');
+    }
   }, []);
 
   const toggleTheme = () => {
     setIsDark(!isDark);
-    document.documentElement.classList.toggle('dark');
+    if (!isDark) {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+      toast({
+        title: "Dark mode enabled",
+        description: "The application theme has been switched to dark mode.",
+      });
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+      toast({
+        title: "Light mode enabled",
+        description: "The application theme has been switched to light mode.",
+      });
+    }
   };
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-primary-dark via-primary to-primary-light py-4 dark:from-[#1A1F2C] dark:via-[#222222] dark:to-[#403E43]">
+    <div className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-primary-dark via-primary to-primary-light py-4 dark:from-[#1A1F2C] dark:via-[#222222] dark:to-[#403E43] transition-colors duration-300">
       <div className="container mx-auto px-6">
         <div className="flex justify-between items-center">
           <div className="flex items-center space-x-8">
