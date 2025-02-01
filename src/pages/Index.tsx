@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 import { RetroHeader } from "@/components/RetroHeader";
 import { WeatherWidget } from "@/components/WeatherWidget";
-import { Background3D } from "@/components/Background3D";
+import { VantaBackground } from "@/components/VantaBackground";
 
 const Index = () => {
   const { toast } = useToast();
@@ -46,7 +46,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-primary-light/50 to-secondary dark:from-black dark:to-[#1A1F2C] transition-colors duration-500">
-      <Background3D />
+      <VantaBackground />
       <RetroHeader />
       <div className="h-[50vh] bg-hero-pattern bg-cover bg-center relative mt-16">
         <div className="absolute inset-0 bg-primary-dark/40 backdrop-blur-sm">

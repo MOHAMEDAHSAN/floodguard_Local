@@ -1,14 +1,14 @@
 import { RetroHeader } from "@/components/RetroHeader";
 import { AlertTriangle, Building2, Brain, Users } from "lucide-react";
-import { Background3D } from "@/components/Background3D";
+import { VantaBackground } from "@/components/VantaBackground";
 
 const About = () => {
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-primary-light/50 to-secondary">
-      <Background3D />
+      <VantaBackground />
       <RetroHeader />
       
-      <div className="container mx-auto px-6 pt-32 pb-12 flex-grow"> {/* Changed py-12 to pt-32 pb-12 to add more top spacing */}
+      <div className="container mx-auto px-6 pt-32 pb-12 flex-grow">
         <div className="max-w-4xl mx-auto space-y-8">
           <div className="bg-white/80 backdrop-blur-lg rounded-xl p-8 shadow-lg animate-fadeIn">
             <h2 className="text-3xl font-bold text-primary-dark mb-6">About Our Mission</h2>
