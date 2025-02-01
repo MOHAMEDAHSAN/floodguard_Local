@@ -20,37 +20,50 @@ export const Background3D = () => {
       new THREE.IcosahedronGeometry(1),
       new THREE.OctahedronGeometry(1),
       new THREE.TetrahedronGeometry(1),
+      new THREE.TorusGeometry(0.8, 0.2, 16, 100),
+      new THREE.DodecahedronGeometry(0.8),
+      new THREE.RingGeometry(0.5, 1, 32),
     ];
 
-    for (let i = 0; i < 10; i++) {
+    // Create more shapes with different sizes and positions
+    for (let i = 0; i < 25; i++) {
       const geometry = geometries[Math.floor(Math.random() * geometries.length)];
       const material = new THREE.MeshPhongMaterial({
         color: new THREE.Color(0x00BCD4),
         transparent: true,
-        opacity: 0.3,
+        opacity: 0.2 + Math.random() * 0.3,
         wireframe: true,
       });
       
       const shape = new THREE.Mesh(geometry, material);
+      
+      // Distribute shapes more evenly across the scene
       shape.position.set(
-        Math.random() * 20 - 10,
-        Math.random() * 20 - 10,
-        Math.random() * 10 - 15
+        Math.random() * 30 - 15,
+        Math.random() * 30 - 15,
+        Math.random() * 20 - 25
       );
+      
+      // Random initial rotation
       shape.rotation.set(
         Math.random() * Math.PI,
         Math.random() * Math.PI,
         Math.random() * Math.PI
       );
+      
+      // Random scale for variety
+      const scale = 0.5 + Math.random() * 1.5;
+      shape.scale.set(scale, scale, scale);
+      
       shapes.push(shape);
       scene.add(shape);
     }
 
     // Add lighting
-    const ambientLight = new THREE.AmbientLight(0x404040);
+    const ambientLight = new THREE.AmbientLight(0x404040, 2);
     scene.add(ambientLight);
     
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 1.5);
     directionalLight.position.set(1, 1, 1);
     scene.add(directionalLight);
 
@@ -75,12 +88,17 @@ export const Background3D = () => {
       requestAnimationFrame(animate);
 
       shapes.forEach((shape, i) => {
-        shape.rotation.x += 0.001 + (i * 0.0002);
+        // Unique rotation speeds for each shape
+        shape.rotation.x += 0.001 + (i * 0.0001);
         shape.rotation.y += 0.002 + (i * 0.0001);
         
-        // Subtle movement based on mouse position
-        shape.position.x += (mouseX * 0.01 - shape.position.x) * 0.01;
-        shape.position.y += (-mouseY * 0.01 - shape.position.y) * 0.01;
+        // More responsive mouse interaction
+        shape.position.x += (mouseX * 0.02 - shape.position.x) * 0.01;
+        shape.position.y += (-mouseY * 0.02 - shape.position.y) * 0.01;
+        
+        // Add subtle floating motion
+        shape.position.y += Math.sin(Date.now() * 0.001 + i) * 0.002;
+        shape.position.x += Math.cos(Date.now() * 0.001 + i) * 0.002;
       });
 
       renderer.render(scene, camera);
