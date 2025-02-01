@@ -18,7 +18,7 @@ export const VantaBackground = () => {
       if (window.VANTA) {
         setIsScriptLoaded(true);
       } else {
-        setTimeout(checkVanta, 100); // Check again in 100ms
+        setTimeout(checkVanta, 100);
       }
     };
 
@@ -36,13 +36,17 @@ export const VantaBackground = () => {
         gyroControls: false,
         minHeight: 200.00,
         minWidth: 200.00,
-        skyColor: 0xe8b8d7,
-        cloudColor: 0xadc1de,
+        backgroundColor: 0xe8f7ff,
+        cloudColor: 0xffffff,
         cloudShadowColor: 0x183550,
         sunColor: 0xff9919,
         sunGlareColor: 0xff6533,
         sunlightColor: 0xff9933,
-        speed: 1.0
+        speed: 0.6,
+        scale: 1.5,
+        scaleMobile: 1.5,
+        skyColor: 0x68b8d7,
+        quantity: 4,
       });
 
       return () => {
@@ -58,7 +62,10 @@ export const VantaBackground = () => {
   return (
     <div 
       ref={vantaRef} 
-      className="fixed inset-0 -z-10 pointer-events-none dark:hidden"
+      className="fixed inset-0 -z-10 pointer-events-none transition-opacity duration-500"
+      style={{
+        opacity: isScriptLoaded ? 1 : 0,
+      }}
     />
   );
 };
