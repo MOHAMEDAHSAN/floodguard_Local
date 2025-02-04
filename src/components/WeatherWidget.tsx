@@ -31,7 +31,7 @@ export const WeatherWidget = () => {
     const fetchWeather = async (lat: number, lon: number) => {
       try {
         const response = await fetch(
-          `https://api.weatherapi.com/v1/current.json?key=d785347b2ff94fe593082140252301&q=${lat},${lon}&aqi=no`
+          `https://api.weatherapi.com/v1/current.json?key=08664519520f4182acd154355250402&q=${lat},${lon}&aqi=no`
         );
         
         if (!response.ok) {
