@@ -1,4 +1,4 @@
-```typescript
+
 import { useEffect, useState } from "react";
 import { useToast } from "@/components/ui/use-toast";
 import { Thermometer, Cloud, Wind, Droplet, CloudRain, AlertTriangle, Clock } from "lucide-react";
@@ -163,4 +163,3 @@ export const WeatherWidget = () => {
     </div>
   );
 };
-```
