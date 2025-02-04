@@ -58,17 +58,17 @@ export const VantaBackground = () => {
         gyroControls: false,
         minHeight: 200.00,
         minWidth: 200.00,
-        backgroundColor: isDark ? 0x0a0f1a : 0xf0f8ff,
-        cloudColor: isDark ? 0x000000 : 0xffffff,
-        cloudShadowColor: isDark ? 0x000000 : 0xffffff,
-        sunColor: isDark ? 0x0a0f1a : 0xffffff,
-        sunGlareColor: isDark ? 0x151b29 : 0xffffff,
-        sunlightColor: isDark ? 0x151b29 : 0xffffff,
-        speed: 0.6,
-        scale: 1.5,
-        scaleMobile: 1.5,
-        skyColor: isDark ? 0x080c14 : 0xf0f8ff,
-        quantity: 4,
+        backgroundColor: isDark ? 0x080c14 : 0xe0f7fa,  // Darker background in dark mode, light cyan in light mode
+        cloudColor: isDark ? 0x000000 : 0xffffff,       // Pure black/white clouds
+        cloudShadowColor: isDark ? 0x000000 : 0xffffff, // Matching shadow color
+        sunColor: isDark ? 0x0a0f1a : 0xe0f7fa,        // Subtle sun color
+        sunGlareColor: isDark ? 0x151b29 : 0xb2ebf2,   // Glare effect
+        sunlightColor: isDark ? 0x151b29 : 0xb2ebf2,   // Sunlight color
+        speed: 0.8,                                     // Slightly faster movement
+        scale: 2.0,                                     // Larger scale for more prominent clouds
+        scaleMobile: 2.0,
+        skyColor: isDark ? 0x0a0f1a : 0xe0f7fa,        // Sky color matching the theme
+        quantity: 5,                                    // More clouds
       });
 
       return () => {
