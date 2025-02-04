@@ -17,32 +17,36 @@ export const VantaBackground = () => {
     // Load Vanta only on client side
     const loadVanta = async () => {
       if (typeof window !== 'undefined') {
-        // Dynamically import vanta
-        const CLOUDS = (await import('vanta/dist/vanta.clouds.min.js')).default;
-        
-        if (!vantaEffect && vantaRef.current) {
-          setVantaEffect(
-            CLOUDS({
-              el: vantaRef.current,
-              THREE,
-              mouseControls: true,
-              touchControls: true,
-              gyroControls: false,
-              minHeight: 200.00,
-              minWidth: 200.00,
-              backgroundColor: isDark ? 0x050810 : 0xf0f8ff,
-              cloudColor: isDark ? 0x0a0a0a : 0x444444,
-              cloudShadowColor: isDark ? 0x000000 : 0x333333,
-              sunColor: isDark ? 0x050810 : 0xf0f8ff,
-              sunGlareColor: isDark ? 0x0a0f1a : 0xf0f8ff,
-              sunlightColor: isDark ? 0x0a0f1a : 0xf0f8ff,
-              speed: 1.2,
-              scale: 1.8,
-              scaleMobile: 1.5,
-              skyColor: isDark ? 0x030508 : 0xf0f8ff,
-              quantity: 6,
-            })
-          );
+        try {
+          // Dynamically import vanta
+          const CLOUDS = (await import('vanta/dist/vanta.clouds.min.js')).default;
+          
+          if (!vantaEffect && vantaRef.current) {
+            setVantaEffect(
+              CLOUDS({
+                el: vantaRef.current,
+                THREE,
+                mouseControls: true,
+                touchControls: true,
+                gyroControls: false,
+                minHeight: 200.00,
+                minWidth: 200.00,
+                backgroundColor: isDark ? 0x050810 : 0xf0f8ff,
+                cloudColor: isDark ? 0x0a0a0a : 0x444444,
+                cloudShadowColor: isDark ? 0x000000 : 0x333333,
+                sunColor: isDark ? 0x050810 : 0xf0f8ff,
+                sunGlareColor: isDark ? 0x0a0f1a : 0xf0f8ff,
+                sunlightColor: isDark ? 0x0a0f1a : 0xf0f8ff,
+                speed: 1.2,
+                scale: 1.8,
+                scaleMobile: 1.5,
+                skyColor: isDark ? 0x030508 : 0xf0f8ff,
+                quantity: 6,
+              })
+            );
+          }
+        } catch (error) {
+          console.error("Failed to load Vanta effect:", error);
         }
       }
     };
