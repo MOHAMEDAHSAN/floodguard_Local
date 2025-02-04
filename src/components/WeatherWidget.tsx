@@ -24,6 +24,7 @@ interface WeatherData {
 export const WeatherWidget = () => {
   const [weather, setWeather] = useState<WeatherData | null>(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const { toast } = useToast();
 
   useEffect(() => {
@@ -32,13 +33,26 @@ export const WeatherWidget = () => {
         const response = await fetch(
           `https://api.weatherapi.com/v1/current.json?key=d785347b2ff94fe593082140252301&q=${lat},${lon}&aqi=no`
         );
+        
+        if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(errorData.error?.message || 'Failed to fetch weather data');
+        }
+        
         const data = await response.json();
+        if (!data?.current) {
+          throw new Error('Invalid weather data received');
+        }
+        
         setWeather(data);
+        setError(null);
       } catch (error) {
+        const errorMessage = error instanceof Error ? error.message : 'Error fetching weather data';
+        setError(errorMessage);
         toast({
           variant: "destructive",
-          title: "Error fetching weather data",
-          description: "Please try again later",
+          title: "Weather Data Error",
+          description: errorMessage,
         });
       } finally {
         setLoading(false);
@@ -50,6 +64,7 @@ export const WeatherWidget = () => {
         fetchWeather(position.coords.latitude, position.coords.longitude);
       },
       () => {
+        // Default to Chennai coordinates if geolocation fails
         fetchWeather(13.0827, 80.2707);
         toast({
           description: "Using default location: Chennai",
@@ -71,7 +86,19 @@ export const WeatherWidget = () => {
     );
   }
 
-  if (!weather) return null;
+  if (error) {
+    return (
+      <div className="bg-white/5 dark:bg-black/10 backdrop-blur-xl rounded-xl p-8 shadow-lg border border-white/20 dark:border-white/10 space-y-6">
+        <div className="flex items-center justify-center space-x-3 text-destructive">
+          <AlertTriangle className="w-6 h-6" />
+          <h2 className="text-xl font-semibold">Weather Data Unavailable</h2>
+        </div>
+        <p className="text-center text-gray-400">{error}</p>
+      </div>
+    );
+  }
+
+  if (!weather?.current) return null;
 
   return (
     <div className="bg-white/5 dark:bg-black/10 backdrop-blur-xl rounded-xl p-8 shadow-lg border border-white/20 dark:border-white/10 space-y-6 transition-all duration-300">
