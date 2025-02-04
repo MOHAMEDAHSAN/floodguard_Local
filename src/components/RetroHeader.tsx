@@ -1,10 +1,10 @@
-```typescript
+
 import { Link } from "react-router-dom";
 import { Sun, Moon } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useToast } from "@/components/ui/use-toast";
 
-export const RetroHeader = () => {
+const RetroHeader = () => {
   const [isDark, setIsDark] = useState(() => {
     const storedTheme = localStorage.getItem('theme');
     return storedTheme === 'dark' || (!storedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches);
@@ -100,4 +100,6 @@ export const RetroHeader = () => {
     </div>
   );
 };
-```
+
+export default RetroHeader;
+
