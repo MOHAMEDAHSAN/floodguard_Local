@@ -1,4 +1,4 @@
-import { RetroHeader } from "@/components/RetroHeader";
+import RetroHeader from "@/components/RetroHeader";
 import { NovaChat } from "@/components/Nova/NovaChat";
 
 const Chatbot = () => {

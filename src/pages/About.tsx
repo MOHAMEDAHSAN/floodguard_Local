@@ -1,4 +1,5 @@
-import { RetroHeader } from "@/components/RetroHeader";
+
+import RetroHeader from "@/components/RetroHeader";
 import { AlertTriangle, Building2, Brain, Users } from "lucide-react";
 import { VantaBackground } from "@/components/VantaBackground";
 
