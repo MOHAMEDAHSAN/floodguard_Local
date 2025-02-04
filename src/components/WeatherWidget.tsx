@@ -1,4 +1,4 @@
-
+```typescript
 import { useEffect, useState } from "react";
 import { useToast } from "@/components/ui/use-toast";
 import { Thermometer, Cloud, Wind, Droplet, CloudRain, AlertTriangle, Clock } from "lucide-react";
@@ -31,7 +31,7 @@ export const WeatherWidget = () => {
     const fetchWeather = async (lat: number, lon: number) => {
       try {
         const response = await fetch(
-          `https://api.weatherapi.com/v1/current.json?key=d785347b2ff94fe593082140252301&q=${lat},${lon}&aqi=no`
+          `https://api.weatherapi.com/v1/current.json?key=08664519520f4182acd154355250402&q=${lat},${lon}&aqi=no`
         );
         
         if (!response.ok) {
@@ -64,7 +64,6 @@ export const WeatherWidget = () => {
         fetchWeather(position.coords.latitude, position.coords.longitude);
       },
       () => {
-        // Default to Chennai coordinates if geolocation fails
         fetchWeather(13.0827, 80.2707);
         toast({
           description: "Using default location: Chennai",
@@ -101,8 +100,8 @@ export const WeatherWidget = () => {
   if (!weather?.current) return null;
 
   return (
-    <div className="bg-white/5 dark:bg-black/10 backdrop-blur-xl rounded-xl p-8 shadow-lg border border-white/20 dark:border-white/10 space-y-6 transition-all duration-300">
-      <div className="flex items-center space-x-3 text-primary/90 dark:text-primary-light">
+    <div className="bg-white/5 dark:bg-[#0f1117]/80 backdrop-blur-xl rounded-xl p-8 shadow-lg border border-white/20 dark:border-white/10 space-y-6 transition-all duration-300">
+      <div className="flex items-center space-x-3 text-primary/90 dark:text-cyan-400">
         <Cloud className="w-6 h-6" />
         <h2 className="text-xl font-semibold">Location Insights</h2>
       </div>
@@ -164,3 +163,4 @@ export const WeatherWidget = () => {
     </div>
   );
 };
+```
