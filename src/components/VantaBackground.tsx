@@ -1,4 +1,3 @@
-
 import { useEffect, useRef, useState } from 'react';
 
 declare global {
@@ -62,13 +61,13 @@ export const VantaBackground = () => {
         backgroundColor: isDark ? 0x0a0f1a : 0xf0f8ff,
         cloudColor: isDark ? 0x000000 : 0xffffff,
         cloudShadowColor: isDark ? 0x000000 : 0xffffff,
-        sunColor: isDark ? 0x0a0f1a : 0xff9919,
-        sunGlareColor: isDark ? 0x151b29 : 0xff6533,
-        sunlightColor: isDark ? 0x151b29 : 0xff9933,
+        sunColor: isDark ? 0x0a0f1a : 0xffffff,
+        sunGlareColor: isDark ? 0x151b29 : 0xffffff,
+        sunlightColor: isDark ? 0x151b29 : 0xffffff,
         speed: 0.6,
         scale: 1.5,
         scaleMobile: 1.5,
-        skyColor: isDark ? 0x080c14 : 0x87ceeb,
+        skyColor: isDark ? 0x080c14 : 0xf0f8ff,
         quantity: 4,
       });
 
