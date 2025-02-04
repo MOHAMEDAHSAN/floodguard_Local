@@ -64,9 +64,9 @@ const About = () => {
             
             <div className="grid grid-cols-1 gap-8">
               {/* Team Member 1 */}
-              <div className="group relative bg-white/50 rounded-lg p-6 transition-all duration-500 cursor-pointer">
+              <div className="group relative bg-white/50 rounded-lg p-6 transition-all duration-500">
                 <div className="flex items-start gap-4">
-                  <Avatar className="w-16 h-16 border-2 border-primary">
+                  <Avatar className="w-24 h-24 border-2 border-primary transition-all duration-300">
                     <AvatarImage src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d" />
                     <AvatarFallback>AK</AvatarFallback>
                   </Avatar>
@@ -87,11 +87,11 @@ const About = () => {
                     </a>
                     <a href="https://github.com/abishai" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-primary hover:text-primary-dark transition-colors">
                       <Github className="w-5 h-5" />
-                      <span>GitHub Profile</span>
+                      <span>GitHub</span>
                     </a>
                     <a href="https://linkedin.com/in/abishai" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-primary hover:text-primary-dark transition-colors">
                       <Linkedin className="w-5 h-5" />
-                      <span>LinkedIn Profile</span>
+                      <span>LinkedIn</span>
                     </a>
                     <div className="flex items-center space-x-2 text-primary">
                       <Phone className="w-5 h-5" />
@@ -102,9 +102,9 @@ const About = () => {
               </div>
 
               {/* Team Member 2 */}
-              <div className="group relative bg-white/50 rounded-lg p-6 transition-all duration-500 cursor-pointer">
+              <div className="group relative bg-white/50 rounded-lg p-6 transition-all duration-500">
                 <div className="flex items-start gap-4">
-                  <Avatar className="w-16 h-16 border-2 border-primary">
+                  <Avatar className="w-24 h-24 border-2 border-primary transition-all duration-300">
                     <AvatarImage src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158" />
                     <AvatarFallback>MA</AvatarFallback>
                   </Avatar>
@@ -125,11 +125,11 @@ const About = () => {
                     </a>
                     <a href="https://github.com/ahsan" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-primary hover:text-primary-dark transition-colors">
                       <Github className="w-5 h-5" />
-                      <span>GitHub Profile</span>
+                      <span>GitHub</span>
                     </a>
                     <a href="https://linkedin.com/in/ahsan" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-primary hover:text-primary-dark transition-colors">
                       <Linkedin className="w-5 h-5" />
-                      <span>LinkedIn Profile</span>
+                      <span>LinkedIn</span>
                     </a>
                     <div className="flex items-center space-x-2 text-primary">
                       <Phone className="w-5 h-5" />
