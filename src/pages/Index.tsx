@@ -67,11 +67,11 @@ const Index = () => {
       <div className="container -mt-20 pb-20">
         <div className="max-w-4xl mx-auto space-y-8 animate-slideIn">
           <div className="grid gap-8 md:grid-cols-2">
-            <div className="bg-white/80 backdrop-blur-lg rounded-xl p-8 shadow-lg space-y-6 border border-primary-light dark:bg-black/80 dark:border-primary/20 transition-all duration-500">
+            <div className="bg-white/80 backdrop-blur-lg dark:bg-[#0f1117]/80 rounded-xl p-8 shadow-lg space-y-6 border border-white/20 dark:border-white/10 transition-all duration-500">
               <div className="h-40 rounded-lg overflow-hidden mb-6">
                 <div className="w-full h-full bg-wave-pattern bg-cover bg-center transform hover:scale-110 transition-transform duration-500"></div>
               </div>
-              <h2 className="text-2xl font-semibold text-primary-dark">
+              <h2 className="text-2xl font-semibold text-primary-dark dark:text-cyan-400">
                 Risk Parameters
               </h2>
               <div className="space-y-6">
@@ -141,7 +141,7 @@ const Index = () => {
                   step={0.1}
                 />
                 <Button
-                  className="w-full bg-primary hover:bg-primary-dark transition-colors px-8 py-4 mt-8"
+                  className="w-full bg-cyan-400 hover:bg-cyan-500 dark:bg-cyan-500 dark:hover:bg-cyan-600 text-white transition-colors px-8 py-4 mt-8"
                   onClick={handleCalculate}
                 >
                   Calculate Risk
@@ -149,40 +149,40 @@ const Index = () => {
               </div>
             </div>
             <div className="space-y-8">
-              <div className="bg-white/80 backdrop-blur-lg rounded-xl p-8 shadow-lg space-y-6 border border-primary-light dark:bg-black/80 dark:border-primary/20 transition-all duration-500">
+              <div className="bg-white/80 backdrop-blur-lg dark:bg-[#0f1117]/80 rounded-xl p-8 shadow-lg space-y-6 border border-white/20 dark:border-white/10 transition-all duration-500">
                 <div className="h-40 rounded-lg overflow-hidden mb-6">
                   <div className="w-full h-full bg-mountain-pattern bg-cover bg-center transform hover:scale-110 transition-transform duration-500"></div>
                 </div>
                 <RiskScore score={calculateRiskScore()} />
               </div>
 
-              <div className="bg-white/80 backdrop-blur-lg rounded-xl p-8 shadow-lg space-y-6 border border-primary-light dark:bg-black/80 dark:border-primary/20 transition-all duration-500">
+              <div className="bg-white/80 backdrop-blur-lg dark:bg-[#0f1117]/80 rounded-xl p-8 shadow-lg space-y-6 border border-white/20 dark:border-white/10 transition-all duration-500">
                 <div className="h-40 rounded-lg overflow-hidden mb-6">
                   <div className="w-full h-full bg-river-pattern bg-cover bg-center transform hover:scale-110 transition-transform duration-500"></div>
                 </div>
                 <div className="space-y-4">
-                  <h3 className="text-xl font-semibold text-primary-dark">
+                  <h3 className="text-xl font-semibold text-primary-dark dark:text-cyan-400">
                     Risk Factors Analysis
                   </h3>
-                  <ul className="space-y-3 text-sm">
+                  <ul className="space-y-3 text-sm dark:text-gray-300/90">
                     <li className="flex items-center space-x-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-primary"></div>
+                      <div className="w-1.5 h-1.5 rounded-full bg-cyan-400"></div>
                       <span>High rainfall intensity increases flood risk significantly</span>
                     </li>
                     <li className="flex items-center space-x-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-primary"></div>
+                      <div className="w-1.5 h-1.5 rounded-full bg-cyan-400"></div>
                       <span>Soil saturation affects water absorption capacity</span>
                     </li>
                     <li className="flex items-center space-x-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-primary"></div>
+                      <div className="w-1.5 h-1.5 rounded-full bg-cyan-400"></div>
                       <span>Good drainage systems help mitigate flood risks</span>
                     </li>
                     <li className="flex items-center space-x-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-primary"></div>
+                      <div className="w-1.5 h-1.5 rounded-full bg-cyan-400"></div>
                       <span>Urban areas are more susceptible to flooding</span>
                     </li>
                     <li className="flex items-center space-x-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-primary"></div>
+                      <div className="w-1.5 h-1.5 rounded-full bg-cyan-400"></div>
                       <span>Vegetation cover helps reduce flood risk</span>
                     </li>
                   </ul>
