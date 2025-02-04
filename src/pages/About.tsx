@@ -1,7 +1,8 @@
-
 import RetroHeader from "@/components/RetroHeader";
-import { AlertTriangle, Building2, Brain, Users } from "lucide-react";
+import { AlertTriangle, Building2, Brain, Users, Github, Linkedin, Mail, Phone } from "lucide-react";
 import { VantaBackground } from "@/components/VantaBackground";
+import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 const About = () => {
   return (
@@ -63,27 +64,103 @@ const About = () => {
             </h2>
             
             <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-white/50 rounded-lg p-6 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
-                <h3 className="text-xl font-semibold text-primary-dark">Abishai K C</h3>
-                <p className="text-gray-600 font-medium">Team Leader</p>
-                <div className="mt-4 space-y-2">
-                  <p className="text-gray-700"><span className="font-medium">College:</span> Saveetha Engineering College</p>
-                  <p className="text-gray-700"><span className="font-medium">Branch:</span> BTech AIML</p>
-                  <p className="text-gray-700"><span className="font-medium">Semester:</span> III</p>
-                  <p className="text-gray-700"><span className="font-medium">Email:</span> abishaioff@gmail.com</p>
-                </div>
-              </div>
+              <HoverCard>
+                <HoverCardTrigger asChild>
+                  <div className="bg-white/50 rounded-lg p-6 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
+                    <h3 className="text-xl font-semibold text-primary-dark">Abishai K C</h3>
+                    <p className="text-gray-600 font-medium">Team Leader</p>
+                    <div className="mt-4 space-y-2">
+                      <p className="text-gray-700"><span className="font-medium">College:</span> Saveetha Engineering College</p>
+                      <p className="text-gray-700"><span className="font-medium">Branch:</span> BTech AIML</p>
+                      <p className="text-gray-700"><span className="font-medium">Semester:</span> III</p>
+                    </div>
+                  </div>
+                </HoverCardTrigger>
+                <HoverCardContent className="w-80 bg-white/95 backdrop-blur-sm">
+                  <div className="flex justify-between space-x-4">
+                    <Avatar className="w-24 h-24">
+                      <AvatarImage src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d" />
+                      <AvatarFallback>AK</AvatarFallback>
+                    </Avatar>
+                    <div className="space-y-4">
+                      <div className="space-y-1">
+                        <h4 className="text-lg font-semibold">Contact Information</h4>
+                        <div className="flex items-center space-x-2">
+                          <Mail className="w-4 h-4" />
+                          <a href="mailto:abishaioff@gmail.com" className="text-sm text-blue-600 hover:underline">
+                            abishaioff@gmail.com
+                          </a>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <Github className="w-4 h-4" />
+                          <a href="https://github.com/abishai" target="_blank" rel="noopener noreferrer" className="text-sm text-blue-600 hover:underline">
+                            GitHub Profile
+                          </a>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <Linkedin className="w-4 h-4" />
+                          <a href="https://linkedin.com/in/abishai" target="_blank" rel="noopener noreferrer" className="text-sm text-blue-600 hover:underline">
+                            LinkedIn Profile
+                          </a>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <Phone className="w-4 h-4" />
+                          <span className="text-sm">+91 9876543210</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </HoverCardContent>
+              </HoverCard>
               
-              <div className="bg-white/50 rounded-lg p-6 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
-                <h3 className="text-xl font-semibold text-primary-dark">S Mohamed Ahsan</h3>
-                <p className="text-gray-600 font-medium">Team Member</p>
-                <div className="mt-4 space-y-2">
-                  <p className="text-gray-700"><span className="font-medium">College:</span> Saveetha Engineering College</p>
-                  <p className="text-gray-700"><span className="font-medium">Branch:</span> BTech AIML</p>
-                  <p className="text-gray-700"><span className="font-medium">Semester:</span> III</p>
-                  <p className="text-gray-700"><span className="font-medium">Email:</span> ahsansaleem2006@gmail.com</p>
-                </div>
-              </div>
+              <HoverCard>
+                <HoverCardTrigger asChild>
+                  <div className="bg-white/50 rounded-lg p-6 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
+                    <h3 className="text-xl font-semibold text-primary-dark">S Mohamed Ahsan</h3>
+                    <p className="text-gray-600 font-medium">Team Member</p>
+                    <div className="mt-4 space-y-2">
+                      <p className="text-gray-700"><span className="font-medium">College:</span> Saveetha Engineering College</p>
+                      <p className="text-gray-700"><span className="font-medium">Branch:</span> BTech AIML</p>
+                      <p className="text-gray-700"><span className="font-medium">Semester:</span> III</p>
+                    </div>
+                  </div>
+                </HoverCardTrigger>
+                <HoverCardContent className="w-80 bg-white/95 backdrop-blur-sm">
+                  <div className="flex justify-between space-x-4">
+                    <Avatar className="w-24 h-24">
+                      <AvatarImage src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158" />
+                      <AvatarFallback>MA</AvatarFallback>
+                    </Avatar>
+                    <div className="space-y-4">
+                      <div className="space-y-1">
+                        <h4 className="text-lg font-semibold">Contact Information</h4>
+                        <div className="flex items-center space-x-2">
+                          <Mail className="w-4 h-4" />
+                          <a href="mailto:ahsansaleem2006@gmail.com" className="text-sm text-blue-600 hover:underline">
+                            ahsansaleem2006@gmail.com
+                          </a>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <Github className="w-4 h-4" />
+                          <a href="https://github.com/ahsan" target="_blank" rel="noopener noreferrer" className="text-sm text-blue-600 hover:underline">
+                            GitHub Profile
+                          </a>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <Linkedin className="w-4 h-4" />
+                          <a href="https://linkedin.com/in/ahsan" target="_blank" rel="noopener noreferrer" className="text-sm text-blue-600 hover:underline">
+                            LinkedIn Profile
+                          </a>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <Phone className="w-4 h-4" />
+                          <span className="text-sm">+91 9876543210</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </HoverCardContent>
+              </HoverCard>
             </div>
           </div>
         </div>
