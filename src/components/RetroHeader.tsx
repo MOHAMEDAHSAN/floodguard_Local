@@ -1,30 +1,29 @@
+```typescript
 import { Link } from "react-router-dom";
 import { Sun, Moon } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useToast } from "@/components/ui/use-toast";
 
 export const RetroHeader = () => {
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(() => {
+    const storedTheme = localStorage.getItem('theme');
+    return storedTheme === 'dark' || (!storedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  });
   const { toast } = useToast();
 
   useEffect(() => {
-    // Check if user prefers dark mode
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      setIsDark(true);
+    // Apply initial theme
+    if (isDark) {
       document.documentElement.classList.add('dark');
-    }
-
-    // Check for stored theme preference
-    const storedTheme = localStorage.getItem('theme');
-    if (storedTheme === 'dark') {
-      setIsDark(true);
-      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
     }
   }, []);
 
   const toggleTheme = () => {
-    setIsDark(!isDark);
-    if (!isDark) {
+    const newIsDark = !isDark;
+    setIsDark(newIsDark);
+    if (newIsDark) {
       document.documentElement.classList.add('dark');
       localStorage.setItem('theme', 'dark');
       toast({
@@ -101,3 +100,4 @@ export const RetroHeader = () => {
     </div>
   );
 };
+```

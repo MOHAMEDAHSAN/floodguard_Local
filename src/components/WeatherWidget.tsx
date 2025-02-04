@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import { useToast } from "@/components/ui/use-toast";
 import { Thermometer, Cloud, Wind, Droplet, CloudRain, AlertTriangle, Clock } from "lucide-react";
@@ -59,12 +60,12 @@ export const WeatherWidget = () => {
 
   if (loading) {
     return (
-      <div className="animate-pulse bg-white/80 dark:bg-black/20 backdrop-blur-lg rounded-xl p-8 shadow-lg space-y-6">
-        <div className="h-20 bg-gray-200 dark:bg-gray-800 rounded"></div>
+      <div className="animate-pulse bg-white/5 dark:bg-black/10 backdrop-blur-xl rounded-xl p-8 shadow-lg border border-white/20 dark:border-white/10 space-y-6">
+        <div className="h-20 bg-gray-200/50 dark:bg-gray-800/50 rounded"></div>
         <div className="space-y-4">
-          <div className="h-8 bg-gray-200 dark:bg-gray-800 rounded w-1/3"></div>
-          <div className="h-6 bg-gray-200 dark:bg-gray-800 rounded w-1/2"></div>
-          <div className="h-6 bg-gray-200 dark:bg-gray-800 rounded w-2/3"></div>
+          <div className="h-8 bg-gray-200/50 dark:bg-gray-800/50 rounded w-1/3"></div>
+          <div className="h-6 bg-gray-200/50 dark:bg-gray-800/50 rounded w-1/2"></div>
+          <div className="h-6 bg-gray-200/50 dark:bg-gray-800/50 rounded w-2/3"></div>
         </div>
       </div>
     );
@@ -73,60 +74,60 @@ export const WeatherWidget = () => {
   if (!weather) return null;
 
   return (
-    <div className="bg-white/80 dark:bg-black/20 backdrop-blur-lg rounded-xl p-8 shadow-lg space-y-6">
-      <div className="flex items-center space-x-3 text-primary dark:text-primary-light">
+    <div className="bg-white/5 dark:bg-black/10 backdrop-blur-xl rounded-xl p-8 shadow-lg border border-white/20 dark:border-white/10 space-y-6 transition-all duration-300">
+      <div className="flex items-center space-x-3 text-primary/90 dark:text-primary-light">
         <Cloud className="w-6 h-6" />
         <h2 className="text-xl font-semibold">Location Insights</h2>
       </div>
 
-      <div className="bg-primary/5 dark:bg-primary-dark/30 rounded-xl p-6 space-y-4">
+      <div className="bg-white/5 dark:bg-[#0f1117]/80 rounded-xl p-6 space-y-4 border border-white/10">
         <div className="flex items-center space-x-3">
-          <Thermometer className="w-6 h-6 text-primary dark:text-primary-light" />
-          <h3 className="text-lg font-medium text-gray-700 dark:text-gray-300">Weather Conditions</h3>
+          <Thermometer className="w-6 h-6 text-cyan-400" />
+          <h3 className="text-lg font-medium text-gray-200/90">Weather Conditions</h3>
         </div>
         
         <div className="space-y-2">
-          <div className="text-4xl font-bold text-primary-dark dark:text-primary-light">
+          <div className="text-4xl font-bold text-cyan-400">
             {weather.current.temp_c}°C
           </div>
-          <div className="text-lg text-gray-600 dark:text-gray-400">{weather.current.condition.text}</div>
-          <div className="text-sm text-gray-500 dark:text-gray-500">
+          <div className="text-lg text-gray-300/90">{weather.current.condition.text}</div>
+          <div className="text-sm text-gray-400/80">
             Feels like {weather.current.feelslike_c}°C • UV Index: 0
           </div>
         </div>
       </div>
 
       <div className="grid grid-cols-2 gap-4">
-        <div className="bg-primary/5 dark:bg-primary-dark/30 rounded-xl p-4 space-y-2">
-          <div className="flex items-center space-x-2 text-primary dark:text-primary-light">
+        <div className="bg-white/5 dark:bg-[#0f1117]/80 rounded-xl p-4 space-y-2 border border-white/10">
+          <div className="flex items-center space-x-2 text-cyan-400">
             <Wind className="w-5 h-5" />
             <span className="text-sm font-medium">Wind Speed</span>
           </div>
-          <div className="text-2xl font-semibold text-primary-dark dark:text-primary-light">
+          <div className="text-2xl font-semibold text-gray-200">
             {weather.current.wind_kph} km/h
           </div>
         </div>
 
-        <div className="bg-primary/5 dark:bg-primary-dark/30 rounded-xl p-4 space-y-2">
-          <div className="flex items-center space-x-2 text-primary dark:text-primary-light">
+        <div className="bg-white/5 dark:bg-[#0f1117]/80 rounded-xl p-4 space-y-2 border border-white/10">
+          <div className="flex items-center space-x-2 text-cyan-400">
             <Droplet className="w-5 h-5" />
             <span className="text-sm font-medium">Humidity</span>
           </div>
-          <div className="text-2xl font-semibold text-primary-dark dark:text-primary-light">
+          <div className="text-2xl font-semibold text-gray-200">
             {weather.current.humidity}%
           </div>
         </div>
       </div>
 
-      <div className="border-t border-gray-200 dark:border-gray-800 pt-4 space-y-4">
-        <div className="flex items-center space-x-2 text-gray-600 dark:text-gray-400">
+      <div className="border-t border-white/10 pt-4 space-y-4">
+        <div className="flex items-center space-x-2 text-gray-300/90">
           <AlertTriangle className="w-5 h-5" />
           <span className="text-sm">Nearby Alerts</span>
         </div>
-        <div className="text-gray-500 dark:text-gray-500">No alerts in your area</div>
+        <div className="text-gray-400/80">No alerts in your area</div>
       </div>
 
-      <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-500">
+      <div className="flex items-center justify-between text-sm text-gray-400/80">
         <div className="flex items-center space-x-1">
           <Clock className="w-4 h-4" />
           <span>Last updated</span>

@@ -1,3 +1,4 @@
+
 import { useEffect, useRef, useState } from 'react';
 
 declare global {
@@ -12,6 +13,7 @@ export const VantaBackground = () => {
   const vantaRef = useRef<HTMLDivElement>(null);
   const vantaEffect = useRef<any>(null);
   const [isScriptLoaded, setIsScriptLoaded] = useState(false);
+  const [isDark, setIsDark] = useState(document.documentElement.classList.contains('dark'));
 
   useEffect(() => {
     const checkVanta = () => {
@@ -26,9 +28,30 @@ export const VantaBackground = () => {
   }, []);
 
   useEffect(() => {
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'class') {
+          setIsDark(document.documentElement.classList.contains('dark'));
+        }
+      });
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class'],
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
     if (!vantaRef.current || !isScriptLoaded || !window.VANTA) return;
 
     try {
+      if (vantaEffect.current) {
+        vantaEffect.current.destroy();
+      }
+
       vantaEffect.current = window.VANTA.CLOUDS({
         el: vantaRef.current,
         mouseControls: true,
@@ -36,16 +59,16 @@ export const VantaBackground = () => {
         gyroControls: false,
         minHeight: 200.00,
         minWidth: 200.00,
-        backgroundColor: 0xe8f7ff,
-        cloudColor: 0xffffff,
-        cloudShadowColor: 0x183550,
-        sunColor: 0xff9919,
-        sunGlareColor: 0xff6533,
-        sunlightColor: 0xff9933,
+        backgroundColor: isDark ? 0x1a1f2c : 0xf0f8ff,
+        cloudColor: isDark ? 0x2a3142 : 0xffffff,
+        cloudShadowColor: isDark ? 0x000000 : 0x183550,
+        sunColor: isDark ? 0x1a1f2c : 0xff9919,
+        sunGlareColor: isDark ? 0x2a3142 : 0xff6533,
+        sunlightColor: isDark ? 0x2a3142 : 0xff9933,
         speed: 0.6,
         scale: 1.5,
         scaleMobile: 1.5,
-        skyColor: 0x68b8d7,
+        skyColor: isDark ? 0x141824 : 0x87ceeb,
         quantity: 4,
       });
 
@@ -57,7 +80,7 @@ export const VantaBackground = () => {
     } catch (error) {
       console.error('Error initializing VANTA:', error);
     }
-  }, [isScriptLoaded]);
+  }, [isScriptLoaded, isDark]);
 
   return (
     <div 
