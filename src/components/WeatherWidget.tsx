@@ -31,7 +31,7 @@ export const WeatherWidget = () => {
     const fetchWeather = async (lat: number, lon: number) => {
       try {
         const response = await fetch(
-          `https://api.weatherapi.com/v1/current.json?key=08664519520f4182acd154355250402&q=${lat},${lon}&aqi=no`
+          `https://api.weatherapi.com/v1/current.json?key=d785347b2ff94fe593082140252301&q=${lat},${lon}&aqi=no`
         );
         
         if (!response.ok) {
@@ -115,11 +115,11 @@ export const WeatherWidget = () => {
         
         <div className="space-y-2">
           <div className="text-4xl font-bold text-cyan-400">
-            {weather.current.temp_c}°C
+            {weather?.current.temp_c}°C
           </div>
-          <div className="text-lg text-gray-300/90">{weather.current.condition.text}</div>
+          <div className="text-lg text-gray-300/90">{weather?.current.condition.text}</div>
           <div className="text-sm text-gray-400/80">
-            Feels like {weather.current.feelslike_c}°C • UV Index: 0
+            Feels like {weather?.current.feelslike_c}°C • UV Index: 0
           </div>
         </div>
       </div>
@@ -131,7 +131,7 @@ export const WeatherWidget = () => {
             <span className="text-sm font-medium">Wind Speed</span>
           </div>
           <div className="text-2xl font-semibold text-gray-200">
-            {weather.current.wind_kph} km/h
+            {weather?.current.wind_kph} km/h
           </div>
         </div>
 
@@ -141,7 +141,7 @@ export const WeatherWidget = () => {
             <span className="text-sm font-medium">Humidity</span>
           </div>
           <div className="text-2xl font-semibold text-gray-200">
-            {weather.current.humidity}%
+            {weather?.current.humidity}%
           </div>
         </div>
       </div>
