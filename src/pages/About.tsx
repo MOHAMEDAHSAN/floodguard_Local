@@ -62,83 +62,79 @@ const About = () => {
               Meet Our Team
             </h2>
             
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 gap-8">
               {/* Team Member 1 */}
-              <div className="group relative bg-white/50 rounded-lg p-6 hover:shadow-lg transition-all duration-500 cursor-pointer overflow-hidden hover:pr-72">
-                <div className="relative z-10">
-                  <div className="flex items-start gap-4">
-                    <Avatar className="w-16 h-16 border-2 border-primary">
-                      <AvatarImage src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d" />
-                      <AvatarFallback>AK</AvatarFallback>
-                    </Avatar>
-                    <div>
-                      <h3 className="text-xl font-semibold text-primary-dark">Abishai K C</h3>
-                      <p className="text-gray-600 font-medium">Team Leader</p>
+              <div className="group relative bg-white/50 rounded-lg p-6 transition-all duration-500 cursor-pointer">
+                <div className="flex items-start gap-4">
+                  <Avatar className="w-16 h-16 border-2 border-primary">
+                    <AvatarImage src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d" />
+                    <AvatarFallback>AK</AvatarFallback>
+                  </Avatar>
+                  <div>
+                    <h3 className="text-xl font-semibold text-primary-dark">Abishai K C</h3>
+                    <p className="text-gray-600 font-medium">Team Leader</p>
+                    <div className="mt-4 space-y-2">
+                      <p className="text-gray-700"><span className="font-medium">College:</span> Saveetha Engineering College</p>
+                      <p className="text-gray-700"><span className="font-medium">Branch:</span> BTech AIML</p>
+                      <p className="text-gray-700"><span className="font-medium">Semester:</span> III</p>
                     </div>
                   </div>
-                  <div className="mt-4 space-y-2">
-                    <p className="text-gray-700"><span className="font-medium">College:</span> Saveetha Engineering College</p>
-                    <p className="text-gray-700"><span className="font-medium">Branch:</span> BTech AIML</p>
-                    <p className="text-gray-700"><span className="font-medium">Semester:</span> III</p>
-                  </div>
-                </div>
-                
-                <div className="absolute right-0 top-0 h-full w-64 bg-white/95 transform translate-x-full group-hover:translate-x-0 transition-transform duration-500 p-6 flex flex-col justify-center space-y-4 border-l border-primary/20">
-                  <a href="mailto:abishaioff@gmail.com" className="flex items-center space-x-2 text-primary hover:text-primary-dark transition-colors">
-                    <Mail className="w-5 h-5" />
-                    <span>abishaioff@gmail.com</span>
-                  </a>
-                  <a href="https://github.com/abishai" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-primary hover:text-primary-dark transition-colors">
-                    <Github className="w-5 h-5" />
-                    <span>GitHub Profile</span>
-                  </a>
-                  <a href="https://linkedin.com/in/abishai" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-primary hover:text-primary-dark transition-colors">
-                    <Linkedin className="w-5 h-5" />
-                    <span>LinkedIn Profile</span>
-                  </a>
-                  <div className="flex items-center space-x-2 text-primary">
-                    <Phone className="w-5 h-5" />
-                    <span>+91 9876543210</span>
+                  
+                  <div className="absolute right-0 top-0 h-full w-0 bg-white/95 group-hover:w-64 transition-all duration-500 overflow-hidden rounded-r-lg flex flex-col justify-center space-y-4 px-6">
+                    <a href="mailto:abishaioff@gmail.com" className="flex items-center space-x-2 text-primary hover:text-primary-dark transition-colors">
+                      <Mail className="w-5 h-5" />
+                      <span>abishaioff@gmail.com</span>
+                    </a>
+                    <a href="https://github.com/abishai" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-primary hover:text-primary-dark transition-colors">
+                      <Github className="w-5 h-5" />
+                      <span>GitHub Profile</span>
+                    </a>
+                    <a href="https://linkedin.com/in/abishai" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-primary hover:text-primary-dark transition-colors">
+                      <Linkedin className="w-5 h-5" />
+                      <span>LinkedIn Profile</span>
+                    </a>
+                    <div className="flex items-center space-x-2 text-primary">
+                      <Phone className="w-5 h-5" />
+                      <span>+91 9876543210</span>
+                    </div>
                   </div>
                 </div>
               </div>
 
               {/* Team Member 2 */}
-              <div className="group relative bg-white/50 rounded-lg p-6 hover:shadow-lg transition-all duration-500 cursor-pointer overflow-hidden hover:pl-72">
-                <div className="relative z-10">
-                  <div className="flex items-start gap-4">
-                    <Avatar className="w-16 h-16 border-2 border-primary">
-                      <AvatarImage src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158" />
-                      <AvatarFallback>MA</AvatarFallback>
-                    </Avatar>
-                    <div>
-                      <h3 className="text-xl font-semibold text-primary-dark">S Mohamed Ahsan</h3>
-                      <p className="text-gray-600 font-medium">Team Member</p>
+              <div className="group relative bg-white/50 rounded-lg p-6 transition-all duration-500 cursor-pointer">
+                <div className="flex items-start gap-4">
+                  <Avatar className="w-16 h-16 border-2 border-primary">
+                    <AvatarImage src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158" />
+                    <AvatarFallback>MA</AvatarFallback>
+                  </Avatar>
+                  <div>
+                    <h3 className="text-xl font-semibold text-primary-dark">S Mohamed Ahsan</h3>
+                    <p className="text-gray-600 font-medium">Team Member</p>
+                    <div className="mt-4 space-y-2">
+                      <p className="text-gray-700"><span className="font-medium">College:</span> Saveetha Engineering College</p>
+                      <p className="text-gray-700"><span className="font-medium">Branch:</span> BTech AIML</p>
+                      <p className="text-gray-700"><span className="font-medium">Semester:</span> III</p>
                     </div>
                   </div>
-                  <div className="mt-4 space-y-2">
-                    <p className="text-gray-700"><span className="font-medium">College:</span> Saveetha Engineering College</p>
-                    <p className="text-gray-700"><span className="font-medium">Branch:</span> BTech AIML</p>
-                    <p className="text-gray-700"><span className="font-medium">Semester:</span> III</p>
-                  </div>
-                </div>
-                
-                <div className="absolute left-0 top-0 h-full w-64 bg-white/95 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 p-6 flex flex-col justify-center space-y-4 border-r border-primary/20">
-                  <a href="mailto:ahsansaleem2006@gmail.com" className="flex items-center space-x-2 text-primary hover:text-primary-dark transition-colors">
-                    <Mail className="w-5 h-5" />
-                    <span>ahsansaleem2006@gmail.com</span>
-                  </a>
-                  <a href="https://github.com/ahsan" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-primary hover:text-primary-dark transition-colors">
-                    <Github className="w-5 h-5" />
-                    <span>GitHub Profile</span>
-                  </a>
-                  <a href="https://linkedin.com/in/ahsan" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-primary hover:text-primary-dark transition-colors">
-                    <Linkedin className="w-5 h-5" />
-                    <span>LinkedIn Profile</span>
-                  </a>
-                  <div className="flex items-center space-x-2 text-primary">
-                    <Phone className="w-5 h-5" />
-                    <span>+91 9876543210</span>
+                  
+                  <div className="absolute right-0 top-0 h-full w-0 bg-white/95 group-hover:w-64 transition-all duration-500 overflow-hidden rounded-r-lg flex flex-col justify-center space-y-4 px-6">
+                    <a href="mailto:ahsansaleem2006@gmail.com" className="flex items-center space-x-2 text-primary hover:text-primary-dark transition-colors">
+                      <Mail className="w-5 h-5" />
+                      <span>ahsansaleem2006@gmail.com</span>
+                    </a>
+                    <a href="https://github.com/ahsan" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-primary hover:text-primary-dark transition-colors">
+                      <Github className="w-5 h-5" />
+                      <span>GitHub Profile</span>
+                    </a>
+                    <a href="https://linkedin.com/in/ahsan" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-primary hover:text-primary-dark transition-colors">
+                      <Linkedin className="w-5 h-5" />
+                      <span>LinkedIn Profile</span>
+                    </a>
+                    <div className="flex items-center space-x-2 text-primary">
+                      <Phone className="w-5 h-5" />
+                      <span>+91 9876543210</span>
+                    </div>
                   </div>
                 </div>
               </div>
