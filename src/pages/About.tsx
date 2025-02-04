@@ -66,7 +66,7 @@ const About = () => {
               {/* Team Member 1 */}
               <div className="group relative bg-white/50 rounded-lg p-6 transition-all duration-500">
                 <div className="flex items-start gap-4">
-                  <Avatar className="w-24 h-24 border-2 border-primary transition-all duration-300">
+                  <Avatar className="w-32 h-32 border-2 border-primary transition-all duration-300">
                     <AvatarImage src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d" />
                     <AvatarFallback>AK</AvatarFallback>
                   </Avatar>
@@ -104,7 +104,7 @@ const About = () => {
               {/* Team Member 2 */}
               <div className="group relative bg-white/50 rounded-lg p-6 transition-all duration-500">
                 <div className="flex items-start gap-4">
-                  <Avatar className="w-24 h-24 border-2 border-primary transition-all duration-300">
+                  <Avatar className="w-32 h-32 border-2 border-primary transition-all duration-300">
                     <AvatarImage src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158" />
                     <AvatarFallback>MA</AvatarFallback>
                   </Avatar>
@@ -133,7 +133,7 @@ const About = () => {
                     </a>
                     <div className="flex items-center space-x-2 text-primary">
                       <Phone className="w-5 h-5" />
-                      <span>+91 9876543210</span>
+                      <span>+91 9884261429</span>
                     </div>
                   </div>
                 </div>
