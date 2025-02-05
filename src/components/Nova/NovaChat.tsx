@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, X, Send } from "lucide-react";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -250,7 +251,7 @@ const handleResponse = (userInput: string) => {
               />
               <Button
                 onClick={handleSend}
-                className="rounded-full bg-[#222] hover:bg-[#333] dark:bg-[#333] dark:hover:bg-[#444] text-white"
+                className="rounded-full bg-[#00BCD4] hover:bg-[#00ACC1] text-white dark:bg-[#333] dark:hover:bg-[#444]"
               >
                 <Send className="w-4 h-4" />
               </Button>
