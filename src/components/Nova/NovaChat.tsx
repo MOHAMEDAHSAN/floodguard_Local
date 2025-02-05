@@ -258,9 +258,9 @@ const handleResponse = (userInput: string) => {
               />
               <Button
                 onClick={handleSend}
-                className="rounded-full bg-[#222] hover:bg-[#333] dark:bg-[#333] dark:hover:bg-[#444] text-white"
+                className="rounded-full bg-primary/10 hover:bg-primary/20 dark:bg-[#333] dark:hover:bg-[#444]"
               >
-                <Send className="w-4 h-4" />
+                <Send className="w-4 h-4 text-primary dark:text-white" />
               </Button>
             </div>
           </div>
