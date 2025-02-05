@@ -75,40 +75,21 @@ export const NovaChat = ({ fullScreen = false }: NovaChatProps) => {
     }
   };
 
-  const handleOptionClick = (option: string) => {
-    setMessages(prev => [...prev, { type: 'user', content: option }]);
-    handleResponse(option);
-  };
-
-  const handleSend = async () => {
-    if (!input.trim() || isLoading) return;
-    
-    const correctedInput = autocorrect(input);
-    if (correctedInput !== input) {
-      toast({
-        description: "I've corrected some spelling to better understand your question.",
-        duration: 3000
-      });
-    }
-
-    setMessages(prev => [...prev, { type: 'user', content: correctedInput }]);
-    setInput("");
-    
+  const handleResponse = async (userMessage: string) => {
+    setIsLoading(true);
     try {
-      setIsLoading(true);
-      
       // Store user message in Supabase
       const { error: insertError } = await supabase
         .from('chat_messages')
         .insert([
-          { content: correctedInput, type: 'user' }
+          { content: userMessage, type: 'user' }
         ]);
 
       if (insertError) throw insertError;
 
       // Get AI response from DeepSeek
       const response = await supabase.functions.invoke('chat', {
-        body: { message: correctedInput, context: messages.slice(-5) }
+        body: { message: userMessage, context: messages.slice(-5) }
       });
 
       if (response.error) throw response.error;
@@ -135,6 +116,27 @@ export const NovaChat = ({ fullScreen = false }: NovaChatProps) => {
     } finally {
       setIsLoading(false);
     }
+  };
+
+  const handleOptionClick = (option: string) => {
+    setMessages(prev => [...prev, { type: 'user', content: option }]);
+    handleResponse(option);
+  };
+
+  const handleSend = async () => {
+    if (!input.trim() || isLoading) return;
+    
+    const correctedInput = autocorrect(input);
+    if (correctedInput !== input) {
+      toast({
+        description: "I've corrected some spelling to better understand your question.",
+        duration: 3000
+      });
+    }
+
+    setMessages(prev => [...prev, { type: 'user', content: correctedInput }]);
+    setInput("");
+    handleResponse(correctedInput);
   };
 
   return (
