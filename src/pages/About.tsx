@@ -1,3 +1,4 @@
+
 import RetroHeader from "@/components/RetroHeader";
 import { AlertTriangle, Building2, Brain, Users, Github, Linkedin, Mail, Phone } from "lucide-react";
 import { VantaBackground } from "@/components/VantaBackground";
@@ -85,11 +86,11 @@ const About = () => {
                       <Mail className="w-5 h-5" />
                       <span>Email</span>
                     </a>
-                    <a href="https://github.com/abishai" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-primary hover:text-primary-dark transition-colors">
+                    <a href="https://github.com/Abishai95141" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-primary hover:text-primary-dark transition-colors">
                       <Github className="w-5 h-5" />
                       <span>GitHub</span>
                     </a>
-                    <a href="https://linkedin.com/in/abishai" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-primary hover:text-primary-dark transition-colors">
+                    <a href="https://www.linkedin.com/in/abishai-k-c-6a5288271/" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-primary hover:text-primary-dark transition-colors">
                       <Linkedin className="w-5 h-5" />
                       <span>LinkedIn</span>
                     </a>
@@ -119,11 +120,11 @@ const About = () => {
                       <Mail className="w-5 h-5" />
                       <span>Email</span>
                     </a>
-                    <a href="https://github.com/ahsan" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-primary hover:text-primary-dark transition-colors">
+                    <a href="https://github.com/MOHAMEDAHSAN" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-primary hover:text-primary-dark transition-colors">
                       <Github className="w-5 h-5" />
                       <span>GitHub</span>
                     </a>
-                    <a href="https://linkedin.com/in/ahsan" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-primary hover:text-primary-dark transition-colors">
+                    <a href="https://www.linkedin.com/in/mohamedahsan037/" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-primary hover:text-primary-dark transition-colors">
                       <Linkedin className="w-5 h-5" />
                       <span>LinkedIn</span>
                     </a>
