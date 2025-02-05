@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, X, Send } from "lucide-react";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -61,13 +61,6 @@ export const NovaChat = ({ fullScreen = false }: NovaChatProps) => {
   const [input, setInput] = useState("");
   const [location, setLocation] = useState<Location>(defaultLocation);
   const { toast } = useToast();
-  const scrollRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollIntoView({ behavior: "smooth", block: "end" });
-    }
-  }, [messages]);
 
   const requestLocationPermission = async () => {
     if ("geolocation" in navigator) {
@@ -242,7 +235,6 @@ const handleResponse = (userInput: string) => {
                   )}
                 </div>
               ))}
-              <div ref={scrollRef} />
             </div>
           </ScrollArea>
 
@@ -258,9 +250,9 @@ const handleResponse = (userInput: string) => {
               />
               <Button
                 onClick={handleSend}
-                className="rounded-full bg-primary/10 hover:bg-primary/20 dark:bg-[#333] dark:hover:bg-[#444]"
+                className="rounded-full bg-[#222] hover:bg-[#333] dark:bg-[#333] dark:hover:bg-[#444] text-white"
               >
-                <Send className="w-4 h-4 text-primary dark:text-white" />
+                <Send className="w-4 h-4" />
               </Button>
             </div>
           </div>
