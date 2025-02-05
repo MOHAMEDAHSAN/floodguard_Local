@@ -66,7 +66,7 @@ const About = () => {
               {/* Team Member 1 */}
               <div className="group relative bg-white/50 rounded-lg p-6 transition-all duration-500">
                 <div className="flex items-start gap-4">
-                  <Avatar className="w-32 h-32 border-2 border-primary transition-all duration-300">
+                  <Avatar className="w-40 h-40 rounded-xl border-2 border-primary transition-all duration-300">
                     <AvatarImage src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d" />
                     <AvatarFallback>AK</AvatarFallback>
                   </Avatar>
@@ -80,10 +80,10 @@ const About = () => {
                     </div>
                   </div>
                   
-                  <div className="absolute right-0 top-0 h-full w-0 bg-white/95 group-hover:w-64 transition-all duration-500 overflow-hidden rounded-r-lg flex flex-col justify-center space-y-4 px-6">
+                  <div className="absolute right-0 top-0 h-full w-0 bg-gradient-to-r from-white/95 to-primary/10 group-hover:w-64 transition-all duration-500 overflow-hidden rounded-r-lg flex flex-col justify-center space-y-4 px-6 opacity-0 group-hover:opacity-100">
                     <a href="mailto:abishaioff@gmail.com" className="flex items-center space-x-2 text-primary hover:text-primary-dark transition-colors">
                       <Mail className="w-5 h-5" />
-                      <span>abishaioff@gmail.com</span>
+                      <span>Email</span>
                     </a>
                     <a href="https://github.com/abishai" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-primary hover:text-primary-dark transition-colors">
                       <Github className="w-5 h-5" />
@@ -93,10 +93,6 @@ const About = () => {
                       <Linkedin className="w-5 h-5" />
                       <span>LinkedIn</span>
                     </a>
-                    <div className="flex items-center space-x-2 text-primary">
-                      <Phone className="w-5 h-5" />
-                      <span>+91 9876543210</span>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -104,8 +100,8 @@ const About = () => {
               {/* Team Member 2 */}
               <div className="group relative bg-white/50 rounded-lg p-6 transition-all duration-500">
                 <div className="flex items-start gap-4">
-                  <Avatar className="w-32 h-32 border-2 border-primary transition-all duration-300">
-                    <AvatarImage src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158" />
+                  <Avatar className="w-40 h-40 rounded-xl border-2 border-primary transition-all duration-300">
+                    <AvatarImage src="/lovable-uploads/072104fc-2f8d-429a-9bd9-c01c367c7b4e.png" />
                     <AvatarFallback>MA</AvatarFallback>
                   </Avatar>
                   <div>
@@ -118,10 +114,10 @@ const About = () => {
                     </div>
                   </div>
                   
-                  <div className="absolute right-0 top-0 h-full w-0 bg-white/95 group-hover:w-64 transition-all duration-500 overflow-hidden rounded-r-lg flex flex-col justify-center space-y-4 px-6">
+                  <div className="absolute right-0 top-0 h-full w-0 bg-gradient-to-r from-white/95 to-primary/10 group-hover:w-64 transition-all duration-500 overflow-hidden rounded-r-lg flex flex-col justify-center space-y-4 px-6 opacity-0 group-hover:opacity-100">
                     <a href="mailto:ahsansaleem2006@gmail.com" className="flex items-center space-x-2 text-primary hover:text-primary-dark transition-colors">
                       <Mail className="w-5 h-5" />
-                      <span>ahsansaleem2006@gmail.com</span>
+                      <span>Email</span>
                     </a>
                     <a href="https://github.com/ahsan" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-primary hover:text-primary-dark transition-colors">
                       <Github className="w-5 h-5" />
@@ -131,10 +127,6 @@ const About = () => {
                       <Linkedin className="w-5 h-5" />
                       <span>LinkedIn</span>
                     </a>
-                    <div className="flex items-center space-x-2 text-primary">
-                      <Phone className="w-5 h-5" />
-                      <span>+91 9884261429</span>
-                    </div>
                   </div>
                 </div>
               </div>
