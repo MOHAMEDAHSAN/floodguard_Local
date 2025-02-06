@@ -46,71 +46,31 @@ export const NovaChat = ({ fullScreen = false }: NovaChatProps) => {
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
 
-  const requestLocationPermission = async () => {
-    if ("geolocation" in navigator) {
-      try {
-        const position = await new Promise<GeolocationPosition>((resolve, reject) => {
-          navigator.geolocation.getCurrentPosition(resolve, reject);
-        });
-        
-        setLocation(prev => ({
-          ...prev,
-          coordinates: {
-            latitude: position.coords.latitude,
-            longitude: position.coords.longitude
-          }
-        }));
-
-        toast({
-          description: "Location updated to Chennai, Tamil Nadu",
-          duration: 3000
-        });
-      } catch (error) {
-        toast({
-          variant: "destructive",
-          description: "Unable to access location. Using default Chennai location.",
-          duration: 3000
-        });
-      }
-    }
-  };
-
   const handleResponse = async (userMessage: string) => {
     setIsLoading(true);
     try {
-      // Store user message
-      const { error: insertError } = await supabase
-        .from('chat_messages')
-        .insert([{ 
-          content: userMessage, 
-          type: 'user'
-        }]);
-
-      if (insertError) throw insertError;
+      // Add user message to the chat
+      setMessages(prev => [...prev, { type: 'user', content: userMessage }]);
 
       // Get AI response from DeepSeek
       const response = await supabase.functions.invoke('chat', {
-        body: { message: userMessage, context: messages.slice(-5) }
+        body: { 
+          message: userMessage, 
+          context: messages.slice(-5) 
+        }
       });
 
-      if (response.error) throw response.error;
+      if (response.error) {
+        throw new Error(response.error.message);
+      }
+
+      if (!response.data) {
+        throw new Error('No response data received');
+      }
 
       const aiMessage = response.data;
-      
-      // Store AI response
-      const { error: botInsertError } = await supabase
-        .from('chat_messages')
-        .insert([{ 
-          content: aiMessage.content, 
-          type: 'bot'
-        }]);
+      setMessages(prev => [...prev, aiMessage]);
 
-      if (botInsertError) throw botInsertError;
-
-      setMessages(prev => [...prev, 
-        { type: 'user', content: userMessage },
-        aiMessage
-      ]);
     } catch (error) {
       console.error('Error:', error);
       toast({

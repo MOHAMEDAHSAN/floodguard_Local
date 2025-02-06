@@ -33,6 +33,7 @@ Emergency contacts:
 - Emergency Services: 108`;
 
 serve(async (req) => {
+  // Handle CORS preflight requests
   if (req.method === 'OPTIONS') {
     return new Response(null, { headers: corsHeaders });
   }
@@ -60,11 +61,17 @@ serve(async (req) => {
       content: message
     });
 
+    const DEEPSEEK_API_KEY = Deno.env.get('DEEPSEEK_API_KEY');
+    if (!DEEPSEEK_API_KEY) {
+      throw new Error('DeepSeek API key not found');
+    }
+
+    console.log('Making request to DeepSeek API...');
     const deepseekResponse = await fetch('https://api.deepseek.com/v1/chat/completions', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${Deno.env.get('DEEPSEEK_API_KEY')}`
+        'Authorization': `Bearer ${DEEPSEEK_API_KEY}`
       },
       body: JSON.stringify({
         model: 'deepseek-chat',
