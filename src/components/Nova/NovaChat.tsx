@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, X } from "lucide-react";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -42,7 +42,7 @@ export const NovaChat = ({ fullScreen = false }: NovaChatProps) => {
   const [isOpen, setIsOpen] = useState(fullScreen);
   const [messages, setMessages] = useState<Message[]>(initialMessages);
   const [input, setInput] = useState("");
-  const [location, setLocation] = useState<Location>(defaultLocation);
+  const [location] = useState<Location>(defaultLocation);
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
 

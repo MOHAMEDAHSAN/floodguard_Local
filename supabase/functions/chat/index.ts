@@ -90,24 +90,33 @@ serve(async (req) => {
     const data = await deepseekResponse.json();
     console.log('DeepSeek response:', data);
 
-    let options: string[] = [
-      "Tell me more",
-      "What should I do next?",
-      "Back to main menu"
-    ];
-
-    // Add context-specific options based on the message content
-    if (message.toLowerCase().includes('flood risk')) {
+    // Generate context-aware options based on the message content
+    let options: string[] = [];
+    const lowerMessage = message.toLowerCase();
+    
+    if (lowerMessage.includes('flood risk') || lowerMessage.includes('prepare')) {
       options = [
-        "How can I prepare?",
-        "Show emergency contacts",
-        "Get local alerts"
+        "How can I prepare my home?",
+        "What emergency supplies do I need?",
+        "Show evacuation routes"
       ];
-    } else if (message.toLowerCase().includes('emergency')) {
+    } else if (lowerMessage.includes('emergency') || lowerMessage.includes('help')) {
       options = [
         "Call emergency services",
-        "Evacuation guidelines",
-        "Find shelter"
+        "Find nearest shelter",
+        "Report flooding"
+      ];
+    } else if (lowerMessage.includes('alert') || lowerMessage.includes('warning')) {
+      options = [
+        "Get current alerts",
+        "Set up notifications",
+        "Check weather forecast"
+      ];
+    } else {
+      options = [
+        "Learn about flood risks",
+        "Emergency preparedness",
+        "Back to main menu"
       ];
     }
 
