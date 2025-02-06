@@ -78,30 +78,13 @@ export const NovaChat = ({ fullScreen = false }: NovaChatProps) => {
   const handleResponse = async (userMessage: string) => {
     setIsLoading(true);
     try {
-      // Get the current user's session
-      const { data: { session }, error: sessionError } = await supabase.auth.getSession();
-      
-      if (sessionError) throw sessionError;
-      
-      if (!session) {
-        toast({
-          variant: "destructive",
-          description: "Please sign in to send messages.",
-          duration: 3000
-        });
-        return;
-      }
-
-      // Store user message in Supabase with user_id
+      // Store user message
       const { error: insertError } = await supabase
         .from('chat_messages')
-        .insert([
-          { 
-            content: userMessage, 
-            type: 'user',
-            user_id: session.user.id 
-          }
-        ]);
+        .insert([{ 
+          content: userMessage, 
+          type: 'user'
+        }]);
 
       if (insertError) throw insertError;
 
@@ -114,15 +97,13 @@ export const NovaChat = ({ fullScreen = false }: NovaChatProps) => {
 
       const aiMessage = response.data;
       
-      // Store AI response in Supabase (bot messages don't need user_id)
+      // Store AI response
       const { error: botInsertError } = await supabase
         .from('chat_messages')
-        .insert([
-          { 
-            content: aiMessage.content, 
-            type: 'bot'
-          }
-        ]);
+        .insert([{ 
+          content: aiMessage.content, 
+          type: 'bot'
+        }]);
 
       if (botInsertError) throw botInsertError;
 
