@@ -32,6 +32,21 @@ Emergency contacts:
 - Flood Control: 1913
 - Emergency Services: 108`;
 
+// Fallback responses for different scenarios
+const getFallbackResponse = (message: string): string => {
+  const lowerMessage = message.toLowerCase();
+  
+  if (lowerMessage.includes('flood risk')) {
+    return "I can help you understand flood risks in Chennai. The city is prone to flooding during monsoon season. Key risks include coastal flooding, urban flooding due to heavy rainfall, and river overflow. Would you like to know about specific preventive measures?";
+  } else if (lowerMessage.includes('emergency')) {
+    return "For emergencies in Chennai: Call Police (100), Flood Control (1913), or Emergency Services (108). If you're in a flood-prone area, prepare an emergency kit and stay tuned to local alerts.";
+  } else if (lowerMessage.includes('prepare')) {
+    return "Here are key preparation steps: 1) Keep emergency contacts handy 2) Prepare an emergency kit 3) Know your evacuation route 4) Keep important documents in a waterproof container 5) Monitor local weather updates.";
+  } else {
+    return "I'm here to help with flood-related information. You can ask about flood risks, emergency preparedness, or current alerts for Chennai. What would you like to know more about?";
+  }
+};
+
 serve(async (req) => {
   // Handle CORS preflight requests
   if (req.method === 'OPTIONS') {
@@ -81,14 +96,16 @@ serve(async (req) => {
       })
     });
 
+    let responseContent: string;
     if (!deepseekResponse.ok) {
-      const errorData = await deepseekResponse.json();
-      console.error('DeepSeek API error:', errorData);
-      throw new Error(`DeepSeek API error: ${errorData.error?.message || 'Unknown error'}`);
+      console.error('DeepSeek API error:', await deepseekResponse.text());
+      // Use fallback response when API fails
+      responseContent = getFallbackResponse(message);
+    } else {
+      const data = await deepseekResponse.json();
+      console.log('DeepSeek response:', data);
+      responseContent = data.choices[0].message.content;
     }
-
-    const data = await deepseekResponse.json();
-    console.log('DeepSeek response:', data);
 
     // Generate context-aware options based on the message content
     let options: string[] = [];
@@ -122,7 +139,7 @@ serve(async (req) => {
 
     const aiMessage: Message = {
       type: 'bot',
-      content: data.choices[0].message.content,
+      content: responseContent,
       options
     };
 
@@ -131,11 +148,18 @@ serve(async (req) => {
     });
   } catch (error) {
     console.error('Error in chat function:', error);
-    return new Response(JSON.stringify({ 
-      error: 'Failed to get response. Please try again.',
-      details: error.message 
-    }), {
-      status: 500,
+    // Provide a fallback response even for unexpected errors
+    const fallbackMessage: Message = {
+      type: 'bot',
+      content: getFallbackResponse(""),
+      options: [
+        "Learn about flood risks",
+        "Emergency preparedness",
+        "Contact support"
+      ]
+    };
+    
+    return new Response(JSON.stringify(fallbackMessage), {
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
     });
   }
