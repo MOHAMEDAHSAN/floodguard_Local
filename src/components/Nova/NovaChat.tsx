@@ -78,11 +78,18 @@ export const NovaChat = ({ fullScreen = false }: NovaChatProps) => {
   const handleResponse = async (userMessage: string) => {
     setIsLoading(true);
     try {
-      // Get the current user's ID
-      const { data: { user } } = await supabase.auth.getUser();
+      // Get the current user's session
+      const { data: { session }, error: sessionError } = await supabase.auth.getSession();
       
-      if (!user) {
-        throw new Error("User not authenticated");
+      if (sessionError) throw sessionError;
+      
+      if (!session) {
+        toast({
+          variant: "destructive",
+          description: "Please sign in to send messages.",
+          duration: 3000
+        });
+        return;
       }
 
       // Store user message in Supabase with user_id
@@ -92,7 +99,7 @@ export const NovaChat = ({ fullScreen = false }: NovaChatProps) => {
           { 
             content: userMessage, 
             type: 'user',
-            user_id: user.id 
+            user_id: session.user.id 
           }
         ]);
 
