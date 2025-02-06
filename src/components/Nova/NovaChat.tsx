@@ -78,11 +78,22 @@ export const NovaChat = ({ fullScreen = false }: NovaChatProps) => {
   const handleResponse = async (userMessage: string) => {
     setIsLoading(true);
     try {
-      // Store user message in Supabase
+      // Get the current user's ID
+      const { data: { user } } = await supabase.auth.getUser();
+      
+      if (!user) {
+        throw new Error("User not authenticated");
+      }
+
+      // Store user message in Supabase with user_id
       const { error: insertError } = await supabase
         .from('chat_messages')
         .insert([
-          { content: userMessage, type: 'user' }
+          { 
+            content: userMessage, 
+            type: 'user',
+            user_id: user.id 
+          }
         ]);
 
       if (insertError) throw insertError;
@@ -96,16 +107,22 @@ export const NovaChat = ({ fullScreen = false }: NovaChatProps) => {
 
       const aiMessage = response.data;
       
-      // Store AI response in Supabase
+      // Store AI response in Supabase (bot messages don't need user_id)
       const { error: botInsertError } = await supabase
         .from('chat_messages')
         .insert([
-          { content: aiMessage.content, type: 'bot' }
+          { 
+            content: aiMessage.content, 
+            type: 'bot'
+          }
         ]);
 
       if (botInsertError) throw botInsertError;
 
-      setMessages(prev => [...prev, aiMessage]);
+      setMessages(prev => [...prev, 
+        { type: 'user', content: userMessage },
+        aiMessage
+      ]);
     } catch (error) {
       console.error('Error:', error);
       toast({
@@ -134,7 +151,6 @@ export const NovaChat = ({ fullScreen = false }: NovaChatProps) => {
       });
     }
 
-    setMessages(prev => [...prev, { type: 'user', content: correctedInput }]);
     setInput("");
     handleResponse(correctedInput);
   };
