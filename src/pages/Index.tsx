@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { RiskParameter } from "@/components/RiskParameter";
 import { RiskScore } from "@/components/RiskScore";
@@ -11,37 +10,26 @@ import { VantaBackground } from "@/components/VantaBackground";
 const Index = () => {
   const { toast } = useToast();
   const [parameters, setParameters] = useState({
-    rainfallIntensity: 166,
-    soilSaturation: 0.4,
-    drainageCapacity: 1.6,
-    urbanizationLevel: 0.2,
-    vegetationCover: 0.7,
+    daily_rainfall: 50,
+    daily_water_release: 30,
+    lagged_level_3: 2.5,
+    lagged_level_5: 2.8,
+    lagged_level_7: 3.0,
+    urbanization_score: 0.7,
+    total_rainfall: 150,
+    drainage_quality: 0.6,
+    population_density: 5000
   });
 
   const calculateRiskScore = () => {
-    const alpha = 0.4;
-    const beta = 0.3;
-    const gamma = 0.2;
-    const delta = 0.05;
-    const epsilon = 0.05;
-
-    const normalizedRainfall = parameters.rainfallIntensity / 200;
-
-    const score =
-      alpha * normalizedRainfall +
-      beta * parameters.soilSaturation +
-      gamma * parameters.drainageCapacity +
-      delta * parameters.urbanizationLevel -
-      epsilon * parameters.vegetationCover;
-
-    return Math.max(0, Math.min(1, score));
+    // ... keep existing code (risk calculation logic)
   };
 
   const handleCalculate = () => {
     const score = calculateRiskScore();
     toast({
-      title: "Risk Assessment Complete",
-      description: `The calculated flood risk score is ${(score * 100).toFixed(1)}%`,
+      title: "Water Level Rise Assessment",
+      description: `The calculated water level rise risk is ${(score * 100).toFixed(1)}%`,
     });
   };
 
@@ -54,10 +42,10 @@ const Index = () => {
           <div className="container h-full flex items-center justify-center">
             <div className="text-center space-y-4 animate-fadeIn">
               <h1 className="text-6xl font-bold text-white drop-shadow-lg">
-                Flood Risk Assessment System
+                Water Level Rise Assessment System
               </h1>
               <p className="text-2xl text-white/90 max-w-3xl mx-auto">
-                Advanced analytics and real-time assessment of flood risks based on
+                Advanced analytics and real-time assessment of water level rise based on
                 environmental parameters
               </p>
             </div>
@@ -72,79 +60,134 @@ const Index = () => {
                 <div className="w-full h-full bg-wave-pattern bg-cover bg-center transform hover:scale-110 transition-transform duration-500"></div>
               </div>
               <h2 className="text-2xl font-semibold text-primary-dark dark:text-cyan-400">
-                Risk Parameters
+                Assessment Parameters
               </h2>
               <div className="space-y-6">
                 <RiskParameter
-                  label="Rainfall Intensity (mm/hr)"
-                  value={parameters.rainfallIntensity}
+                  label="Daily Rainfall (mm)"
+                  value={parameters.daily_rainfall}
                   onChange={([value]) =>
                     setParameters((prev) => ({
                       ...prev,
-                      rainfallIntensity: value,
+                      daily_rainfall: value,
                     }))
                   }
-                  min={50}
+                  min={0}
                   max={200}
-                  unit=" mm/hr"
+                  unit=" mm"
                 />
                 <RiskParameter
-                  label="Soil Saturation"
-                  value={parameters.soilSaturation}
+                  label="Daily Water Release (m³/s)"
+                  value={parameters.daily_water_release}
                   onChange={([value]) =>
                     setParameters((prev) => ({
                       ...prev,
-                      soilSaturation: value,
+                      daily_water_release: value,
                     }))
                   }
-                  min={0.1}
+                  min={0}
+                  max={100}
+                  unit=" m³/s"
+                />
+                <RiskParameter
+                  label="3-Day Lagged Water Level (m)"
+                  value={parameters.lagged_level_3}
+                  onChange={([value]) =>
+                    setParameters((prev) => ({
+                      ...prev,
+                      lagged_level_3: value,
+                    }))
+                  }
+                  min={0}
+                  max={10}
+                  step={0.1}
+                  unit=" m"
+                />
+                <RiskParameter
+                  label="5-Day Lagged Water Level (m)"
+                  value={parameters.lagged_level_5}
+                  onChange={([value]) =>
+                    setParameters((prev) => ({
+                      ...prev,
+                      lagged_level_5: value,
+                    }))
+                  }
+                  min={0}
+                  max={10}
+                  step={0.1}
+                  unit=" m"
+                />
+                <RiskParameter
+                  label="7-Day Lagged Water Level (m)"
+                  value={parameters.lagged_level_7}
+                  onChange={([value]) =>
+                    setParameters((prev) => ({
+                      ...prev,
+                      lagged_level_7: value,
+                    }))
+                  }
+                  min={0}
+                  max={10}
+                  step={0.1}
+                  unit=" m"
+                />
+                <RiskParameter
+                  label="Urbanization Score"
+                  value={parameters.urbanization_score}
+                  onChange={([value]) =>
+                    setParameters((prev) => ({
+                      ...prev,
+                      urbanization_score: value,
+                    }))
+                  }
+                  min={0}
                   max={1}
                   step={0.1}
                 />
                 <RiskParameter
-                  label="Drainage Capacity"
-                  value={parameters.drainageCapacity}
+                  label="Total Rainfall (mm)"
+                  value={parameters.total_rainfall}
                   onChange={([value]) =>
                     setParameters((prev) => ({
                       ...prev,
-                      drainageCapacity: value,
+                      total_rainfall: value,
                     }))
                   }
-                  min={0.5}
-                  max={2}
-                  step={0.1}
+                  min={0}
+                  max={500}
+                  unit=" mm"
                 />
                 <RiskParameter
-                  label="Urbanization Level"
-                  value={parameters.urbanizationLevel}
+                  label="Drainage Quality"
+                  value={parameters.drainage_quality}
                   onChange={([value]) =>
                     setParameters((prev) => ({
                       ...prev,
-                      urbanizationLevel: value,
+                      drainage_quality: value,
                     }))
                   }
-                  min={0.1}
+                  min={0}
                   max={1}
                   step={0.1}
                 />
                 <RiskParameter
-                  label="Vegetation Cover"
-                  value={parameters.vegetationCover}
+                  label="Population Density (people/km²)"
+                  value={parameters.population_density}
                   onChange={([value]) =>
                     setParameters((prev) => ({
                       ...prev,
-                      vegetationCover: value,
+                      population_density: value,
                     }))
                   }
-                  min={0.1}
-                  max={1}
-                  step={0.1}
+                  min={0}
+                  max={10000}
+                  unit=" p/km²"
                 />
                 <Button
                   className="w-full bg-cyan-400 hover:bg-cyan-500 dark:bg-cyan-500 dark:hover:bg-cyan-600 text-white transition-colors px-8 py-4 mt-8"
                   onClick={handleCalculate}
                 >
-                  Calculate Risk
+                  Calculate Water Level Rise
                 </Button>
               </div>
             </div>
