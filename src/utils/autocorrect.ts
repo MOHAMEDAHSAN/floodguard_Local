@@ -7,11 +7,23 @@ const corrections: { [key: string]: string } = {
   'dange': 'danger',
   'wether': 'weather',
   'allert': 'alert',
-  'warning': 'warning'
+  'warning': 'warning',
+  'hous': 'house',
+  'wot': 'what',
+  'halp': 'help',
+  'preparaton': 'preparation',
+  'safty': 'safety',
+  'evac': 'evacuate',
+  'resque': 'rescue',
+  'damag': 'damage',
+  'floding': 'flooding',
+  'warnin': 'warning',
+  'emrgency': 'emergency'
 };
 
 export const autocorrect = (input: string): string => {
-  return input.split(' ').map(word => 
-    corrections[word.toLowerCase()] || word
-  ).join(' ');
+  return input.split(' ').map(word => {
+    const lowerWord = word.toLowerCase();
+    return corrections[lowerWord] || word;
+  }).join(' ');
 };

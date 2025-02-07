@@ -1,12 +1,25 @@
 import { Message } from "./types";
 import { Button } from "@/components/ui/button";
+import { AlertTriangle, Info, CheckCircle2 } from "lucide-react";
 
 interface ChatMessageProps {
   message: Message;
   onOptionClick: (option: string) => void;
 }
 
+const getMessageIcon = (content: string) => {
+  if (content.toLowerCase().includes('emergency') || content.toLowerCase().includes('warning')) {
+    return <AlertTriangle className="w-4 h-4 text-destructive" />;
+  } else if (content.toLowerCase().includes('success') || content.toLowerCase().includes('prepared')) {
+    return <CheckCircle2 className="w-4 h-4 text-primary" />;
+  }
+  return <Info className="w-4 h-4 text-primary" />;
+};
+
 export const ChatMessage = ({ message, onOptionClick }: ChatMessageProps) => {
+  // Remove duplicate options if they exist
+  const uniqueOptions = message.options ? [...new Set(message.options)] : [];
+
   return (
     <div className="space-y-2">
       <div className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}>
@@ -17,12 +30,15 @@ export const ChatMessage = ({ message, onOptionClick }: ChatMessageProps) => {
               : 'bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100'
           }`}
         >
-          <p className="whitespace-pre-line">{message.content}</p>
+          <div className="flex items-start gap-2">
+            {message.type === 'bot' && getMessageIcon(message.content)}
+            <p className="whitespace-pre-line">{message.content}</p>
+          </div>
         </div>
       </div>
-      {message.options && message.type === 'bot' && (
+      {uniqueOptions.length > 0 && message.type === 'bot' && (
         <div className="flex flex-wrap gap-2 mt-2">
-          {message.options.map((option, optionIndex) => (
+          {uniqueOptions.map((option, optionIndex) => (
             <Button
               key={optionIndex}
               variant="outline"
