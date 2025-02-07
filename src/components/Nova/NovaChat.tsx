@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, X } from "lucide-react";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -13,6 +13,10 @@ const defaultLocation: Location = {
   city: "Chennai",
   state: "Tamil Nadu",
   country: "India",
+  coordinates: {
+    latitude: 13.0827,
+    longitude: 80.2707
+  },
   emergencyContacts: {
     police: "100",
     floodControl: "1913",
@@ -29,7 +33,8 @@ const initialMessages: Message[] = [
       "🚨 Check emergency preparedness",
       "📱 Get local flood alerts",
       "🏠 Post-flood recovery help",
-      "📍 Set my location"
+      "📍 Set my location",
+      "☎️ Contact information"
     ]
   }
 ];
@@ -42,24 +47,97 @@ export const NovaChat = ({ fullScreen = false }: NovaChatProps) => {
   const [isOpen, setIsOpen] = useState(fullScreen);
   const [messages, setMessages] = useState<Message[]>(initialMessages);
   const [input, setInput] = useState("");
-  const [location] = useState<Location>(defaultLocation);
+  const [location, setLocation] = useState<Location>(defaultLocation);
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
 
+  const updateLocation = () => {
+    navigator.geolocation.getCurrentPosition(
+      async (position) => {
+        try {
+          const response = await fetch(
+            `https://api.opencagedata.com/geocode/v1/json?q=${position.coords.latitude}+${position.coords.longitude}&key=YOUR_OPENCAGE_API_KEY`
+          );
+          const data = await response.json();
+          const result = data.results[0];
+          
+          if (result) {
+            const newLocation: Location = {
+              city: result.components.city || result.components.town || "Unknown",
+              state: result.components.state || "Unknown",
+              country: result.components.country || "Unknown",
+              coordinates: {
+                latitude: position.coords.latitude,
+                longitude: position.coords.longitude
+              },
+              emergencyContacts: {
+                police: "100",
+                floodControl: "1913",
+                emergencyServices: "108"
+              }
+            };
+            setLocation(newLocation);
+            
+            const locationMessage: Message = {
+              type: 'bot',
+              content: `📍 Location updated to: ${newLocation.city}, ${newLocation.state}, ${newLocation.country}\n\nEmergency Contacts for your area:\n🚓 Police: ${newLocation.emergencyContacts.police}\n🌊 Flood Control: ${newLocation.emergencyContacts.floodControl}\n🚑 Emergency Services: ${newLocation.emergencyContacts.emergencyServices}`,
+              options: [
+                "🌊 Check flood risks for this area",
+                "🚨 Local emergency contacts",
+                "📱 Set up alerts for this location"
+              ]
+            };
+            setMessages(prev => [...prev, locationMessage]);
+          }
+        } catch (error) {
+          console.error('Error fetching location details:', error);
+          toast({
+            variant: "destructive",
+            description: "Failed to get location details. Using default location.",
+          });
+        }
+      },
+      (error) => {
+        console.error('Geolocation error:', error);
+        toast({
+          variant: "destructive",
+          description: "Location access denied. Using default location.",
+        });
+      }
+    );
+  };
+
   const handleResponse = async (userMessage: string) => {
-    if (isLoading) return; // Prevent multiple simultaneous requests
+    if (isLoading) return;
     
     setIsLoading(true);
     try {
+      const correctedMessage = autocorrect(userMessage);
+      if (correctedMessage !== userMessage) {
+        toast({
+          description: "I've corrected some spelling to better understand your question.",
+          duration: 3000
+        });
+      }
+
+      // Handle location request
+      if (correctedMessage.toLowerCase().includes('location') || 
+          correctedMessage.toLowerCase().includes('set my location')) {
+        updateLocation();
+        setIsLoading(false);
+        return;
+      }
+
       // Add user message to the chat
-      const userMessageObj: Message = { type: 'user', content: userMessage };
+      const userMessageObj: Message = { type: 'user', content: correctedMessage };
       setMessages(prev => [...prev, userMessageObj]);
 
       // Get AI response from DeepSeek
       const response = await supabase.functions.invoke('chat', {
         body: { 
-          message: userMessage, 
-          context: messages.slice(-5) 
+          message: correctedMessage,
+          context: messages.slice(-5),
+          location: location
         }
       });
 
@@ -93,7 +171,7 @@ export const NovaChat = ({ fullScreen = false }: NovaChatProps) => {
   };
 
   const handleOptionClick = (option: string) => {
-    if (isLoading) return; // Prevent clicking while loading
+    if (isLoading) return;
     handleResponse(option);
   };
 

@@ -56,7 +56,7 @@ export const ChatMessage = ({ message, onOptionClick }: ChatMessageProps) => {
               </Button>
             ))}
           </div>
-          {uniqueOptions.length > 3 && (
+          {uniqueOptions.length > 0 && (
             <Button
               variant="ghost"
               size="sm"

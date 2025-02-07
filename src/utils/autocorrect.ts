@@ -18,7 +18,15 @@ const corrections: { [key: string]: string } = {
   'damag': 'damage',
   'floding': 'flooding',
   'warnin': 'warning',
-  'emrgency': 'emergency'
+  'emrgency': 'emergency',
+  'conctact': 'contact',
+  'contct': 'contact',
+  'locaton': 'location',
+  'informaton': 'information',
+  'emergncy': 'emergency',
+  'contacs': 'contacts',
+  'numers': 'numbers',
+  'fone': 'phone'
 };
 
 export const autocorrect = (input: string): string => {
