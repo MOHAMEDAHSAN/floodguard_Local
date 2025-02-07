@@ -23,13 +23,13 @@ const defaultLocation: Location = {
 const initialMessages: Message[] = [
   {
     type: 'bot',
-    content: "Hi! I'm Nova, your flood awareness assistant. How can I help you today?",
+    content: "👋 Hi! I'm Nova, your flood awareness assistant. How can I help you today?",
     options: [
-      "Learn about flood risks",
-      "Check emergency preparedness",
-      "Get local flood alerts",
-      "Post-flood recovery help",
-      "Set my location"
+      "🌊 Learn about flood risks",
+      "🚨 Check emergency preparedness",
+      "📱 Get local flood alerts",
+      "🏠 Post-flood recovery help",
+      "📍 Set my location"
     ]
   }
 ];
@@ -47,10 +47,13 @@ export const NovaChat = ({ fullScreen = false }: NovaChatProps) => {
   const { toast } = useToast();
 
   const handleResponse = async (userMessage: string) => {
+    if (isLoading) return; // Prevent multiple simultaneous requests
+    
     setIsLoading(true);
     try {
       // Add user message to the chat
-      setMessages(prev => [...prev, { type: 'user', content: userMessage }]);
+      const userMessageObj: Message = { type: 'user', content: userMessage };
+      setMessages(prev => [...prev, userMessageObj]);
 
       // Get AI response from DeepSeek
       const response = await supabase.functions.invoke('chat', {
@@ -69,6 +72,12 @@ export const NovaChat = ({ fullScreen = false }: NovaChatProps) => {
       }
 
       const aiMessage = response.data;
+      
+      // Ensure options are unique
+      if (aiMessage.options) {
+        aiMessage.options = [...new Set(aiMessage.options)];
+      }
+      
       setMessages(prev => [...prev, aiMessage]);
 
     } catch (error) {
@@ -84,7 +93,7 @@ export const NovaChat = ({ fullScreen = false }: NovaChatProps) => {
   };
 
   const handleOptionClick = (option: string) => {
-    setMessages(prev => [...prev, { type: 'user', content: option }]);
+    if (isLoading) return; // Prevent clicking while loading
     handleResponse(option);
   };
 

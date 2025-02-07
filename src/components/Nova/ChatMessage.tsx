@@ -1,6 +1,7 @@
 import { Message } from "./types";
 import { Button } from "@/components/ui/button";
-import { AlertTriangle, Info, CheckCircle2 } from "lucide-react";
+import { AlertTriangle, Info, CheckCircle2, ListFilter } from "lucide-react";
+import { useState } from "react";
 
 interface ChatMessageProps {
   message: Message;
@@ -17,8 +18,11 @@ const getMessageIcon = (content: string) => {
 };
 
 export const ChatMessage = ({ message, onOptionClick }: ChatMessageProps) => {
+  const [showAllOptions, setShowAllOptions] = useState(false);
+  
   // Remove duplicate options if they exist
   const uniqueOptions = message.options ? [...new Set(message.options)] : [];
+  const displayOptions = showAllOptions ? uniqueOptions : uniqueOptions.slice(0, 3);
 
   return (
     <div className="space-y-2">
@@ -37,18 +41,32 @@ export const ChatMessage = ({ message, onOptionClick }: ChatMessageProps) => {
         </div>
       </div>
       {uniqueOptions.length > 0 && message.type === 'bot' && (
-        <div className="flex flex-wrap gap-2 mt-2">
-          {uniqueOptions.map((option, optionIndex) => (
+        <div className="space-y-2">
+          <div className="flex flex-wrap gap-2">
+            {displayOptions.map((option, optionIndex) => (
+              <Button
+                key={optionIndex}
+                variant="outline"
+                size="sm"
+                className="text-sm border-primary text-primary dark:border-primary-foreground 
+                         dark:text-primary-foreground hover:bg-primary/10 dark:hover:bg-primary/20"
+                onClick={() => onOptionClick(option)}
+              >
+                {option}
+              </Button>
+            ))}
+          </div>
+          {uniqueOptions.length > 3 && (
             <Button
-              key={optionIndex}
-              variant="outline"
+              variant="ghost"
               size="sm"
-              className="text-sm border-primary text-primary dark:border-primary-foreground dark:text-primary-foreground hover:bg-primary/10 dark:hover:bg-primary/20"
-              onClick={() => onOptionClick(option)}
+              className="text-sm text-primary flex items-center gap-1"
+              onClick={() => setShowAllOptions(!showAllOptions)}
             >
-              {option}
+              <ListFilter className="w-4 h-4" />
+              {showAllOptions ? 'Show less options' : 'Show all options'}
             </Button>
-          ))}
+          )}
         </div>
       )}
     </div>
