@@ -2,7 +2,7 @@ import { useState } from "react";
 import { RiskParameter } from "@/components/RiskParameter";
 import { RiskScore } from "@/components/RiskScore";
 import { Button } from "@/components/ui/button";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
 import RetroHeader from "@/components/RetroHeader";
 import { WeatherWidget } from "@/components/WeatherWidget";
 import { VantaBackground } from "@/components/VantaBackground";
@@ -21,8 +21,42 @@ const Index = () => {
     population_density: 5000
   });
 
-  const calculateRiskScore = () => {
-    // ... keep existing code (risk calculation logic)
+  const calculateRiskScore = (): number => {
+    // Normalize values to 0-1 range
+    const normalizedRainfall = parameters.daily_rainfall / 200;
+    const normalizedWaterRelease = parameters.daily_water_release / 100;
+    const normalizedLaggedLevel3 = parameters.lagged_level_3 / 10;
+    const normalizedLaggedLevel5 = parameters.lagged_level_5 / 10;
+    const normalizedLaggedLevel7 = parameters.lagged_level_7 / 10;
+    const normalizedTotalRainfall = parameters.total_rainfall / 500;
+    const normalizedPopulationDensity = parameters.population_density / 10000;
+
+    // Calculate weighted average
+    const weights = {
+      rainfall: 0.2,
+      waterRelease: 0.15,
+      laggedLevel3: 0.15,
+      laggedLevel5: 0.1,
+      laggedLevel7: 0.1,
+      urbanization: 0.1,
+      totalRainfall: 0.1,
+      drainage: 0.05,
+      population: 0.05
+    };
+
+    const score = 
+      (normalizedRainfall * weights.rainfall) +
+      (normalizedWaterRelease * weights.waterRelease) +
+      (normalizedLaggedLevel3 * weights.laggedLevel3) +
+      (normalizedLaggedLevel5 * weights.laggedLevel5) +
+      (normalizedLaggedLevel7 * weights.laggedLevel7) +
+      (parameters.urbanization_score * weights.urbanization) +
+      (normalizedTotalRainfall * weights.totalRainfall) +
+      (parameters.drainage_quality * weights.drainage) +
+      (normalizedPopulationDensity * weights.population);
+
+    // Ensure score is between 0 and 1
+    return Math.min(Math.max(score, 0), 1);
   };
 
   const handleCalculate = () => {
