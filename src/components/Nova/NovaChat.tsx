@@ -34,7 +34,8 @@ const initialMessages: Message[] = [
       "📱 Get local flood alerts",
       "🏠 Post-flood recovery help",
       "📍 Set my location",
-      "☎️ Contact information"
+      "☎️ Contact information",
+      "📋 Show all options"
     ]
   }
 ];
@@ -51,60 +52,78 @@ export const NovaChat = ({ fullScreen = false }: NovaChatProps) => {
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
 
-  const updateLocation = () => {
-    navigator.geolocation.getCurrentPosition(
-      async (position) => {
-        try {
-          const response = await fetch(
-            `https://api.opencagedata.com/geocode/v1/json?q=${position.coords.latitude}+${position.coords.longitude}&key=YOUR_OPENCAGE_API_KEY`
-          );
-          const data = await response.json();
-          const result = data.results[0];
-          
-          if (result) {
-            const newLocation: Location = {
-              city: result.components.city || result.components.town || "Unknown",
-              state: result.components.state || "Unknown",
-              country: result.components.country || "Unknown",
-              coordinates: {
-                latitude: position.coords.latitude,
-                longitude: position.coords.longitude
-              },
-              emergencyContacts: {
-                police: "100",
-                floodControl: "1913",
-                emergencyServices: "108"
-              }
-            };
-            setLocation(newLocation);
-            
-            const locationMessage: Message = {
-              type: 'bot',
-              content: `📍 Location updated to: ${newLocation.city}, ${newLocation.state}, ${newLocation.country}\n\nEmergency Contacts for your area:\n🚓 Police: ${newLocation.emergencyContacts.police}\n🌊 Flood Control: ${newLocation.emergencyContacts.floodControl}\n🚑 Emergency Services: ${newLocation.emergencyContacts.emergencyServices}`,
-              options: [
-                "🌊 Check flood risks for this area",
-                "🚨 Local emergency contacts",
-                "📱 Set up alerts for this location"
-              ]
-            };
-            setMessages(prev => [...prev, locationMessage]);
-          }
-        } catch (error) {
-          console.error('Error fetching location details:', error);
-          toast({
-            variant: "destructive",
-            description: "Failed to get location details. Using default location.",
-          });
+  const updateLocation = async () => {
+    try {
+      const position = await new Promise<GeolocationPosition>((resolve, reject) => {
+        navigator.geolocation.getCurrentPosition(resolve, reject);
+      });
+
+      const response = await supabase.functions.invoke('geocode', {
+        body: {
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude
         }
-      },
-      (error) => {
-        console.error('Geolocation error:', error);
-        toast({
-          variant: "destructive",
-          description: "Location access denied. Using default location.",
-        });
+      });
+
+      if (response.error) {
+        throw new Error(response.error.message);
       }
-    );
+
+      const result = response.data;
+      
+      if (result) {
+        const newLocation: Location = {
+          city: result.city || result.town || "Unknown",
+          state: result.state || "Unknown",
+          country: result.country || "Unknown",
+          coordinates: {
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude
+          },
+          emergencyContacts: {
+            police: "100",
+            floodControl: "1913",
+            emergencyServices: "108"
+          }
+        };
+        setLocation(newLocation);
+        
+        const locationMessage: Message = {
+          type: 'bot',
+          content: `📍 Location updated to: ${newLocation.city}, ${newLocation.state}, ${newLocation.country}\n\nEmergency Contacts for your area:\n🚓 Police: ${newLocation.emergencyContacts.police}\n🌊 Flood Control: ${newLocation.emergencyContacts.floodControl}\n🚑 Emergency Services: ${newLocation.emergencyContacts.emergencyServices}`,
+          options: [
+            "🌊 Check flood risks for this area",
+            "🚨 Local emergency contacts",
+            "📱 Set up alerts for this location",
+            "📋 Show all options"
+          ]
+        };
+        setMessages(prev => [...prev, locationMessage]);
+      }
+    } catch (error) {
+      console.error('Error updating location:', error);
+      toast({
+        variant: "destructive",
+        description: "Failed to get location details. Using default location.",
+      });
+    }
+  };
+
+  const showAllOptions = () => {
+    const allOptionsMessage: Message = {
+      type: 'bot',
+      content: "Here are all available options:",
+      options: [
+        "🌊 Learn about flood risks",
+        "🚨 Check emergency preparedness",
+        "📱 Get local flood alerts",
+        "🏠 Post-flood recovery help",
+        "📍 Set my location",
+        "☎️ Contact information",
+        "📋 Show all options"
+      ]
+    };
+    setMessages(prev => [...prev, allOptionsMessage]);
   };
 
   const handleResponse = async (userMessage: string) => {
@@ -120,10 +139,16 @@ export const NovaChat = ({ fullScreen = false }: NovaChatProps) => {
         });
       }
 
-      // Handle location request
+      // Handle special commands
       if (correctedMessage.toLowerCase().includes('location') || 
           correctedMessage.toLowerCase().includes('set my location')) {
-        updateLocation();
+        await updateLocation();
+        setIsLoading(false);
+        return;
+      }
+
+      if (correctedMessage.toLowerCase().includes('show all options')) {
+        showAllOptions();
         setIsLoading(false);
         return;
       }
@@ -145,15 +170,11 @@ export const NovaChat = ({ fullScreen = false }: NovaChatProps) => {
         throw new Error(response.error.message);
       }
 
-      if (!response.data) {
-        throw new Error('No response data received');
-      }
-
       const aiMessage = response.data;
       
-      // Ensure options are unique
+      // Ensure options are unique and include "Show all options"
       if (aiMessage.options) {
-        aiMessage.options = [...new Set(aiMessage.options)];
+        aiMessage.options = [...new Set([...aiMessage.options, "📋 Show all options"])];
       }
       
       setMessages(prev => [...prev, aiMessage]);
