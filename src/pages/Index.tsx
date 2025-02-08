@@ -10,7 +10,6 @@ import { VantaBackground } from "@/components/VantaBackground";
 
 const Index = () => {
   const { toast } = useToast();
-  const [predictedOutput, setPredictedOutput] = useState<string>("Water Level Rise predicted output will be displayed over here!");
   const [parameters, setParameters] = useState({
     daily_rainfall: 0,
     daily_water_release: 0.1560,
@@ -65,7 +64,6 @@ const Index = () => {
 
   const handleCalculate = () => {
     const score = calculateRiskScore();
-    setPredictedOutput(`The calculated water level rise risk is ${(score * 100).toFixed(1)}%`);
     toast({
       title: "Water Level Rise Assessment",
       description: `The calculated water level rise risk is ${(score * 100).toFixed(1)}%`,
@@ -240,9 +238,6 @@ const Index = () => {
                   <div className="w-full h-full bg-mountain-pattern bg-cover bg-center transform hover:scale-110 transition-transform duration-500"></div>
                 </div>
                 <RiskScore score={calculateRiskScore()} />
-                <div className="mt-6 p-4 bg-white/50 dark:bg-[#1A1F2C]/50 rounded-lg text-center text-lg font-medium text-primary-dark dark:text-cyan-400">
-                  {predictedOutput}
-                </div>
               </div>
 
               <div className="bg-white/80 backdrop-blur-lg dark:bg-[#0f1117]/80 rounded-xl p-8 shadow-lg space-y-6 border border-white/20 dark:border-white/10 transition-all duration-500">
@@ -287,4 +282,3 @@ const Index = () => {
 };
 
 export default Index;
-
