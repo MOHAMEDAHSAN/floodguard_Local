@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { RiskParameter } from "@/components/RiskParameter";
 import { RiskScore } from "@/components/RiskScore";
@@ -10,26 +11,28 @@ import { VantaBackground } from "@/components/VantaBackground";
 const Index = () => {
   const { toast } = useToast();
   const [parameters, setParameters] = useState({
-    daily_rainfall: 50,
-    daily_water_release: 30,
-    lagged_level_3: 2.5,
-    lagged_level_5: 2.8,
-    lagged_level_7: 3.0,
-    urbanization_score: 0.7,
-    total_rainfall: 150,
-    drainage_quality: 0.6,
-    population_density: 5000
+    daily_rainfall: 0,
+    daily_water_release: 0.1560,
+    lagged_level_3: -0.2491,
+    lagged_level_5: -0.2535,
+    lagged_level_7: -0.2503,
+    urbanization_score: 1.0000,
+    total_rainfall: 500.6121,
+    drainage_quality: 1.0000,
+    population_density: 1000.0000
   });
 
   const calculateRiskScore = (): number => {
-    // Normalize values to 0-1 range
-    const normalizedRainfall = parameters.daily_rainfall / 200;
-    const normalizedWaterRelease = parameters.daily_water_release / 100;
-    const normalizedLaggedLevel3 = parameters.lagged_level_3 / 10;
-    const normalizedLaggedLevel5 = parameters.lagged_level_5 / 10;
-    const normalizedLaggedLevel7 = parameters.lagged_level_7 / 10;
-    const normalizedTotalRainfall = parameters.total_rainfall / 500;
-    const normalizedPopulationDensity = parameters.population_density / 10000;
+    // Normalize values to 0-1 range based on their min-max ranges
+    const normalizedRainfall = parameters.daily_rainfall / 77.6127;
+    const normalizedWaterRelease = (parameters.daily_water_release - 0.1560) / (21.3906 - 0.1560);
+    const normalizedLaggedLevel3 = (parameters.lagged_level_3 + 0.2491) / (1.9594 + 0.2491);
+    const normalizedLaggedLevel5 = (parameters.lagged_level_5 + 0.2535) / (1.8858 + 0.2535);
+    const normalizedLaggedLevel7 = (parameters.lagged_level_7 + 0.2503) / (1.8117 + 0.2503);
+    const normalizedUrbanization = (parameters.urbanization_score - 1.0000) / (10.0000 - 1.0000);
+    const normalizedTotalRainfall = (parameters.total_rainfall - 500.6121) / (1500.0000 - 500.6121);
+    const normalizedDrainage = (parameters.drainage_quality - 1.0000) / (8.3496 - 1.0000);
+    const normalizedPopulation = (parameters.population_density - 1000.0000) / (12000.0000 - 1000.0000);
 
     // Calculate weighted average
     const weights = {
@@ -50,10 +53,10 @@ const Index = () => {
       (normalizedLaggedLevel3 * weights.laggedLevel3) +
       (normalizedLaggedLevel5 * weights.laggedLevel5) +
       (normalizedLaggedLevel7 * weights.laggedLevel7) +
-      (parameters.urbanization_score * weights.urbanization) +
+      (normalizedUrbanization * weights.urbanization) +
       (normalizedTotalRainfall * weights.totalRainfall) +
-      (parameters.drainage_quality * weights.drainage) +
-      (normalizedPopulationDensity * weights.population);
+      (normalizedDrainage * weights.drainage) +
+      (normalizedPopulation * weights.population);
 
     // Ensure score is between 0 and 1
     return Math.min(Math.max(score, 0), 1);
@@ -107,7 +110,8 @@ const Index = () => {
                     }))
                   }
                   min={0}
-                  max={200}
+                  max={77.6127}
+                  step={0.1}
                   unit=" mm"
                 />
                 <RiskParameter
@@ -119,8 +123,9 @@ const Index = () => {
                       daily_water_release: value,
                     }))
                   }
-                  min={0}
-                  max={100}
+                  min={0.1560}
+                  max={21.3906}
+                  step={0.1}
                   unit=" m³/s"
                 />
                 <RiskParameter
@@ -132,8 +137,8 @@ const Index = () => {
                       lagged_level_3: value,
                     }))
                   }
-                  min={0}
-                  max={10}
+                  min={-0.2491}
+                  max={1.9594}
                   step={0.1}
                   unit=" m"
                 />
@@ -146,8 +151,8 @@ const Index = () => {
                       lagged_level_5: value,
                     }))
                   }
-                  min={0}
-                  max={10}
+                  min={-0.2535}
+                  max={1.8858}
                   step={0.1}
                   unit=" m"
                 />
@@ -160,8 +165,8 @@ const Index = () => {
                       lagged_level_7: value,
                     }))
                   }
-                  min={0}
-                  max={10}
+                  min={-0.2503}
+                  max={1.8117}
                   step={0.1}
                   unit=" m"
                 />
@@ -174,8 +179,8 @@ const Index = () => {
                       urbanization_score: value,
                     }))
                   }
-                  min={0}
-                  max={1}
+                  min={1.0000}
+                  max={10.0000}
                   step={0.1}
                 />
                 <RiskParameter
@@ -187,8 +192,9 @@ const Index = () => {
                       total_rainfall: value,
                     }))
                   }
-                  min={0}
-                  max={500}
+                  min={500.6121}
+                  max={1500.0000}
+                  step={0.1}
                   unit=" mm"
                 />
                 <RiskParameter
@@ -200,8 +206,8 @@ const Index = () => {
                       drainage_quality: value,
                     }))
                   }
-                  min={0}
-                  max={1}
+                  min={1.0000}
+                  max={8.3496}
                   step={0.1}
                 />
                 <RiskParameter
@@ -213,8 +219,9 @@ const Index = () => {
                       population_density: value,
                     }))
                   }
-                  min={0}
-                  max={10000}
+                  min={1000.0000}
+                  max={12000.0000}
+                  step={100}
                   unit=" p/km²"
                 />
                 <Button
