@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { RiskParameter } from "@/components/RiskParameter";
 import { RiskScore } from "@/components/RiskScore";
@@ -228,8 +229,17 @@ const Index = () => {
                 >
                   Calculate Water Level Rise
                 </Button>
-                <div className="mt-4 p-4 bg-white/50 dark:bg-[#1A1F2C]/50 rounded-lg text-center text-lg font-medium text-primary-dark dark:text-cyan-400">
-                  {predictedOutput}
+                <div className="mt-4 space-y-4">
+                  <div className="h-40 rounded-lg overflow-hidden">
+                    <img 
+                      src="https://images.unsplash.com/photo-1482938289607-e9573fc25ebb" 
+                      alt="River between mountains"
+                      className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500"
+                    />
+                  </div>
+                  <div className="p-4 bg-white/50 dark:bg-[#1A1F2C]/50 rounded-lg text-center text-lg font-medium text-primary-dark dark:text-cyan-400">
+                    {predictedOutput}
+                  </div>
                 </div>
               </div>
             </div>
