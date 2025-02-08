@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { RiskParameter } from "@/components/RiskParameter";
 import { RiskScore } from "@/components/RiskScore";
@@ -10,6 +9,7 @@ import { VantaBackground } from "@/components/VantaBackground";
 
 const Index = () => {
   const { toast } = useToast();
+  const [predictedOutput, setPredictedOutput] = useState<string>("Water Level Rise predicted output will be displayed over here!");
   const [parameters, setParameters] = useState({
     daily_rainfall: 0,
     daily_water_release: 0.1560,
@@ -23,7 +23,6 @@ const Index = () => {
   });
 
   const calculateRiskScore = (): number => {
-    // Normalize values to 0-1 range based on their min-max ranges
     const normalizedRainfall = parameters.daily_rainfall / 77.6127;
     const normalizedWaterRelease = (parameters.daily_water_release - 0.1560) / (21.3906 - 0.1560);
     const normalizedLaggedLevel3 = (parameters.lagged_level_3 + 0.2491) / (1.9594 + 0.2491);
@@ -34,7 +33,6 @@ const Index = () => {
     const normalizedDrainage = (parameters.drainage_quality - 1.0000) / (8.3496 - 1.0000);
     const normalizedPopulation = (parameters.population_density - 1000.0000) / (12000.0000 - 1000.0000);
 
-    // Calculate weighted average
     const weights = {
       rainfall: 0.2,
       waterRelease: 0.15,
@@ -58,12 +56,12 @@ const Index = () => {
       (normalizedDrainage * weights.drainage) +
       (normalizedPopulation * weights.population);
 
-    // Ensure score is between 0 and 1
     return Math.min(Math.max(score, 0), 1);
   };
 
   const handleCalculate = () => {
     const score = calculateRiskScore();
+    setPredictedOutput(`The calculated water level rise risk is ${(score * 100).toFixed(1)}%`);
     toast({
       title: "Water Level Rise Assessment",
       description: `The calculated water level rise risk is ${(score * 100).toFixed(1)}%`,
@@ -79,7 +77,7 @@ const Index = () => {
           <div className="container h-full flex items-center justify-center">
             <div className="text-center space-y-4 animate-fadeIn">
               <h1 className="text-6xl font-bold text-white drop-shadow-lg">
-                Water Level Rise Assessment System
+                Flood Risk Assessment System
               </h1>
               <p className="text-2xl text-white/90 max-w-3xl mx-auto">
                 Advanced analytics and real-time assessment of water level rise based on
@@ -230,6 +228,9 @@ const Index = () => {
                 >
                   Calculate Water Level Rise
                 </Button>
+                <div className="mt-4 p-4 bg-white/50 dark:bg-[#1A1F2C]/50 rounded-lg text-center text-lg font-medium text-primary-dark dark:text-cyan-400">
+                  {predictedOutput}
+                </div>
               </div>
             </div>
             <div className="space-y-8">
