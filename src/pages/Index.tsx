@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { RiskParameter } from "@/components/RiskParameter";
 import { RiskScore } from "@/components/RiskScore";
@@ -10,7 +9,7 @@ import { VantaBackground } from "@/components/VantaBackground";
 
 const Index = () => {
   const { toast } = useToast();
-  const [predictedOutput, setPredictedOutput] = useState<string>("Water Level Rise predicted output will be displayed over here!");
+  const [predictedOutput, setPredictedOutput] = useState<string>("The calculated water level rise risk is 0.0%");
   const [parameters, setParameters] = useState({
     daily_rainfall: 0,
     daily_water_release: 0.1560,
