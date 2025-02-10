@@ -1,6 +1,6 @@
+
 import { useState } from "react";
 import { RiskParameter } from "@/components/RiskParameter";
-import { RiskScore } from "@/components/RiskScore";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import RetroHeader from "@/components/RetroHeader";
@@ -133,7 +133,7 @@ const Index = () => {
           <div className="container h-full flex items-center justify-center">
             <div className="text-center space-y-4 animate-fadeIn">
               <h1 className="text-6xl font-bold text-white drop-shadow-lg">
-                Formula: APt = 0.75 · APt-1 + Rt
+                Flood Simulation Model
               </h1>
               <p className="text-2xl text-white/90 max-w-3xl mx-auto">
                 Advanced analytics and real-time assessment of water level rise based on
@@ -308,7 +308,11 @@ const Index = () => {
             </div>
             <div className="space-y-8">
               <div className="bg-white/80 backdrop-blur-lg dark:bg-[#0f1117]/80 rounded-xl p-8 shadow-lg space-y-6 border border-white/20 dark:border-white/10 transition-all duration-500">
-                <RiskScore score={calculateRiskScore()} />
+                <img 
+                  src="/lovable-uploads/0141ae5a-405b-4713-8719-8dfe5294503c.png" 
+                  alt="Flood Simulation Formula"
+                  className="w-full h-auto rounded-lg"
+                />
               </div>
 
               <div className="bg-white/80 backdrop-blur-lg dark:bg-[#0f1117]/80 rounded-xl p-8 shadow-lg space-y-6 border border-white/20 dark:border-white/10 transition-all duration-500">
