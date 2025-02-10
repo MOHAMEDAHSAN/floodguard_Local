@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { RiskParameter } from "@/components/RiskParameter";
 import { RiskScore } from "@/components/RiskScore";
@@ -6,65 +7,91 @@ import { useToast } from "@/hooks/use-toast";
 import RetroHeader from "@/components/RetroHeader";
 import { WeatherWidget } from "@/components/WeatherWidget";
 import { VantaBackground } from "@/components/VantaBackground";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+
+interface TemporalValues {
+  rainfall: number[];
+  temperature: number[];
+  antecedent_precipitation: number[];
+  river_level: number[];
+  groundwater_depth: number[];
+}
 
 const Index = () => {
   const { toast } = useToast();
-  const [predictedOutput, setPredictedOutput] = useState<string>("The calculated water level rise risk is 0.0%");
-  const [parameters, setParameters] = useState({
-    daily_rainfall: 0,
-    daily_water_release: 0.1560,
-    lagged_level_3: -0.2491,
-    lagged_level_5: -0.2535,
-    lagged_level_7: -0.2503,
-    urbanization_score: 1.0000,
-    total_rainfall: 500.6121,
-    drainage_quality: 1.0000,
-    population_density: 1000.0000
+  const [predictedOutput, setPredictedOutput] = useState<string>("The calculated flood risk is 0.0%");
+  const [temporalIndex, setTemporalIndex] = useState(0);
+  
+  const [staticParameters, setStaticParameters] = useState({
+    elevation: 1.98,
+    impervious_pct: 10.10,
+    drainage_capacity: 107.46,
+    avg_slope: 0.0046
   });
 
-  const calculateRiskScore = (): number => {
-    const normalizedRainfall = parameters.daily_rainfall / 77.6127;
-    const normalizedWaterRelease = (parameters.daily_water_release - 0.1560) / (21.3906 - 0.1560);
-    const normalizedLaggedLevel3 = (parameters.lagged_level_3 + 0.2491) / (1.9594 + 0.2491);
-    const normalizedLaggedLevel5 = (parameters.lagged_level_5 + 0.2535) / (1.8858 + 0.2535);
-    const normalizedLaggedLevel7 = (parameters.lagged_level_7 + 0.2503) / (1.8117 + 0.2503);
-    const normalizedUrbanization = (parameters.urbanization_score - 1.0000) / (10.0000 - 1.0000);
-    const normalizedTotalRainfall = (parameters.total_rainfall - 500.6121) / (1500.0000 - 500.6121);
-    const normalizedDrainage = (parameters.drainage_quality - 1.0000) / (8.3496 - 1.0000);
-    const normalizedPopulation = (parameters.population_density - 1000.0000) / (12000.0000 - 1000.0000);
+  const [temporalParameters, setTemporalParameters] = useState<TemporalValues>({
+    rainfall: Array(5).fill(0.08),
+    temperature: Array(5).fill(20.00),
+    antecedent_precipitation: Array(5).fill(0.08),
+    river_level: Array(5).fill(0.00),
+    groundwater_depth: Array(5).fill(2.00)
+  });
 
-    const weights = {
-      rainfall: 0.2,
-      waterRelease: 0.15,
-      laggedLevel3: 0.15,
-      laggedLevel5: 0.1,
-      laggedLevel7: 0.1,
-      urbanization: 0.1,
-      totalRainfall: 0.1,
-      drainage: 0.05,
-      population: 0.05
+  const handlePrevious = () => {
+    setTemporalIndex((prev) => (prev > 0 ? prev - 1 : prev));
+  };
+
+  const handleNext = () => {
+    setTemporalIndex((prev) => (prev < 4 ? prev + 1 : prev));
+  };
+
+  const updateTemporalValue = (key: keyof TemporalValues, value: number) => {
+    setTemporalParameters((prev) => {
+      const newValues = { ...prev };
+      newValues[key][temporalIndex] = value;
+      return newValues;
+    });
+  };
+
+  const calculateRiskScore = (): number => {
+    // Simplified risk calculation for demonstration
+    const avgRainfall = temporalParameters.rainfall.reduce((a, b) => a + b, 0) / 5;
+    const avgTemperature = temporalParameters.temperature.reduce((a, b) => a + b, 0) / 5;
+    
+    // Normalize and weight the parameters
+    const normalizedValues = {
+      elevation: (staticParameters.elevation - 1.98) / (1498.92 - 1.98),
+      impervious: (staticParameters.impervious_pct - 10.10) / (79.94 - 10.10),
+      drainage: (staticParameters.drainage_capacity - 107.46) / (4998.57 - 107.46),
+      slope: (staticParameters.avg_slope - 0.0046) / (14.98 - 0.0046),
+      rainfall: (avgRainfall - 0.08) / (299.84 - 0.08),
+      temperature: (avgTemperature - 20.00) / (39.99 - 20.00)
     };
 
-    const score = 
-      (normalizedRainfall * weights.rainfall) +
-      (normalizedWaterRelease * weights.waterRelease) +
-      (normalizedLaggedLevel3 * weights.laggedLevel3) +
-      (normalizedLaggedLevel5 * weights.laggedLevel5) +
-      (normalizedLaggedLevel7 * weights.laggedLevel7) +
-      (normalizedUrbanization * weights.urbanization) +
-      (normalizedTotalRainfall * weights.totalRainfall) +
-      (normalizedDrainage * weights.drainage) +
-      (normalizedPopulation * weights.population);
+    // Simple weighted average
+    const weights = {
+      elevation: 0.2,
+      impervious: 0.15,
+      drainage: 0.15,
+      slope: 0.1,
+      rainfall: 0.25,
+      temperature: 0.15
+    };
+
+    const score = Object.entries(normalizedValues).reduce(
+      (acc, [key, value]) => acc + value * weights[key as keyof typeof weights],
+      0
+    );
 
     return Math.min(Math.max(score, 0), 1);
   };
 
   const handleCalculate = () => {
     const score = calculateRiskScore();
-    setPredictedOutput(`The calculated water level rise risk is ${(score * 100).toFixed(1)}%`);
+    setPredictedOutput(`The calculated flood risk is ${(score * 100).toFixed(1)}%`);
     toast({
-      title: "Water Level Rise Assessment",
-      description: `The calculated water level rise risk is ${(score * 100).toFixed(1)}%`,
+      title: "Flood Risk Assessment",
+      description: `The calculated flood risk is ${(score * 100).toFixed(1)}%`,
     });
   };
 
@@ -91,162 +118,152 @@ const Index = () => {
         <div className="max-w-4xl mx-auto space-y-8 animate-slideIn">
           <div className="grid gap-8 md:grid-cols-2">
             <div className="bg-white/80 backdrop-blur-lg dark:bg-[#0f1117]/80 rounded-xl p-8 shadow-lg space-y-6 border border-white/20 dark:border-white/10 transition-all duration-500">
-              <div className="h-40 rounded-lg overflow-hidden mb-6">
-                <div className="w-full h-full bg-wave-pattern bg-cover bg-center transform hover:scale-110 transition-transform duration-500"></div>
-              </div>
               <h2 className="text-2xl font-semibold text-primary-dark dark:text-cyan-400">
-                Assessment Parameters
+                Static Parameters
               </h2>
               <div className="space-y-6">
                 <RiskParameter
-                  label="Daily Rainfall (mm)"
-                  value={parameters.daily_rainfall}
+                  label="Elevation (m)"
+                  value={staticParameters.elevation}
                   onChange={([value]) =>
-                    setParameters((prev) => ({
+                    setStaticParameters((prev) => ({
                       ...prev,
-                      daily_rainfall: value,
+                      elevation: value,
                     }))
                   }
-                  min={0}
-                  max={77.6127}
-                  step={0.1}
-                  unit=" mm"
-                />
-                <RiskParameter
-                  label="Daily Water Release (m³/s)"
-                  value={parameters.daily_water_release}
-                  onChange={([value]) =>
-                    setParameters((prev) => ({
-                      ...prev,
-                      daily_water_release: value,
-                    }))
-                  }
-                  min={0.1560}
-                  max={21.3906}
-                  step={0.1}
-                  unit=" m³/s"
-                />
-                <RiskParameter
-                  label="3-Day Lagged Water Level (m)"
-                  value={parameters.lagged_level_3}
-                  onChange={([value]) =>
-                    setParameters((prev) => ({
-                      ...prev,
-                      lagged_level_3: value,
-                    }))
-                  }
-                  min={-0.2491}
-                  max={1.9594}
-                  step={0.1}
+                  min={1.98}
+                  max={1498.92}
+                  step={0.01}
                   unit=" m"
                 />
                 <RiskParameter
-                  label="5-Day Lagged Water Level (m)"
-                  value={parameters.lagged_level_5}
+                  label="Impervious Percentage (%)"
+                  value={staticParameters.impervious_pct}
                   onChange={([value]) =>
-                    setParameters((prev) => ({
+                    setStaticParameters((prev) => ({
                       ...prev,
-                      lagged_level_5: value,
+                      impervious_pct: value,
                     }))
                   }
-                  min={-0.2535}
-                  max={1.8858}
-                  step={0.1}
-                  unit=" m"
+                  min={10.10}
+                  max={79.94}
+                  step={0.01}
+                  unit="%"
                 />
                 <RiskParameter
-                  label="7-Day Lagged Water Level (m)"
-                  value={parameters.lagged_level_7}
+                  label="Drainage Capacity (m³/h)"
+                  value={staticParameters.drainage_capacity}
                   onChange={([value]) =>
-                    setParameters((prev) => ({
+                    setStaticParameters((prev) => ({
                       ...prev,
-                      lagged_level_7: value,
+                      drainage_capacity: value,
                     }))
                   }
-                  min={-0.2503}
-                  max={1.8117}
-                  step={0.1}
-                  unit=" m"
+                  min={107.46}
+                  max={4998.57}
+                  step={0.01}
+                  unit=" m³/h"
                 />
                 <RiskParameter
-                  label="Urbanization Score"
-                  value={parameters.urbanization_score}
+                  label="Average Slope"
+                  value={staticParameters.avg_slope}
                   onChange={([value]) =>
-                    setParameters((prev) => ({
+                    setStaticParameters((prev) => ({
                       ...prev,
-                      urbanization_score: value,
+                      avg_slope: value,
                     }))
                   }
-                  min={1.0000}
-                  max={10.0000}
-                  step={0.1}
+                  min={0.0046}
+                  max={14.98}
+                  step={0.0001}
                 />
-                <RiskParameter
-                  label="Total Rainfall (mm)"
-                  value={parameters.total_rainfall}
-                  onChange={([value]) =>
-                    setParameters((prev) => ({
-                      ...prev,
-                      total_rainfall: value,
-                    }))
-                  }
-                  min={500.6121}
-                  max={1500.0000}
-                  step={0.1}
-                  unit=" mm"
-                />
-                <RiskParameter
-                  label="Drainage Quality"
-                  value={parameters.drainage_quality}
-                  onChange={([value]) =>
-                    setParameters((prev) => ({
-                      ...prev,
-                      drainage_quality: value,
-                    }))
-                  }
-                  min={1.0000}
-                  max={8.3496}
-                  step={0.1}
-                />
-                <RiskParameter
-                  label="Population Density (people/km²)"
-                  value={parameters.population_density}
-                  onChange={([value]) =>
-                    setParameters((prev) => ({
-                      ...prev,
-                      population_density: value,
-                    }))
-                  }
-                  min={1000.0000}
-                  max={12000.0000}
-                  step={100}
-                  unit=" p/km²"
-                />
+              </div>
+
+              <div className="mt-8">
+                <h2 className="text-2xl font-semibold text-primary-dark dark:text-cyan-400 mb-4">
+                  Temporal Parameters
+                </h2>
+                <div className="flex items-center justify-between mb-4">
+                  <Button
+                    onClick={handlePrevious}
+                    disabled={temporalIndex === 0}
+                    variant="outline"
+                    size="icon"
+                  >
+                    <ChevronLeft className="h-4 w-4" />
+                  </Button>
+                  <span className="text-sm font-medium">
+                    Time Point {temporalIndex + 1} of 5
+                  </span>
+                  <Button
+                    onClick={handleNext}
+                    disabled={temporalIndex === 4}
+                    variant="outline"
+                    size="icon"
+                  >
+                    <ChevronRight className="h-4 w-4" />
+                  </Button>
+                </div>
+                <div className="space-y-6">
+                  <RiskParameter
+                    label="Rainfall (mm)"
+                    value={temporalParameters.rainfall[temporalIndex]}
+                    onChange={([value]) => updateTemporalValue("rainfall", value)}
+                    min={0.08}
+                    max={299.84}
+                    step={0.01}
+                    unit=" mm"
+                  />
+                  <RiskParameter
+                    label="Temperature (°C)"
+                    value={temporalParameters.temperature[temporalIndex]}
+                    onChange={([value]) => updateTemporalValue("temperature", value)}
+                    min={20.00}
+                    max={39.99}
+                    step={0.01}
+                    unit=" °C"
+                  />
+                  <RiskParameter
+                    label="Antecedent Precipitation (mm)"
+                    value={temporalParameters.antecedent_precipitation[temporalIndex]}
+                    onChange={([value]) => updateTemporalValue("antecedent_precipitation", value)}
+                    min={0.08}
+                    max={819.95}
+                    step={0.01}
+                    unit=" mm"
+                  />
+                  <RiskParameter
+                    label="River Level (m)"
+                    value={temporalParameters.river_level[temporalIndex]}
+                    onChange={([value]) => updateTemporalValue("river_level", value)}
+                    min={0.00}
+                    max={5.61}
+                    step={0.01}
+                    unit=" m"
+                  />
+                  <RiskParameter
+                    label="Groundwater Depth (m)"
+                    value={temporalParameters.groundwater_depth[temporalIndex]}
+                    onChange={([value]) => updateTemporalValue("groundwater_depth", value)}
+                    min={2.00}
+                    max={15.87}
+                    step={0.01}
+                    unit=" m"
+                  />
+                </div>
                 <Button
                   className="w-full bg-cyan-400 hover:bg-cyan-500 dark:bg-cyan-500 dark:hover:bg-cyan-600 text-white transition-colors px-8 py-4 mt-8"
                   onClick={handleCalculate}
                 >
-                  Calculate Water Level Rise
+                  Calculate Flood Risk
                 </Button>
-                <div className="mt-4 space-y-4">
-                  <div className="h-40 rounded-lg overflow-hidden">
-                    <img 
-                      src="https://images.unsplash.com/photo-1482938289607-e9573fc25ebb" 
-                      alt="River between mountains"
-                      className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500"
-                    />
-                  </div>
-                  <div className="p-4 bg-white/50 dark:bg-[#1A1F2C]/50 rounded-lg text-center text-lg font-medium text-primary-dark dark:text-cyan-400">
-                    {predictedOutput}
-                  </div>
+                <div className="mt-4 p-4 bg-white/50 dark:bg-[#1A1F2C]/50 rounded-lg text-center text-lg font-medium text-primary-dark dark:text-cyan-400">
+                  {predictedOutput}
                 </div>
               </div>
             </div>
             <div className="space-y-8">
               <div className="bg-white/80 backdrop-blur-lg dark:bg-[#0f1117]/80 rounded-xl p-8 shadow-lg space-y-6 border border-white/20 dark:border-white/10 transition-all duration-500">
-                <div className="h-40 rounded-lg overflow-hidden mb-6">
-                  <div className="w-full h-full bg-mountain-pattern bg-cover bg-center transform hover:scale-110 transition-transform duration-500"></div>
-                </div>
                 <RiskScore score={calculateRiskScore()} />
               </div>
 
