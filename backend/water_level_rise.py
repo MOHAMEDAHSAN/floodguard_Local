@@ -1,103 +1,64 @@
-import numpy as np
 import pandas as pd
-import tensorflow as tf
-import joblib
-import pickle
+import numpy as np
 from sklearn.ensemble import RandomForestRegressor
-from tensorflow.keras.models import Model
-from tensorflow.keras.layers import LSTM, Dense, Input, Attention, Multiply, Concatenate
-from sklearn.preprocessing import RobustScaler
-from sklearn.model_selection import TimeSeriesSplit, GridSearchCV
+from sklearn.model_selection import train_test_split
+from keras.models import Model
+from keras.layers import LSTM, Dense, Input
+from sklearn.metrics import r2_score
+import joblib
 
-class FloodDataProcessor:
-    def __init__(self, seq_length=5):
-        self.seq_length = seq_length
-        self.static_scaler = RobustScaler()
-        self.ts_scaler = RobustScaler()
-    
-    def load_data(self, path='cleaned_data.csv'):
-        df = pd.read_csv(path)
-        df['date'] = pd.to_datetime(df['date'])
-        return df
-    
-    def preprocess(self, df):
-        grouped = df.groupby('sequence_id')
-        sequences, targets, static_features = [], [], []
-        
-        for seq_id, group in grouped:
-            ts_features = self.ts_scaler.fit_transform(group[['daily_rainfall', 'daily_water_release',
-                                                               'lagged_level_3', 'lagged_level_5', 'lagged_level_7']])
-            static = self.static_scaler.fit_transform(group[['urbanization_score', 'total_rainfall',
-                                                              'drainage_quality', 'population_density']].iloc[0].values.reshape(1, -1))
-            for i in range(len(group) - self.seq_length):
-                sequences.append(ts_features[i:i+self.seq_length])
-                static_features.append(static)
-                targets.append(group['water_level_rise'].iloc[i+self.seq_length])
-        
-        return np.array(sequences), np.array(static_features).squeeze(), np.array(targets)
+# Load and preprocess the data
+data = pd.read_csv("backend\\final_dataset_flood.csv")
 
-class HybridFloodModel:
-    def __init__(self, processor, n_static_features=4):
-        self.seq_length = processor.seq_length
-        self.n_static_features = n_static_features
-        self.rf_model = None
-        self.lstm_model = None
-        self.ensemble_weights = None
-        self.processor = processor
-    
-    def build_attention_lstm(self):
-        ts_input = Input(shape=(self.seq_length, 5))
-        lstm1 = LSTM(64, return_sequences=True)(ts_input)
-        attention = Attention()([lstm1, lstm1])
-        attn_mult = Multiply()([lstm1, attention])
-        
-        static_input = Input(shape=(self.n_static_features,))
-        static_dense = Dense(32, activation='relu')(static_input)
-        
-        lstm2 = LSTM(32)(attn_mult)
-        merged = Concatenate()([lstm2, static_dense])
-        output = Dense(1)(merged)
-        
-        model = Model(inputs=[ts_input, static_input], outputs=output)
-        model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=0.001),
-                      loss='mean_squared_error', metrics=['mae'])
-        return model
-    
-    def train_hybrid(self, X_seq, X_static, y):
-        self.rf_model = RandomForestRegressor(n_estimators=200, max_depth=None)
-        self.rf_model.fit(X_static, y)
-        
-        self.lstm_model = self.build_attention_lstm()
-        self.lstm_model.fit([X_seq, X_static], y, epochs=5, batch_size=64, validation_split=0.2, verbose=1)
-        
-        rf_pred = self.rf_model.predict(X_static)
-        lstm_pred = self.lstm_model.predict([X_seq, X_static]).flatten()
-        self.ensemble_weights = np.linalg.lstsq(np.vstack([rf_pred, lstm_pred]).T, y, rcond=None)[0]
-        self.ensemble_weights /= np.sum(self.ensemble_weights)
-    
-    def save_models(self, path='flood_model'):
-        joblib.dump(self.rf_model, f'{path}_rf.pkl')
-        self.lstm_model.save(f'{path}_lstm.h5')
-        np.save(f'{path}_weights.npy', self.ensemble_weights)
-    
-    @classmethod
-    def load_models(cls, processor, path='flood_model'):
-        model = cls(processor)
-        model.rf_model = joblib.load(f'{path}_rf.pkl')
-        model.lstm_model = tf.keras.models.load_model(f'{path}_lstm.h5')
-        model.ensemble_weights = np.load(f'{path}_weights.npy')
-        return model
+# Define feature names
+static_features = ["elevation", "impervious_pct", "drainage_capacity", "avg_slope"]
+temporal_features = ["rainfall", "temperature", "antecedent_precipitation", "river_level", "groundwater_depth"]
 
-if __name__ == "__main__":
-    processor = FloodDataProcessor()
-    df = processor.load_data()
-    sequences, static_features, targets = processor.preprocess(df)
-    
-    split_idx = int(0.8 * len(sequences))
-    X_seq_train, X_seq_test = sequences[:split_idx], sequences[split_idx:]
-    X_static_train, X_static_test = static_features[:split_idx], static_features[split_idx:]
-    y_train, y_test = targets[:split_idx], targets[split_idx:]
-    
-    flood_model = HybridFloodModel(processor)
-    flood_model.train_hybrid(X_seq_train, X_static_train, y_train)
-    flood_model.save_models()
+# Group by sequence_id to create time-series samples
+sequence_ids = data["sequence_id"].unique()
+X_static, X_temporal, y = [], [], []
+
+for seq_id in sequence_ids:
+    seq_data = data[data["sequence_id"] == seq_id].sort_values("date")
+    X_static.append(seq_data[static_features].iloc[0].values)
+    X_temporal.append(seq_data[temporal_features].values)
+    y.append(seq_data["water_level_rise (m)"].values)
+
+X_static = np.array(X_static)
+X_temporal = np.array(X_temporal)
+y = np.array(y)
+
+# Split data into training and testing sets
+X_static_train, X_static_test, X_temporal_train, X_temporal_test, y_train, y_test = train_test_split(
+    X_static, X_temporal, y, test_size=0.2, random_state=42
+)
+
+# Train Random Forest on static features
+y_train_flat = y_train.reshape(-1, 1).ravel()
+X_static_train_flat = np.repeat(X_static_train, repeats=y_train.shape[1], axis=0)
+
+rf_model = RandomForestRegressor(n_estimators=100, random_state=42)
+rf_model.fit(X_static_train_flat, y_train_flat)
+
+# Save the Random Forest model
+joblib.dump(rf_model, 'backend/rf_model.pkl')
+print("Random Forest model saved as 'rf_model.pkl'.")
+
+# Define and Train LSTM to learn the residual (temporal) part
+temporal_input = Input(shape=(X_temporal_train.shape[1], X_temporal_train.shape[2]))
+lstm_layer = LSTM(64, return_sequences=True)(temporal_input)
+dense_layer = Dense(32, activation='relu')(lstm_layer)
+lstm_output = Dense(1)(dense_layer)
+
+lstm_model = Model(inputs=temporal_input, outputs=lstm_output)
+lstm_model.compile(optimizer='adam', loss='mse')
+
+# Train the LSTM model on the residuals
+lstm_model.fit(
+    X_temporal_train, y_train - rf_model.predict(np.repeat(X_static_train, repeats=y_train.shape[1], axis=0)).reshape(y_train.shape),
+    epochs=50, batch_size=16, validation_split=0.1
+)
+
+# Save the LSTM model
+lstm_model.save('backend/lstm_model.h5')
+print("LSTM model saved as 'lstm_model.h5'.")
