@@ -277,15 +277,15 @@ const Index = () => {
                     unit=" m"
                   />
                 </div>
-                <div className="flex gap-4">
+                <div className="flex gap-4 mt-8">
                   <Button
-                    className="w-full bg-primary hover:bg-primary/90 dark:bg-primary/90 dark:hover:bg-primary text-white transition-colors"
+                    className="w-full bg-[#33C3F0] hover:bg-[#33C3F0]/90 dark:bg-[#33C3F0] dark:hover:bg-[#33C3F0]/90 text-white transition-colors"
                     onClick={useSampleInput}
                   >
                     Use Sample Input
                   </Button>
                   <Button
-                    className="w-full bg-cyan-400 hover:bg-cyan-500 dark:bg-cyan-500 dark:hover:bg-cyan-600 text-white transition-colors text-sm py-2"
+                    className="w-full bg-[#33C3F0] hover:bg-[#33C3F0]/90 dark:bg-[#33C3F0] dark:hover:bg-[#33C3F0]/90 text-white transition-colors"
                     onClick={handleCalculate}
                   >
                     Calculate Water Level Rise
@@ -307,13 +307,21 @@ const Index = () => {
               <div className="bg-white/80 backdrop-blur-lg dark:bg-[#0f1117]/80 rounded-xl p-8 shadow-lg space-y-6 border border-white/20 dark:border-white/10 transition-all duration-500">
                 <Dialog>
                   <DialogTrigger asChild>
-                    <img 
-                      src="/lovable-uploads/0141ae5a-405b-4713-8719-8dfe5294503c.png" 
-                      alt="Flood Simulation Formula"
-                      className="w-full h-[400px] object-contain rounded-lg cursor-pointer hover:opacity-90 transition-opacity"
-                    />
+                    <div className="space-y-2">
+                      <h3 className="text-lg font-semibold text-primary-dark dark:text-cyan-400">
+                        Antecedent Precipitation
+                      </h3>
+                      <img 
+                        src="/lovable-uploads/0141ae5a-405b-4713-8719-8dfe5294503c.png" 
+                        alt="Flood Simulation Formula"
+                        className="w-full h-[400px] object-contain rounded-lg cursor-pointer hover:opacity-90 transition-opacity"
+                      />
+                    </div>
                   </DialogTrigger>
                   <DialogContent className="max-w-3xl">
+                    <h2 className="text-xl font-semibold mb-4 text-primary-dark dark:text-cyan-400">
+                      Antecedent Precipitation
+                    </h2>
                     <img 
                       src="/lovable-uploads/0141ae5a-405b-4713-8719-8dfe5294503c.png" 
                       alt="Flood Simulation Formula"
