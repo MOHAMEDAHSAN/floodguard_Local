@@ -308,7 +308,7 @@ const Index = () => {
                 <Dialog>
                   <DialogTrigger asChild>
                     <div className="space-y-2">
-                      <h3 className="text-lg font-semibold text-primary-dark dark:text-cyan-400">
+                      <h3 className="text-2xl font-semibold text-primary-dark dark:text-cyan-400">
                         Antecedent Precipitation
                       </h3>
                       <img 
@@ -319,7 +319,7 @@ const Index = () => {
                     </div>
                   </DialogTrigger>
                   <DialogContent className="max-w-3xl">
-                    <h2 className="text-xl font-semibold mb-4 text-primary-dark dark:text-cyan-400">
+                    <h2 className="text-2xl font-semibold mb-4 text-primary-dark dark:text-cyan-400">
                       Antecedent Precipitation
                     </h2>
                     <img 
