@@ -68,7 +68,7 @@ const About = () => {
               <div className="group relative bg-white/50 rounded-lg p-6 transition-all duration-500">
                 <div className="flex items-start gap-4">
                   <Avatar className="w-40 h-40 rounded-xl border-2 border-primary transition-all duration-300">
-                    <AvatarImage src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d" />
+                    <AvatarImage src="/lovable-uploads/4022ec1d-ad6f-4a7a-90dc-260d5308673d.png" />
                     <AvatarFallback>AK</AvatarFallback>
                   </Avatar>
                   <div>
