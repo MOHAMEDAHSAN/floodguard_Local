@@ -1,4 +1,3 @@
-
 import React from "react";
 import { RiskParameter } from "@/components/RiskParameter";
 import { Button } from "@/components/ui/button";
