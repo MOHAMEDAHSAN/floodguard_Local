@@ -54,18 +54,18 @@ const Index = () => {
 
   const useSampleInput = () => {
     setStaticParameters({
-      elevation: 1053.31835145252,
-      impervious_pct: 22.1853904552107,
-      drainage_capacity: 2540.61324956426,
-      avg_slope: 0.881852896963888
+      elevation: 1053,
+      impervious_pct: 22,
+      drainage_capacity: 2541,
+      avg_slope: 0.88
     });
 
     const sampleTemporalData = [
-      [270.6704575, 35.58366715, 270.6704575, 5.6724632, 0],
-      [49.9301307, 28.11305932, 252.9329738, 5.547334919, 0.322037617],
-      [189.0992464, 21.27542749, 378.7989768, 4.452855787, 1.795922951],
-      [230.2455971, 39.92379705, 514.3448297, 3.898579683, 3.108057646],
-      [66.92101995, 37.98835514, 452.6796422, 4.083508789, 2.435415819]
+      [271, 36, 271, 6, 0],
+      [50, 28, 253, 6, 0.3],
+      [189, 21, 379, 4, 1.8],
+      [230, 40, 514, 4, 3.1],
+      [67, 38, 453, 4, 2.4]
     ];
 
     setTemporalParameters({
@@ -288,7 +288,7 @@ const Index = () => {
                     className="w-full bg-cyan-400 hover:bg-cyan-500 dark:bg-cyan-500 dark:hover:bg-cyan-600 text-white transition-colors px-8 py-4"
                     onClick={handleCalculate}
                   >
-                    Calculate water level rise
+                    Calculate Water Level Rise
                   </Button>
                 </div>
                 <div className="mt-4 p-4 bg-white/50 dark:bg-[#1A1F2C]/50 rounded-lg text-center space-y-4">
