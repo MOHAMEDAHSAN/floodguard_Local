@@ -6,6 +6,7 @@ import RetroHeader from "@/components/RetroHeader";
 import { WeatherWidget } from "@/components/WeatherWidget";
 import { VantaBackground } from "@/components/VantaBackground";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 
 interface TemporalValues {
   rainfall: number[];
@@ -17,7 +18,7 @@ interface TemporalValues {
 
 const Index = () => {
   const { toast } = useToast();
-  const [predictedOutput, setPredictedOutput] = useState<string>("The calculated flood risk is 0.0%");
+  const [predictedOutput, setPredictedOutput] = useState<string>("The calculated water level rise is 0.0%");
   const [temporalIndex, setTemporalIndex] = useState(0);
   
   const [staticParameters, setStaticParameters] = useState({
@@ -82,11 +83,9 @@ const Index = () => {
   };
 
   const calculateRiskScore = (): number => {
-    // Simplified risk calculation for demonstration
     const avgRainfall = temporalParameters.rainfall.reduce((a, b) => a + b, 0) / 5;
     const avgTemperature = temporalParameters.temperature.reduce((a, b) => a + b, 0) / 5;
     
-    // Normalize and weight the parameters
     const normalizedValues = {
       elevation: (staticParameters.elevation - 1.98) / (1498.92 - 1.98),
       impervious: (staticParameters.impervious_pct - 10.10) / (79.94 - 10.10),
@@ -96,7 +95,6 @@ const Index = () => {
       temperature: (avgTemperature - 20.00) / (39.99 - 20.00)
     };
 
-    // Simple weighted average
     const weights = {
       elevation: 0.2,
       impervious: 0.15,
@@ -116,10 +114,10 @@ const Index = () => {
 
   const handleCalculate = () => {
     const score = calculateRiskScore();
-    setPredictedOutput(`The calculated flood risk is ${(score * 100).toFixed(1)}%`);
+    setPredictedOutput(`The calculated water level rise is ${(score * 100).toFixed(1)}%`);
     toast({
-      title: "Flood Risk Assessment",
-      description: `The calculated flood risk is ${(score * 100).toFixed(1)}%`,
+      title: "Water Level Rise Assessment",
+      description: `The calculated water level rise is ${(score * 100).toFixed(1)}%`,
     });
   };
 
@@ -287,7 +285,7 @@ const Index = () => {
                     Use Sample Input
                   </Button>
                   <Button
-                    className="w-full bg-cyan-400 hover:bg-cyan-500 dark:bg-cyan-500 dark:hover:bg-cyan-600 text-white transition-colors px-8 py-4 mt-8"
+                    className="w-full bg-cyan-400 hover:bg-cyan-500 dark:bg-cyan-500 dark:hover:bg-cyan-600 text-white transition-colors px-8 py-4"
                     onClick={handleCalculate}
                   >
                     Calculate water level rise
@@ -307,11 +305,22 @@ const Index = () => {
             </div>
             <div className="space-y-8">
               <div className="bg-white/80 backdrop-blur-lg dark:bg-[#0f1117]/80 rounded-xl p-8 shadow-lg space-y-6 border border-white/20 dark:border-white/10 transition-all duration-500">
-                <img 
-                  src="/lovable-uploads/0141ae5a-405b-4713-8719-8dfe5294503c.png" 
-                  alt="Flood Simulation Formula"
-                  className="w-full h-[400px] object-contain rounded-lg"
-                />
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <img 
+                      src="/lovable-uploads/0141ae5a-405b-4713-8719-8dfe5294503c.png" 
+                      alt="Flood Simulation Formula"
+                      className="w-full h-[400px] object-contain rounded-lg cursor-pointer hover:opacity-90 transition-opacity"
+                    />
+                  </DialogTrigger>
+                  <DialogContent className="max-w-3xl">
+                    <img 
+                      src="/lovable-uploads/0141ae5a-405b-4713-8719-8dfe5294503c.png" 
+                      alt="Flood Simulation Formula"
+                      className="w-full h-auto"
+                    />
+                  </DialogContent>
+                </Dialog>
               </div>
 
               <div className="bg-white/80 backdrop-blur-lg dark:bg-[#0f1117]/80 rounded-xl p-8 shadow-lg space-y-6 border border-white/20 dark:border-white/10 transition-all duration-500">
