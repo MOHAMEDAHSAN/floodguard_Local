@@ -255,10 +255,15 @@ const Index = () => {
                   className="w-full bg-cyan-400 hover:bg-cyan-500 dark:bg-cyan-500 dark:hover:bg-cyan-600 text-white transition-colors px-8 py-4 mt-8"
                   onClick={handleCalculate}
                 >
-                  Calculate Flood Risk
+                  Calculate water level rise
                 </Button>
-                <div className="mt-4 p-4 bg-white/50 dark:bg-[#1A1F2C]/50 rounded-lg text-center text-lg font-medium text-primary-dark dark:text-cyan-400">
-                  {predictedOutput}
+                <div className="mt-4 p-4 bg-white/50 dark:bg-[#1A1F2C]/50 rounded-lg text-center space-y-4">
+                  <p className="text-lg font-medium text-primary-dark dark:text-cyan-400">
+                    {predictedOutput}
+                  </p>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 italic border-t border-gray-200 dark:border-gray-700/50 pt-4">
+                    Disclaimer: This product/website/app is specifically designed to satisfy and be used by officials (Government)
+                  </p>
                 </div>
               </div>
             </div>
