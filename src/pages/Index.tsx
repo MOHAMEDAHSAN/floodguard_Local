@@ -279,13 +279,13 @@ const Index = () => {
                 </div>
                 <div className="flex gap-4">
                   <Button
-                    className="w-full bg-primary hover:bg-primary/90 dark:bg-primary/90 dark:hover:bg-primary text-white transition-colors px-8 py-4 mt-8"
+                    className="w-full bg-primary hover:bg-primary/90 dark:bg-primary/90 dark:hover:bg-primary text-white transition-colors"
                     onClick={useSampleInput}
                   >
                     Use Sample Input
                   </Button>
                   <Button
-                    className="w-full bg-cyan-400 hover:bg-cyan-500 dark:bg-cyan-500 dark:hover:bg-cyan-600 text-white transition-colors px-8 py-4"
+                    className="w-full bg-cyan-400 hover:bg-cyan-500 dark:bg-cyan-500 dark:hover:bg-cyan-600 text-white transition-colors text-sm py-2"
                     onClick={handleCalculate}
                   >
                     Calculate Water Level Rise
