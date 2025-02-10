@@ -51,7 +51,7 @@ const RetroHeader = () => {
               </h1>
             </Link>
             <p className="text-lg font-light text-white tracking-[0.2em] italic">
-              Advanced Flood Warning System
+              Advanced Flood Simulation System
             </p>
           </div>
           <div className="flex items-center space-x-6">
@@ -102,4 +102,3 @@ const RetroHeader = () => {
 };
 
 export default RetroHeader;
-
