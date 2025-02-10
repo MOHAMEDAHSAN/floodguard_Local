@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { RiskParameter } from "@/components/RiskParameter";
 import { RiskScore } from "@/components/RiskScore";
@@ -53,6 +52,36 @@ const Index = () => {
     });
   };
 
+  const useSampleInput = () => {
+    setStaticParameters({
+      elevation: 1053.31835145252,
+      impervious_pct: 22.1853904552107,
+      drainage_capacity: 2540.61324956426,
+      avg_slope: 0.881852896963888
+    });
+
+    const sampleTemporalData = [
+      [270.6704575, 35.58366715, 270.6704575, 5.6724632, 0],
+      [49.9301307, 28.11305932, 252.9329738, 5.547334919, 0.322037617],
+      [189.0992464, 21.27542749, 378.7989768, 4.452855787, 1.795922951],
+      [230.2455971, 39.92379705, 514.3448297, 3.898579683, 3.108057646],
+      [66.92101995, 37.98835514, 452.6796422, 4.083508789, 2.435415819]
+    ];
+
+    setTemporalParameters({
+      rainfall: sampleTemporalData.map(day => day[0]),
+      temperature: sampleTemporalData.map(day => day[1]),
+      antecedent_precipitation: sampleTemporalData.map(day => day[2]),
+      river_level: sampleTemporalData.map(day => day[3]),
+      groundwater_depth: sampleTemporalData.map(day => day[4])
+    });
+
+    toast({
+      title: "Sample Input Loaded",
+      description: "Sample values have been loaded into all parameters.",
+    });
+  };
+
   const calculateRiskScore = (): number => {
     // Simplified risk calculation for demonstration
     const avgRainfall = temporalParameters.rainfall.reduce((a, b) => a + b, 0) / 5;
@@ -104,7 +133,7 @@ const Index = () => {
           <div className="container h-full flex items-center justify-center">
             <div className="text-center space-y-4 animate-fadeIn">
               <h1 className="text-6xl font-bold text-white drop-shadow-lg">
-                Flood Risk Assessment System
+                Formula: APt = 0.75 · APt-1 + Rt
               </h1>
               <p className="text-2xl text-white/90 max-w-3xl mx-auto">
                 Advanced analytics and real-time assessment of water level rise based on
@@ -251,18 +280,28 @@ const Index = () => {
                     unit=" m"
                   />
                 </div>
-                <Button
-                  className="w-full bg-cyan-400 hover:bg-cyan-500 dark:bg-cyan-500 dark:hover:bg-cyan-600 text-white transition-colors px-8 py-4 mt-8"
-                  onClick={handleCalculate}
-                >
-                  Calculate water level rise
-                </Button>
+                <div className="flex gap-4">
+                  <Button
+                    className="w-full bg-primary hover:bg-primary/90 dark:bg-primary/90 dark:hover:bg-primary text-white transition-colors px-8 py-4 mt-8"
+                    onClick={useSampleInput}
+                  >
+                    Use Sample Input
+                  </Button>
+                  <Button
+                    className="w-full bg-cyan-400 hover:bg-cyan-500 dark:bg-cyan-500 dark:hover:bg-cyan-600 text-white transition-colors px-8 py-4 mt-8"
+                    onClick={handleCalculate}
+                  >
+                    Calculate water level rise
+                  </Button>
+                </div>
                 <div className="mt-4 p-4 bg-white/50 dark:bg-[#1A1F2C]/50 rounded-lg text-center space-y-4">
                   <p className="text-lg font-medium text-primary-dark dark:text-cyan-400">
                     {predictedOutput}
                   </p>
                   <p className="text-sm text-gray-600 dark:text-gray-400 italic border-t border-gray-200 dark:border-gray-700/50 pt-4">
                     Disclaimer: This product/website/app is specifically designed to satisfy and be used by officials (Government)
+                    <br />
+                    This product/website/app is specifically designed for FloodSimulation in Tamil Nadu, India
                   </p>
                 </div>
               </div>
