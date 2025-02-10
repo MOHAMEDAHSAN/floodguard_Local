@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { RiskParameter } from "@/components/RiskParameter";
 import { Button } from "@/components/ui/button";
@@ -311,7 +310,7 @@ const Index = () => {
                 <img 
                   src="/lovable-uploads/0141ae5a-405b-4713-8719-8dfe5294503c.png" 
                   alt="Flood Simulation Formula"
-                  className="w-full h-auto rounded-lg"
+                  className="w-full h-[400px] object-contain rounded-lg"
                 />
               </div>
 
