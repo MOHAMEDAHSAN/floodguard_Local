@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
@@ -20,7 +19,7 @@ interface TemporalValues {
 
 const Index = () => {
   const { toast } = useToast();
-  const [predictedOutput, setPredictedOutput] = useState<string>("The calculated water level rise is 0.0%");
+  const [predictedOutput, setPredictedOutput] = useState<string>("The calculated water level rise is 0.0 meters");
   const [temporalIndex, setTemporalIndex] = useState(0);
   
   const [staticParameters, setStaticParameters] = useState({
@@ -84,43 +83,46 @@ const Index = () => {
     });
   };
 
-  const calculateRiskScore = (): number => {
-    const avgRainfall = temporalParameters.rainfall.reduce((a, b) => a + b, 0) / 5;
-    const avgTemperature = temporalParameters.temperature.reduce((a, b) => a + b, 0) / 5;
-    
-    const normalizedValues = {
-      elevation: (staticParameters.elevation - 1.98) / (1498.92 - 1.98),
-      impervious: (staticParameters.impervious_pct - 10.10) / (79.94 - 10.10),
-      drainage: (staticParameters.drainage_capacity - 107.46) / (4998.57 - 107.46),
-      slope: (staticParameters.avg_slope - 0.0046) / (14.98 - 0.0046),
-      rainfall: (avgRainfall - 0.08) / (299.84 - 0.08),
-      temperature: (avgTemperature - 20.00) / (39.99 - 20.00)
-    };
+  const handleCalculate = async () => {
+    try {
+      const inputData = {
+        ...staticParameters,
+        ...temporalParameters
+      };
+      console.log("Sending input data:", inputData);  // Log input data
 
-    const weights = {
-      elevation: 0.2,
-      impervious: 0.15,
-      drainage: 0.15,
-      slope: 0.1,
-      rainfall: 0.25,
-      temperature: 0.15
-    };
+      const response = await fetch('http://127.0.0.1:5000/predict', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(inputData),
+      });
 
-    const score = Object.entries(normalizedValues).reduce(
-      (acc, [key, value]) => acc + value * weights[key as keyof typeof weights],
-      0
-    );
+      const data = await response.json();
+      console.log("Received prediction data:", data);  // Log prediction data
 
-    return Math.min(Math.max(score, 0), 1);
-  };
+      if (data.error) {
+        throw new Error(data.error);
+      }
 
-  const handleCalculate = () => {
-    const score = calculateRiskScore();
-    setPredictedOutput(`The calculated water level rise is ${(score * 100).toFixed(1)}%`);
-    toast({
-      title: "Water Level Rise Assessment",
-      description: `The calculated water level rise is ${(score * 100).toFixed(1)}%`,
-    });
+      const prediction = data.prediction[0];  // Extract the prediction array
+      const avgPrediction = (prediction.reduce((a: number, b: number) => a + b, 0) / prediction.length);
+
+      console.log("Average prediction:", avgPrediction);  // Log average prediction
+
+      setPredictedOutput(`The calculated water level rise is ${avgPrediction.toFixed(2)} meters`);
+      toast({
+        title: "Water Level Rise Assessment",
+        description: `The calculated water level rise is ${avgPrediction.toFixed(2)} meters`,
+      });
+    } catch (error) {
+      console.error('Error:', error);
+      toast({
+        title: "Error",
+        description: "Failed to calculate water level rise.",
+      });
+    }
   };
 
   return (
