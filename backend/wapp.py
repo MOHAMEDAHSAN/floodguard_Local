@@ -4,7 +4,6 @@ import numpy as np
 import joblib
 from tensorflow.keras.models import load_model
 from tensorflow.keras.losses import MeanSquaredError
-from sklearn.preprocessing import StandardScaler
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
@@ -13,16 +12,12 @@ CORS(app)  # Enable CORS for all routes
 rf_model = joblib.load('backend/rf_model.pkl')
 lstm_model = load_model('backend/lstm_model.h5', custom_objects={'mse': MeanSquaredError()})
 
-# Initialize scalers
-static_scaler = StandardScaler()
-temporal_scaler = StandardScaler()
-
 @app.route('/predict', methods=['POST'])
 def predict():
     data = request.json
-    print("Received input data:", data)  # Log input data
+    print("Received input data:", data)  # Keep original logging
 
-    # Validate input data
+    # Validate input data (original validation)
     required_fields = [
         "elevation", "impervious_pct", "drainage_capacity", "avg_slope",
         "rainfall", "temperature", "antecedent_precipitation", "river_level", "groundwater_depth"
@@ -31,7 +26,7 @@ def predict():
         if field not in data:
             return jsonify({'error': f'Missing required field: {field}'}), 400
 
-    # Extract static and temporal parameters
+    # Keep original input processing
     static_input = np.array([[
         data['elevation'],
         data['impervious_pct'],
@@ -47,45 +42,28 @@ def predict():
         [data['rainfall'][4], data['temperature'][4], data['antecedent_precipitation'][4], data['river_level'][4], data['groundwater_depth'][4]]
     ]])
 
-    print("Static input:", static_input)  # Log static input
-    print("Temporal input:", temporal_input)  # Log temporal input
+    print("Static input:", static_input)
+    print("Temporal input:", temporal_input)
 
-    # Normalize input data
-    try:
-        static_input_normalized = static_scaler.fit_transform(static_input)
-        temporal_input_normalized = temporal_scaler.fit_transform(temporal_input.reshape(-1, temporal_input.shape[-1])).reshape(temporal_input.shape)
-    except Exception as e:
-        return jsonify({'error': f'Error normalizing input data: {str(e)}'}), 500
+    # Remove scaling but keep original structure
+    static_input_normalized = static_input  # Direct assignment
+    temporal_input_normalized = temporal_input  # Direct assignment
 
-    print("Normalized static input:", static_input_normalized)  # Log normalized static input
-    print("Normalized temporal input:", temporal_input_normalized)  # Log normalized temporal input
-
-    # Predict using the RF model
-    try:
-        static_input_repeated = np.repeat(static_input_normalized, repeats=temporal_input_normalized.shape[1], axis=0)
-        static_pred = rf_model.predict(static_input_repeated).reshape((1, temporal_input_normalized.shape[1]))
-    except Exception as e:
-        return jsonify({'error': f'Error predicting with RF model: {str(e)}'}), 500
-
-    print("Static prediction:", static_pred)  # Log static prediction
-
-    # Predict the temporal (residual) component using the LSTM model
-    try:
-        lstm_pred = lstm_model.predict(temporal_input_normalized).squeeze()
-    except Exception as e:
-        return jsonify({'error': f'Error predicting with LSTM model: {str(e)}'}), 500
-
-    print("LSTM prediction:", lstm_pred)  # Log LSTM prediction
-
-    # Final water level rise prediction is the sum of the static and temporal predictions
+    # Keep original prediction flow
+    static_input_repeated = np.repeat(static_input_normalized, repeats=5, axis=0)
+    static_pred = rf_model.predict(static_input_repeated).reshape((1, 5))
+    
+    lstm_pred = lstm_model.predict(temporal_input_normalized).squeeze()
+    
     final_pred = static_pred + lstm_pred
 
-    print("Final prediction:", final_pred)  # Log final prediction
+    print("Final prediction:", final_pred)
 
-    # Check for NaN in predictions
+    # Maintain original error checking
     if np.isnan(final_pred).any():
         return jsonify({'error': 'Model predictions resulted in NaN values'}), 500
 
+    # Return original format with 'prediction' key
     return jsonify({'prediction': final_pred.tolist()})
 
 if __name__ == '__main__':
