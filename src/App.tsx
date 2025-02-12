@@ -34,7 +34,7 @@ const AppContent = () => {
     <div className="min-h-screen flex flex-col">
       <Toaster />
       <Sonner />
-      <NavBar />
+      {!isAuthPage && <NavBar />}
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/about" element={<About />} />
