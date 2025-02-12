@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -85,7 +84,7 @@ const Auth = () => {
     <div 
       className="min-h-screen flex items-center justify-center pt-16"
       style={{
-        backgroundImage: "url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&q=80&w=3945')",
+        backgroundImage: "url('https://images.unsplash.com/photo-1599940824399-b87987ceb72a?q=80&w=3272&auto=format&fit=crop')",
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}

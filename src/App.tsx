@@ -42,7 +42,7 @@ const AppContent = () => {
         <Route path="/auth" element={<Auth />} />
       </Routes>
       {!isAuthPage && <NovaChat />}
-      <Footer />
+      {!isAuthPage && <Footer />}
     </div>
   );
 };
