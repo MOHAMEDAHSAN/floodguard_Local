@@ -19,7 +19,7 @@ interface TemporalValues {
 
 const Index = () => {
   const { toast } = useToast();
-  const [predictedOutput, setPredictedOutput] = useState<string>("The calculated water level rise is 0.0 meters");
+  const [predictions, setPredictions] = useState<number[]>([]);
   const [temporalIndex, setTemporalIndex] = useState(0);
   
   const [staticParameters, setStaticParameters] = useState({
@@ -89,7 +89,7 @@ const Index = () => {
         ...staticParameters,
         ...temporalParameters
       };
-      console.log("Sending input data:", inputData);  // Log input data
+      console.log("Sending input data:", inputData);
 
       const response = await fetch('http://127.0.0.1:5000/predict', {
         method: 'POST',
@@ -100,21 +100,20 @@ const Index = () => {
       });
 
       const data = await response.json();
-      console.log("Received prediction data:", data);  // Log prediction data
+      console.log("Received prediction data:", data);
 
       if (data.error) {
         throw new Error(data.error);
       }
 
-      const prediction = data.prediction[0];  // Extract the prediction array
-      const avgPrediction = (prediction.reduce((a: number, b: number) => a + b, 0) / prediction.length);
+      const prediction = data.prediction[0];
+      setPredictions(prediction);
 
-      console.log("Average prediction:", avgPrediction);  // Log average prediction
-
-      setPredictedOutput(`The calculated water level rise is ${avgPrediction.toFixed(2)} meters`);
+      const avgPrediction = prediction.reduce((a: number, b: number) => a + b, 0) / prediction.length;
+      
       toast({
         title: "Water Level Rise Assessment",
-        description: `The calculated water level rise is ${avgPrediction.toFixed(2)} meters`,
+        description: `Average water level rise: ${avgPrediction.toFixed(2)} meters`,
       });
     } catch (error) {
       console.error('Error:', error);
@@ -160,9 +159,22 @@ const Index = () => {
                 </Button>
               </div>
               <div className="mt-4 p-4 bg-white/50 dark:bg-[#1A1F2C]/50 rounded-lg text-center space-y-4">
-                <p className="text-lg font-medium text-primary-dark dark:text-cyan-400">
-                  {predictedOutput}
-                </p>
+                <div className="space-y-2">
+                  {predictions.length > 0 ? (
+                    predictions.map((value, index) => (
+                      <p 
+                        key={index}
+                        className="text-lg font-medium text-primary-dark dark:text-cyan-400"
+                      >
+                        Day {index + 1} water level rise: {value.toFixed(2)} meters
+                      </p>
+                    ))
+                  ) : (
+                    <p className="text-lg font-medium text-primary-dark dark:text-cyan-400">
+                      The calculated water level rise is 0.0 meters
+                    </p>
+                  )}
+                </div>
                 <p className="text-sm text-gray-600 dark:text-gray-400 italic border-t border-gray-200 dark:border-gray-700/50 pt-4">
                   Disclaimer: This product/website/app is specifically designed to satisfy and be used by officials (Government)
                   <br />
