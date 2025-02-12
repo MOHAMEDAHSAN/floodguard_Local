@@ -82,9 +82,16 @@ const Auth = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-primary-light/50 to-secondary dark:from-black dark:to-[#1A1F2C]">
+    <div 
+      className="min-h-screen flex items-center justify-center pt-16"
+      style={{
+        backgroundImage: "url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&q=80&w=3945')",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+    >
       <div className="w-full max-w-md p-4">
-        <Card className="p-6 space-y-6 backdrop-blur-lg bg-white/80 dark:bg-[#1A1F2C]/80">
+        <Card className="p-6 space-y-6 backdrop-blur-lg bg-white/80 dark:bg-[#1A1F2C]/80 shadow-xl">
           <Tabs defaultValue="admin" className="w-full">
             <TabsList className="grid w-full grid-cols-2">
               <TabsTrigger value="admin">Government Official</TabsTrigger>
