@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -11,6 +10,7 @@ import { ThemeProvider } from "next-themes";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Chatbot from "./pages/Chatbot";
+import Auth from "./pages/Auth";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -35,6 +35,7 @@ const AppContent = () => {
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
           <Route path="/chatbot" element={<Chatbot />} />
+          <Route path="/auth" element={<Auth />} />
         </Routes>
         <NovaChat />
         <Footer />

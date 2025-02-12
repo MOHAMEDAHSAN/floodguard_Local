@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import RetroHeader from "@/components/RetroHeader";
@@ -8,6 +9,7 @@ import { HeroSection } from "@/components/HeroSection";
 import { StaticParameters } from "@/components/StaticParameters";
 import { TemporalParameters } from "@/components/TemporalParameters";
 import { RiskAnalysis } from "@/components/RiskAnalysis";
+import { supabase } from "@/integrations/supabase/client";
 
 interface TemporalValues {
   rainfall: number[];
@@ -18,7 +20,9 @@ interface TemporalValues {
 }
 
 const Index = () => {
+  const navigate = useNavigate();
   const { toast } = useToast();
+  const [loading, setLoading] = useState(true);
   const [predictions, setPredictions] = useState<number[]>([]);
   const [temporalIndex, setTemporalIndex] = useState(0);
   
@@ -36,6 +40,48 @@ const Index = () => {
     river_level: Array(5).fill(0.00),
     groundwater_depth: Array(5).fill(2.00)
   });
+
+  useEffect(() => {
+    checkUser();
+  }, []);
+
+  const checkUser = async () => {
+    try {
+      const { data: { session } } = await supabase.auth.getSession();
+      
+      if (!session) {
+        navigate('/auth');
+        return;
+      }
+
+      const { data: profile, error: profileError } = await supabase
+        .from('profiles')
+        .select('role')
+        .eq('id', session.user.id)
+        .single();
+
+      if (profileError) throw profileError;
+
+      if (profile.role !== 'admin') {
+        toast({
+          title: "Access Denied",
+          description: "This page is only accessible to government officials.",
+          variant: "destructive",
+        });
+        navigate('/auth');
+      }
+    } catch (error: any) {
+      console.error('Error:', error);
+      toast({
+        title: "Error",
+        description: error.message,
+        variant: "destructive",
+      });
+      navigate('/auth');
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const handlePrevious = () => {
     setTemporalIndex((prev) => (prev > 0 ? prev - 1 : prev));
@@ -123,6 +169,14 @@ const Index = () => {
       });
     }
   };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <p>Loading...</p>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-primary-light/50 to-secondary dark:from-black dark:to-[#1A1F2C] transition-colors duration-500">
