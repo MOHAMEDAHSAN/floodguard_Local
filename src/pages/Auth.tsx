@@ -24,7 +24,20 @@ const Auth = () => {
         password
       });
 
-      if (signInError) throw signInError;
+      if (signInError) {
+        // Check for specific error types
+        if (signInError.message.includes("Email not confirmed")) {
+          throw new Error(
+            "Please confirm your email address before logging in. Check your inbox for a confirmation email."
+          );
+        }
+        if (signInError.message.includes("Invalid login credentials")) {
+          throw new Error(
+            "Invalid email or password. Please check your credentials and try again."
+          );
+        }
+        throw signInError;
+      }
 
       // Fetch user's profile to check role
       const { data: profile, error: profileError } = await supabase
