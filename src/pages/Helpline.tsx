@@ -1,20 +1,23 @@
-
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Slider } from "@/components/ui/slider";
+import { Checkbox } from "@/components/ui/checkbox";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
-import { HouseholdSection } from "@/components/helpline/HouseholdSection";
-import { VulnerabilitiesSection } from "@/components/helpline/VulnerabilitiesSection";
-import { MedicalEmergenciesSection } from "@/components/helpline/MedicalEmergenciesSection";
-import { ImmediateNeedsSection } from "@/components/helpline/ImmediateNeedsSection";
-import { EnvironmentalRisksSection } from "@/components/helpline/EnvironmentalRisksSection";
-import { LocationSection } from "@/components/helpline/LocationSection";
+import { useTheme } from "next-themes";
+import { Moon, Sun } from "lucide-react";
 
 const Helpline = () => {
+  const navigate = useNavigate();
   const { toast } = useToast();
+  const { theme, setTheme } = useTheme();
   
   // Household
   const [numAdults, setNumAdults] = useState(1);
@@ -155,64 +158,350 @@ const Helpline = () => {
           <p className="text-muted-foreground">Please provide accurate information to help us assess your situation.</p>
           
           <form onSubmit={handleSubmit} className="space-y-8">
-            <HouseholdSection
-              numAdults={numAdults}
-              setNumAdults={setNumAdults}
-              numChildren={numChildren}
-              setNumChildren={setNumChildren}
-              numElderly={numElderly}
-              setNumElderly={setNumElderly}
-            />
+            {/* Household Section */}
+            <div className="space-y-6">
+              <h2 className="text-xl font-semibold text-foreground mb-6">People in Household</h2>
+              
+              <div className="space-y-6">
+                <div className="space-y-2">
+                  <Label>Number of Adults (18-60 years)</Label>
+                  <div className="flex items-center space-x-2">
+                    <Button
+                      type="button"
+                      variant="outline"
+                      onClick={() => setNumAdults(prev => Math.max(0, prev - 1))}
+                    >
+                      -
+                    </Button>
+                    <Input
+                      type="number"
+                      value={numAdults}
+                      onChange={(e) => setNumAdults(parseInt(e.target.value) || 0)}
+                      className="w-20 text-center"
+                    />
+                    <Button
+                      type="button"
+                      variant="outline"
+                      onClick={() => setNumAdults(prev => prev + 1)}
+                    >
+                      +
+                    </Button>
+                  </div>
+                </div>
 
-            <VulnerabilitiesSection
-              wheelchairUser={wheelchairUser}
-              setWheelchairUser={setWheelchairUser}
-              blindness={blindness}
-              setBlindness={setBlindness}
-              otherDisabilities={otherDisabilities}
-              setOtherDisabilities={setOtherDisabilities}
-            />
+                <div className="space-y-2">
+                  <Label>Number of Children (under 18)</Label>
+                  <div className="flex items-center space-x-2">
+                    <Button
+                      type="button"
+                      variant="outline"
+                      onClick={() => setNumChildren(prev => Math.max(0, prev - 1))}
+                    >
+                      -
+                    </Button>
+                    <Input
+                      type="number"
+                      value={numChildren}
+                      onChange={(e) => setNumChildren(parseInt(e.target.value) || 0)}
+                      className="w-20 text-center"
+                    />
+                    <Button
+                      type="button"
+                      variant="outline"
+                      onClick={() => setNumChildren(prev => prev + 1)}
+                    >
+                      +
+                    </Button>
+                  </div>
+                </div>
 
-            <MedicalEmergenciesSection
-              injuryStatus={injuryStatus}
-              setInjuryStatus={setInjuryStatus}
-              diabetes={diabetes}
-              setDiabetes={setDiabetes}
-              heartDisease={heartDisease}
-              setHeartDisease={setHeartDisease}
-              dialysisDependent={dialysisDependent}
-              setDialysisDependent={setDialysisDependent}
-              isPregnant={isPregnant}
-              setIsPregnant={setIsPregnant}
-              pregnancyTrimester={pregnancyTrimester}
-              setPregnancyTrimester={setPregnancyTrimester}
-            />
+                <div className="space-y-2">
+                  <Label>Number of Elderly (60+ years)</Label>
+                  <div className="flex items-center space-x-2">
+                    <Button
+                      type="button"
+                      variant="outline"
+                      onClick={() => setNumElderly(prev => Math.max(0, prev - 1))}
+                    >
+                      -
+                    </Button>
+                    <Input
+                      type="number"
+                      value={numElderly}
+                      onChange={(e) => setNumElderly(parseInt(e.target.value) || 0)}
+                      className="w-20 text-center"
+                    />
+                    <Button
+                      type="button"
+                      variant="outline"
+                      onClick={() => setNumElderly(prev => prev + 1)}
+                    >
+                      +
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-            <ImmediateNeedsSection
-              daysWithoutSupplies={daysWithoutSupplies}
-              setDaysWithoutSupplies={setDaysWithoutSupplies}
-              medicineNeeded={medicineNeeded}
-              setMedicineNeeded={setMedicineNeeded}
-              toiletAccess={toiletAccess}
-              setToiletAccess={setToiletAccess}
-            />
+            {/* Vulnerabilities Section */}
+            <div className="space-y-6">
+              <h2 className="text-xl font-semibold text-gray-900 dark:text-white">Vulnerabilities</h2>
+              
+              <div className="space-y-4">
+                <div className="flex items-center space-x-2">
+                  <Checkbox
+                    id="wheelchair"
+                    checked={wheelchairUser}
+                    onCheckedChange={(checked) => setWheelchairUser(checked as boolean)}
+                  />
+                  <label
+                    htmlFor="wheelchair"
+                    className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                  >
+                    Wheelchair User
+                  </label>
+                </div>
 
-            <EnvironmentalRisksSection
-              waterLevel={waterLevel}
-              setWaterLevel={setWaterLevel}
-              structuralDamage={structuralDamage}
-              setStructuralDamage={setStructuralDamage}
-              vehiclesSubmerged={vehiclesSubmerged}
-              setVehiclesSubmerged={setVehiclesSubmerged}
-            />
+                <div className="flex items-center space-x-2">
+                  <Checkbox
+                    id="blindness"
+                    checked={blindness}
+                    onCheckedChange={(checked) => setBlindness(checked as boolean)}
+                  />
+                  <label
+                    htmlFor="blindness"
+                    className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                  >
+                    Blindness
+                  </label>
+                </div>
 
-            <LocationSection
-              region={region}
-              setRegion={setRegion}
-              area={area}
-              setArea={setArea}
-            />
+                <div className="flex items-center space-x-2">
+                  <Checkbox
+                    id="otherDisabilities"
+                    checked={otherDisabilities}
+                    onCheckedChange={(checked) => setOtherDisabilities(checked as boolean)}
+                  />
+                  <label
+                    htmlFor="otherDisabilities"
+                    className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                  >
+                    Other Disabilities
+                  </label>
+                </div>
+              </div>
+            </div>
 
+            {/* Medical Emergencies Section */}
+            <div className="space-y-6">
+              <h2 className="text-xl font-semibold text-gray-900 dark:text-white">Medical Emergencies</h2>
+              
+              <div className="space-y-4">
+                <div>
+                  <Label>Injuries</Label>
+                  <Select value={injuryStatus} onValueChange={(value: any) => setInjuryStatus(value)}>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select injury status" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="none">None</SelectItem>
+                      <SelectItem value="fracture">Fracture</SelectItem>
+                      <SelectItem value="bleeding">Bleeding</SelectItem>
+                      <SelectItem value="multiple-injuries">Multiple Injuries</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                <div className="space-y-2">
+                  <Label>Chronic Conditions</Label>
+                  <div className="space-y-2">
+                    <div className="flex items-center space-x-2">
+                      <Checkbox
+                        id="diabetes"
+                        checked={diabetes}
+                        onCheckedChange={(checked) => setDiabetes(checked as boolean)}
+                      />
+                      <label htmlFor="diabetes">Diabetes</label>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <Checkbox
+                        id="heartDisease"
+                        checked={heartDisease}
+                        onCheckedChange={(checked) => setHeartDisease(checked as boolean)}
+                      />
+                      <label htmlFor="heartDisease">Heart Disease</label>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <Checkbox
+                        id="dialysis"
+                        checked={dialysisDependent}
+                        onCheckedChange={(checked) => setDialysisDependent(checked as boolean)}
+                      />
+                      <label htmlFor="dialysis">Dialysis Dependent</label>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  <div>
+                    <Label>Pregnancy Status</Label>
+                    <RadioGroup value={isPregnant ? "yes" : "no"} onValueChange={(value) => {
+                      setIsPregnant(value === "yes");
+                      if (value === "no") setPregnancyTrimester('none');
+                    }}>
+                      <div className="flex items-center space-x-2">
+                        <RadioGroupItem value="yes" id="pregnant-yes" />
+                        <Label htmlFor="pregnant-yes">Yes</Label>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <RadioGroupItem value="no" id="pregnant-no" />
+                        <Label htmlFor="pregnant-no">No</Label>
+                      </div>
+                    </RadioGroup>
+                  </div>
+
+                  {isPregnant && (
+                    <div>
+                      <Label>Trimester</Label>
+                      <Select value={pregnancyTrimester} onValueChange={(value: any) => setPregnancyTrimester(value)}>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select trimester" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="first">First Trimester</SelectItem>
+                          <SelectItem value="second">Second Trimester</SelectItem>
+                          <SelectItem value="third">Third Trimester</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+
+            {/* Immediate Needs Section */}
+            <div className="space-y-6">
+              <h2 className="text-xl font-semibold text-gray-900 dark:text-white">Immediate Needs</h2>
+              
+              <div className="space-y-4">
+                <div>
+                  <Label>Days Without Food/Water: {daysWithoutSupplies}</Label>
+                  <Slider
+                    value={[daysWithoutSupplies]}
+                    onValueChange={(value) => setDaysWithoutSupplies(value[0])}
+                    min={0}
+                    max={3}
+                    step={1}
+                    className="mt-2"
+                  />
+                </div>
+
+                <div>
+                  <Label>Medicine Needed</Label>
+                  <RadioGroup value={medicineNeeded ? "yes" : "no"} onValueChange={(value) => setMedicineNeeded(value === "yes")}>
+                    <div className="flex items-center space-x-2">
+                      <RadioGroupItem value="yes" id="medicine-yes" />
+                      <Label htmlFor="medicine-yes">Yes</Label>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <RadioGroupItem value="no" id="medicine-no" />
+                      <Label htmlFor="medicine-no">No</Label>
+                    </div>
+                  </RadioGroup>
+                </div>
+
+                <div>
+                  <Label>Toilet Access</Label>
+                  <RadioGroup value={toiletAccess ? "yes" : "no"} onValueChange={(value) => setToiletAccess(value === "yes")}>
+                    <div className="flex items-center space-x-2">
+                      <RadioGroupItem value="yes" id="toilet-yes" />
+                      <Label htmlFor="toilet-yes">Yes</Label>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <RadioGroupItem value="no" id="toilet-no" />
+                      <Label htmlFor="toilet-no">No</Label>
+                    </div>
+                  </RadioGroup>
+                </div>
+              </div>
+            </div>
+
+            {/* Environmental Risks Section */}
+            <div className="space-y-6">
+              <h2 className="text-xl font-semibold text-gray-900 dark:text-white">Environmental Risks</h2>
+              
+              <div className="space-y-4">
+                <div>
+                  <Label>Water Level</Label>
+                  <Select value={waterLevel} onValueChange={(value: any) => setWaterLevel(value)}>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select water level" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="knee-high">Knee High</SelectItem>
+                      <SelectItem value="waist-high">Waist High</SelectItem>
+                      <SelectItem value="chest-high">Chest High</SelectItem>
+                      <SelectItem value="neck-high">Neck High</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                <div>
+                  <Label>Structural Damage</Label>
+                  <Select value={structuralDamage} onValueChange={(value: any) => setStructuralDamage(value)}>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select structural damage" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="none">None</SelectItem>
+                      <SelectItem value="cracked-walls">Cracked Walls</SelectItem>
+                      <SelectItem value="collapsed-structure">Collapsed Structure</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                <div>
+                  <Label>Vehicles Submerged: {vehiclesSubmerged}</Label>
+                  <Slider
+                    value={[vehiclesSubmerged]}
+                    onValueChange={(value) => setVehiclesSubmerged(value[0])}
+                    min={0}
+                    max={3}
+                    step={1}
+                    className="mt-2"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Location Section */}
+            <div className="space-y-6">
+              <h2 className="text-xl font-semibold text-gray-900 dark:text-white">Location Information</h2>
+              
+              <div className="space-y-4">
+                <div>
+                  <Label htmlFor="region">Region</Label>
+                  <Input
+                    id="region"
+                    value={region}
+                    onChange={(e) => setRegion(e.target.value)}
+                    placeholder="Enter your region"
+                  />
+                </div>
+
+                <div>
+                  <Label htmlFor="area">Area</Label>
+                  <Input
+                    id="area"
+                    value={area}
+                    onChange={(e) => setArea(e.target.value)}
+                    placeholder="Enter your area"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Additional Information Section */}
             <div className="space-y-4">
               <Label htmlFor="additional-info">Additional Information</Label>
               <Textarea
