@@ -1,0 +1,1001 @@
+name,area,adults,children,elderly,disabled,injuries,chronic,pregnant,pregnancy_trimester,food_water_days,medicine_need,toilet_access,water_level,structural_damage,vehicles_submerged,disabled_count,chronic_count,priority_score
+Laura Harrison DDS,Adyar,1,4,1,"['wheelchair', 'wheelchair']",1,"['heart', 'none']",False,0,3,1,False,3,1.0,0,2,1,3.93
+Debra Brown,Thoraipakkam,2,4,2,['blindness'],1,"['dialysis', 'dialysis']",False,0,2,1,True,1,1.0,3,1,2,3.88
+Joshua Lee,Vadapalani,2,3,2,"['wheelchair', 'blindness']",1,[],True,1,3,1,False,3,1.0,1,2,0,3.86
+Meredith Wright,Medavakkam,2,4,2,"['other', 'other']",1,[],False,0,3,1,False,0,1.0,2,2,0,3.75
+Kenneth Reed,Medavakkam,1,3,0,"['wheelchair', 'other']",1,"['dialysis', 'heart']",True,0,2,1,False,2,1.0,3,2,2,3.7
+Tracie Dodson,Medavakkam,1,4,2,[],1,"['heart', 'dialysis']",False,0,3,0,True,3,1.0,3,0,2,3.68
+Kim Werner,Porur,2,4,0,"['wheelchair', 'other']",1,"['heart', 'dialysis']",False,0,2,0,True,3,1.0,2,2,2,3.63
+Amy Rodriguez,Vadapalani,3,4,1,['other'],1,"['heart', 'heart']",False,0,2,1,False,1,1.0,2,1,2,3.63
+Jennifer Jones,T. Nagar,2,4,2,"['blindness', 'blindness']",1,"['diabetes', 'heart']",False,0,1,0,False,0,0.5,2,2,2,3.63
+Stephen Turner,Guindy National Park,3,3,0,"['wheelchair', 'other']",1,"['dialysis', 'heart']",False,1,3,1,False,2,0.5,3,2,2,3.62
+Christy Robles,Vadapalani,2,4,0,"['other', 'wheelchair']",1,"['heart', 'none']",False,0,2,1,False,3,1.0,1,2,1,3.58
+Erin Cruz,Boat Club Road,3,4,0,"['wheelchair', 'wheelchair']",1,['dialysis'],False,0,3,1,False,2,0.5,3,2,1,3.58
+Rhonda Gill,Adyar,1,4,1,"['wheelchair', 'blindness']",1,[],False,0,3,0,True,3,1.0,3,2,0,3.58
+Allen Lloyd,Avadi,2,4,2,['blindness'],1,['diabetes'],False,0,3,0,True,3,1.0,1,1,1,3.58
+Caroline Wong,Avadi,1,3,2,"['wheelchair', 'blindness']",1,"['heart', 'diabetes']",False,0,3,0,False,1,0.0,2,2,2,3.58
+Brent Summers,Guindy National Park,1,4,2,"['other', 'other']",1,['heart'],False,0,1,0,True,3,0.5,2,2,1,3.55
+David Banks,Medavakkam,3,4,0,"['wheelchair', 'blindness']",1,"['dialysis', 'heart']",False,0,2,1,False,2,0.5,1,2,2,3.53
+Shane Harrison,Boat Club Road,1,2,2,"['blindness', 'other']",1,"['heart', 'dialysis']",False,0,0,1,False,0,1.0,3,2,2,3.5
+Brady Howard,T. Nagar,2,4,2,"['blindness', 'blindness']",1,"['dialysis', 'none']",False,0,3,1,True,1,0.0,1,2,1,3.48
+Anne Hebert,Avadi,1,4,2,"['other', 'wheelchair']",1,"['heart', 'dialysis']",False,0,0,0,True,3,0.0,2,2,2,3.48
+John Cummings,Thoraipakkam,3,4,2,['other'],1,['diabetes'],False,0,2,1,True,1,1.0,2,1,1,3.48
+Tammy Lucas,Thoraipakkam,1,4,2,['wheelchair'],1,"['dialysis', 'none']",False,0,3,0,False,3,0.0,3,1,1,3.47
+Heather Rogers,Boat Club Road,2,3,2,"['blindness', 'other']",1,"['none', 'heart']",False,0,3,0,True,0,1.0,2,2,1,3.45
+Patricia Mccormick,Medavakkam,3,4,1,"['wheelchair', 'blindness']",0,"['heart', 'diabetes']",False,0,1,0,False,3,0.5,3,2,2,3.45
+Jack Tyler,Adyar,3,4,1,"['wheelchair', 'blindness']",0,['heart'],False,0,2,0,False,3,1.0,2,2,1,3.43
+Sue Harris,Boat Club Road,1,4,2,[],1,"['heart', 'dialysis']",False,0,1,0,False,3,1.0,2,0,2,3.43
+Tracy Lewis,Thoraipakkam,1,0,2,"['other', 'blindness']",1,"['heart', 'diabetes']",False,0,3,0,False,2,1.0,2,2,2,3.4
+Timothy White,Medavakkam,1,4,2,"['none', 'other']",1,"['diabetes', 'none']",False,0,2,1,False,0,1.0,1,1,1,3.4
+Alexa Morrow,T. Nagar,2,4,1,['blindness'],1,"['heart', 'dialysis']",False,0,3,0,False,3,0.5,0,1,2,3.4
+Denise Zavala,Vadapalani,3,3,2,"['blindness', 'none']",1,['heart'],False,0,2,0,True,3,1.0,3,1,1,3.38
+Carla Brooks,Guindy National Park,1,2,2,[],1,"['heart', 'diabetes']",False,0,3,1,True,3,1.0,3,0,2,3.38
+Jessica Woods,Porur,3,4,2,['wheelchair'],1,"['heart', 'none']",False,0,1,1,False,2,0.5,2,1,1,3.38
+Casey Stanley,Vadapalani,3,3,2,"['wheelchair', 'other']",0,['dialysis'],False,0,3,1,False,2,0.0,3,2,1,3.35
+Katherine Dickson,Avadi,1,4,2,"['none', 'blindness']",1,[],False,0,2,0,True,3,1.0,3,1,0,3.33
+David Long,Guindy National Park,2,3,2,"['blindness', 'wheelchair']",0,"['dialysis', 'dialysis']",False,0,3,0,False,1,0.0,3,2,2,3.33
+Ebony Hines,Boat Club Road,1,4,1,"['blindness', 'none']",1,[],False,0,3,0,False,3,1.0,3,1,0,3.33
+Lori Cox,Guindy National Park,1,1,2,"['wheelchair', 'other']",1,['dialysis'],False,0,3,0,True,3,1.0,2,2,1,3.33
+Roger Bentley,Guindy National Park,2,4,2,"['none', 'blindness']",1,"['diabetes', 'diabetes']",False,0,0,1,False,1,0.5,1,1,2,3.3
+Ryan Spencer,T. Nagar,1,4,2,['wheelchair'],1,"['heart', 'diabetes']",True,0,0,1,False,1,0.0,3,1,2,3.28
+Jonathan Chang,T. Nagar,3,4,2,"['other', 'wheelchair']",1,"['heart', 'diabetes']",False,0,1,0,True,1,0.0,1,2,2,3.28
+Christopher Buchanan,Medavakkam,3,3,2,['wheelchair'],1,['heart'],True,0,3,0,False,3,0.5,1,1,1,3.25
+Bryan Edwards,Guindy National Park,2,4,2,"['none', 'blindness']",0,['dialysis'],False,0,2,1,False,0,1.0,3,1,1,3.25
+Kayla Hall,Medavakkam,2,3,2,['none'],1,"['dialysis', 'heart']",False,0,3,1,False,3,0.5,0,0,2,3.25
+Jeanne Williamson,Thoraipakkam,3,4,2,['other'],1,"['none', 'diabetes']",False,2,1,0,True,2,1.0,2,1,1,3.25
+William Brady,Medavakkam,2,4,0,['other'],1,"['diabetes', 'diabetes']",False,0,2,0,True,3,1.0,2,1,2,3.23
+Victoria Sanford,Medavakkam,2,3,1,"['blindness', 'wheelchair']",0,"['diabetes', 'dialysis']",True,0,3,1,True,3,0.0,2,2,2,3.23
+Ronald Meyer,Medavakkam,3,2,2,[],1,"['dialysis', 'dialysis']",False,0,3,0,False,3,1.0,2,0,2,3.23
+Martin Martinez,Avadi,2,4,2,['blindness'],1,"['heart', 'none']",False,0,1,1,False,0,0.5,3,1,1,3.23
+Mary Stanley,Vadapalani,2,4,1,['none'],1,"['diabetes', 'heart']",False,0,3,1,True,2,0.5,3,0,2,3.23
+Abigail Jones,Medavakkam,2,3,2,"['other', 'other']",1,[],False,0,3,1,False,3,0.0,0,2,0,3.23
+Brenda White,Boat Club Road,3,2,2,"['blindness', 'other']",1,"['heart', 'heart']",True,0,2,0,False,1,0.5,0,2,2,3.2
+Jill Barnett,Adyar,3,2,2,[],1,"['heart', 'dialysis']",False,0,3,0,False,2,1.0,3,0,2,3.2
+Thomas Lee,Medavakkam,1,1,2,"['wheelchair', 'blindness']",1,"['heart', 'none']",False,0,2,1,False,2,1.0,0,2,1,3.2
+Steve Rodriguez,Thoraipakkam,2,4,1,"['other', 'wheelchair']",0,['dialysis'],False,0,3,0,False,1,0.5,3,2,1,3.2
+Melissa Cordova,Avadi,1,2,1,['blindness'],1,"['dialysis', 'diabetes']",False,0,3,1,True,3,1.0,0,1,2,3.18
+Kathy Henry,Avadi,3,4,2,['other'],1,[],False,0,3,0,True,3,1.0,0,1,0,3.18
+Jason Torres,Vadapalani,3,3,2,[],1,"['diabetes', 'diabetes']",False,0,3,1,False,0,0.5,3,0,2,3.18
+Pamela Ryan,Medavakkam,1,4,0,"['wheelchair', 'other']",1,['diabetes'],False,0,2,1,False,0,0.5,3,2,1,3.17
+Rose Donaldson,Adyar,1,4,0,"['blindness', 'other']",1,['diabetes'],False,0,3,0,False,0,1.0,1,2,1,3.15
+Kathy Williams,Vadapalani,1,4,0,['wheelchair'],1,"['diabetes', 'heart']",False,0,1,1,True,3,0.5,3,1,2,3.15
+Billy Hogan,Guindy National Park,1,4,1,['blindness'],1,"['diabetes', 'heart']",False,0,3,0,False,2,0.0,1,1,2,3.15
+Rebecca Roberson,Porur,3,4,1,"['blindness', 'blindness']",1,[],False,0,1,0,True,2,1.0,3,2,0,3.15
+Tamara Smith,Porur,2,0,2,"['wheelchair', 'blindness']",1,"['heart', 'none']",False,2,3,1,True,3,0.5,3,2,1,3.15
+Rachel Roberts,Guindy National Park,3,3,2,['none'],1,"['diabetes', 'diabetes']",False,0,1,0,True,3,1.0,3,0,2,3.13
+Barbara Davis,Thoraipakkam,2,4,1,"['wheelchair', 'blindness']",0,"['diabetes', 'heart']",False,0,2,0,True,1,1.0,0,2,2,3.13
+Jim Brown,T. Nagar,2,4,2,[],1,[],True,2,3,0,True,2,1.0,3,0,0,3.12
+Kayla Arias,T. Nagar,2,4,1,['blindness'],1,"['dialysis', 'diabetes']",False,1,3,1,False,0,0.0,1,1,2,3.1
+Deborah Thomas,Adyar,2,3,2,"['wheelchair', 'wheelchair']",1,"['none', 'diabetes']",False,0,2,0,True,2,0.0,2,2,1,3.1
+Kenneth Murray,Medavakkam,1,4,1,"['other', 'none']",1,[],False,0,3,1,False,3,0.5,1,1,0,3.1
+Wendy Green,Vadapalani,2,2,1,"['wheelchair', 'wheelchair']",1,"['heart', 'dialysis']",False,0,3,1,True,1,0.5,0,2,2,3.1
+Amanda Lewis,Adyar,3,4,1,['blindness'],0,"['diabetes', 'diabetes']",False,0,3,1,False,1,0.5,1,1,2,3.1
+Jennifer Brooks,Thoraipakkam,1,4,1,"['blindness', 'wheelchair']",0,"['diabetes', 'heart']",False,0,2,0,False,3,0.0,0,2,2,3.08
+Ernest Figueroa,Thoraipakkam,2,4,1,"['wheelchair', 'blindness']",1,['heart'],False,0,0,0,True,1,1.0,2,2,1,3.08
+Caleb Smith,Medavakkam,1,4,1,['other'],1,['diabetes'],False,0,0,0,False,3,1.0,2,1,1,3.08
+Jonathan Humphrey,Boat Club Road,1,2,2,"['none', 'other']",1,"['none', 'dialysis']",False,0,3,0,False,2,0.5,3,1,1,3.08
+Timothy Williamson,Vadapalani,3,2,2,"['other', 'other']",1,"['dialysis', 'diabetes']",False,0,0,0,False,0,0.5,3,2,2,3.08
+Tony Hunter,Avadi,3,3,2,['wheelchair'],1,['heart'],False,0,3,1,True,2,0.5,0,1,1,3.08
+Jody Wall,Boat Club Road,3,4,2,[],1,"['diabetes', 'diabetes']",False,0,3,1,True,1,0.0,2,0,2,3.08
+Amanda Davis,T. Nagar,1,3,2,"['none', 'other']",1,[],False,0,2,1,False,1,1.0,2,1,0,3.08
+Katherine Campbell,Vadapalani,2,4,1,['wheelchair'],1,[],False,0,0,1,False,3,1.0,3,1,0,3.08
+David Friedman,Boat Club Road,2,4,2,['wheelchair'],1,"['none', 'heart']",False,0,1,1,False,3,0.0,0,1,1,3.08
+Dana Porter,Vadapalani,1,2,2,"['other', 'blindness']",1,"['none', 'dialysis']",False,0,3,0,False,2,0.0,1,2,1,3.05
+Sabrina Richardson,Avadi,1,0,2,"['wheelchair', 'blindness']",1,"['none', 'diabetes']",False,0,2,1,False,2,1.0,1,2,1,3.05
+Jessica Mcclure,Porur,2,3,2,['blindness'],1,"['dialysis', 'diabetes']",False,3,1,1,True,0,1.0,0,1,2,3.05
+Phillip Oneill,Porur,1,4,2,['none'],1,[],False,0,3,1,False,0,1.0,3,0,0,3.05
+Linda Cantrell,Vadapalani,3,3,1,"['other', 'other']",0,['heart'],False,0,0,1,False,2,1.0,3,2,1,3.05
+Joe Gross,T. Nagar,1,4,2,[],1,['heart'],False,2,3,0,True,3,0.5,2,0,1,3.05
+Joe Miller,Thoraipakkam,1,4,1,[],1,"['dialysis', 'diabetes']",False,1,3,0,False,1,0.5,3,0,2,3.05
+Ashley Sweeney,Thoraipakkam,2,3,2,"['wheelchair', 'other']",1,[],False,0,2,0,True,1,1.0,1,2,0,3.03
+Anna Powell,Medavakkam,3,4,2,[],1,['diabetes'],True,0,2,1,False,2,0.5,1,0,1,3.03
+Alison Daugherty,Porur,1,4,2,"['other', 'blindness']",0,[],False,0,3,1,True,0,0.5,2,2,0,3.03
+Jeff Ware,Vadapalani,1,3,1,['wheelchair'],1,"['dialysis', 'diabetes']",False,0,2,1,True,2,0.5,1,1,2,3.03
+Leslie Hansen,Thoraipakkam,2,3,1,"['wheelchair', 'wheelchair']",1,[],False,0,3,0,True,3,1.0,0,2,0,3.03
+Zoe Winters,Avadi,1,3,2,"['wheelchair', 'wheelchair']",1,"['diabetes', 'none']",False,0,0,1,False,1,0.0,2,2,1,3.03
+Nathan Glenn,Vadapalani,1,4,0,"['other', 'wheelchair']",0,['dialysis'],False,0,3,0,True,3,1.0,1,2,1,3.03
+Andrew Blankenship,Adyar,1,3,0,"['blindness', 'blindness']",1,"['dialysis', 'none']",False,0,0,0,False,3,1.0,3,2,1,3.02
+Amanda Willis,Thoraipakkam,3,3,0,"['blindness', 'blindness']",1,['diabetes'],False,0,3,0,True,3,1.0,0,2,1,3.02
+Cathy Myers,T. Nagar,1,2,1,"['wheelchair', 'other']",1,"['diabetes', 'dialysis']",False,0,3,0,False,0,0.0,3,2,2,3.0
+Robert Patterson,Medavakkam,1,0,1,['other'],1,"['heart', 'diabetes']",False,0,3,1,False,2,1.0,3,1,2,3.0
+Emily Burch,Boat Club Road,2,4,1,"['none', 'blindness']",0,"['heart', 'heart']",False,0,1,0,False,3,1.0,0,1,2,2.98
+Marilyn Good,Avadi,2,4,0,['other'],1,['dialysis'],True,0,3,1,False,1,1.0,0,1,1,2.98
+Michael Ray,Adyar,2,4,0,['wheelchair'],1,['diabetes'],False,1,2,0,False,3,1.0,1,1,1,2.98
+Rebecca Martin,Medavakkam,3,2,0,['wheelchair'],1,"['dialysis', 'heart']",False,0,3,1,False,2,0.5,3,1,2,2.98
+Jennifer Garcia,Adyar,2,4,0,"['other', 'other']",1,['none'],False,0,3,0,False,3,0.0,3,2,0,2.97
+Ronald Warren,Boat Club Road,3,4,2,[],1,['heart'],True,1,1,0,True,3,1.0,1,0,1,2.96
+Brian Solomon,T. Nagar,3,4,2,"['blindness', 'none']",1,[],True,0,3,0,False,1,0.5,1,1,0,2.95
+Tiffany Hoover,Avadi,1,2,2,"['other', 'blindness']",1,[],False,0,0,0,False,2,1.0,3,2,0,2.95
+Shane Gardner,Porur,3,4,2,['wheelchair'],1,[],False,0,0,1,False,3,0.5,1,1,0,2.95
+Dr. William Hahn,Guindy National Park,3,4,2,['none'],0,"['none', 'dialysis']",False,0,3,1,False,2,0.5,2,0,1,2.93
+Jeremiah Miller,Boat Club Road,3,2,1,"['wheelchair', 'other']",1,"['heart', 'diabetes']",False,0,3,0,False,1,0.0,1,2,2,2.93
+Victoria Mclean,Boat Club Road,3,4,2,"['wheelchair', 'none']",1,[],False,0,1,1,True,2,0.5,2,1,0,2.93
+James Mann,Thoraipakkam,1,4,2,[],1,"['heart', 'heart']",False,0,1,0,False,0,0.5,3,0,2,2.93
+Greg Olson,Avadi,3,4,2,['blindness'],0,"['heart', 'diabetes']",False,2,0,0,True,2,0.5,3,1,2,2.93
+Jennifer Cook,Guindy National Park,3,0,0,"['wheelchair', 'other']",1,"['diabetes', 'dialysis']",False,0,3,1,False,3,1.0,0,2,2,2.93
+Lorraine Rhodes,Thoraipakkam,3,4,2,"['none', 'none']",1,"['diabetes', 'dialysis']",False,0,2,0,True,0,0.5,3,0,2,2.93
+Ann Guerra,Guindy National Park,1,1,1,['wheelchair'],1,"['dialysis', 'heart']",False,0,3,0,True,3,1.0,2,1,2,2.93
+Danny Buckley,Vadapalani,3,2,2,[],1,"['diabetes', 'diabetes']",False,0,1,0,False,3,1.0,2,0,2,2.93
+Matthew Kim,Porur,1,1,2,"['other', 'wheelchair']",1,"['diabetes', 'diabetes']",False,0,3,1,True,1,0.0,0,2,2,2.93
+Dennis Harris,Guindy National Park,2,4,2,"['other', 'none']",1,"['heart', 'none']",True,0,1,0,False,1,0.0,3,1,1,2.92
+Mary Clark,Porur,1,4,2,[],1,"['dialysis', 'none']",False,0,3,0,True,3,0.0,3,0,1,2.92
+Krista Doyle,T. Nagar,3,2,2,"['wheelchair', 'blindness']",1,['dialysis'],False,3,3,0,False,0,0.5,0,2,1,2.92
+Emily Smith,Adyar,3,4,1,[],1,"['heart', 'diabetes']",False,0,2,0,False,3,0.0,3,0,2,2.92
+Christopher Snow,Avadi,2,4,2,[],1,['dialysis'],True,0,1,0,False,3,0.5,2,0,1,2.9
+Victoria Horne,T. Nagar,1,3,2,[],1,['dialysis'],False,0,0,1,False,2,1.0,3,0,1,2.9
+Amy Lynch,Medavakkam,1,3,0,"['wheelchair', 'other']",0,"['none', 'diabetes']",False,0,3,0,False,2,1.0,2,2,1,2.9
+Richard Barrera,Vadapalani,1,4,1,[],1,"['diabetes', 'diabetes']",False,0,3,0,True,1,0.5,3,0,2,2.9
+Timothy Cooper,Boat Club Road,1,4,0,['wheelchair'],1,"['diabetes', 'heart']",True,0,3,0,True,0,1.0,1,1,2,2.9
+Derrick Livingston,Avadi,2,3,1,['wheelchair'],1,"['none', 'heart']",False,0,2,1,False,3,0.5,0,1,1,2.9
+Ethan Burton,Boat Club Road,2,0,1,"['none', 'wheelchair']",1,"['diabetes', 'diabetes']",False,0,3,1,False,1,1.0,3,1,2,2.88
+Matthew Bailey,Thoraipakkam,1,3,2,['none'],0,['heart'],True,0,2,1,False,3,1.0,2,0,1,2.88
+Sheila Barrett,T. Nagar,3,2,1,"['wheelchair', 'other']",1,[],False,0,1,1,False,1,1.0,3,2,0,2.88
+Matthew Brown,Medavakkam,1,4,1,[],1,"['diabetes', 'diabetes']",False,0,2,0,True,2,0.5,3,0,2,2.88
+Kyle Mueller,Vadapalani,1,3,2,['other'],1,"['dialysis', 'none']",False,2,1,1,False,1,0.0,3,1,1,2.88
+Chad Hernandez,Porur,2,2,1,"['other', 'none']",1,"['diabetes', 'diabetes']",False,0,1,1,True,3,1.0,0,1,2,2.88
+Kirsten Nelson,Boat Club Road,1,4,1,"['other', 'other']",1,[],False,0,3,1,True,1,0.0,1,2,0,2.88
+Nicole Saunders,Vadapalani,1,4,2,"['none', 'wheelchair']",1,"['heart', 'none']",False,0,2,0,True,1,0.5,0,1,1,2.85
+Robert Preston,Avadi,1,4,1,['blindness'],1,['diabetes'],False,0,1,0,False,0,1.0,2,1,1,2.85
+Derrick Chung,Boat Club Road,3,4,2,[],1,[],False,0,3,1,False,2,0.0,3,0,0,2.85
+Sarah Smith,Avadi,1,4,2,['blindness'],1,['heart'],False,0,2,0,True,2,0.0,1,1,1,2.85
+Alex Kelly,Medavakkam,3,3,2,"['blindness', 'none']",1,[],False,0,1,1,False,3,0.5,1,1,0,2.85
+Kristina Baird,Thoraipakkam,2,2,1,"['wheelchair', 'wheelchair']",1,['dialysis'],False,0,1,0,True,2,1.0,2,2,1,2.85
+Robert Roach,Guindy National Park,2,3,1,['none'],1,"['diabetes', 'dialysis']",False,0,3,0,False,2,1.0,0,0,2,2.85
+Douglas Wagner,Vadapalani,3,4,0,"['other', 'wheelchair']",1,"['diabetes', 'dialysis']",False,0,3,0,True,0,0.0,1,2,2,2.85
+Jorge Andersen,Adyar,3,4,2,['other'],1,[],False,0,3,0,True,3,0.0,1,1,0,2.83
+Holly Torres,Boat Club Road,3,3,0,[],1,"['heart', 'diabetes']",False,0,3,0,True,3,1.0,3,0,2,2.83
+Tina Dawson,Thoraipakkam,1,3,1,"['wheelchair', 'blindness']",0,"['dialysis', 'none']",False,0,2,1,False,3,0.0,1,2,1,2.83
+Michael Moore,Avadi,3,1,1,['wheelchair'],1,['dialysis'],False,0,3,1,True,3,1.0,2,1,1,2.83
+Alicia Miller,Guindy National Park,2,1,2,"['other', 'blindness']",0,['diabetes'],False,0,3,1,False,0,0.5,3,2,1,2.83
+Ryan Shaw,Avadi,1,4,0,"['blindness', 'other']",1,['dialysis'],False,0,2,0,False,3,0.0,0,2,1,2.82
+Evan Powell,Adyar,2,2,2,['other'],1,[],False,0,3,1,False,3,0.5,0,1,0,2.8
+Harold Rios,Porur,1,4,2,['other'],1,[],False,0,2,0,True,3,0.5,0,1,0,2.8
+Robert Hart,Vadapalani,1,4,1,[],1,['heart'],True,0,3,0,False,3,0.5,1,0,1,2.8
+Nicholas Mills,Medavakkam,1,4,2,"['none', 'wheelchair']",1,['none'],False,0,1,1,True,2,0.0,3,1,0,2.8
+Michael Smith,Porur,3,3,1,"['other', 'other']",0,"['dialysis', 'dialysis']",False,0,0,1,False,1,0.5,1,2,2,2.8
+Phillip Weaver,T. Nagar,2,4,2,"['none', 'blindness']",0,['dialysis'],True,0,3,0,False,1,0.5,0,1,1,2.8
+Sarah Cunningham,Medavakkam,3,3,2,"['none', 'wheelchair']",1,[],False,0,0,1,False,3,0.5,2,1,0,2.8
+Clinton Allen,Adyar,3,3,2,['none'],1,[],False,0,3,1,False,0,1.0,3,0,0,2.8
+Leah Estrada,Vadapalani,2,4,2,['none'],1,"['heart', 'diabetes']",False,0,0,0,False,1,0.5,2,0,2,2.8
+Brian Cannon,Guindy National Park,2,4,0,['wheelchair'],1,"['diabetes', 'diabetes']",False,0,0,1,False,1,0.5,2,1,2,2.8
+Patrick Greer,Boat Club Road,1,4,1,"['wheelchair', 'blindness']",1,[],False,0,0,0,True,3,0.5,2,2,0,2.8
+Jordan Henson,T. Nagar,3,4,2,['blindness'],0,"['none', 'heart']",False,0,0,0,False,2,0.5,3,1,1,2.78
+Brandi Cox,Medavakkam,1,4,2,['wheelchair'],0,"['heart', 'heart']",False,0,1,0,False,1,0.0,2,1,2,2.78
+Jenny Bradley,Guindy National Park,2,4,0,"['wheelchair', 'other']",0,"['heart', 'none']",True,1,1,0,False,0,1.0,3,2,1,2.78
+Alyssa Peck,Adyar,2,4,2,['none'],1,[],False,0,2,1,True,2,0.5,3,0,0,2.78
+Robert Johnson,Vadapalani,3,4,1,"['none', 'none']",0,"['diabetes', 'none']",False,0,2,1,True,3,1.0,3,0,1,2.78
+Hunter Best,Medavakkam,3,3,1,[],1,['diabetes'],False,3,2,1,True,3,1.0,2,0,1,2.78
+Jesse Mueller,T. Nagar,2,3,2,['none'],1,['heart'],False,0,3,1,False,1,0.0,3,0,1,2.78
+Dylan Barry,Guindy National Park,3,3,1,['wheelchair'],1,"['dialysis', 'none']",True,0,2,0,False,3,0.0,3,1,1,2.78
+Dennis Thomas,Thoraipakkam,2,4,2,[],0,"['diabetes', 'heart']",False,0,0,0,False,1,1.0,3,0,2,2.78
+Robert Harris,T. Nagar,1,4,1,"['other', 'wheelchair']",0,[],False,0,3,0,True,3,0.0,3,2,0,2.78
+Yvonne Turner,Avadi,1,2,2,"['wheelchair', 'blindness']",1,[],False,0,1,0,True,2,1.0,1,2,0,2.75
+Mary Brock,Thoraipakkam,1,3,1,[],1,"['heart', 'dialysis']",False,0,2,0,False,0,1.0,3,0,2,2.75
+Daniel Rogers,T. Nagar,2,1,1,"['blindness', 'other']",1,"['heart', 'none']",False,0,1,0,False,2,1.0,2,2,1,2.75
+Kimberly Haynes,Medavakkam,2,3,1,[],1,"['dialysis', 'dialysis']",False,0,3,1,False,3,0.0,0,0,2,2.73
+Lisa Bailey,Porur,1,4,1,['blindness'],1,"['none', 'diabetes']",False,0,0,0,False,2,0.5,2,1,1,2.73
+Dave Burton,Medavakkam,3,0,2,"['blindness', 'other']",1,"['heart', 'heart']",False,0,3,0,False,0,0.5,0,2,2,2.73
+Jeffrey Anderson,Adyar,1,3,1,"['other', 'wheelchair']",1,"['dialysis', 'heart']",False,0,1,0,True,0,0.5,0,2,2,2.73
+Thomas Maddox,Thoraipakkam,2,2,2,[],1,['dialysis'],False,0,1,0,False,3,1.0,3,0,1,2.73
+Janice Miller,Porur,1,3,1,[],1,"['none', 'heart']",False,0,3,0,True,2,1.0,3,0,1,2.7
+Brandy Salazar,Avadi,2,3,2,[],1,['diabetes'],False,0,2,0,False,2,1.0,0,0,1,2.7
+Jeremy Mcbride,T. Nagar,1,4,0,['blindness'],1,[],False,0,3,0,False,2,1.0,1,1,0,2.7
+Jeremy Porter Jr.,Boat Club Road,1,2,0,"['wheelchair', 'wheelchair']",0,"['dialysis', 'diabetes']",False,0,3,0,True,3,0.5,2,2,2,2.7
+Andrea Torres,Avadi,3,4,2,[],1,[],True,0,2,0,False,0,1.0,3,0,0,2.7
+Kristin Galloway,Vadapalani,2,3,2,['wheelchair'],1,['heart'],False,0,2,0,True,0,1.0,0,1,1,2.7
+Christopher Walker,Guindy National Park,2,4,1,"['none', 'blindness']",1,[],False,0,1,1,True,0,1.0,3,1,0,2.7
+Wesley Rhodes,Guindy National Park,3,2,2,[],0,"['dialysis', 'diabetes']",True,0,3,0,False,3,1.0,0,0,2,2.68
+Maria Kelly,Boat Club Road,3,1,2,['other'],1,['diabetes'],False,0,0,1,True,3,1.0,2,1,1,2.68
+Jordan Krueger,Avadi,2,0,2,['blindness'],1,['heart'],False,0,3,0,False,1,1.0,3,1,1,2.67
+Henry Thompson,Guindy National Park,2,2,2,"['wheelchair', 'blindness']",1,"['heart', 'none']",False,0,0,0,False,1,0.0,3,2,1,2.67
+Melissa Cowan,Medavakkam,2,4,0,"['wheelchair', 'none']",1,"['dialysis', 'diabetes']",False,0,0,1,False,1,0.0,3,1,2,2.67
+Angela Rodriguez,T. Nagar,2,3,2,[],0,"['diabetes', 'diabetes']",False,0,1,0,False,1,1.0,3,0,2,2.67
+Barbara Jones,Porur,2,2,1,"['blindness', 'other']",1,"['none', 'heart']",False,0,0,0,True,1,1.0,3,2,1,2.67
+Angela Brown,Vadapalani,2,4,1,[],1,"['none', 'dialysis']",False,0,1,0,False,1,1.0,3,0,1,2.67
+Robin Snyder,Boat Club Road,2,4,2,[],1,[],True,0,3,0,False,2,0.0,3,0,0,2.65
+Lisa Holder,T. Nagar,1,4,0,"['other', 'wheelchair']",1,[],False,0,1,1,True,3,0.5,0,2,0,2.65
+Dean Reid,Boat Club Road,1,4,1,['none'],1,['dialysis'],False,0,0,1,False,2,1.0,1,0,1,2.65
+Shawn Robinson,Guindy National Park,3,0,2,"['blindness', 'other']",1,['dialysis'],False,0,1,0,False,0,1.0,3,2,1,2.65
+Ronnie Mora Jr.,Vadapalani,2,3,2,"['blindness', 'other']",1,[],False,0,3,0,True,1,0.0,0,2,0,2.63
+Nicole Hansen,Adyar,3,4,2,['wheelchair'],1,[],False,0,0,0,False,2,0.5,1,1,0,2.63
+Amy Evans DVM,Boat Club Road,3,1,2,"['wheelchair', 'other']",1,[],False,0,2,1,True,1,1.0,0,2,0,2.63
+Michael Moore,Vadapalani,2,4,2,['none'],0,"['heart', 'dialysis']",False,0,0,1,False,0,0.5,3,0,2,2.62
+Peter Shelton,Guindy National Park,2,1,2,"['wheelchair', 'wheelchair']",1,"['none', 'dialysis']",False,0,0,1,False,0,0.5,2,2,1,2.62
+Christian Mooney,Thoraipakkam,3,3,2,['wheelchair'],0,['heart'],True,0,3,0,True,3,0.0,2,1,1,2.62
+Spencer Anderson,Guindy National Park,3,4,0,['wheelchair'],1,['dialysis'],False,0,3,0,True,3,0.0,2,1,1,2.62
+Aaron Stewart,T. Nagar,1,2,2,['wheelchair'],1,[],False,0,2,0,False,2,0.5,3,1,0,2.62
+Roberto Strickland,Vadapalani,1,1,0,"['wheelchair', 'other']",1,"['dialysis', 'heart']",False,0,1,0,False,2,0.5,3,2,2,2.62
+Robert Mcintyre,T. Nagar,2,1,1,['other'],1,"['heart', 'dialysis']",False,0,0,0,False,3,1.0,2,1,2,2.62
+Madeline Dunn,Guindy National Park,2,3,0,['wheelchair'],1,['heart'],False,0,0,0,False,3,1.0,3,1,1,2.62
+Nathan Wise,T. Nagar,2,4,0,"['wheelchair', 'other']",1,['none'],False,0,2,0,False,0,1.0,0,2,0,2.6
+David Hess,Porur,2,4,0,"['other', 'blindness']",1,[],False,0,0,0,True,3,0.5,3,2,0,2.6
+John Rodriguez,Thoraipakkam,1,3,1,['none'],1,"['heart', 'dialysis']",False,0,1,0,True,3,0.5,3,0,2,2.6
+Rebecca Shaw,T. Nagar,2,3,2,[],1,[],False,0,3,0,True,3,0.5,3,0,0,2.6
+Henry Foster,Guindy National Park,1,4,1,"['other', 'blindness']",1,[],False,3,0,0,False,0,1.0,0,2,0,2.6
+James Schultz,Adyar,1,1,2,"['blindness', 'wheelchair']",1,[],False,0,1,1,True,2,1.0,0,2,0,2.6
+John Murray,Boat Club Road,2,1,2,[],1,"['heart', 'dialysis']",False,0,2,0,False,3,0.5,2,0,2,2.6
+Brian Vaughan,Medavakkam,1,4,1,"['none', 'wheelchair']",1,['heart'],False,3,2,1,True,0,0.0,2,1,1,2.6
+Sharon Burgess,Vadapalani,3,4,0,['other'],0,[],True,3,3,0,False,2,1.0,1,1,0,2.6
+Alex Martinez,Boat Club Road,2,2,2,['none'],1,"['diabetes', 'diabetes']",True,2,1,1,True,2,0.5,0,0,2,2.59
+Teresa Bennett,Boat Club Road,3,1,0,"['wheelchair', 'wheelchair']",1,[],False,3,1,1,False,3,1.0,3,2,0,2.58
+Gregory Park,Medavakkam,1,3,1,['blindness'],1,"['diabetes', 'dialysis']",False,0,0,0,False,3,0.0,1,1,2,2.58
+Leah Freeman,T. Nagar,3,4,1,"['blindness', 'blindness']",1,[],False,1,0,0,True,3,0.0,2,2,0,2.58
+Betty Gonzalez,Avadi,1,4,0,['other'],1,"['dialysis', 'diabetes']",False,0,0,0,True,2,0.5,2,1,2,2.58
+Timothy Spencer,Porur,1,0,2,['blindness'],1,"['heart', 'diabetes']",False,0,1,0,False,2,0.5,3,1,2,2.58
+Dwayne Acosta,Medavakkam,2,4,1,['blindness'],1,[],False,0,2,0,True,2,0.5,2,1,0,2.58
+Tamara Gallagher,Medavakkam,3,1,2,['wheelchair'],1,['dialysis'],False,0,0,1,False,2,0.5,3,1,1,2.58
+Joseph Lester,Boat Club Road,1,4,1,['wheelchair'],1,[],False,2,0,1,True,1,1.0,2,1,0,2.58
+Mrs. Debra Estes MD,Thoraipakkam,3,2,1,"['wheelchair', 'other']",1,"['none', 'diabetes']",False,0,2,0,False,1,0.0,2,2,1,2.58
+Jason Singh,T. Nagar,2,3,2,"['none', 'blindness']",1,['none'],False,0,0,1,False,1,1.0,0,1,0,2.58
+Christopher Davis,Vadapalani,2,1,0,"['blindness', 'wheelchair']",1,"['dialysis', 'diabetes']",False,0,3,0,True,2,0.5,1,2,2,2.58
+Erin Reed,Boat Club Road,1,4,2,['blindness'],1,[],False,0,1,0,True,0,0.5,3,1,0,2.58
+Paul Byrd,Thoraipakkam,1,4,0,"['wheelchair', 'none']",1,[],False,0,3,0,False,3,0.0,3,1,0,2.58
+Nicole Gonzales,Medavakkam,3,1,2,['none'],1,['diabetes'],True,0,1,1,False,3,1.0,2,0,1,2.58
+Miss Nicole Watson PhD,Porur,1,3,2,[],1,[],False,0,2,0,True,2,1.0,3,0,0,2.55
+Hailey Larson,Vadapalani,3,2,2,['other'],1,[],False,3,3,0,False,0,1.0,1,1,0,2.55
+Heather Davidson,Thoraipakkam,2,3,1,[],0,"['dialysis', 'dialysis']",False,0,3,1,False,2,0.0,3,0,2,2.55
+Zachary Reyes,Adyar,1,4,1,[],1,"['heart', 'none']",False,0,3,0,False,1,0.5,1,0,1,2.55
+Lacey Thomas,Guindy National Park,3,3,2,[],1,[],False,3,2,1,True,2,1.0,1,0,0,2.55
+Alicia Howard,Vadapalani,3,2,2,['none'],1,['dialysis'],False,0,3,1,False,0,1.0,0,0,1,2.55
+Kathleen Gibson,Avadi,1,3,1,"['other', 'blindness']",1,[],False,0,0,0,True,2,1.0,1,2,0,2.55
+Angela Benitez,Porur,1,3,0,"['wheelchair', 'other']",1,['none'],False,0,2,0,True,3,0.5,2,2,0,2.55
+Scott Villegas,Porur,3,3,2,"['wheelchair', 'none']",0,['dialysis'],False,0,0,0,False,3,0.5,2,1,1,2.55
+Aaron Velasquez,T. Nagar,1,2,0,['wheelchair'],1,"['heart', 'none']",False,0,2,0,False,2,1.0,3,1,1,2.55
+Laura Horne,Boat Club Road,2,2,2,"['wheelchair', 'none']",1,"['dialysis', 'heart']",False,0,2,0,False,0,0.0,1,1,2,2.55
+Joyce Krueger,Guindy National Park,3,2,2,['blindness'],0,[],False,0,1,1,False,2,1.0,3,1,0,2.55
+Eric Duran,Porur,3,4,0,['wheelchair'],1,[],False,0,3,0,True,2,1.0,1,1,0,2.55
+Gary Haas,Adyar,3,0,1,"['other', 'wheelchair']",1,['diabetes'],True,0,0,1,False,3,0.5,3,2,1,2.55
+Melinda Villanueva,Vadapalani,1,4,1,"['other', 'wheelchair']",0,[],False,0,2,0,False,2,0.0,2,2,0,2.55
+Claire Wang,Avadi,3,4,0,['wheelchair'],1,['heart'],False,0,0,0,False,2,1.0,1,1,1,2.55
+William Gray,Vadapalani,2,4,2,[],0,"['diabetes', 'diabetes']",False,0,0,0,True,1,1.0,2,0,2,2.53
+Lauren Brooks,Guindy National Park,2,3,1,"['wheelchair', 'blindness']",0,[],False,0,0,0,True,3,1.0,3,2,0,2.53
+Matthew Kennedy,Avadi,2,3,0,"['none', 'blindness']",1,['dialysis'],True,0,2,0,True,1,1.0,3,1,1,2.53
+Stephen Hunt,Adyar,1,2,1,['blindness'],1,"['diabetes', 'heart']",False,0,1,1,False,0,0.5,1,1,2,2.53
+Amanda Lester,Vadapalani,2,2,2,"['blindness', 'other']",1,[],False,0,0,1,True,0,0.5,3,2,0,2.53
+Amanda Martinez,Porur,2,3,1,['other'],1,['heart'],False,0,3,0,True,1,0.0,3,1,1,2.53
+Vanessa Roth,Thoraipakkam,2,1,2,"['other', 'wheelchair']",1,"['none', 'heart']",False,0,2,0,False,1,0.0,1,2,1,2.52
+Jordan Lee,Vadapalani,2,4,0,['wheelchair'],0,['dialysis'],False,0,1,1,False,2,0.5,3,1,1,2.52
+Cassandra Reynolds,Guindy National Park,3,4,0,['blindness'],1,[],True,1,1,0,False,3,1.0,0,1,0,2.51
+Elizabeth King,Avadi,1,3,2,"['other', 'none']",1,['heart'],False,0,1,0,False,2,0.0,0,1,1,2.5
+Kelly Williamson,Vadapalani,2,0,1,['other'],1,"['dialysis', 'diabetes']",False,0,1,0,False,2,1.0,3,1,2,2.5
+Emily Black MD,Thoraipakkam,1,0,1,[],1,"['heart', 'heart']",False,0,3,1,False,3,0.5,3,0,2,2.5
+Andrea Rodriguez,Thoraipakkam,3,1,2,[],1,"['diabetes', 'dialysis']",False,0,1,0,True,2,1.0,3,0,2,2.5
+Brittany Roberts,Boat Club Road,1,3,1,"['other', 'blindness']",1,"['diabetes', 'none']",False,0,0,0,True,0,1.0,0,2,1,2.5
+Joshua Campbell,Porur,1,2,2,['blindness'],1,['diabetes'],False,0,0,1,False,2,0.0,2,1,1,2.5
+Edward Reese,Thoraipakkam,2,2,1,['wheelchair'],0,"['none', 'heart']",False,0,2,0,True,3,1.0,3,1,1,2.48
+Jennifer Dawson,Medavakkam,3,4,1,['wheelchair'],1,[],False,1,2,0,True,1,1.0,0,1,0,2.48
+Vanessa Guerra,T. Nagar,2,3,0,['wheelchair'],1,[],False,0,3,0,False,3,1.0,0,1,0,2.48
+Elizabeth Osborn,Boat Club Road,2,4,0,"['other', 'none']",1,"['diabetes', 'diabetes']",False,0,0,0,False,1,0.0,3,1,2,2.48
+Lauren Chen,Guindy National Park,1,4,1,"['none', 'none']",1,"['dialysis', 'heart']",False,0,1,1,True,0,0.5,1,0,2,2.48
+David Torres,T. Nagar,3,3,0,[],1,"['heart', 'heart']",True,0,2,0,False,2,0.5,3,0,2,2.48
+Amy Williams,Thoraipakkam,3,4,0,['other'],1,"['diabetes', 'none']",False,0,2,0,True,2,0.5,1,1,1,2.48
+Xavier Mccoy,Guindy National Park,3,3,0,"['wheelchair', 'blindness']",1,['none'],False,0,0,0,True,3,1.0,2,2,0,2.48
+Zachary Henderson,T. Nagar,2,4,1,['other'],0,[],False,0,2,1,False,2,0.5,1,1,0,2.48
+James Zimmerman,Vadapalani,1,2,2,[],1,[],False,0,3,0,False,1,1.0,3,0,0,2.48
+Brian Williams,Porur,2,3,2,[],0,['diabetes'],False,0,3,0,True,2,1.0,1,0,1,2.45
+Briana Norris,Thoraipakkam,3,4,0,['other'],1,['heart'],True,0,3,0,False,2,0.0,0,1,1,2.45
+Nancy Mason,Vadapalani,2,4,0,['blindness'],1,['none'],False,0,3,0,True,2,1.0,0,1,0,2.45
+Donald Perry,Boat Club Road,3,1,2,['other'],1,"['heart', 'none']",False,0,3,0,True,2,0.0,3,1,1,2.45
+Bradley Miller,Thoraipakkam,2,2,0,"['other', 'wheelchair']",1,['diabetes'],False,0,1,0,False,0,1.0,2,2,1,2.45
+Angel Peters,Adyar,2,0,1,"['wheelchair', 'blindness']",1,['heart'],False,0,2,0,False,3,0.5,1,2,1,2.45
+Eric Lawrence,T. Nagar,3,3,0,"['none', 'other']",1,"['none', 'dialysis']",False,0,2,0,False,1,0.5,3,1,1,2.45
+Veronica Davila,Vadapalani,2,2,2,['wheelchair'],0,['dialysis'],False,0,3,1,True,2,0.0,2,1,1,2.45
+Emily Mendoza,Medavakkam,2,4,1,[],1,['none'],False,0,3,0,True,2,1.0,1,0,0,2.45
+Jamie Sanders,T. Nagar,1,4,2,"['blindness', 'none']",1,[],False,0,1,0,False,0,0.5,0,1,0,2.43
+James Weaver,Avadi,2,4,0,"['none', 'blindness']",1,[],False,0,2,1,False,2,0.5,0,1,0,2.43
+Jonathan Lewis,Porur,3,2,1,[],1,"['heart', 'diabetes']",False,0,3,0,True,2,0.5,2,0,2,2.43
+Janice Thompson,Adyar,3,1,1,['wheelchair'],1,['dialysis'],False,0,3,1,False,3,0.0,1,1,1,2.43
+Keith Sandoval,Avadi,3,1,2,['blindness'],1,[],False,0,0,1,False,3,1.0,1,1,0,2.43
+Terry Jones,Boat Club Road,3,2,1,"['wheelchair', 'none']",1,"['heart', 'diabetes']",False,0,1,0,False,0,0.5,2,1,2,2.43
+Robert Chase,T. Nagar,1,2,1,"['blindness', 'none']",1,['heart'],False,0,2,0,False,3,0.0,2,1,1,2.43
+Keith Hernandez,Vadapalani,3,2,2,"['none', 'other']",1,[],False,0,0,0,True,3,1.0,2,1,0,2.43
+Brittany Moore,Boat Club Road,1,2,2,"['none', 'none']",1,['dialysis'],False,0,1,0,False,3,1.0,0,0,1,2.43
+Amy Acevedo,Guindy National Park,1,2,2,"['other', 'none']",0,['heart'],False,0,3,0,False,3,0.0,1,1,1,2.43
+Jesus Smith,Thoraipakkam,2,2,1,[],1,"['none', 'dialysis']",False,0,3,0,False,3,1.0,0,0,1,2.42
+Erica Parker,Guindy National Park,3,4,1,['blindness'],1,['dialysis'],False,0,0,0,True,0,0.5,3,1,1,2.42
+Samantha Reynolds,Guindy National Park,1,1,1,"['other', 'blindness']",1,['diabetes'],False,0,1,0,False,2,0.5,1,2,1,2.42
+Jennifer Crawford,Adyar,1,2,2,[],1,[],False,2,1,0,False,3,1.0,3,0,0,2.42
+Donna Watson,Porur,3,1,0,"['other', 'blindness']",0,"['heart', 'dialysis']",False,1,3,1,True,3,0.0,2,2,2,2.42
+Jonathan Walker,Avadi,2,4,1,[],1,['heart'],True,0,0,0,False,2,0.5,3,0,1,2.42
+Tonya Mckinney,Vadapalani,3,1,2,['none'],1,"['diabetes', 'heart']",False,0,0,0,False,3,1.0,1,0,2,2.42
+Joseph Cordova,Adyar,3,0,2,"['none', 'wheelchair']",1,[],False,0,2,1,False,1,1.0,3,1,0,2.42
+Katherine Miller,Medavakkam,3,1,0,"['none', 'blindness']",1,"['diabetes', 'heart']",True,0,0,1,False,2,1.0,2,1,2,2.4
+Lisa Reed,Avadi,1,1,1,"['other', 'wheelchair']",1,"['none', 'dialysis']",False,1,1,0,False,0,1.0,1,2,1,2.4
+Sonia Cooper,T. Nagar,1,1,1,"['blindness', 'wheelchair']",1,['dialysis'],True,0,2,0,True,2,0.0,3,2,1,2.4
+Ann Rodriguez,Porur,1,3,2,"['none', 'none']",1,"['diabetes', 'heart']",False,0,2,0,False,0,0.0,1,0,2,2.4
+Beth Gordon,T. Nagar,2,2,1,['wheelchair'],1,"['diabetes', 'diabetes']",False,0,2,0,False,2,0.0,0,1,2,2.4
+Daniel Torres,Thoraipakkam,1,2,1,"['none', 'blindness']",1,"['diabetes', 'heart']",False,0,2,0,False,2,0.0,0,1,2,2.4
+Doris Salinas,Adyar,2,3,1,['wheelchair'],1,['none'],False,0,0,0,False,2,1.0,2,1,0,2.4
+Anthony Koch,Vadapalani,1,3,1,[],1,['heart'],False,0,3,0,True,3,0.5,1,0,1,2.4
+Christine Carey,T. Nagar,3,3,1,"['none', 'blindness']",1,[],False,0,1,1,True,2,1.0,0,1,0,2.4
+Victoria Guzman,Avadi,2,3,1,[],1,['heart'],False,0,0,1,True,3,1.0,1,0,1,2.38
+Darlene Sampson,Thoraipakkam,2,1,2,"['other', 'wheelchair']",0,['heart'],False,2,2,0,False,1,0.0,3,2,1,2.38
+Carrie Smith,Porur,3,2,2,"['blindness', 'none']",0,[],True,0,2,0,True,3,1.0,2,1,0,2.38
+Kevin Ward,Thoraipakkam,1,3,2,[],1,[],False,3,3,0,True,2,0.5,2,0,0,2.38
+Heather Gomez,Porur,3,2,1,"['none', 'none']",1,[],False,0,3,1,False,1,1.0,3,0,0,2.38
+Derek Cortez,Medavakkam,3,1,2,"['blindness', 'none']",1,"['none', 'heart']",False,0,3,0,True,2,0.5,0,1,1,2.38
+Mr. Joseph Jones,T. Nagar,2,2,1,"['wheelchair', 'wheelchair']",0,['diabetes'],False,0,2,0,False,3,0.0,1,2,1,2.38
+Robert Hatfield,Porur,1,0,1,"['other', 'none']",1,"['diabetes', 'heart']",False,0,0,0,False,3,1.0,2,1,2,2.38
+David Bailey,Adyar,3,3,2,[],1,[],False,0,2,0,False,3,0.0,3,0,0,2.38
+Paul Ross,Avadi,2,3,2,"['none', 'none']",0,[],True,0,3,1,True,3,1.0,0,0,0,2.38
+Christopher Martinez,Porur,3,3,2,[],1,"['none', 'heart']",False,0,3,0,False,1,0.0,1,0,1,2.38
+John Barrera,Thoraipakkam,2,4,1,['wheelchair'],0,"['dialysis', 'none']",False,0,0,0,False,2,0.5,2,1,1,2.38
+Stacy Hicks,Porur,3,2,1,['other'],1,"['none', 'diabetes']",False,0,0,0,False,3,1.0,0,1,1,2.38
+Joshua Irwin,T. Nagar,2,3,2,"['other', 'none']",1,[],False,0,0,1,False,3,0.0,0,1,0,2.38
+John Golden,Thoraipakkam,1,3,2,[],1,[],False,0,2,0,False,1,1.0,1,0,0,2.38
+Megan Salazar,Thoraipakkam,2,2,1,['wheelchair'],1,[],False,0,3,0,False,2,0.5,2,1,0,2.38
+James Wilson,Boat Club Road,2,3,0,"['blindness', 'other']",1,[],False,3,3,0,True,0,1.0,0,2,0,2.35
+Jesse Fields,Adyar,2,2,2,"['wheelchair', 'none']",1,"['diabetes', 'dialysis']",False,0,0,0,True,2,0.0,1,1,2,2.35
+Colleen Rush,Adyar,1,1,2,[],1,"['dialysis', 'diabetes']",False,0,2,0,False,2,0.0,3,0,2,2.35
+Janice Hayden,Thoraipakkam,2,3,1,['wheelchair'],0,['dialysis'],False,0,1,0,True,2,1.0,2,1,1,2.35
+Joseph Griffin,Vadapalani,3,3,0,['other'],1,['none'],False,0,3,0,False,2,1.0,0,1,0,2.35
+Ryan Boyd,Medavakkam,1,2,2,['wheelchair'],1,['dialysis'],False,0,2,0,False,0,0.0,2,1,1,2.35
+Matthew Moore,Thoraipakkam,3,1,2,['blindness'],1,[],False,0,1,1,False,3,0.5,1,1,0,2.35
+Steven Collins,Medavakkam,2,2,2,"['wheelchair', 'wheelchair']",0,[],False,0,3,1,False,0,0.0,1,2,0,2.35
+Donald Buchanan,Guindy National Park,3,3,0,['other'],1,['heart'],False,0,0,1,False,1,0.5,3,1,1,2.35
+Dr. Brian Kline,Thoraipakkam,1,3,2,['wheelchair'],1,[],False,0,2,1,True,0,0.0,2,1,0,2.35
+Katie Gonzalez,Guindy National Park,1,1,2,['other'],1,[],False,3,1,0,False,3,0.5,3,1,0,2.35
+Jonathan Willis,Medavakkam,3,4,1,[],1,"['none', 'diabetes']",False,0,0,0,False,2,1.0,0,0,1,2.35
+Ethan Joseph,Medavakkam,1,4,0,[],1,"['dialysis', 'diabetes']",False,0,1,0,False,2,0.0,3,0,2,2.35
+Mitchell Neal,Boat Club Road,2,3,1,['other'],1,"['heart', 'dialysis']",False,0,2,0,True,0,0.0,1,1,2,2.35
+Debbie Benjamin,Avadi,1,3,0,"['blindness', 'wheelchair']",1,[],True,0,3,0,True,1,0.5,1,2,0,2.35
+Shane Hill,Thoraipakkam,1,3,1,[],1,"['heart', 'none']",False,0,1,0,False,3,0.5,2,0,1,2.35
+Alison Cole,T. Nagar,1,3,2,[],1,['none'],False,0,2,0,True,3,0.5,2,0,0,2.35
+Tammie Hudson,Adyar,2,1,1,['wheelchair'],1,"['dialysis', 'diabetes']",False,0,1,0,True,0,1.0,3,1,2,2.35
+Brenda Moore,Avadi,3,0,2,"['blindness', 'other']",0,[],False,0,1,1,False,1,1.0,3,2,0,2.33
+Jessica Nelson,Porur,2,0,2,"['blindness', 'none']",1,[],False,0,3,0,False,3,1.0,0,1,0,2.33
+Jeremy Escobar,Thoraipakkam,2,2,2,[],0,[],False,0,2,1,False,3,1.0,2,0,0,2.33
+Devon Reyes,Avadi,2,3,1,['wheelchair'],1,[],False,0,2,0,False,0,0.5,3,1,0,2.33
+John Swanson,Medavakkam,3,0,2,['other'],1,[],False,0,1,0,False,3,1.0,3,1,0,2.33
+Edward Huffman,Boat Club Road,2,4,0,[],1,['diabetes'],True,0,3,1,False,0,0.5,1,0,1,2.33
+Deanna Adams,Porur,1,3,0,[],1,['heart'],False,1,3,0,False,2,0.5,3,0,1,2.33
+Steve King,T. Nagar,2,2,2,['none'],1,[],False,0,2,0,False,1,1.0,3,0,0,2.33
+James Stout,Avadi,1,0,2,"['other', 'none']",1,"['diabetes', 'heart']",False,0,3,0,False,1,0.0,1,1,2,2.33
+Deanna Richardson,Avadi,1,3,2,['none'],1,"['heart', 'none']",False,1,0,1,False,1,0.0,3,0,1,2.33
+Teresa Jones,Vadapalani,2,1,2,['other'],1,['dialysis'],False,0,1,0,False,2,0.5,1,1,1,2.33
+Lisa Bond,Avadi,1,0,2,"['wheelchair', 'blindness']",0,"['heart', 'heart']",False,0,2,0,False,0,0.5,1,2,2,2.33
+Jordan Hernandez,Vadapalani,3,1,1,"['none', 'wheelchair']",1,['diabetes'],False,0,1,0,True,3,1.0,2,1,1,2.33
+Patrick Lamb,Boat Club Road,2,2,0,"['wheelchair', 'blindness']",1,['heart'],False,0,0,1,False,3,0.0,1,2,1,2.32
+Mark Williams,Adyar,2,0,2,"['blindness', 'blindness']",0,['dialysis'],False,0,3,0,False,2,0.5,0,2,1,2.32
+Lisa Smith,Adyar,2,2,1,['blindness'],1,['none'],True,3,1,0,False,0,1.0,2,1,0,2.3
+Jennifer Foster,Boat Club Road,1,1,2,"['none', 'none']",1,"['dialysis', 'none']",False,0,3,0,True,3,0.5,2,0,1,2.3
+Fernando Davis,Thoraipakkam,3,0,1,"['blindness', 'other']",0,"['dialysis', 'heart']",False,0,2,1,True,2,0.0,3,2,2,2.3
+Scott Ellis,Avadi,3,1,2,"['none', 'other']",0,"['diabetes', 'none']",False,0,2,0,True,3,0.5,3,1,1,2.3
+Dr. Daniel Cooper,Medavakkam,3,3,0,"['other', 'other']",1,[],True,0,1,0,True,2,1.0,0,2,0,2.3
+Lynn Barron,Guindy National Park,3,1,2,"['blindness', 'wheelchair']",1,[],False,1,2,0,True,2,0.0,2,2,0,2.3
+Benjamin Sanchez,Thoraipakkam,2,0,2,[],1,"['heart', 'heart']",False,0,1,0,False,2,1.0,2,0,2,2.3
+William Daniels,Porur,2,4,1,[],1,[],False,0,2,1,True,3,0.5,0,0,0,2.3
+Adam Mcbride,Boat Club Road,2,4,2,['none'],0,['dialysis'],False,3,1,0,True,3,0.5,1,0,1,2.3
+Amanda Wilson,Medavakkam,1,3,1,"['wheelchair', 'none']",0,['diabetes'],False,0,1,1,True,1,0.5,3,1,1,2.3
+Linda Conrad,Boat Club Road,1,4,1,[],1,[],False,0,3,0,True,0,1.0,2,0,0,2.3
+Laura Erickson,Adyar,1,0,2,"['wheelchair', 'other']",1,"['none', 'none']",False,1,2,0,True,2,1.0,0,2,0,2.3
+Arthur Wilkerson,Adyar,3,2,1,"['wheelchair', 'none']",1,"['none', 'diabetes']",False,0,1,1,True,1,0.5,2,1,1,2.3
+Katie Nelson,Thoraipakkam,1,0,2,['wheelchair'],0,['dialysis'],True,0,3,1,False,0,1.0,2,1,1,2.3
+Karen Kennedy,Boat Club Road,2,0,2,['blindness'],1,"['none', 'dialysis']",False,0,2,0,False,0,1.0,2,1,1,2.3
+Claudia Sullivan,Boat Club Road,1,3,2,['other'],1,['none'],False,0,2,0,True,1,0.5,0,1,0,2.3
+Allen Rodriguez,Vadapalani,3,4,0,"['none', 'blindness']",1,[],False,0,2,0,True,2,1.0,0,1,0,2.3
+Devin Sims,Medavakkam,1,2,0,['other'],1,"['diabetes', 'heart']",False,0,2,0,False,1,0.5,1,1,2,2.3
+Joseph Foster,Thoraipakkam,3,0,2,[],1,['diabetes'],False,0,2,0,False,3,1.0,2,0,1,2.28
+Ashlee House,T. Nagar,1,2,2,[],1,[],False,0,2,0,False,3,1.0,0,0,0,2.28
+Tracy Lara,Boat Club Road,1,2,2,[],1,[],True,0,1,1,False,2,0.5,3,0,0,2.28
+Desiree Tapia,Porur,1,2,0,['wheelchair'],1,[],False,0,2,0,False,3,1.0,2,1,0,2.28
+Katherine Marshall,Medavakkam,1,1,0,"['none', 'blindness']",1,['heart'],False,0,3,1,True,2,0.5,3,1,1,2.28
+Kevin Cummings,Boat Club Road,1,2,1,['blindness'],1,[],False,0,3,0,False,3,0.0,2,1,0,2.28
+Mitchell Berry,Boat Club Road,1,2,1,['none'],1,['heart'],False,0,3,0,False,3,0.0,3,0,1,2.27
+Collin Christian,Medavakkam,1,0,2,[],1,[],False,0,2,1,False,3,1.0,3,0,0,2.27
+Joshua Jackson,Porur,3,1,1,['other'],1,"['dialysis', 'heart']",False,0,0,0,False,3,0.0,3,1,2,2.27
+Tyler Cunningham,Thoraipakkam,1,4,0,"['other', 'other']",1,[],False,0,1,0,True,1,0.0,3,2,0,2.27
+Lisa Hawkins,Adyar,3,0,0,"['other', 'wheelchair']",1,[],False,0,3,1,True,3,1.0,1,2,0,2.27
+Teresa Schwartz,Thoraipakkam,1,2,0,"['blindness', 'wheelchair']",1,"['dialysis', 'none']",False,0,0,1,False,0,0.5,2,2,1,2.27
+Brandon Weber,Medavakkam,1,3,0,['other'],1,[],False,0,1,0,False,3,1.0,1,1,0,2.27
+Cindy Tran,Thoraipakkam,1,2,1,[],1,[],False,0,2,0,False,3,1.0,3,0,0,2.27
+Patrick Montes,Thoraipakkam,3,4,0,['blindness'],0,['dialysis'],False,0,0,1,False,2,0.5,2,1,1,2.27
+Jonathan Smith,Adyar,3,0,1,['other'],1,"['heart', 'heart']",True,0,3,0,False,0,1.0,0,1,2,2.25
+Jennifer Banks,Adyar,3,3,2,[],0,"['diabetes', 'dialysis']",False,0,0,1,True,2,0.0,3,0,2,2.25
+Courtney Lopez,Medavakkam,2,0,1,['blindness'],1,"['none', 'diabetes']",False,2,2,0,False,3,0.5,3,1,1,2.25
+Bethany Brown,T. Nagar,3,1,2,['blindness'],0,"['diabetes', 'none']",False,0,0,0,False,2,1.0,3,1,1,2.25
+Christina Smith,Porur,3,2,2,[],0,"['heart', 'none']",False,0,3,1,True,0,1.0,2,0,1,2.25
+John Powers,Porur,1,3,0,"['other', 'other']",1,[],False,0,3,0,True,1,0.0,2,2,0,2.23
+Robin Gray,T. Nagar,3,2,2,[],1,['none'],False,0,3,0,True,1,1.0,2,0,0,2.23
+Kristen Higgins,Guindy National Park,2,1,2,"['other', 'none']",1,['none'],False,0,3,0,False,2,0.5,0,1,0,2.23
+Anna Graham,Guindy National Park,2,4,1,"['none', 'none']",1,['dialysis'],False,3,0,0,False,3,0.0,2,0,1,2.23
+Robert Eaton,Boat Club Road,2,2,2,[],1,"['none', 'none']",False,2,2,0,True,3,1.0,1,0,0,2.23
+Frank Holmes,Avadi,3,1,2,"['blindness', 'blindness']",1,[],False,0,0,0,True,1,1.0,1,2,0,2.23
+Tara Scott,Porur,3,1,2,['none'],1,"['dialysis', 'dialysis']",False,0,2,0,True,2,0.5,1,0,2,2.23
+Judith Cummings,Avadi,3,3,2,"['other', 'wheelchair']",0,[],False,0,1,0,False,0,0.5,0,2,0,2.23
+Andrew Wheeler,T. Nagar,3,1,0,"['other', 'blindness']",1,"['dialysis', 'none']",False,0,2,0,True,1,1.0,1,2,1,2.23
+Michael Ramsey,Guindy National Park,3,0,2,"['wheelchair', 'blindness']",1,['diabetes'],False,0,1,0,False,1,0.0,2,2,1,2.22
+Jennifer Juarez,Porur,1,2,0,['blindness'],1,['heart'],False,0,3,1,False,0,0.0,3,1,1,2.2
+Anthony Hall,Guindy National Park,3,4,0,[],0,['dialysis'],False,0,2,1,False,3,0.5,1,0,1,2.2
+Dale Rivas,Porur,3,2,2,['blindness'],0,['none'],False,3,1,0,True,2,1.0,3,1,0,2.2
+Jonathan Hill,Adyar,1,2,2,"['wheelchair', 'other']",0,['heart'],False,0,0,0,False,0,0.0,3,2,1,2.2
+Kirk Ross,Vadapalani,3,1,2,['blindness'],1,"['heart', 'diabetes']",False,0,2,0,False,0,0.0,0,1,2,2.2
+Ashley Wheeler,Vadapalani,3,4,2,[],1,['none'],True,0,0,1,False,2,0.0,1,0,0,2.2
+Carla Lee,Porur,3,3,2,[],0,"['heart', 'diabetes']",False,0,2,0,False,2,0.0,0,0,2,2.2
+Michael Richards,Avadi,3,1,1,['other'],1,[],False,0,3,0,False,0,1.0,3,1,0,2.2
+Nicholas Schneider,Vadapalani,2,3,0,['other'],1,"['dialysis', 'heart']",False,0,2,0,False,0,0.0,1,1,2,2.2
+Donna Rosales,T. Nagar,1,1,0,"['wheelchair', 'blindness']",1,[],False,0,2,0,False,2,1.0,1,2,0,2.2
+Amanda Thompson,Thoraipakkam,1,2,1,['other'],1,"['dialysis', 'dialysis']",False,0,1,0,True,1,0.5,0,1,2,2.2
+Patrick Greene,Avadi,2,4,1,[],1,"['dialysis', 'heart']",False,0,1,0,True,1,0.0,1,0,2,2.18
+Emily Davis,Thoraipakkam,1,3,0,['blindness'],1,"['diabetes', 'none']",False,0,1,0,True,2,0.5,2,1,1,2.18
+Shane Guerra,Adyar,3,0,2,"['none', 'none']",1,['heart'],False,0,3,1,False,3,0.0,2,0,1,2.17
+Donald Coffey,Adyar,1,1,1,"['blindness', 'none']",1,[],False,0,3,1,False,0,0.5,3,1,0,2.17
+Timothy Thompson,Porur,1,3,0,"['wheelchair', 'blindness']",1,['none'],False,3,1,0,True,2,0.5,1,2,0,2.17
+Kristin Bryan,Adyar,1,2,0,"['wheelchair', 'blindness']",0,[],False,0,1,0,False,3,1.0,2,2,0,2.17
+Jason Davis,Vadapalani,1,4,1,['none'],1,['dialysis'],False,0,0,0,False,0,0.5,3,0,1,2.17
+Cory Goodman,Guindy National Park,1,2,0,['wheelchair'],1,['dialysis'],False,0,3,0,False,2,0.5,0,1,1,2.17
+Tyler Lewis,Thoraipakkam,1,1,0,"['other', 'wheelchair']",1,['none'],False,0,3,1,True,1,0.5,2,2,0,2.15
+Amanda Johnson,Medavakkam,3,2,0,"['wheelchair', 'blindness']",1,"['heart', 'none']",False,0,3,1,True,0,0.0,0,2,1,2.15
+Suzanne Price,Vadapalani,2,1,0,"['other', 'wheelchair']",1,"['diabetes', 'heart']",True,0,1,0,False,0,0.0,3,2,2,2.15
+Michael Ross,Boat Club Road,2,2,1,['blindness'],1,[],False,0,0,0,False,2,1.0,2,1,0,2.15
+Sonya Hill,Vadapalani,3,4,0,[],1,"['diabetes', 'dialysis']",False,0,3,1,True,0,0.0,0,0,2,2.15
+Diana Tucker,Boat Club Road,3,3,1,['blindness'],1,[],False,0,3,0,False,0,0.0,2,1,0,2.15
+Michael Peterson,Thoraipakkam,1,1,2,"['wheelchair', 'wheelchair']",1,['none'],False,0,0,0,False,0,1.0,0,2,0,2.15
+Samantha Pennington,Medavakkam,1,0,1,"['wheelchair', 'blindness']",1,['diabetes'],False,0,3,0,False,2,0.0,0,2,1,2.15
+Brittany Lopez,T. Nagar,2,2,2,['none'],1,['none'],False,0,3,0,True,2,1.0,0,0,0,2.15
+Shawn Bailey,Vadapalani,1,4,1,['blindness'],0,[],False,0,2,0,False,2,0.0,2,1,0,2.15
+Kimberly Miller,Boat Club Road,3,4,1,[],1,['diabetes'],False,0,2,0,False,0,0.0,2,0,1,2.15
+Johnny Martinez DVM,Medavakkam,3,4,2,['other'],0,['dialysis'],False,0,1,0,False,0,0.0,0,1,1,2.15
+Jonathan Sanchez,Avadi,2,4,0,['other'],1,"['heart', 'dialysis']",False,0,0,0,False,0,0.0,1,1,2,2.15
+Sergio Rodgers,Porur,1,3,0,['wheelchair'],1,['dialysis'],False,0,3,0,True,2,0.0,1,1,1,2.15
+Scott Robinson,Thoraipakkam,3,0,2,['wheelchair'],1,['dialysis'],False,0,0,0,True,3,1.0,1,1,1,2.13
+Micheal Jones,Medavakkam,3,2,1,['other'],0,['dialysis'],False,0,2,0,True,2,0.5,3,1,1,2.13
+Laura Williams,Boat Club Road,2,0,0,"['other', 'other']",1,"['none', 'heart']",False,0,3,0,False,0,0.5,3,2,1,2.12
+Leslie Noble,Guindy National Park,1,3,0,[],1,['dialysis'],False,0,2,0,True,1,1.0,3,0,1,2.12
+Gary Ortiz,Medavakkam,2,2,2,[],0,"['dialysis', 'diabetes']",False,0,2,1,True,3,0.0,0,0,2,2.12
+Timothy Haynes,Guindy National Park,1,3,0,['wheelchair'],1,[],True,0,2,0,True,2,0.5,3,1,0,2.12
+Sandra Morris,Boat Club Road,3,1,0,"['blindness', 'other']",0,"['dialysis', 'diabetes']",False,0,0,0,False,2,0.5,3,2,2,2.12
+Joseph Anthony,Porur,1,1,1,['other'],0,['heart'],False,0,2,0,False,1,1.0,3,1,1,2.12
+James Lewis,Porur,2,2,0,[],1,"['heart', 'diabetes']",False,0,3,0,True,3,0.0,3,0,2,2.12
+David Poole,Porur,3,0,2,"['wheelchair', 'none']",0,"['diabetes', 'heart']",False,0,1,0,False,2,0.5,2,1,2,2.12
+Julie Armstrong,Medavakkam,1,2,1,"['blindness', 'none']",0,['heart'],False,0,2,1,False,1,0.0,3,1,1,2.12
+Tyler Peck,Boat Club Road,2,2,0,['other'],1,"['none', 'heart']",False,0,0,0,False,1,1.0,3,1,1,2.12
+Robert Fisher,Avadi,2,3,0,['other'],1,[],False,1,2,1,False,1,0.0,3,1,0,2.12
+Lisa Haynes,Vadapalani,1,1,1,"['blindness', 'other']",1,[],False,0,1,0,False,2,0.5,1,2,0,2.12
+Tanya Lopez,Porur,2,1,0,"['none', 'other']",0,"['none', 'heart']",False,0,3,1,False,3,1.0,0,1,1,2.12
+Terri Rice,T. Nagar,2,1,2,['none'],1,['dialysis'],False,0,0,0,False,3,1.0,1,0,1,2.12
+Monique Chapman,Vadapalani,3,2,2,"['other', 'none']",1,['none'],False,1,3,0,False,1,0.0,0,1,0,2.12
+Mark Baxter,Thoraipakkam,2,3,2,[],1,[],False,0,3,0,True,1,0.0,3,0,0,2.12
+James Powell,Vadapalani,3,2,1,"['none', 'blindness']",1,['none'],False,0,2,0,False,1,0.5,2,1,0,2.1
+Earl Mitchell,Adyar,3,3,0,[],1,[],False,0,2,0,False,2,1.0,3,0,0,2.1
+Ralph Mills,Medavakkam,1,0,1,"['blindness', 'wheelchair']",1,"['dialysis', 'none']",False,0,2,1,True,0,0.0,3,2,1,2.1
+Ms. Hannah Johnson,Boat Club Road,1,0,1,['wheelchair'],1,"['diabetes', 'dialysis']",False,0,0,1,False,0,1.0,1,1,2,2.1
+Nancy Guerrero,Boat Club Road,2,0,2,[],1,[],False,0,3,0,False,2,1.0,3,0,0,2.1
+Mr. Brandon Walters,Vadapalani,1,3,2,"['none', 'other']",1,"['none', 'heart']",False,0,1,0,True,0,0.0,0,1,1,2.1
+Donald Petty,Porur,1,3,2,[],1,['diabetes'],False,0,0,1,False,0,0.0,2,0,1,2.1
+John Martinez,Porur,1,2,1,[],1,['heart'],False,0,2,0,True,2,1.0,1,0,1,2.1
+Catherine Jones,Boat Club Road,2,1,0,"['other', 'other']",0,['diabetes'],True,0,1,0,False,2,1.0,2,2,1,2.1
+Alex Johnson,Medavakkam,2,2,0,['other'],1,"['diabetes', 'diabetes']",False,0,1,0,True,1,0.5,2,1,2,2.1
+Patricia Moore,Porur,3,3,1,"['none', 'wheelchair']",1,[],True,0,2,0,True,2,0.0,2,1,0,2.1
+Pamela Hayes,Guindy National Park,2,1,1,['none'],1,"['heart', 'heart']",False,0,2,1,True,0,1.0,1,0,2,2.1
+Mark Mcpherson,Thoraipakkam,1,3,1,"['wheelchair', 'other']",0,[],True,0,1,1,True,2,0.0,1,2,0,2.1
+Susan Garner,Thoraipakkam,1,3,0,"['none', 'blindness']",1,['none'],False,0,1,0,True,2,1.0,2,1,0,2.1
+Kevin Gonzalez,Medavakkam,3,0,2,['wheelchair'],1,"['dialysis', 'heart']",False,0,0,0,False,1,0.5,1,1,2,2.1
+Stephen Phillips,Medavakkam,1,0,2,['wheelchair'],0,['dialysis'],False,0,3,0,True,1,1.0,2,1,1,2.08
+Gabrielle Bell,Boat Club Road,1,2,1,['wheelchair'],0,"['none', 'none']",False,0,2,1,False,3,0.0,3,1,0,2.08
+Jonathan Walker,T. Nagar,3,3,0,['other'],1,[],False,0,3,0,True,2,0.5,1,1,0,2.08
+James Bell,T. Nagar,3,3,1,"['none', 'none']",1,['dialysis'],False,0,0,0,False,2,0.5,2,0,1,2.08
+Crystal Nguyen,Avadi,2,1,0,['blindness'],1,['dialysis'],False,3,2,1,False,1,1.0,0,1,1,2.08
+Lisa Riley,Guindy National Park,1,3,2,[],1,[],False,0,2,1,True,1,0.0,2,0,0,2.08
+Jared Alvarez,Medavakkam,2,2,2,"['other', 'blindness']",0,[],False,0,1,0,True,2,0.5,0,2,0,2.08
+Natalie Martinez,Vadapalani,3,3,0,['other'],1,[],False,0,0,1,True,3,1.0,0,1,0,2.08
+Cole Ramirez,Avadi,3,3,0,[],1,[],False,0,2,1,False,2,0.5,3,0,0,2.08
+Bruce Taylor,Guindy National Park,3,4,0,[],0,['heart'],False,0,1,0,False,3,1.0,1,0,1,2.07
+Kayla Diaz,Adyar,2,2,0,['other'],1,['diabetes'],False,0,1,0,False,1,1.0,1,1,1,2.07
+Tracy Rodriguez PhD,Boat Club Road,2,1,2,['none'],0,"['heart', 'heart']",False,0,0,0,False,3,1.0,1,0,2,2.07
+Rebecca Harris,Boat Club Road,3,4,1,['none'],1,"['diabetes', 'diabetes']",False,2,0,0,False,0,0.0,1,0,2,2.05
+Rebecca Rhodes,Adyar,1,2,0,['wheelchair'],1,['none'],False,0,3,1,False,1,0.5,1,1,0,2.05
+Rebecca Weaver,Porur,1,0,2,"['blindness', 'other']",0,['none'],False,0,2,1,True,3,0.5,0,2,0,2.05
+Elizabeth Perry,Guindy National Park,1,2,0,"['other', 'blindness']",0,[],False,0,0,1,True,2,1.0,3,2,0,2.05
+Stephen Wong,Thoraipakkam,1,0,2,['wheelchair'],1,['diabetes'],False,0,1,0,False,2,0.0,3,1,1,2.05
+Javier Price,Guindy National Park,3,3,0,"['other', 'wheelchair']",0,[],False,0,2,0,True,1,0.5,3,2,0,2.05
+George Mckenzie,Boat Club Road,3,3,0,"['none', 'other']",0,"['none', 'none']",False,2,3,0,True,2,1.0,2,1,0,2.05
+Jessica Li,Vadapalani,1,0,0,[],1,"['heart', 'diabetes']",False,0,2,1,False,3,0.5,3,0,2,2.05
+Dennis Johnson DDS,T. Nagar,3,1,1,['wheelchair'],1,['none'],False,0,3,0,True,0,1.0,3,1,0,2.05
+Daniel Butler,T. Nagar,3,2,0,"['other', 'none']",1,['diabetes'],True,0,1,0,True,3,0.5,2,1,1,2.05
+Brandon Carter,Adyar,3,1,1,[],1,['heart'],False,0,3,0,False,2,1.0,0,0,1,2.05
+Brandon Diaz,Avadi,3,2,2,[],1,"['none', 'none']",False,0,3,0,True,3,0.5,0,0,0,2.05
+Derrick Lee,Boat Club Road,2,1,2,"['blindness', 'wheelchair']",1,[],False,0,2,0,True,0,0.0,2,2,0,2.05
+Kelsey Mcpherson,Guindy National Park,1,4,0,"['other', 'other']",0,['none'],False,0,2,0,False,2,0.0,0,2,0,2.05
+Courtney Anderson,Vadapalani,1,0,1,"['blindness', 'none']",1,['diabetes'],False,0,1,1,True,3,0.5,2,1,1,2.05
+Marissa Meyer,Boat Club Road,3,4,2,[],1,['none'],False,0,3,0,True,0,0.0,1,0,0,2.05
+Roberto Baldwin,Avadi,1,2,1,"['wheelchair', 'wheelchair']",1,['dialysis'],False,0,0,0,True,2,0.0,0,2,1,2.05
+Alexander Ibarra,Porur,1,3,2,['none'],1,"['none', 'none']",False,0,2,0,True,3,0.0,1,0,0,2.03
+Jennifer Schwartz,Thoraipakkam,3,1,2,['blindness'],1,['none'],False,0,3,0,True,1,0.0,3,1,0,2.03
+Mr. Robert Yates,Boat Club Road,2,3,2,[],0,['dialysis'],False,0,0,0,False,3,0.0,3,0,1,2.03
+Timothy Owens,Avadi,2,4,0,"['none', 'none']",1,[],False,0,0,0,True,3,1.0,3,0,0,2.03
+Shannon Walters,Thoraipakkam,1,1,2,['wheelchair'],1,['heart'],True,0,0,0,True,2,0.5,1,1,1,2.03
+Steven Diaz,Boat Club Road,3,0,1,"['blindness', 'other']",1,[],False,0,3,0,True,1,1.0,0,2,0,2.03
+Richard Pena,Vadapalani,3,4,2,['none'],1,['none'],False,0,0,1,True,0,0.5,1,0,0,2.03
+Laura Melendez,Vadapalani,3,0,2,['other'],1,['diabetes'],False,0,2,0,True,0,0.5,3,1,1,2.03
+Jamie White,Adyar,3,1,2,[],1,"['diabetes', 'none']",False,0,1,0,False,1,1.0,1,0,1,2.02
+Brandon Dixon,Boat Club Road,2,2,0,"['blindness', 'other']",1,['diabetes'],False,0,2,0,True,1,0.0,1,2,1,2.02
+Maxwell Gomez,Porur,2,1,2,['wheelchair'],1,[],False,0,1,0,False,2,0.5,1,1,0,2.02
+Jason Cline,Porur,2,3,0,['blindness'],1,[],False,0,3,1,True,1,0.0,2,1,0,2.02
+Sharon Perez,Vadapalani,3,1,2,[],1,[],False,0,1,1,True,3,1.0,1,0,0,2.02
+Emma Cunningham,T. Nagar,2,3,0,[],1,['none'],False,0,3,0,True,3,1.0,1,0,0,2.02
+Mark Knapp,Porur,3,4,0,"['other', 'none']",1,[],False,0,1,1,True,3,0.0,0,1,0,2.02
+David Lewis,Adyar,1,4,2,[],0,[],False,1,2,1,False,1,0.0,1,0,0,2.02
+Alex Gilbert,Medavakkam,1,2,2,"['none', 'other']",1,[],False,0,1,0,True,2,0.5,0,1,0,2.02
+Shelia Fletcher,Medavakkam,1,1,1,[],1,['diabetes'],False,0,3,0,False,3,0.0,3,0,1,2.02
+Nicholas Rubio,Thoraipakkam,3,0,0,[],1,['dialysis'],False,0,3,1,False,3,1.0,2,0,1,2.02
+Matthew Stevenson,Boat Club Road,2,0,2,"['none', 'blindness']",1,['heart'],False,0,3,0,False,1,0.0,1,1,1,2.02
+Haley Mcdaniel,Porur,2,0,2,['wheelchair'],1,"['dialysis', 'diabetes']",False,0,0,0,False,1,0.5,0,1,2,2.0
+Anthony Mclaughlin,T. Nagar,1,0,1,['wheelchair'],1,['dialysis'],False,0,2,1,True,3,0.5,0,1,1,2.0
+Caitlin Evans,Guindy National Park,1,2,1,[],1,['heart'],False,0,1,0,False,2,1.0,0,0,1,2.0
+Edgar Quinn,Avadi,2,2,0,['none'],1,"['none', 'dialysis']",True,0,3,0,False,3,0.5,1,0,1,2.0
+Sandra Foley,T. Nagar,3,0,2,['other'],0,['heart'],False,0,2,0,False,3,0.5,1,1,1,2.0
+Isaiah Smith,Vadapalani,3,2,0,['wheelchair'],1,['diabetes'],False,0,0,0,True,3,0.5,3,1,1,2.0
+April Reyes,Boat Club Road,3,3,1,"['none', 'blindness']",0,['dialysis'],True,0,1,0,True,1,0.5,2,1,1,2.0
+William Jefferson,T. Nagar,2,4,1,[],1,"['none', 'dialysis']",True,0,2,1,True,0,0.0,0,0,1,2.0
+Steven Hart,Vadapalani,1,2,1,['other'],1,[],False,0,0,0,True,2,1.0,2,1,0,2.0
+Brandon Lopez,Porur,1,2,1,"['none', 'blindness']",1,['heart'],False,2,2,0,True,0,0.0,3,1,1,2.0
+James Mosley,Vadapalani,1,1,1,[],1,"['heart', 'dialysis']",False,0,0,1,False,2,0.5,1,0,2,1.98
+Shaun Sloan,Porur,1,3,1,[],0,['none'],False,0,3,0,False,2,0.5,3,0,0,1.98
+Anthony Hudson,Avadi,2,3,0,['wheelchair'],1,[],False,0,0,0,False,2,0.5,3,1,0,1.98
+Ralph Bright,Porur,3,3,1,[],1,"['dialysis', 'dialysis']",True,0,0,0,True,1,0.0,3,0,2,1.98
+Jesse Harris,Porur,2,1,2,[],0,"['dialysis', 'dialysis']",False,0,3,0,True,0,0.5,3,0,2,1.98
+Courtney Davis,Guindy National Park,2,2,1,[],1,"['diabetes', 'heart']",False,0,3,0,True,1,0.0,1,0,2,1.98
+Tiffany Winters,Vadapalani,2,0,0,"['blindness', 'none']",1,[],False,0,2,1,False,3,1.0,2,1,0,1.98
+David Olson,Adyar,3,3,2,['none'],1,[],False,2,0,0,False,2,0.5,1,0,0,1.98
+Daniel Blankenship,Porur,2,1,0,"['blindness', 'none']",1,['dialysis'],False,3,3,0,True,3,0.0,3,1,1,1.98
+Sherry Anderson,Thoraipakkam,1,2,0,[],1,"['diabetes', 'heart']",False,0,3,1,True,0,0.5,1,0,2,1.98
+Brendan Watson,Vadapalani,1,4,0,['none'],0,[],False,0,3,0,False,3,1.0,0,0,0,1.97
+Tiffany Alvarado,Porur,1,2,0,['wheelchair'],1,['dialysis'],False,0,1,1,False,3,0.0,0,1,1,1.97
+Paul Zimmerman,Vadapalani,2,2,1,['none'],0,"['dialysis', 'dialysis']",False,0,0,0,False,1,1.0,3,0,2,1.97
+William Luna,Porur,2,1,0,[],1,"['dialysis', 'heart']",False,0,1,0,False,3,1.0,1,0,2,1.97
+Patricia Herrera,Adyar,2,4,0,[],1,['diabetes'],False,0,2,0,False,0,0.0,3,0,1,1.95
+Cody Smith,Avadi,3,0,2,['wheelchair'],1,['none'],False,0,3,0,False,0,1.0,0,1,0,1.95
+Chad Weaver,Guindy National Park,2,0,1,['blindness'],1,"['dialysis', 'diabetes']",False,0,1,0,False,1,0.5,1,1,2,1.95
+Joshua Hill,Porur,3,1,2,"['wheelchair', 'none']",1,['dialysis'],False,0,0,0,False,1,0.5,0,1,1,1.95
+Andrew Sanchez,Guindy National Park,2,1,1,"['wheelchair', 'other']",0,[],False,0,0,0,False,2,1.0,2,2,0,1.95
+Mark Patton,Guindy National Park,3,0,2,[],1,[],False,2,3,1,False,0,1.0,2,0,0,1.95
+Corey Parker,Guindy National Park,3,0,1,[],1,"['dialysis', 'dialysis']",False,0,1,1,True,2,1.0,1,0,2,1.95
+James Richards,Guindy National Park,3,2,2,['blindness'],1,['none'],False,1,2,0,False,0,0.0,1,1,0,1.95
+Alexander Baker,Avadi,3,4,1,[],1,['diabetes'],False,0,0,0,False,0,0.0,3,0,1,1.95
+Maria Wilson,Porur,2,2,2,['none'],1,[],False,0,3,0,False,1,0.0,2,0,0,1.93
+Heather Olson,Vadapalani,2,2,0,['blindness'],1,"['dialysis', 'none']",False,0,3,0,False,1,0.0,1,1,1,1.93
+Daniel Dixon,Adyar,1,3,2,[],0,[],True,1,2,1,True,1,0.5,1,0,0,1.93
+Victoria Walker,Adyar,3,0,0,[],1,"['diabetes', 'dialysis']",True,0,1,1,False,3,1.0,1,0,2,1.93
+Kelly Jensen,Thoraipakkam,1,0,2,"['other', 'wheelchair']",0,['heart'],False,0,0,0,False,0,0.5,3,2,1,1.93
+Nicole Fleming,Thoraipakkam,1,3,1,[],0,"['heart', 'dialysis']",False,0,0,0,False,2,0.5,1,0,2,1.93
+Anita Carpenter,Adyar,2,0,2,[],1,[],False,0,3,1,True,2,0.5,3,0,0,1.93
+Jennifer Vang,Porur,2,1,0,"['wheelchair', 'none']",1,['dialysis'],False,0,0,0,False,3,1.0,1,1,1,1.93
+Angel Jones,Boat Club Road,1,2,1,[],0,['none'],False,0,2,0,False,3,1.0,3,0,0,1.93
+Olivia Gaines,Guindy National Park,2,3,1,[],1,[],False,0,1,0,False,1,0.5,3,0,0,1.9
+Jennifer Martin,T. Nagar,2,1,2,[],0,"['dialysis', 'diabetes']",False,0,2,0,False,0,1.0,0,0,2,1.9
+Larry Underwood,T. Nagar,3,3,2,['other'],0,['none'],False,0,2,1,True,0,0.0,1,1,0,1.9
+Lisa Williams,Medavakkam,2,3,2,[],0,[],False,0,3,0,True,2,0.0,3,0,0,1.9
+Colleen Cook,Avadi,2,0,0,"['none', 'blindness']",1,['heart'],False,0,1,0,False,2,1.0,3,1,1,1.9
+Cassandra Lewis,T. Nagar,2,3,0,[],1,['dialysis'],False,0,0,1,False,3,0.5,0,0,1,1.9
+Victoria Myers,Adyar,3,2,2,['blindness'],1,[],False,0,0,0,False,2,0.0,1,1,0,1.9
+David Davis,Porur,1,1,1,['blindness'],1,['diabetes'],False,0,1,0,False,2,0.0,2,1,1,1.9
+Andrew Allen,Medavakkam,3,2,0,"['other', 'blindness']",1,"['none', 'diabetes']",False,0,0,1,True,0,0.0,2,2,1,1.9
+Deborah Solomon,Thoraipakkam,2,1,1,['blindness'],1,['dialysis'],False,0,2,0,False,0,0.0,3,1,1,1.9
+Amber Brown,Adyar,1,1,2,[],0,[],False,0,3,1,False,3,0.5,1,0,0,1.9
+Donna Strong,Vadapalani,2,3,1,[],1,['dialysis'],False,2,0,1,True,1,0.5,1,0,1,1.9
+Jason Reid,Adyar,3,3,0,[],0,"['diabetes', 'diabetes']",False,0,2,0,False,0,1.0,1,0,2,1.9
+Barbara Flores,T. Nagar,1,0,0,"['none', 'other']",1,['none'],False,0,3,0,True,3,1.0,3,1,0,1.88
+Bruce Vasquez,T. Nagar,3,3,0,['other'],1,['heart'],False,0,1,0,True,3,0.0,0,1,1,1.88
+Randall Chen,Vadapalani,3,1,2,[],0,[],False,0,2,0,False,3,1.0,2,0,0,1.88
+Daniel Kelly,Thoraipakkam,1,1,0,['blindness'],1,['dialysis'],False,0,3,0,True,2,0.5,1,1,1,1.88
+Jasmine Hardy,Vadapalani,2,0,2,[],1,['diabetes'],False,0,3,0,False,2,0.5,0,0,1,1.88
+Amy Thompson,Guindy National Park,1,2,1,[],1,['heart'],False,0,3,1,True,0,0.5,0,0,1,1.88
+Megan Peterson DVM,Vadapalani,3,3,0,['blindness'],1,"['none', 'none']",False,0,1,0,False,0,0.5,3,1,0,1.88
+Crystal Waters,Porur,2,1,1,"['other', 'blindness']",0,['none'],False,0,0,1,True,1,1.0,2,2,0,1.88
+Courtney Scott,Boat Club Road,1,2,1,[],0,['diabetes'],False,0,1,0,False,3,1.0,1,0,1,1.88
+Christine Arnold,Guindy National Park,3,1,0,['wheelchair'],1,['dialysis'],False,2,1,1,True,3,0.0,3,1,1,1.88
+Billy Wood,Guindy National Park,3,2,2,[],0,[],False,0,2,0,False,1,1.0,2,0,0,1.88
+Michelle Brown,Thoraipakkam,3,0,2,['blindness'],1,[],False,0,1,0,False,3,0.0,3,1,0,1.88
+Emily Garrison,Vadapalani,2,2,0,[],0,['dialysis'],False,0,3,0,False,3,1.0,1,0,1,1.88
+Amanda Diaz,Vadapalani,2,0,2,['other'],1,[],False,2,0,0,False,3,1.0,0,1,0,1.88
+Daniel Castaneda,Adyar,1,1,1,[],0,['dialysis'],False,0,2,1,False,3,1.0,0,0,1,1.88
+Sharon Orozco,Adyar,3,0,2,"['none', 'wheelchair']",1,[],False,0,1,0,False,2,0.5,2,1,0,1.88
+David Moreno,Medavakkam,3,0,2,['other'],1,[],False,0,3,0,False,3,0.0,0,1,0,1.88
+Christopher Beck,T. Nagar,3,2,2,"['wheelchair', 'none']",1,[],False,0,1,1,True,1,0.0,0,1,0,1.88
+Becky Peters,Boat Club Road,3,1,2,['none'],0,['heart'],False,0,1,1,False,3,0.0,3,0,1,1.87
+Jeffrey Brown,Adyar,1,2,0,[],1,['heart'],False,0,3,0,True,3,0.5,1,0,1,1.85
+Eric Wright,Avadi,2,0,2,[],1,['dialysis'],True,0,3,1,False,2,0.0,0,0,1,1.85
+Benjamin Sullivan,T. Nagar,2,4,2,[],0,[],False,0,0,0,False,2,0.0,3,0,0,1.85
+Mike Burns,Medavakkam,2,2,2,"['none', 'none']",0,"['none', 'dialysis']",False,0,1,0,True,0,1.0,3,0,1,1.85
+Reginald Flores,T. Nagar,2,1,2,[],0,"['dialysis', 'dialysis']",False,0,2,0,True,1,0.5,2,0,2,1.85
+Angela Day,Guindy National Park,1,2,0,"['wheelchair', 'none']",0,['dialysis'],False,0,2,1,False,2,0.0,2,1,1,1.85
+Elizabeth Jimenez,Porur,1,1,1,['wheelchair'],0,['diabetes'],True,0,2,0,True,0,1.0,3,1,1,1.85
+Christine Aguilar,Medavakkam,1,0,0,['blindness'],1,['heart'],False,3,3,0,True,2,1.0,1,1,1,1.85
+Monica Young,T. Nagar,2,0,2,"['wheelchair', 'blindness']",1,[],True,0,3,0,True,0,0.0,1,2,0,1.85
+Terry Nichols,Thoraipakkam,2,3,1,"['wheelchair', 'wheelchair']",0,['none'],False,3,0,0,True,1,0.5,1,2,0,1.85
+Russell Decker,Guindy National Park,3,3,0,"['none', 'none']",1,[],False,0,2,0,False,0,1.0,3,0,0,1.85
+Phyllis Anderson DDS,Medavakkam,2,2,0,"['other', 'none']",0,['heart'],False,0,1,0,False,2,1.0,1,1,1,1.85
+Gregory Gilbert,Medavakkam,1,3,2,[],1,[],False,0,0,0,False,1,0.5,1,0,0,1.85
+James Edwards,Thoraipakkam,3,1,2,['wheelchair'],1,[],False,0,2,0,False,1,0.0,1,1,0,1.83
+Nancy Coleman,Avadi,1,3,0,[],1,['heart'],False,0,1,0,False,2,0.5,1,0,1,1.83
+Jeremy Roberts,T. Nagar,2,2,1,['other'],1,[],False,3,1,0,False,0,0.5,2,1,0,1.83
+Jerry Becker,Guindy National Park,3,4,0,[],1,[],False,1,2,0,False,3,0.0,1,0,0,1.83
+Cheyenne Kennedy,Medavakkam,2,0,1,"['blindness', 'none']",1,"['heart', 'diabetes']",False,0,1,0,True,2,0.5,0,1,2,1.82
+Sean Stevens,Boat Club Road,3,2,0,['other'],1,"['heart', 'none']",False,0,1,0,False,0,0.5,2,1,1,1.82
+Mr. Jeffery Phillips DVM,Thoraipakkam,1,3,0,"['blindness', 'wheelchair']",1,[],False,0,1,0,True,1,0.0,1,2,0,1.82
+Lori Cooper,Medavakkam,2,0,2,[],1,['diabetes'],False,0,2,0,False,1,1.0,0,0,1,1.82
+Joshua Coleman,Boat Club Road,2,0,0,"['other', 'none']",1,['diabetes'],False,2,0,1,True,3,1.0,2,1,1,1.82
+Dr. Kevin Cox,Porur,1,3,1,['none'],1,['dialysis'],True,0,1,1,True,0,0.5,0,0,1,1.82
+Carol Knight MD,Adyar,3,0,1,['other'],1,[],False,0,2,1,False,1,1.0,0,1,0,1.82
+Keith Rodriguez,Guindy National Park,3,2,0,"['blindness', 'blindness']",1,[],False,0,1,0,False,0,0.5,1,2,0,1.82
+Nancy Henry,Medavakkam,2,2,1,['none'],1,"['diabetes', 'heart']",False,0,1,0,False,1,0.0,1,0,2,1.82
+William Obrien,Vadapalani,2,4,0,[],0,"['none', 'heart']",False,0,1,0,False,1,1.0,1,0,1,1.82
+Sherry Wade,Medavakkam,1,3,0,['blindness'],0,[],True,0,1,0,False,3,1.0,0,1,0,1.82
+Pamela James,Medavakkam,2,0,1,[],1,['diabetes'],False,0,3,1,True,2,0.5,2,0,1,1.82
+Deborah Mcdonald,Medavakkam,3,1,0,"['blindness', 'other']",1,['dialysis'],False,0,3,0,True,0,0.0,1,2,1,1.8
+Alexandra Williams,Porur,1,2,2,[],1,"['none', 'heart']",False,0,1,0,False,0,0.0,2,0,1,1.8
+Sonya Joseph,T. Nagar,2,1,2,[],0,['diabetes'],False,0,2,1,False,2,0.0,2,0,1,1.8
+Adam Rivera,Thoraipakkam,3,2,2,['none'],1,['none'],False,0,2,0,False,2,0.0,1,0,0,1.8
+Ronald Page,Boat Club Road,3,1,1,['wheelchair'],0,['none'],False,0,1,0,False,2,1.0,3,1,0,1.8
+Mikayla Stone,T. Nagar,2,2,1,[],1,[],False,2,1,0,False,2,1.0,1,0,0,1.8
+Brian Collins,T. Nagar,1,2,0,[],1,"['diabetes', 'diabetes']",False,0,1,0,True,0,1.0,2,0,2,1.8
+Jordan Wood,Adyar,1,2,2,"['none', 'wheelchair']",1,[],True,0,1,0,False,0,0.0,1,1,0,1.8
+Scott Solis,Porur,3,1,1,['none'],0,[],False,0,3,1,False,3,0.5,3,0,0,1.8
+Angela Hansen,T. Nagar,1,4,1,[],0,[],False,0,0,0,False,2,1.0,1,0,0,1.8
+Chad Turner,Avadi,2,0,1,['none'],1,[],False,0,3,1,False,2,1.0,1,0,0,1.8
+Christopher Robinson,Porur,1,1,1,"['other', 'other']",0,"['heart', 'diabetes']",False,0,1,0,False,0,0.0,0,2,2,1.8
+Ashley Gamble,Adyar,3,3,2,"['blindness', 'none']",0,[],False,0,0,0,False,0,0.5,1,1,0,1.78
+James Gordon,Adyar,2,3,0,"['wheelchair', 'none']",0,"['none', 'none']",True,0,0,0,False,3,1.0,1,1,0,1.78
+Anita Gaines,T. Nagar,1,2,1,['wheelchair'],1,[],False,0,2,0,False,1,0.0,1,1,0,1.78
+George Morris,Porur,2,2,1,[],1,['heart'],False,0,2,0,False,0,0.5,1,0,1,1.78
+Willie Simmons,Adyar,2,1,0,"['none', 'other']",0,['diabetes'],False,3,0,1,False,3,1.0,1,1,1,1.78
+John Gallegos,Guindy National Park,1,3,0,['none'],1,['diabetes'],False,0,2,0,True,0,0.5,3,0,1,1.78
+Susan Ball,Thoraipakkam,3,1,1,"['other', 'none']",1,[],False,0,3,0,False,0,0.5,1,1,0,1.78
+Samantha Rodriguez,Porur,1,1,0,"['none', 'other']",1,"['none', 'diabetes']",False,0,2,0,False,2,0.0,2,1,1,1.75
+Alexis Mcmillan,Adyar,2,3,2,['wheelchair'],1,[],False,0,0,0,True,0,0.0,1,1,0,1.75
+Justin Acosta,Adyar,3,2,1,['wheelchair'],1,"['none', 'diabetes']",False,2,1,1,True,0,0.0,0,1,1,1.75
+William Gonzalez,Adyar,3,4,0,[],0,['dialysis'],False,0,3,0,True,0,1.0,0,0,1,1.75
+Jessica Wagner,Thoraipakkam,2,2,2,[],1,['none'],False,0,2,0,True,2,0.0,2,0,0,1.75
+Madison Gonzales,Adyar,2,1,2,[],1,['none'],False,0,0,0,True,2,1.0,3,0,0,1.75
+Anthony King,Thoraipakkam,3,3,1,['none'],1,['none'],True,0,3,1,False,0,0.0,0,0,0,1.75
+Katherine Myers,T. Nagar,3,1,1,"['other', 'wheelchair']",1,[],False,0,0,1,True,0,0.0,3,2,0,1.75
+Shelby Pruitt,Boat Club Road,2,2,1,['blindness'],1,[],True,0,0,1,False,0,0.0,3,1,0,1.75
+Alyssa Woods,Vadapalani,2,3,0,['other'],1,[],False,0,1,0,True,2,0.0,3,1,0,1.75
+Jamie Williams,T. Nagar,1,3,1,['none'],1,[],False,0,0,1,False,0,1.0,0,0,0,1.75
+Natalie Martin,Adyar,3,2,2,['other'],0,[],False,0,3,0,True,2,0.0,0,1,0,1.75
+Jennifer Dean,T. Nagar,1,4,0,['other'],1,[],True,0,0,0,True,0,1.0,0,1,0,1.75
+Catherine Grimes,T. Nagar,3,2,1,[],1,[],False,0,1,0,False,0,1.0,3,0,0,1.75
+Thomas Elliott,Vadapalani,1,1,0,['wheelchair'],0,['diabetes'],False,0,3,1,True,2,0.5,1,1,1,1.73
+Vicki Brown,Medavakkam,3,2,2,['none'],0,[],False,0,2,0,True,1,1.0,2,0,0,1.73
+Spencer Williams,Porur,3,3,0,['none'],1,['diabetes'],False,0,2,0,False,1,0.0,2,0,1,1.73
+Brittany Garcia,Adyar,3,2,0,"['blindness', 'wheelchair']",0,[],False,3,0,1,True,1,1.0,1,2,0,1.73
+Andrea Walters,Adyar,1,1,2,['other'],1,"['none', 'heart']",False,0,1,0,True,1,0.0,0,1,1,1.73
+Tiffany Odom,Adyar,3,2,0,[],1,['dialysis'],False,0,3,0,True,2,0.5,1,0,1,1.73
+Erin Montoya,Guindy National Park,1,0,0,"['none', 'blindness']",1,['dialysis'],False,0,3,0,True,3,0.0,3,1,1,1.73
+Benjamin Werner,Porur,1,4,0,"['none', 'none']",0,['heart'],False,0,0,1,False,0,0.5,3,0,1,1.73
+Nicole Keller,Avadi,3,1,2,[],1,"['dialysis', 'none']",False,0,2,0,False,1,0.0,1,0,1,1.73
+Emma Reynolds,T. Nagar,1,1,1,['blindness'],1,[],True,0,2,0,False,1,0.0,3,1,0,1.73
+Kelly Martin,Thoraipakkam,3,2,0,['blindness'],0,"['diabetes', 'none']",False,0,2,0,True,3,0.0,3,1,1,1.73
+Ruth Terrell,Guindy National Park,2,1,1,[],1,"['dialysis', 'dialysis']",False,0,3,0,True,1,0.0,1,0,2,1.73
+Brandon Spencer,Guindy National Park,1,3,0,"['blindness', 'none']",0,"['none', 'heart']",False,0,1,0,False,0,0.5,2,1,1,1.72
+April Roberts,Vadapalani,2,2,0,[],1,"['none', 'dialysis']",False,0,3,0,False,1,0.0,3,0,1,1.72
+Leslie Walker,Boat Club Road,2,2,1,[],1,[],False,0,3,0,False,1,0.0,3,0,0,1.72
+Brian Hernandez,Avadi,2,3,0,[],1,[],False,0,1,1,False,1,1.0,0,0,0,1.72
+Michelle Caldwell,Porur,3,3,0,['blindness'],0,[],False,0,2,0,False,2,0.0,3,1,0,1.7
+Mr. James Garcia MD,Thoraipakkam,3,3,1,[],1,['dialysis'],False,0,0,1,True,2,0.0,0,0,1,1.7
+Craig Taylor,Guindy National Park,1,0,0,['blindness'],1,"['diabetes', 'dialysis']",False,0,1,0,True,1,0.5,3,1,2,1.7
+Mary Welch,Avadi,1,1,2,['wheelchair'],0,['heart'],False,0,1,1,False,0,0.0,1,1,1,1.7
+Monica Sanchez,Guindy National Park,2,2,0,['none'],1,[],False,0,3,0,False,2,1.0,0,0,0,1.7
+John Walker,Boat Club Road,1,4,0,"['none', 'blindness']",1,[],False,0,2,0,True,0,0.0,1,1,0,1.7
+Cheryl Hurley,Boat Club Road,1,0,2,['blindness'],1,[],False,0,0,0,False,1,0.5,3,1,0,1.7
+Michael Hall,Medavakkam,2,2,1,"['blindness', 'none']",0,[],False,0,1,1,False,0,1.0,0,1,0,1.7
+Anne Hart,Porur,3,2,0,"['other', 'wheelchair']",1,['none'],False,0,1,0,True,2,0.0,1,2,0,1.7
+Kyle Brown,Boat Club Road,3,1,1,[],1,"['diabetes', 'heart']",False,0,2,0,False,0,0.0,2,0,2,1.7
+Chris Cook,Porur,2,1,2,"['blindness', 'other']",0,['none'],True,0,0,0,False,1,0.5,0,2,0,1.7
+Steven Atkins,Guindy National Park,2,4,2,[],1,['none'],False,0,0,0,True,0,0.0,2,0,0,1.7
+Juan Lane,Avadi,1,0,2,[],1,['none'],False,0,1,0,False,3,0.5,3,0,0,1.7
+Jeffery Larson,Porur,3,0,0,['wheelchair'],1,"['none', 'dialysis']",False,0,2,0,False,1,0.5,3,1,1,1.7
+Mr. Brian Gonzalez,Thoraipakkam,3,0,1,"['blindness', 'wheelchair']",0,['none'],False,0,3,0,False,1,0.5,1,2,0,1.7
+Karen Herrera MD,Adyar,1,3,0,[],1,[],False,0,0,1,False,1,1.0,1,0,0,1.68
+Michelle Smith,Guindy National Park,1,3,2,[],1,[],False,0,2,0,True,1,0.0,0,0,0,1.68
+Ronald Chen,Vadapalani,1,0,1,"['wheelchair', 'none']",0,['dialysis'],True,0,2,0,False,1,1.0,1,1,1,1.68
+Brooke Ross,Boat Club Road,3,4,1,"['none', 'none']",0,[],False,3,0,0,False,3,0.0,3,0,0,1.68
+Debbie Abbott,Thoraipakkam,1,0,2,"['wheelchair', 'none']",1,[],False,0,3,0,True,0,0.5,1,1,0,1.68
+Timothy Hunt,Vadapalani,1,0,2,[],1,['heart'],False,0,0,1,True,1,1.0,1,0,1,1.68
+Thomas Lopez,Avadi,3,0,1,['blindness'],1,"['heart', 'dialysis']",False,0,1,0,True,0,0.5,1,1,2,1.68
+Mary Lopez PhD,Medavakkam,3,0,0,"['blindness', 'none']",1,[],True,0,2,0,False,3,1.0,1,1,0,1.68
+Lisa Hood,Vadapalani,3,1,1,['other'],0,['dialysis'],False,0,2,1,True,3,0.0,0,1,1,1.68
+Carla Becker,Porur,1,0,0,['wheelchair'],1,['dialysis'],False,0,2,1,True,2,0.0,3,1,1,1.65
+Steven Harper,Guindy National Park,1,0,2,['other'],1,['diabetes'],False,0,1,0,True,0,0.0,3,1,1,1.65
+Ashley Caldwell,Guindy National Park,1,0,0,['wheelchair'],1,"['none', 'dialysis']",False,0,0,1,False,3,0.5,1,1,1,1.65
+Anna Bond,Medavakkam,3,0,0,['blindness'],0,"['none', 'dialysis']",False,0,3,0,False,3,0.5,2,1,1,1.65
+Lauren Morrow,Porur,1,1,1,['other'],0,['heart'],False,0,0,1,True,0,1.0,2,1,1,1.65
+Christopher Wade,Avadi,1,4,0,[],1,['dialysis'],False,1,1,1,True,0,0.0,1,0,1,1.65
+Stanley Coleman,Vadapalani,1,2,2,[],1,[],False,2,1,0,False,2,0.0,1,0,0,1.65
+Christopher Anthony,Boat Club Road,2,3,0,[],0,['heart'],False,0,1,1,False,2,0.0,3,0,1,1.65
+Stacey Medina,Vadapalani,1,3,1,['none'],1,[],True,0,0,0,True,3,0.5,1,0,0,1.65
+Tracy Howard,Vadapalani,3,1,0,[],1,['dialysis'],False,0,3,1,True,1,0.5,2,0,1,1.65
+Madison Alexander,Thoraipakkam,2,4,1,[],0,['none'],False,0,0,0,False,0,1.0,2,0,0,1.65
+Jason Young,Guindy National Park,1,1,2,['other'],0,['diabetes'],False,0,3,0,True,0,0.0,1,1,1,1.65
+Nancy Rodriguez,Guindy National Park,3,0,2,['other'],0,['diabetes'],False,0,2,0,False,1,0.5,0,1,1,1.65
+Emily Sullivan,Adyar,2,4,0,['none'],1,"['diabetes', 'none']",False,2,1,1,True,0,0.0,1,0,1,1.65
+Thomas Bowers,Thoraipakkam,2,2,0,[],1,['none'],False,0,2,0,False,2,0.5,3,0,0,1.63
+Jerry Brown,Adyar,2,0,2,"['blindness', 'none']",1,"['none', 'dialysis']",False,0,2,0,True,1,0.0,0,1,1,1.63
+Brandi Gibson MD,Medavakkam,2,2,0,['none'],1,['none'],False,0,2,1,False,2,0.5,1,0,0,1.62
+James Ross,Porur,3,3,0,[],1,['heart'],False,0,0,1,False,1,0.0,2,0,1,1.62
+Michael Becker,T. Nagar,1,2,1,[],1,[],False,0,2,1,True,1,0.0,3,0,0,1.62
+Eugene Cooper,Avadi,1,4,1,[],1,[],False,0,0,0,True,0,0.5,2,0,0,1.62
+Brian Mclaughlin,Porur,1,0,2,[],1,['diabetes'],False,0,1,0,True,2,0.5,2,0,1,1.62
+Kyle Hoffman,Boat Club Road,2,0,2,[],1,['none'],False,0,3,0,False,0,0.5,3,0,0,1.62
+Deborah Hudson MD,Adyar,3,0,1,['other'],1,[],False,0,3,1,True,2,0.0,1,1,0,1.6
+Mrs. Amanda Diaz,Avadi,3,0,1,"['none', 'wheelchair']",1,[],False,0,0,0,True,2,1.0,3,1,0,1.6
+Jacob Vance,Thoraipakkam,3,3,1,['none'],0,['diabetes'],False,0,3,0,True,2,0.0,0,0,1,1.6
+Jason Soto,Adyar,1,1,0,['blindness'],0,['heart'],False,0,2,0,True,3,0.5,2,1,1,1.6
+Cindy Fleming,Avadi,1,2,0,[],1,[],False,0,3,0,False,3,0.5,0,0,0,1.6
+Nancy Dixon,Avadi,3,3,0,['wheelchair'],1,[],False,0,2,0,True,2,0.0,0,1,0,1.6
+Michael Nelson,Thoraipakkam,1,2,1,[],1,[],False,2,0,1,True,2,1.0,0,0,0,1.6
+Brent James,Vadapalani,1,1,2,[],1,[],False,0,0,1,True,1,0.5,3,0,0,1.6
+Nathaniel Todd,Vadapalani,3,1,1,"['none', 'blindness']",1,[],False,0,1,0,False,1,0.5,1,1,0,1.6
+Emily Rodriguez,Medavakkam,3,2,0,['none'],1,['heart'],False,0,2,0,True,3,0.5,0,0,1,1.6
+Sandra Fox,Guindy National Park,1,1,2,"['other', 'none']",1,['none'],True,0,2,0,False,0,0.0,0,1,0,1.6
+Mckenzie Mitchell,Porur,1,3,1,[],0,[],False,0,2,0,False,1,0.5,2,0,0,1.6
+Rebecca Mcintosh,Adyar,1,2,1,"['none', 'none']",0,"['dialysis', 'diabetes']",False,0,2,0,True,1,0.5,0,0,2,1.6
+Jason Cunningham,Guindy National Park,1,0,2,[],0,"['none', 'diabetes']",False,0,0,0,False,2,1.0,3,0,1,1.6
+Sherri King,Porur,1,3,2,[],0,['none'],False,0,0,0,False,0,1.0,1,0,0,1.6
+Robert Jones,Vadapalani,2,4,1,['wheelchair'],0,['none'],False,0,0,0,False,0,0.0,2,1,0,1.6
+Kathleen Miller,Avadi,3,2,2,[],0,['none'],False,0,0,1,False,2,0.5,1,0,0,1.58
+Guy Wilson,Thoraipakkam,2,2,2,['none'],0,['heart'],False,2,1,0,True,2,0.5,0,0,1,1.58
+Sheila Harper,T. Nagar,2,2,0,[],1,[],False,0,1,0,False,1,1.0,3,0,0,1.58
+Kelly Chapman,Boat Club Road,2,4,0,['blindness'],0,['none'],False,0,1,1,False,1,0.0,0,1,0,1.57
+Andrew Oconnell,Medavakkam,3,0,1,[],0,['none'],False,0,3,0,False,3,1.0,3,0,0,1.57
+Erik Adams,T. Nagar,2,3,0,"['blindness', 'none']",0,"['none', 'none']",False,0,3,0,True,0,0.5,2,1,0,1.57
+Debra Porter,Porur,3,1,2,[],1,[],False,0,1,1,True,2,0.5,0,0,0,1.57
+Ernest Medina,Guindy National Park,2,3,1,[],0,[],False,0,1,1,False,3,0.0,1,0,0,1.57
+Jonathan Morgan,Porur,2,0,2,"['none', 'wheelchair']",0,['none'],True,0,3,0,True,3,0.0,2,1,0,1.57
+Matthew Vasquez,Avadi,1,0,1,['none'],1,"['heart', 'dialysis']",False,0,3,0,True,1,0.0,2,0,2,1.57
+Todd Mcdowell,Medavakkam,1,1,0,[],1,['diabetes'],True,0,1,1,True,2,0.5,3,0,1,1.57
+Willie Hardy,Boat Club Road,2,0,1,['none'],0,['diabetes'],False,0,1,1,False,3,1.0,1,0,1,1.57
+Jessica Morgan,Vadapalani,3,2,0,[],1,"['heart', 'none']",False,0,1,0,True,2,1.0,0,0,1,1.55
+Keith Rodriguez,T. Nagar,1,2,0,['other'],1,[],False,0,3,0,True,0,0.0,3,1,0,1.55
+Michael Gallagher,Medavakkam,2,3,0,[],0,"['diabetes', 'diabetes']",True,0,1,0,False,1,0.5,0,0,2,1.55
+Alison Baker,Porur,2,1,2,['blindness'],0,"['none', 'heart']",False,0,1,0,True,0,0.0,3,1,1,1.55
+Mary Alexander,Thoraipakkam,2,0,2,[],1,[],False,0,1,1,False,0,1.0,1,0,0,1.55
+Alfred Osborn,Medavakkam,1,3,0,[],1,[],False,2,0,0,False,0,1.0,3,0,0,1.55
+Bradley Wilson,Adyar,1,0,1,[],1,['none'],False,0,2,0,False,2,1.0,2,0,0,1.55
+Monica Thompson,Porur,1,3,2,['none'],1,[],False,0,0,0,True,0,0.0,3,0,0,1.55
+Kayla Rice,Guindy National Park,1,3,0,"['none', 'wheelchair']",1,['heart'],False,0,0,0,True,0,0.0,2,1,1,1.55
+Scott Kent,T. Nagar,2,2,0,[],1,['diabetes'],False,0,0,0,False,1,1.0,1,0,1,1.53
+Victor Carrillo,Guindy National Park,3,1,0,['wheelchair'],0,"['none', 'dialysis']",True,0,0,0,False,1,1.0,3,1,1,1.53
+Darryl Russell,Boat Club Road,2,3,0,[],0,['dialysis'],True,0,2,0,False,2,0.5,0,0,1,1.53
+Randall Nelson,Guindy National Park,2,2,1,[],1,['none'],False,0,0,0,False,2,0.5,2,0,0,1.53
+Jacqueline Tucker,Porur,2,1,1,['wheelchair'],1,[],False,0,0,1,False,0,0.5,1,1,0,1.53
+Matthew Wright,Adyar,1,1,1,[],0,['heart'],True,0,3,1,True,3,0.0,1,0,1,1.53
+Lisa Mitchell,Guindy National Park,3,3,2,"['none', 'none']",1,['none'],False,0,0,0,False,1,0.0,0,0,0,1.53
+Kyle Bishop,Porur,1,1,1,"['none', 'other']",1,[],False,0,2,0,False,1,0.0,1,1,0,1.53
+Terry Huerta,Boat Club Road,3,4,0,[],0,['heart'],False,0,1,0,False,3,0.0,0,0,1,1.52
+Ariana Fritz,Adyar,3,4,1,[],1,[],False,0,0,0,True,1,0.0,2,0,0,1.52
+Chelsea Lee,Vadapalani,2,0,1,['other'],0,"['heart', 'none']",False,2,1,0,True,3,1.0,0,1,1,1.52
+Anna Ferguson,Porur,2,2,0,[],1,"['diabetes', 'none']",False,0,2,0,False,3,0.0,0,0,1,1.52
+Jesse Brown,Thoraipakkam,3,3,1,[],1,['diabetes'],False,0,0,0,False,1,0.0,0,0,1,1.52
+Anthony Daniels,Guindy National Park,2,2,2,[],0,['none'],False,0,1,0,True,3,0.5,1,0,0,1.5
+Matthew Woodard,T. Nagar,1,3,1,[],1,[],False,0,3,0,True,0,0.0,1,0,0,1.5
+Brenda Lynch,Thoraipakkam,3,0,0,[],1,"['none', 'heart']",False,0,2,1,False,1,0.5,3,0,1,1.5
+Seth Moore,Guindy National Park,2,0,2,[],1,[],False,0,2,0,False,0,1.0,1,0,0,1.5
+Thomas Strong,Boat Club Road,3,2,1,[],1,[],False,0,1,1,True,0,1.0,0,0,0,1.5
+Gregory Snow,Avadi,2,1,0,"['none', 'none']",1,['diabetes'],False,0,0,1,False,3,0.5,1,0,1,1.5
+Cory Hunter,Thoraipakkam,3,1,1,['other'],1,"['none', 'none']",False,3,3,0,True,0,0.0,2,1,0,1.5
+Bonnie Garrett,Guindy National Park,3,3,0,[],1,"['none', 'none']",False,0,1,0,False,1,0.5,2,0,0,1.5
+Cynthia Lucero,Boat Club Road,1,0,0,['other'],1,[],False,0,1,0,False,3,0.5,3,1,0,1.5
+Wyatt Williams,Thoraipakkam,1,0,2,['none'],0,"['diabetes', 'diabetes']",False,2,1,0,False,2,0.0,2,0,2,1.5
+Kristine Alvarado,Thoraipakkam,1,1,1,['none'],1,['dialysis'],False,0,2,0,True,1,0.0,3,0,1,1.48
+Christopher Campbell,Adyar,2,0,2,[],1,['none'],False,0,1,1,False,2,0.5,0,0,0,1.48
+Mark Fernandez,Avadi,2,1,1,[],1,['diabetes'],False,0,0,1,True,0,0.5,3,0,1,1.48
+Kristen Gray,Guindy National Park,2,3,0,[],1,[],False,0,2,0,True,0,0.5,3,0,0,1.48
+Aaron Phelps,Avadi,3,0,0,"['other', 'other']",1,[],False,0,1,0,False,3,0.0,1,2,0,1.48
+Dillon Wright,Boat Club Road,3,2,0,"['none', 'blindness']",1,[],False,0,2,0,True,3,0.0,0,1,0,1.48
+John Davis,Guindy National Park,1,0,1,['none'],1,"['none', 'dialysis']",False,0,0,1,True,1,1.0,2,0,1,1.47
+Angela Harper,Adyar,2,0,0,['blindness'],0,"['none', 'diabetes']",False,0,0,1,True,3,1.0,2,1,1,1.47
+Regina Long,Vadapalani,3,0,2,['none'],0,"['diabetes', 'dialysis']",True,0,3,0,False,1,0.0,0,0,2,1.47
+Julie Gonzalez,Avadi,1,2,1,[],1,"['diabetes', 'diabetes']",False,0,1,0,True,0,0.0,0,0,2,1.45
+Michelle Mclaughlin,Medavakkam,3,1,0,"['other', 'other']",0,[],False,0,3,0,False,2,0.0,0,2,0,1.45
+Joseph Knight,Thoraipakkam,2,2,1,['wheelchair'],1,"['none', 'none']",False,0,1,0,True,0,0.0,2,1,0,1.45
+Tommy Kidd,Avadi,2,2,0,[],1,['dialysis'],False,0,2,0,False,0,0.0,3,0,1,1.45
+Heidi Price,Guindy National Park,2,2,0,[],1,[],False,0,0,0,False,2,1.0,2,0,0,1.45
+Christina Johnson,Porur,2,0,0,['other'],1,[],False,0,3,0,False,1,0.5,2,1,0,1.45
+Laura Morris,Adyar,2,1,2,[],0,"['dialysis', 'none']",False,0,2,0,False,0,0.0,3,0,1,1.45
+Erin Hoover,Porur,2,1,0,['blindness'],0,['none'],False,0,1,1,False,0,1.0,3,1,0,1.45
+Jeffrey Vargas,Porur,2,4,1,[],0,[],False,0,0,0,False,2,0.0,2,0,0,1.45
+Melody Jones,Guindy National Park,3,0,2,"['other', 'wheelchair']",1,[],False,3,0,0,False,0,0.0,0,2,0,1.45
+Colton Lewis,Medavakkam,1,0,2,[],1,['none'],False,0,3,0,True,3,0.0,1,0,0,1.43
+Bruce Logan,Medavakkam,2,0,2,[],1,[],True,0,0,0,True,3,1.0,1,0,0,1.43
+Matthew Anderson,Adyar,3,1,1,[],1,"['diabetes', 'diabetes']",False,0,0,0,False,1,0.0,1,0,2,1.43
+Sarah Vincent,Avadi,1,1,1,[],1,['diabetes'],False,0,0,0,False,0,0.5,3,0,1,1.43
+Melissa Cook,Thoraipakkam,1,0,0,['other'],1,[],False,0,3,0,True,3,0.0,3,1,0,1.43
+Laura Boyd,Adyar,2,2,0,[],0,"['heart', 'none']",False,0,0,0,False,3,1.0,1,0,1,1.43
+Samantha Stevens,Adyar,2,2,1,[],1,['diabetes'],False,0,0,1,True,0,0.5,0,0,1,1.43
+Corey Taylor,Guindy National Park,1,3,0,['wheelchair'],0,['diabetes'],False,3,0,1,True,1,0.0,1,1,1,1.43
+Katherine Hudson,Guindy National Park,1,3,1,[],0,['heart'],True,0,2,0,True,1,0.0,1,0,1,1.43
+Daniel Hinton,T. Nagar,2,4,0,[],1,[],False,0,1,0,False,1,0.0,1,0,0,1.43
+David Powell,Porur,3,0,2,[],1,[],False,0,3,1,False,1,0.0,0,0,0,1.42
+Robin Williamson,T. Nagar,2,0,1,['other'],1,['dialysis'],False,0,1,0,False,0,0.5,0,1,1,1.42
+Melissa Wallace,Guindy National Park,2,0,0,[],1,"['dialysis', 'heart']",False,0,3,0,True,0,1.0,0,0,2,1.4
+Breanna Bell,Guindy National Park,1,2,1,[],1,"['none', 'dialysis']",False,0,2,0,True,0,0.0,1,0,1,1.4
+Dawn Miller,Thoraipakkam,1,0,0,"['none', 'wheelchair']",0,['diabetes'],False,0,3,0,False,0,1.0,1,1,1,1.4
+Paul Morgan,Medavakkam,2,2,1,[],0,"['dialysis', 'none']",False,0,1,0,False,0,1.0,0,0,1,1.4
+John Gibson,T. Nagar,2,0,0,['other'],0,"['none', 'dialysis']",True,0,3,0,False,2,0.0,3,1,1,1.4
+Hailey Stone,Guindy National Park,1,0,1,['blindness'],0,[],False,0,3,0,False,2,0.0,3,1,0,1.4
+Brian Peterson,Porur,1,1,1,[],1,['dialysis'],False,0,0,1,False,0,0.0,3,0,1,1.4
+Caitlin Ortiz,Boat Club Road,2,1,1,"['none', 'wheelchair']",1,[],False,0,0,1,True,2,0.0,1,1,0,1.4
+Lisa Ferguson,Avadi,2,3,0,[],1,[],False,0,1,0,False,0,1.0,0,0,0,1.4
+Dr. Courtney Lynch DVM,Boat Club Road,1,3,0,['blindness'],0,[],False,0,0,0,True,3,0.5,1,1,0,1.4
+Evelyn Bennett,Boat Club Road,2,0,1,[],1,['dialysis'],False,0,3,0,True,1,0.5,1,0,1,1.4
+Charles Hopkins,Thoraipakkam,2,1,0,['other'],1,['heart'],False,0,1,1,True,0,0.0,2,1,1,1.4
+Cynthia Howard,Avadi,1,3,0,['none'],0,[],False,0,2,0,True,3,0.5,2,0,0,1.4
+Megan Wilcox,Medavakkam,1,2,2,[],1,[],False,0,0,0,False,2,0.0,0,0,0,1.4
+Russell Hernandez,Porur,1,0,2,[],1,"['none', 'none']",False,0,3,0,True,0,0.5,2,0,0,1.38
+Mark Medina,Vadapalani,3,0,0,"['other', 'none']",1,['heart'],False,0,2,0,False,1,0.0,2,1,1,1.38
+Laura Guerrero,Avadi,1,3,0,[],1,[],False,0,1,0,False,0,0.5,2,0,0,1.38
+David West,T. Nagar,2,3,0,[],1,[],False,0,0,0,False,2,0.5,1,0,0,1.38
+Jonathan Curtis,T. Nagar,2,1,0,[],1,"['none', 'heart']",True,0,1,1,True,1,1.0,0,0,1,1.37
+Nicholas Rojas,Avadi,1,1,1,[],1,['heart'],False,0,0,0,False,0,1.0,0,0,1,1.35
+Brandy Peterson MD,Vadapalani,1,1,0,[],1,"['none', 'heart']",False,0,2,0,False,0,1.0,0,0,1,1.35
+Jeffrey Lyons,Medavakkam,2,1,2,['none'],1,"['heart', 'none']",False,0,0,0,True,0,0.0,3,0,1,1.35
+William Michael,Vadapalani,1,0,1,[],1,"['dialysis', 'diabetes']",False,0,2,0,False,0,0.0,1,0,2,1.35
+Natasha Miller,Porur,2,3,1,"['none', 'none']",0,['heart'],False,3,0,0,False,0,0.0,3,0,1,1.35
+Micheal Russell,Adyar,3,1,1,['blindness'],0,['heart'],False,0,1,0,False,2,0.0,0,1,1,1.35
+Melissa Johnson,T. Nagar,3,1,2,['none'],1,[],False,0,1,0,True,0,1.0,0,0,0,1.35
+Amy Martinez,Vadapalani,2,0,0,"['none', 'none']",1,"['heart', 'dialysis']",False,0,1,0,False,0,1.0,1,0,2,1.35
+Luis Bryant,Thoraipakkam,3,1,0,[],1,['heart'],True,0,1,0,False,3,0.5,0,0,1,1.35
+Adrian Farley,T. Nagar,3,1,1,[],1,['none'],False,0,1,1,True,0,1.0,1,0,0,1.35
+Shane Navarro,Guindy National Park,1,0,1,[],1,['dialysis'],False,0,3,0,False,2,0.0,0,0,1,1.35
+Amy Johnson,Porur,2,2,1,[],1,"['none', 'dialysis']",False,0,1,0,True,0,0.0,2,0,1,1.35
+Patricia Webster,Porur,1,0,2,['none'],1,[],False,0,0,0,False,1,1.0,1,0,0,1.33
+Christie Duffy,Thoraipakkam,2,0,1,['wheelchair'],1,['none'],False,0,1,0,False,1,0.0,3,1,0,1.32
+Aaron Donaldson,Medavakkam,1,0,1,[],1,"['dialysis', 'diabetes']",False,2,1,0,False,1,0.0,1,0,2,1.32
+Christopher Farrell,Guindy National Park,3,0,1,['blindness'],1,[],False,1,1,1,False,0,0.5,0,1,0,1.32
+James Cooper,Thoraipakkam,1,1,0,['wheelchair'],1,"['none', 'diabetes']",False,0,1,1,True,1,0.0,0,1,1,1.32
+Kristy Jones,Porur,2,1,1,[],1,"['heart', 'none']",False,0,1,0,True,1,0.0,3,0,1,1.32
+Amy Mills,Thoraipakkam,2,1,1,[],1,['dialysis'],False,0,1,1,True,0,0.5,0,0,1,1.32
+Timothy Ryan,Boat Club Road,2,2,0,"['none', 'none']",1,['dialysis'],False,0,2,0,True,0,0.5,1,0,1,1.32
+Anna Hall,Vadapalani,2,0,0,['other'],1,"['diabetes', 'none']",True,0,0,0,False,3,0.0,2,1,1,1.32
+Debra Collins,Adyar,3,0,0,[],1,['diabetes'],False,0,3,0,True,3,0.0,3,0,1,1.32
+Amy Lyons,T. Nagar,2,3,0,[],0,['diabetes'],False,0,3,0,False,0,0.0,1,0,1,1.3
+Paul Jackson,Medavakkam,1,3,0,['other'],1,['none'],False,0,0,0,True,2,0.0,0,1,0,1.3
+Jason Young,Boat Club Road,3,2,0,[],0,"['diabetes', 'none']",True,0,2,0,True,0,1.0,2,0,1,1.3
+Brenda Woods,Vadapalani,2,0,1,[],1,[],False,0,3,1,True,2,0.0,2,0,0,1.3
+Allison Dixon,T. Nagar,1,0,1,"['none', 'none']",1,['heart'],False,0,0,1,False,2,0.0,2,0,1,1.3
+Tina Brandt,T. Nagar,1,0,0,"['other', 'other']",0,[],False,0,2,0,True,0,1.0,2,2,0,1.3
+Leslie Fowler,T. Nagar,2,1,0,"['other', 'blindness']",1,[],False,0,0,0,True,2,0.0,1,2,0,1.3
+Jacob Heath,Boat Club Road,2,2,0,['other'],1,['none'],False,0,1,0,True,2,0.0,1,1,0,1.3
+Danielle Flores,Vadapalani,1,1,1,['none'],0,[],False,0,3,0,False,3,0.5,0,0,0,1.3
+Joshua Koch DDS,Guindy National Park,1,0,2,[],0,['diabetes'],False,0,0,0,False,2,1.0,0,0,1,1.3
+Mary Rogers,Boat Club Road,3,4,0,[],0,['diabetes'],False,0,0,0,True,1,0.5,1,0,1,1.3
+Marc Nguyen,Guindy National Park,1,3,1,[],0,['none'],False,0,0,0,True,2,1.0,0,0,0,1.3
+Aaron Clark,T. Nagar,1,3,0,[],1,[],False,0,0,1,True,0,1.0,0,0,0,1.3
+Mr. Vincent Hall MD,Thoraipakkam,3,3,0,[],0,[],False,0,0,0,False,3,1.0,0,0,0,1.28
+Linda Young,Guindy National Park,3,2,0,"['none', 'blindness']",0,['none'],False,0,1,0,True,2,0.5,2,1,0,1.28
+Edward Jones,Adyar,3,3,0,[],1,"['dialysis', 'none']",True,0,0,0,True,0,0.5,1,0,1,1.28
+Tyler Perez,Boat Club Road,3,0,0,['other'],1,[],False,0,0,0,False,3,1.0,0,1,0,1.28
+Daniel Liu,T. Nagar,2,0,0,[],1,"['dialysis', 'none']",False,0,3,0,False,2,0.5,0,0,1,1.27
+Monique Martin,Guindy National Park,2,0,0,['none'],1,"['diabetes', 'dialysis']",False,0,1,0,False,3,0.0,1,0,2,1.27
+Kyle Williams,Boat Club Road,3,0,2,"['none', 'other']",0,['none'],False,0,3,0,False,1,0.0,0,1,0,1.27
+Danielle Wright,Thoraipakkam,1,1,2,[],1,[],False,0,0,0,True,0,0.5,3,0,0,1.27
+Glenn Dixon,Boat Club Road,1,0,2,[],0,['none'],False,0,3,0,True,0,1.0,2,0,0,1.25
+Justin Simpson,Guindy National Park,2,2,2,[],0,['none'],False,0,1,0,False,0,0.0,3,0,0,1.25
+Sarah Mullen,T. Nagar,3,0,1,[],1,[],False,0,0,0,False,3,0.5,3,0,0,1.25
+Terry Pearson,Adyar,1,1,0,[],1,[],False,0,1,1,False,3,0.5,0,0,0,1.25
+Lisa Patton,Boat Club Road,2,0,1,['other'],0,"['none', 'diabetes']",False,0,1,0,True,1,0.5,2,1,1,1.25
+Anita Beard,Guindy National Park,2,3,1,[],0,[],True,0,0,0,True,0,1.0,2,0,0,1.25
+William Blake,Medavakkam,3,2,2,['none'],0,['none'],False,0,3,0,False,0,0.0,0,0,0,1.25
+Maria Cooper,Vadapalani,2,2,1,[],1,['diabetes'],False,0,1,0,True,0,0.0,1,0,1,1.25
+Dillon Anderson,Vadapalani,2,0,1,"['none', 'wheelchair']",1,[],False,0,3,0,True,0,0.0,2,1,0,1.25
+Natasha Stone,T. Nagar,2,1,0,[],1,['none'],False,0,0,0,False,3,1.0,1,0,0,1.23
+Cory Austin,Guindy National Park,2,1,1,[],1,['none'],False,0,0,0,True,1,1.0,2,0,0,1.23
+Meghan Thompson,Adyar,1,1,1,['none'],0,['heart'],False,1,0,0,False,2,0.5,2,0,1,1.23
+Albert Bowers,Vadapalani,3,1,0,['none'],1,[],False,0,1,0,True,3,1.0,1,0,0,1.23
+Ralph Mejia,Medavakkam,3,0,0,['wheelchair'],1,[],False,0,2,0,False,3,0.0,1,1,0,1.23
+Christine Lee,Avadi,3,0,1,[],1,[],False,2,2,1,False,3,0.0,0,0,0,1.23
+Cindy Mccall,Vadapalani,1,0,0,"['wheelchair', 'blindness']",1,"['none', 'none']",True,0,1,0,False,0,0.5,0,2,0,1.22
+Jacob Vance,Porur,1,0,1,['none'],0,"['dialysis', 'none']",False,0,1,1,False,1,0.5,2,0,1,1.2
+Troy Perez,Medavakkam,3,3,0,['none'],0,"['dialysis', 'heart']",False,0,1,0,False,0,0.0,0,0,2,1.2
+Kristi Lee,Porur,2,0,0,"['other', 'none']",0,[],False,2,0,1,False,3,0.5,3,1,0,1.2
+Cristina Davenport,Thoraipakkam,3,0,1,['wheelchair'],1,[],True,0,1,0,False,0,0.0,3,1,0,1.2
+Elizabeth Bowers,Boat Club Road,2,1,1,[],0,"['heart', 'heart']",True,0,1,0,True,1,0.5,0,0,2,1.2
+Brian Salas,Vadapalani,3,2,1,['none'],0,['none'],False,0,2,0,True,2,0.0,3,0,0,1.2
+Joseph Ryan,Guindy National Park,1,1,1,[],0,['heart'],False,0,3,0,False,0,0.0,2,0,1,1.2
+Benjamin Williams,Avadi,1,2,0,[],1,['none'],False,0,0,0,False,1,0.5,3,0,0,1.2
+Kevin Tyler,Porur,2,1,1,[],0,"['dialysis', 'none']",False,0,3,0,False,0,0.0,2,0,1,1.2
+Nathan Schneider,Vadapalani,2,3,0,[],1,[],False,0,0,0,True,0,1.0,1,0,0,1.2
+Kelly Carrillo,Thoraipakkam,3,2,1,['none'],0,['dialysis'],False,0,1,0,False,0,0.5,0,0,1,1.18
+Sierra Gomez,T. Nagar,1,2,0,[],1,[],False,0,2,0,False,1,0.0,2,0,0,1.18
+Ashley Perry,Medavakkam,1,3,0,[],0,['none'],False,0,1,1,False,3,0.0,0,0,0,1.18
+Thomas Galvan,Thoraipakkam,1,2,0,"['none', 'other']",0,[],False,0,0,0,False,1,1.0,0,1,0,1.18
+William Orr,Boat Club Road,1,3,0,['none'],0,"['dialysis', 'dialysis']",False,0,0,0,False,1,0.0,0,0,2,1.18
+Peter Carney,T. Nagar,3,2,0,[],1,[],True,1,3,0,True,2,0.0,0,0,0,1.18
+Monica Adams,Guindy National Park,3,0,0,['blindness'],1,['heart'],False,0,0,0,True,1,1.0,0,1,1,1.18
+Matthew Johnson,Avadi,3,1,1,[],1,"['none', 'none']",False,0,0,0,False,3,0.0,2,0,0,1.18
+Michael Murillo,Medavakkam,2,1,1,[],0,['none'],False,0,3,0,False,3,0.0,1,0,0,1.18
+Lori Thomas,Thoraipakkam,1,1,0,[],1,[],False,0,2,1,False,3,0.0,0,0,0,1.17
+Anthony Taylor,Guindy National Park,2,0,1,[],1,[],False,0,1,0,False,2,0.5,2,0,0,1.17
+Carol Hoover,Thoraipakkam,1,0,1,['blindness'],0,[],True,0,1,0,False,3,0.5,0,1,0,1.15
+Shannon Mooney,Guindy National Park,1,0,1,['none'],1,['none'],False,0,0,1,False,3,0.5,0,0,0,1.15
+Jonathon Johnson,Adyar,1,1,2,[],0,"['none', 'diabetes']",False,0,0,0,True,0,1.0,0,0,1,1.15
+Michael Richards,Avadi,1,1,0,[],1,[],False,0,1,0,False,2,1.0,0,0,0,1.15
+Dr. Stephanie Wells,Adyar,3,1,1,[],1,"['dialysis', 'none']",False,0,1,0,False,0,0.0,1,0,1,1.15
+Jared Perez,Porur,2,1,0,"['blindness', 'none']",1,[],False,0,0,0,True,2,0.5,1,1,0,1.13
+Tina Gordon,Avadi,2,0,0,['other'],1,[],False,0,0,0,False,1,1.0,1,1,0,1.13
+Megan Walsh,T. Nagar,1,0,0,"['none', 'none']",1,['dialysis'],False,0,3,0,True,2,0.5,0,0,1,1.12
+Sandra Carpenter,Boat Club Road,3,0,0,[],1,['none'],False,0,3,1,False,1,0.0,3,0,0,1.12
+John Miller,Medavakkam,1,0,1,['none'],1,['heart'],False,0,2,0,True,1,0.0,2,0,1,1.12
+Amy Cook,T. Nagar,1,1,1,[],1,"['diabetes', 'none']",False,0,0,0,False,1,0.0,1,0,1,1.12
+Charles Johnson,Adyar,2,1,0,"['other', 'none']",0,[],False,0,1,1,True,1,0.5,2,1,0,1.1
+Todd Duran,Guindy National Park,3,1,0,['wheelchair'],0,['none'],True,0,0,1,False,2,0.0,3,1,0,1.1
+Melanie Smith,Boat Club Road,1,2,0,[],1,[],False,0,0,0,False,0,1.0,1,0,0,1.1
+Jeffrey Marsh,Medavakkam,2,3,0,[],1,[],False,0,0,1,True,2,0.0,0,0,0,1.1
+Dr. Shane Smith,T. Nagar,1,0,0,[],1,[],False,0,3,0,False,3,0.5,0,0,0,1.1
+Jennifer Griffin,T. Nagar,1,1,1,"['none', 'blindness']",0,[],False,0,0,0,False,1,0.5,1,1,0,1.1
+Andrew Watson,Adyar,2,1,0,['wheelchair'],0,['heart'],False,0,0,0,False,1,0.5,1,1,1,1.1
+Daniel Stout,T. Nagar,2,1,1,[],0,[],False,0,1,0,False,2,1.0,0,0,0,1.1
+Ann King,Guindy National Park,3,0,2,"['none', 'blindness']",0,['diabetes'],False,0,0,0,True,0,0.5,0,1,1,1.08
+Susan Beard,Guindy National Park,3,0,1,"['none', 'wheelchair']",0,[],False,0,0,0,False,1,1.0,1,1,0,1.08
+Gregory Scott,Vadapalani,2,3,1,[],0,[],False,0,1,1,True,1,0.0,0,0,0,1.07
+Alisha Gray,Guindy National Park,3,0,0,[],1,"['dialysis', 'heart']",False,0,2,0,False,1,0.0,0,0,2,1.07
+Tonya Taylor,Boat Club Road,3,0,0,['none'],1,"['none', 'heart']",True,0,1,0,False,2,0.5,1,0,1,1.07
+Stanley Smith,Medavakkam,3,0,1,['other'],0,['none'],False,0,1,0,True,1,0.5,3,1,0,1.05
+Pamela Carlson DVM,Porur,3,3,0,"['wheelchair', 'none']",0,['none'],False,0,1,0,True,0,0.0,2,1,0,1.05
+Dominique Nguyen,Adyar,1,2,0,['none'],1,[],False,0,0,1,True,2,0.0,2,0,0,1.05
+Ryan Oneill,Vadapalani,2,0,1,[],0,['diabetes'],False,0,1,0,False,3,0.5,0,0,1,1.05
+Jacqueline Smith,T. Nagar,3,1,0,[],1,['diabetes'],False,0,1,0,False,0,0.0,3,0,1,1.05
+Jacob Lambert,T. Nagar,1,1,1,[],0,"['none', 'heart']",False,0,2,0,True,1,0.5,0,0,1,1.05
+Alexis Hull,Adyar,3,1,0,[],1,"['none', 'diabetes']",False,0,2,0,False,1,0.0,0,0,1,1.02
+Gwendolyn Wells,Porur,3,2,0,[],1,"['none', 'none']",False,0,1,0,True,1,0.5,1,0,0,1.0
+Tammy Rivas,Avadi,1,0,0,['wheelchair'],1,['none'],True,0,3,0,False,0,0.0,1,1,0,1.0
+Dr. Melanie Johnson,Adyar,2,1,0,"['none', 'none']",1,['none'],False,0,2,0,True,1,0.5,2,0,0,1.0
+Doris Perez,T. Nagar,1,0,0,[],0,[],False,0,2,1,False,2,0.5,3,0,0,0.98
+Alisha Peterson,Porur,2,2,0,[],0,['dialysis'],False,3,2,1,True,1,0.0,0,0,1,0.98
+Kristina Larson,Thoraipakkam,3,4,0,"['none', 'none']",0,['none'],False,0,0,0,True,1,0.0,3,0,0,0.98
+Joseph Mitchell,Medavakkam,1,0,0,['none'],0,"['heart', 'dialysis']",False,0,3,0,False,1,0.0,1,0,2,0.97
+Erika Taylor,Guindy National Park,1,1,0,[],1,['diabetes'],False,0,2,1,True,0,0.0,0,0,1,0.95
+Thomas Grant,T. Nagar,1,0,1,['none'],1,['diabetes'],False,0,2,0,False,0,0.0,0,0,1,0.95
+Robert Kennedy,Boat Club Road,2,1,0,"['none', 'none']",1,"['none', 'none']",False,0,0,0,True,3,0.5,2,0,0,0.95
+Bryan Jordan,Adyar,2,1,0,"['wheelchair', 'none']",1,['none'],False,0,0,0,False,2,0.0,0,1,0,0.95
+Brandy Smith,Avadi,2,0,2,['none'],1,"['none', 'none']",False,0,0,1,False,0,0.0,1,0,0,0.95
+Patrick Nielsen,Thoraipakkam,2,2,0,[],1,['heart'],False,0,0,0,False,0,0.0,1,0,1,0.95
+Anthony Adams,Thoraipakkam,1,0,0,[],1,[],False,0,3,0,True,3,0.5,0,0,0,0.95
+John Carter,Avadi,3,2,1,[],0,[],False,0,0,0,False,1,0.0,3,0,0,0.93
+Darius Brooks,Guindy National Park,3,1,0,[],1,[],False,0,2,0,False,1,0.0,2,0,0,0.93
+Cassie Smith,Adyar,2,0,1,['none'],1,[],False,0,0,0,False,3,0.0,2,0,0,0.93
+Hannah Avila,Boat Club Road,3,1,0,[],1,"['diabetes', 'none']",False,0,0,0,False,0,0.5,1,0,1,0.92
+Ellen Kennedy,Adyar,3,0,2,['none'],0,[],False,0,2,0,True,2,0.5,0,0,0,0.92
+Eugene Flores,Medavakkam,1,2,0,[],0,[],False,0,0,1,True,1,0.5,3,0,0,0.9
+Caitlin Pittman,Boat Club Road,1,0,1,['wheelchair'],0,['heart'],True,0,0,0,True,1,0.5,0,1,1,0.9
+Melanie Huffman,Vadapalani,1,0,0,"['blindness', 'none']",0,[],False,0,0,1,False,2,0.5,1,1,0,0.88
+Amy Hernandez,Vadapalani,1,0,0,"['wheelchair', 'none']",1,"['none', 'none']",False,0,1,1,True,1,0.0,1,1,0,0.88
+Tamara Turner,Guindy National Park,1,0,1,['none'],0,[],False,0,3,0,True,3,0.0,2,0,0,0.88
+Adam Small,T. Nagar,1,1,1,"['none', 'none']",0,[],False,0,0,0,False,3,0.5,0,0,0,0.85
+Mary Martin,Vadapalani,3,1,0,['none'],1,['none'],False,0,1,0,True,0,1.0,1,0,0,0.85
+Eric Moss,Avadi,1,1,0,['blindness'],1,[],False,0,1,0,False,0,0.0,0,1,0,0.85
+Patrick Barrett,T. Nagar,2,1,0,[],1,['heart'],True,0,0,0,False,2,0.0,0,0,1,0.85
+Tiffany Martin,Porur,1,0,0,['wheelchair'],1,['dialysis'],False,0,0,0,True,1,0.0,1,1,1,0.83
+Amanda Calhoun,Vadapalani,1,1,0,[],0,[],True,0,0,1,True,3,0.5,2,0,0,0.8
+Jean Munoz,Vadapalani,1,1,1,[],0,[],True,0,2,0,False,1,0.0,1,0,0,0.78
+Rachel Shelton,Adyar,3,0,1,[],1,[],False,0,0,1,False,1,0.0,1,0,0,0.77
+Christopher Silva,Boat Club Road,1,0,0,[],1,[],False,0,2,0,True,3,0.0,2,0,0,0.77
+Mary Wilson,Avadi,3,2,0,[],0,[],False,0,0,0,False,0,1.0,1,0,0,0.75
+Amber Lopez,Boat Club Road,3,0,0,['none'],0,['diabetes'],False,0,1,1,True,0,1.0,1,0,1,0.75
+Charles Smith,Porur,1,0,0,['other'],0,"['heart', 'none']",False,0,1,0,True,2,0.0,1,1,1,0.75
+Jacob Green,Guindy National Park,1,1,1,[],0,['none'],False,0,0,0,False,3,0.0,1,0,0,0.73
+Sandra Mcdonald,Medavakkam,1,0,0,['none'],0,['diabetes'],False,0,0,1,True,3,0.0,3,0,1,0.73
+Amy Perry,Adyar,2,1,0,[],0,[],False,0,3,0,True,3,0.0,1,0,0,0.72
+Brittany Wheeler,Boat Club Road,2,0,0,['none'],1,['dialysis'],False,0,1,0,False,0,0.5,0,0,1,0.72
+Amber Delacruz,Boat Club Road,2,0,0,['blindness'],1,[],False,0,0,0,False,2,0.0,0,1,0,0.7
+Mary Fernandez MD,Boat Club Road,3,0,0,[],0,['heart'],False,0,2,0,True,0,0.5,3,0,1,0.68
+Patricia Bennett,Porur,1,0,0,['none'],0,[],False,0,2,0,False,2,0.5,2,0,0,0.68
+Scott Wilson,Vadapalani,3,0,0,[],1,"['none', 'none']",False,2,1,0,False,3,0.0,1,0,0,0.67
+Steve Robinson,Vadapalani,1,0,1,[],1,[],False,0,0,0,False,0,0.5,1,0,0,0.67
+Shane Rush,Avadi,1,1,0,[],1,['diabetes'],False,0,0,0,True,0,0.0,2,0,1,0.65
+Joseph Clark,Porur,3,0,0,[],0,['heart'],False,0,1,0,False,3,0.0,1,0,1,0.62
+John Lee,Vadapalani,3,0,0,['none'],0,[],False,0,0,0,False,2,1.0,2,0,0,0.6
+Melanie Mccoy,Adyar,2,1,0,['blindness'],0,[],False,0,2,0,True,0,0.0,0,1,0,0.5
+Kelly Perez,Adyar,3,0,0,['none'],1,[],False,0,0,1,False,2,0.0,0,0,0,0.5
+Ashley Peterson,Medavakkam,3,1,1,[],0,['none'],False,0,0,0,False,0,0.5,0,0,0,0.48
+Jason Thornton,Medavakkam,1,0,0,['other'],0,['dialysis'],False,0,0,0,True,1,0.0,1,1,1,0.47
+Elizabeth Campbell,Guindy National Park,3,0,0,['none'],0,['dialysis'],False,0,1,0,False,0,0.5,1,0,1,0.47
+Joseph Marshall,T. Nagar,2,1,1,[],0,[],False,2,0,0,True,2,0.0,1,0,0,0.45
+Tamara Brooks,Avadi,3,0,0,[],0,['dialysis'],False,0,0,1,True,2,0.0,1,0,1,0.4
+Jonathan Mason,Medavakkam,1,2,0,[],0,[],False,0,0,0,False,1,0.0,0,0,0,0.33
+Audrey Powers,Guindy National Park,1,0,0,['blindness'],0,[],False,0,0,0,True,3,0.0,0,1,0,0.33
+Richard Mitchell,Porur,1,0,0,['none'],1,['heart'],False,2,0,0,True,0,0.0,1,0,1,0.3
+Jonathan Downs,Medavakkam,3,0,0,[],0,"['heart', 'none']",True,0,0,0,True,0,0.0,2,0,1,0.05
+Jonathan King,Vadapalani,1,0,0,['none'],0,[],False,0,0,0,True,0,0.0,2,0,0,-0.25
