@@ -16,6 +16,7 @@ const Auth = () => {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [isRegistering, setIsRegistering] = useState(false);
+  const [isGovernmentRegistering, setIsGovernmentRegistering] = useState(false);
 
   // Check if user is already logged in
   useEffect(() => {
@@ -57,12 +58,17 @@ const Auth = () => {
       await supabase.auth.signOut();
 
       let authResponse;
-      if (isRegistering) {
+      const isRegistration = isAdmin ? isGovernmentRegistering : isRegistering;
+
+      if (isRegistration) {
         // Sign up
         authResponse = await supabase.auth.signUp({
           email,
           password,
           options: {
+            data: {
+              role: isAdmin ? 'admin' : 'user'
+            },
             emailRedirectTo: window.location.origin
           }
         });
@@ -90,7 +96,7 @@ const Auth = () => {
         throw authError;
       }
 
-      if (isRegistering) {
+      if (isRegistration) {
         toast({
           title: "Registration successful",
           description: "Please check your email to confirm your account.",
@@ -163,7 +169,7 @@ const Auth = () => {
             
             <TabsContent value="admin" className="space-y-4">
               <div className="space-y-2">
-                <h2 className="text-2xl font-bold text-center">Government Official Login</h2>
+                <h2 className="text-2xl font-bold text-center">Government Official Portal</h2>
                 <p className="text-center text-muted-foreground">Access the FloodGuard admin portal</p>
               </div>
               <div className="space-y-4">
@@ -192,8 +198,14 @@ const Auth = () => {
                   onClick={() => handleAuth(true)}
                   disabled={loading}
                 >
-                  {loading ? "Loading..." : "Login as Official"}
+                  {loading ? "Loading..." : (isGovernmentRegistering ? "Sign Up as Official" : "Login as Official")}
                 </Button>
+                <button
+                  onClick={() => setIsGovernmentRegistering(!isGovernmentRegistering)}
+                  className="w-full text-sm text-blue-600 hover:text-blue-800"
+                >
+                  {isGovernmentRegistering ? "Already have an account? Login" : "Need an official account? Sign Up"}
+                </button>
               </div>
             </TabsContent>
             
@@ -228,7 +240,7 @@ const Auth = () => {
                   onClick={() => handleAuth(false)}
                   disabled={loading}
                 >
-                  {loading ? "Loading..." : (isRegistering ? "Sign Up" : "Login as Public User")}
+                  {loading ? "Loading..." : (isRegistering ? "Sign Up as Public User" : "Login as Public User")}
                 </Button>
                 <button
                   onClick={() => setIsRegistering(!isRegistering)}
