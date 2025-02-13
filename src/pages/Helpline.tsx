@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Card } from "@/components/ui/card";
@@ -12,10 +11,13 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
+import { useTheme } from "next-themes";
+import { Moon, Sun } from "lucide-react";
 
 const Helpline = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
+  const { theme, setTheme } = useTheme();
   
   // Household
   const [numAdults, setNumAdults] = useState(1);
@@ -146,14 +148,36 @@ const Helpline = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-b from-background to-secondary/20 dark:from-background dark:to-background py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto">
-        <Card className="p-6 space-y-8">
-          <div>
-            <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Emergency Help Request Form</h1>
-            <p className="mt-2 text-gray-600 dark:text-gray-400">Please provide accurate information to help us assess your situation.</p>
+        <div className="flex justify-between items-center mb-8">
+          <h1 className="text-3xl font-bold text-primary">Emergency Help Request Form</h1>
+          <div className="flex items-center gap-4">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+              className="rounded-full"
+            >
+              <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+              <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+              <span className="sr-only">Toggle theme</span>
+            </Button>
+            <Button 
+              variant="destructive"
+              onClick={async () => {
+                await supabase.auth.signOut();
+                navigate('/auth');
+              }}
+            >
+              Logout
+            </Button>
           </div>
+        </div>
 
+        <Card className="p-6 space-y-8 bg-card/50 backdrop-blur-sm border border-border/50 shadow-lg">
+          <p className="text-muted-foreground">Please provide accurate information to help us assess your situation.</p>
+          
           <form onSubmit={handleSubmit} className="space-y-8">
             {/* Household Section */}
             <div className="space-y-6">
