@@ -1,3 +1,4 @@
+
 import React from "react";
 import { RiskParameter } from "@/components/RiskParameter";
 
@@ -27,7 +28,7 @@ export const StaticParameters = ({
       </h2>
       <div className="space-y-6">
         <RiskParameter
-          label="Elevation (m)"
+          label="Elevation (cm)"
           value={staticParameters.elevation}
           onChange={([value]) =>
             setStaticParameters((prev) => ({
@@ -38,7 +39,7 @@ export const StaticParameters = ({
           min={1.98}
           max={1498.92}
           step={0.01}
-          unit=" m"
+          unit=" cm"
         />
         <RiskParameter
           label="Impervious Percentage (%)"
