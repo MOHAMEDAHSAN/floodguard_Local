@@ -1,21 +1,23 @@
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Card } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { Slider } from "@/components/ui/slider";
 import { Checkbox } from "@/components/ui/checkbox";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import { Slider } from "@/components/ui/slider";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
+import { useTheme } from "next-themes";
+import { Moon, Sun } from "lucide-react";
 
 const Helpline = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
+  const { theme, setTheme } = useTheme();
   
   // Household
   const [numAdults, setNumAdults] = useState(1);
@@ -46,9 +48,8 @@ const Helpline = () => {
   const [vehiclesSubmerged, setVehiclesSubmerged] = useState(0);
   
   // Location
+  const [region, setRegion] = useState('');
   const [area, setArea] = useState('');
-  const [otherArea, setOtherArea] = useState('');
-  const [isOtherArea, setIsOtherArea] = useState(false);
   
   // Additional Info
   const [additionalInfo, setAdditionalInfo] = useState('');
@@ -124,7 +125,8 @@ const Helpline = () => {
           water_level: waterLevel,
           structural_damage: structuralDamage,
           vehicles_submerged: vehiclesSubmerged,
-          area: isOtherArea ? otherArea : area,
+          region: region,
+          area: area,
           additional_info: additionalInfo,
           priority_score: priorityScore
         });
@@ -432,10 +434,10 @@ const Helpline = () => {
                 <div>
                   <Label>Water Level</Label>
                   <Select value={waterLevel} onValueChange={(value: any) => setWaterLevel(value)}>
-                    <SelectTrigger className="bg-white dark:bg-gray-800">
+                    <SelectTrigger>
                       <SelectValue placeholder="Select water level" />
                     </SelectTrigger>
-                    <SelectContent className="bg-white dark:bg-gray-800">
+                    <SelectContent>
                       <SelectItem value="knee-high">Knee High</SelectItem>
                       <SelectItem value="waist-high">Waist High</SelectItem>
                       <SelectItem value="chest-high">Chest High</SelectItem>
@@ -447,10 +449,10 @@ const Helpline = () => {
                 <div>
                   <Label>Structural Damage</Label>
                   <Select value={structuralDamage} onValueChange={(value: any) => setStructuralDamage(value)}>
-                    <SelectTrigger className="bg-white dark:bg-gray-800">
+                    <SelectTrigger>
                       <SelectValue placeholder="Select structural damage" />
                     </SelectTrigger>
-                    <SelectContent className="bg-white dark:bg-gray-800">
+                    <SelectContent>
                       <SelectItem value="none">None</SelectItem>
                       <SelectItem value="cracked-walls">Cracked Walls</SelectItem>
                       <SelectItem value="collapsed-structure">Collapsed Structure</SelectItem>
@@ -458,30 +460,16 @@ const Helpline = () => {
                   </Select>
                 </div>
 
-                <div className="space-y-2">
-                  <Label>Vehicles Submerged</Label>
-                  <div className="flex items-center space-x-2">
-                    <Button
-                      type="button"
-                      variant="outline"
-                      onClick={() => setVehiclesSubmerged(prev => Math.max(0, prev - 1))}
-                    >
-                      -
-                    </Button>
-                    <Input
-                      type="number"
-                      value={vehiclesSubmerged}
-                      onChange={(e) => setVehiclesSubmerged(parseInt(e.target.value) || 0)}
-                      className="w-20 text-center"
-                    />
-                    <Button
-                      type="button"
-                      variant="outline"
-                      onClick={() => setVehiclesSubmerged(prev => prev + 1)}
-                    >
-                      +
-                    </Button>
-                  </div>
+                <div>
+                  <Label>Vehicles Submerged: {vehiclesSubmerged}</Label>
+                  <Slider
+                    value={[vehiclesSubmerged]}
+                    onValueChange={(value) => setVehiclesSubmerged(value[0])}
+                    min={0}
+                    max={3}
+                    step={1}
+                    className="mt-2"
+                  />
                 </div>
               </div>
             </div>
@@ -492,44 +480,24 @@ const Helpline = () => {
               
               <div className="space-y-4">
                 <div>
-                  <Label>Area</Label>
-                  <Select 
-                    value={isOtherArea ? "other" : area} 
-                    onValueChange={(value) => {
-                      if (value === "other") {
-                        setIsOtherArea(true);
-                        setArea("");
-                      } else {
-                        setIsOtherArea(false);
-                        setArea(value);
-                      }
-                    }}
-                  >
-                    <SelectTrigger className="bg-white dark:bg-gray-800">
-                      <SelectValue placeholder="Select your area" />
-                    </SelectTrigger>
-                    <SelectContent className="bg-white dark:bg-gray-800">
-                      <SelectItem value="Ayanavaram">Ayanavaram</SelectItem>
-                      <SelectItem value="Guindy">Guindy</SelectItem>
-                      <SelectItem value="Avadi">Avadi</SelectItem>
-                      <SelectItem value="Anna Nagar">Anna Nagar</SelectItem>
-                      <SelectItem value="T Nagar">T Nagar</SelectItem>
-                      <SelectItem value="other">Other</SelectItem>
-                    </SelectContent>
-                  </Select>
+                  <Label htmlFor="region">Region</Label>
+                  <Input
+                    id="region"
+                    value={region}
+                    onChange={(e) => setRegion(e.target.value)}
+                    placeholder="Enter your region"
+                  />
                 </div>
 
-                {isOtherArea && (
-                  <div>
-                    <Label>Specify Area</Label>
-                    <Input
-                      value={otherArea}
-                      onChange={(e) => setOtherArea(e.target.value)}
-                      placeholder="Enter your area"
-                      className="bg-white dark:bg-gray-800"
-                    />
-                  </div>
-                )}
+                <div>
+                  <Label htmlFor="area">Area</Label>
+                  <Input
+                    id="area"
+                    value={area}
+                    onChange={(e) => setArea(e.target.value)}
+                    placeholder="Enter your area"
+                  />
+                </div>
               </div>
             </div>
 
@@ -541,7 +509,7 @@ const Helpline = () => {
                 value={additionalInfo}
                 onChange={(e) => setAdditionalInfo(e.target.value)}
                 placeholder="Please provide any additional information that might be important..."
-                className="min-h-[100px] bg-white dark:bg-gray-800"
+                className="min-h-[100px]"
               />
             </div>
 
