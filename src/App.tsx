@@ -13,6 +13,7 @@ import About from "./pages/About";
 import Chatbot from "./pages/Chatbot";
 import Auth from "./pages/Auth";
 import Helpline from "./pages/Helpline";
+import GovernmentDashboard from "./pages/GovernmentDashboard";
 import { NavBar } from "./components/NavBar";
 
 const ScrollToTop = () => {
@@ -30,21 +31,23 @@ const queryClient = new QueryClient();
 const AppContent = () => {
   const location = useLocation();
   const isAuthPage = location.pathname === '/auth';
+  const isGovDashboard = location.pathname === '/government';
 
   return (
     <div className="min-h-screen flex flex-col">
       <Toaster />
       <Sonner />
-      {!isAuthPage && <NavBar />}
+      {!isAuthPage && !isGovDashboard && <NavBar />}
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/about" element={<About />} />
         <Route path="/chatbot" element={<Chatbot />} />
         <Route path="/auth" element={<Auth />} />
         <Route path="/helpline" element={<Helpline />} />
+        <Route path="/government" element={<GovernmentDashboard />} />
       </Routes>
-      {!isAuthPage && <NovaChat />}
-      {!isAuthPage && <Footer />}
+      {!isAuthPage && !isGovDashboard && <NovaChat />}
+      {!isAuthPage && !isGovDashboard && <Footer />}
     </div>
   );
 };
