@@ -33,6 +33,93 @@ export type Database = {
         }
         Relationships: []
       }
+      helpline_responses: {
+        Row: {
+          additional_info: string | null
+          area: string | null
+          blindness: boolean
+          chronic_conditions_count: number
+          created_at: string
+          days_without_supplies: number
+          diabetes: boolean
+          dialysis_dependent: boolean
+          disability_count: number
+          heart_disease: boolean
+          id: string
+          injury_status: Database["public"]["Enums"]["injury_severity"]
+          is_pregnant: boolean
+          medicine_needed: boolean
+          num_adults: number
+          num_children: number
+          num_elderly: number
+          other_disabilities: boolean
+          pregnancy_trimester: Database["public"]["Enums"]["pregnancy_trimester"]
+          priority_score: number
+          region: string | null
+          structural_damage: Database["public"]["Enums"]["structural_damage"]
+          toilet_access: boolean
+          vehicles_submerged: number
+          water_level: Database["public"]["Enums"]["water_level"]
+          wheelchair_user: boolean
+        }
+        Insert: {
+          additional_info?: string | null
+          area?: string | null
+          blindness?: boolean
+          chronic_conditions_count?: number
+          created_at?: string
+          days_without_supplies: number
+          diabetes?: boolean
+          dialysis_dependent?: boolean
+          disability_count?: number
+          heart_disease?: boolean
+          id?: string
+          injury_status?: Database["public"]["Enums"]["injury_severity"]
+          is_pregnant?: boolean
+          medicine_needed?: boolean
+          num_adults: number
+          num_children: number
+          num_elderly: number
+          other_disabilities?: boolean
+          pregnancy_trimester?: Database["public"]["Enums"]["pregnancy_trimester"]
+          priority_score: number
+          region?: string | null
+          structural_damage: Database["public"]["Enums"]["structural_damage"]
+          toilet_access?: boolean
+          vehicles_submerged: number
+          water_level: Database["public"]["Enums"]["water_level"]
+          wheelchair_user?: boolean
+        }
+        Update: {
+          additional_info?: string | null
+          area?: string | null
+          blindness?: boolean
+          chronic_conditions_count?: number
+          created_at?: string
+          days_without_supplies?: number
+          diabetes?: boolean
+          dialysis_dependent?: boolean
+          disability_count?: number
+          heart_disease?: boolean
+          id?: string
+          injury_status?: Database["public"]["Enums"]["injury_severity"]
+          is_pregnant?: boolean
+          medicine_needed?: boolean
+          num_adults?: number
+          num_children?: number
+          num_elderly?: number
+          other_disabilities?: boolean
+          pregnancy_trimester?: Database["public"]["Enums"]["pregnancy_trimester"]
+          priority_score?: number
+          region?: string | null
+          structural_damage?: Database["public"]["Enums"]["structural_damage"]
+          toilet_access?: boolean
+          vehicles_submerged?: number
+          water_level?: Database["public"]["Enums"]["water_level"]
+          wheelchair_user?: boolean
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           created_at: string
@@ -62,7 +149,11 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
+      injury_severity: "none" | "fracture" | "bleeding" | "multiple-injuries"
+      pregnancy_trimester: "none" | "first" | "second" | "third"
+      structural_damage: "none" | "cracked-walls" | "collapsed-structure"
       user_role: "admin" | "user"
+      water_level: "knee-high" | "waist-high" | "chest-high" | "neck-high"
     }
     CompositeTypes: {
       [_ in never]: never
