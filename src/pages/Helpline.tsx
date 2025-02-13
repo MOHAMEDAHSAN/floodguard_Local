@@ -148,76 +148,97 @@ const Helpline = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background to-secondary/20 dark:from-background dark:to-background py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-b from-background to-secondary/20 dark:from-background dark:to-background pt-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto">
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-3xl font-bold text-primary">Emergency Help Request Form</h1>
-          <div className="flex items-center gap-4">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-              className="rounded-full"
-            >
-              <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-              <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-              <span className="sr-only">Toggle theme</span>
-            </Button>
-            <Button 
-              variant="destructive"
-              onClick={async () => {
-                await supabase.auth.signOut();
-                navigate('/auth');
-              }}
-            >
-              Logout
-            </Button>
-          </div>
         </div>
 
-        <Card className="p-6 space-y-8 bg-card/50 backdrop-blur-sm border border-border/50 shadow-lg">
+        <Card className="p-8 space-y-8 bg-card/50 backdrop-blur-sm border border-border/50 shadow-lg">
           <p className="text-muted-foreground">Please provide accurate information to help us assess your situation.</p>
           
           <form onSubmit={handleSubmit} className="space-y-8">
             {/* Household Section */}
             <div className="space-y-6">
-              <h2 className="text-xl font-semibold text-gray-900 dark:text-white">People in Household</h2>
+              <h2 className="text-xl font-semibold text-foreground mb-6">People in Household</h2>
               
-              <div className="space-y-4">
-                <div>
-                  <Label>Number of Adults (18-60 years): {numAdults}</Label>
-                  <Slider
-                    value={[numAdults]}
-                    onValueChange={(value) => setNumAdults(value[0])}
-                    min={1}
-                    max={3}
-                    step={1}
-                    className="mt-2"
-                  />
+              <div className="space-y-6">
+                <div className="space-y-2">
+                  <Label>Number of Adults (18-60 years)</Label>
+                  <div className="flex items-center space-x-2">
+                    <Button
+                      type="button"
+                      variant="outline"
+                      onClick={() => setNumAdults(prev => Math.max(0, prev - 1))}
+                    >
+                      -
+                    </Button>
+                    <Input
+                      type="number"
+                      value={numAdults}
+                      onChange={(e) => setNumAdults(parseInt(e.target.value) || 0)}
+                      className="w-20 text-center"
+                    />
+                    <Button
+                      type="button"
+                      variant="outline"
+                      onClick={() => setNumAdults(prev => prev + 1)}
+                    >
+                      +
+                    </Button>
+                  </div>
                 </div>
 
-                <div>
-                  <Label>Number of Children (under 18): {numChildren}</Label>
-                  <Slider
-                    value={[numChildren]}
-                    onValueChange={(value) => setNumChildren(value[0])}
-                    min={0}
-                    max={4}
-                    step={1}
-                    className="mt-2"
-                  />
+                <div className="space-y-2">
+                  <Label>Number of Children (under 18)</Label>
+                  <div className="flex items-center space-x-2">
+                    <Button
+                      type="button"
+                      variant="outline"
+                      onClick={() => setNumChildren(prev => Math.max(0, prev - 1))}
+                    >
+                      -
+                    </Button>
+                    <Input
+                      type="number"
+                      value={numChildren}
+                      onChange={(e) => setNumChildren(parseInt(e.target.value) || 0)}
+                      className="w-20 text-center"
+                    />
+                    <Button
+                      type="button"
+                      variant="outline"
+                      onClick={() => setNumChildren(prev => prev + 1)}
+                    >
+                      +
+                    </Button>
+                  </div>
                 </div>
 
-                <div>
-                  <Label>Number of Elderly (60+ years): {numElderly}</Label>
-                  <Slider
-                    value={[numElderly]}
-                    onValueChange={(value) => setNumElderly(value[0])}
-                    min={0}
-                    max={2}
-                    step={1}
-                    className="mt-2"
-                  />
+                <div className="space-y-2">
+                  <Label>Number of Elderly (60+ years)</Label>
+                  <div className="flex items-center space-x-2">
+                    <Button
+                      type="button"
+                      variant="outline"
+                      onClick={() => setNumElderly(prev => Math.max(0, prev - 1))}
+                    >
+                      -
+                    </Button>
+                    <Input
+                      type="number"
+                      value={numElderly}
+                      onChange={(e) => setNumElderly(parseInt(e.target.value) || 0)}
+                      className="w-20 text-center"
+                    />
+                    <Button
+                      type="button"
+                      variant="outline"
+                      onClick={() => setNumElderly(prev => prev + 1)}
+                    >
+                      +
+                    </Button>
+                  </div>
                 </div>
               </div>
             </div>
