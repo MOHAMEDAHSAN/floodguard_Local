@@ -10,8 +10,8 @@ CORS(app, resources={r"/predict": {"origins": "https://flood-65.vercel.app"}})
 
 # Global model loading
 try:
-    rf_model = joblib.load('backend/rf_model.pkl')
-    lstm_model = load_model('backend/attention_model.h5', 
+    rf_model = joblib.load('backend\\rf_model.pkl')
+    lstm_model = load_model('backend\\attention_model.h5', 
                            custom_objects={'MeanSquaredError': MeanSquaredError()})
 except Exception as e:
     print(f"Model loading failed: {str(e)}")
