@@ -12,6 +12,7 @@ import Index from "./pages/Index";
 import About from "./pages/About";
 import Chatbot from "./pages/Chatbot";
 import Auth from "./pages/Auth";
+import Helpline from "./pages/Helpline";
 import { NavBar } from "./components/NavBar";
 
 const ScrollToTop = () => {
@@ -40,6 +41,7 @@ const AppContent = () => {
         <Route path="/about" element={<About />} />
         <Route path="/chatbot" element={<Chatbot />} />
         <Route path="/auth" element={<Auth />} />
+        <Route path="/helpline" element={<Helpline />} />
       </Routes>
       {!isAuthPage && <NovaChat />}
       {!isAuthPage && <Footer />}
