@@ -10,6 +10,16 @@ import { StaticParameters } from "@/components/StaticParameters";
 import { TemporalParameters } from "@/components/TemporalParameters";
 import { RiskAnalysis } from "@/components/RiskAnalysis";
 import { supabase } from "@/integrations/supabase/client";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import { Card } from "@/components/ui/card";
+import { useQuery } from "@tanstack/react-query";
 
 interface TemporalValues {
   rainfall: number[];
@@ -17,6 +27,17 @@ interface TemporalValues {
   antecedent_precipitation: number[];
   river_level: number[];
   groundwater_depth: number[];
+}
+
+interface AggregatedData {
+  area: string;
+  total_priority: number;
+  request_count: number;
+  total_adults: number;
+  total_children: number;
+  total_elderly: number;
+  total_vehicles: number;
+  avg_days_without_supplies: number;
 }
 
 const Index = () => {
@@ -171,6 +192,49 @@ const Index = () => {
     }
   };
 
+  const { data: aggregatedData, isLoading: isLoadingHelpline } = useQuery({
+    queryKey: ['priority-data'],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from('helpline_responses')
+        .select('*')
+        .not('area', 'is', null);
+
+      if (error) throw error;
+
+      const aggregated = data.reduce((acc: { [key: string]: AggregatedData }, curr) => {
+        const area = curr.area.trim();
+        if (!acc[area]) {
+          acc[area] = {
+            area,
+            total_priority: 0,
+            request_count: 0,
+            total_adults: 0,
+            total_children: 0,
+            total_elderly: 0,
+            total_vehicles: 0,
+            avg_days_without_supplies: 0,
+          };
+        }
+
+        acc[area].total_priority += Number(curr.priority_score);
+        acc[area].request_count += 1;
+        acc[area].total_adults += curr.num_adults;
+        acc[area].total_children += curr.num_children;
+        acc[area].total_elderly += curr.num_elderly;
+        acc[area].total_vehicles += curr.vehicles_submerged;
+        acc[area].avg_days_without_supplies = 
+          (acc[area].avg_days_without_supplies * (acc[area].request_count - 1) + curr.days_without_supplies) 
+          / acc[area].request_count;
+
+        return acc;
+      }, {});
+
+      return Object.values(aggregated).sort((a, b) => b.total_priority - a.total_priority);
+    },
+    refetchInterval: 5000
+  });
+
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -179,15 +243,15 @@ const Index = () => {
     );
   }
 
-  return (
-    <div className="min-h-screen bg-gradient-to-b from-primary-light/50 to-secondary dark:from-black dark:to-[#1A1F2C] transition-colors duration-500">
-      <VantaBackground />
-      <RetroHeader />
-      <HeroSection />
-      <div className="container -mt-20 pb-20">
-        <div className="max-w-4xl mx-auto space-y-8 animate-slideIn">
-          <div className="grid gap-8 md:grid-cols-2">
-            <div className="bg-white/80 backdrop-blur-lg dark:bg-[#0f1117]/80 rounded-xl p-8 shadow-lg space-y-6 border border-white/20 dark:border-white/10 transition-all duration-500">
+return (
+  <div className="min-h-screen bg-gradient-to-b from-primary-light/50 to-secondary dark:from-black dark:to-[#1A1F2C] transition-colors duration-500">
+    <VantaBackground />
+    <RetroHeader />
+    <HeroSection />
+    <div className="container -mt-20 pb-20">
+      <div className="max-w-4xl mx-auto space-y-8 animate-slideIn">
+        <div className="grid gap-8 md:grid-cols-2">
+          <div className="bg-white/80 backdrop-blur-lg dark:bg-[#0f1117]/80 rounded-xl p-8 shadow-lg space-y-6 border border-white/20 dark:border-white/10 transition-all duration-500">
               <StaticParameters
                 staticParameters={staticParameters}
                 setStaticParameters={setStaticParameters}
@@ -241,11 +305,69 @@ const Index = () => {
               <RiskAnalysis />
               <WeatherWidget />
             </div>
-          </div>
         </div>
       </div>
     </div>
-  );
+
+    {/* Government Dashboard Section */}
+    <div className="container py-12">
+      <div className="bg-white/95 dark:bg-gray-900/95 rounded-xl p-8 shadow-lg">
+        <div className="flex justify-between items-center mb-8">
+          <h1 className="text-3xl font-bold text-[#00BCD4] dark:text-[#00BCD4]">Government Dashboard</h1>
+          <Button 
+            variant="destructive"
+            onClick={async () => {
+              await supabase.auth.signOut();
+              navigate('/auth');
+            }}
+          >
+            Logout
+          </Button>
+        </div>
+
+        <Card className="bg-white dark:bg-gray-800">
+          <div className="p-6">
+            <h2 className="text-2xl font-semibold mb-6">Aggregated Area Statistics</h2>
+            {isLoadingHelpline ? (
+              <div className="text-center py-4">Loading helpline data...</div>
+            ) : (
+              <div className="overflow-x-auto">
+                <Table>
+                  <TableHeader>
+                    <TableRow className="bg-gray-50 dark:bg-gray-900">
+                      <TableHead className="text-left font-medium text-[#00838F]">Area</TableHead>
+                      <TableHead className="text-right font-medium text-[#00838F]">Total Priority</TableHead>
+                      <TableHead className="text-right font-medium text-[#00838F]">Requests</TableHead>
+                      <TableHead className="text-right font-medium text-[#00838F]">Total Adults</TableHead>
+                      <TableHead className="text-right font-medium text-[#00838F]">Total Children</TableHead>
+                      <TableHead className="text-right font-medium text-[#00838F]">Total Elderly</TableHead>
+                      <TableHead className="text-right font-medium text-[#00838F]">Total Vehicles Submerged</TableHead>
+                      <TableHead className="text-right font-medium text-[#00838F]">Avg Days Without Supplies</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {aggregatedData?.map((row) => (
+                      <TableRow key={row.area} className="hover:bg-gray-50 dark:hover:bg-gray-800/50">
+                        <TableCell className="font-medium">{row.area}</TableCell>
+                        <TableCell className="text-right">{row.total_priority.toFixed(2)}</TableCell>
+                        <TableCell className="text-right">{row.request_count}</TableCell>
+                        <TableCell className="text-right">{row.total_adults}</TableCell>
+                        <TableCell className="text-right">{row.total_children}</TableCell>
+                        <TableCell className="text-right">{row.total_elderly}</TableCell>
+                        <TableCell className="text-right">{row.total_vehicles}</TableCell>
+                        <TableCell className="text-right">{row.avg_days_without_supplies.toFixed(1)}</TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </div>
+            )}
+          </div>
+        </Card>
+      </div>
+    </div>
+  </div>
+);
 };
 
 export default Index;
