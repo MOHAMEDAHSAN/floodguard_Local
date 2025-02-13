@@ -8,7 +8,7 @@ from tensorflow.keras.losses import MeanSquaredError
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app, resources={r"/predict": {"origins": "https://flood65.vercel.app"}})
+CORS(app, resources={r"/predict": {"origins": "https://flood-20.vercel.app"}})
 
 # Load the models
 rf_model = joblib.load('backend/rf_model.pkl')
