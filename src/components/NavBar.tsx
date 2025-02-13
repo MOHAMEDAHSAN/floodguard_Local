@@ -49,20 +49,24 @@ export const NavBar = () => {
     return () => subscription.unsubscribe();
   }, []);
 
-  const handleLogout = async () => {
-    try {
-      await supabase.auth.signOut();
-      toast({
-        title: "Logged out successfully",
-        description: "You have been logged out of your account.",
-      });
+  const handleAuthClick = async () => {
+    if (isLoggedIn) {
+      try {
+        await supabase.auth.signOut();
+        toast({
+          title: "Logged out successfully",
+          description: "You have been logged out of your account.",
+        });
+        navigate('/auth');
+      } catch (error: any) {
+        toast({
+          title: "Error",
+          description: error.message,
+          variant: "destructive",
+        });
+      }
+    } else {
       navigate('/auth');
-    } catch (error: any) {
-      toast({
-        title: "Error",
-        description: error.message,
-        variant: "destructive",
-      });
     }
   };
 
@@ -115,34 +119,14 @@ export const NavBar = () => {
             </ul>
           </div>
           <div className="flex items-center">
-            {isLoggedIn ? (
-              <Button 
-                onClick={handleLogout}
-                className="bg-destructive text-destructive-foreground hover:bg-destructive/90 flex items-center gap-2"
-              >
-                <svg 
-                  xmlns="http://www.w3.org/2000/svg" 
-                  width="16" 
-                  height="16" 
-                  viewBox="0 0 24 24" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  strokeWidth="2" 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round"
-                >
-                  <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l-5-5 5-5M15 12H3"/>
-                </svg>
-                Logout
-              </Button>
-            ) : (
-              <Button 
-                onClick={() => navigate('/auth')}
-                className="bg-gradient-to-r from-cyan-500 to-teal-400 text-white hover:from-cyan-600 hover:to-teal-500"
-              >
-                Login
-              </Button>
-            )}
+            <Button 
+              onClick={handleAuthClick}
+              className={isLoggedIn ? 
+                "bg-destructive text-destructive-foreground hover:bg-destructive/90" : 
+                "bg-gradient-to-r from-cyan-500 to-teal-400 text-white hover:from-cyan-600 hover:to-teal-500"}
+            >
+              {isLoggedIn ? "Logout" : "Login"}
+            </Button>
           </div>
         </div>
       </div>
