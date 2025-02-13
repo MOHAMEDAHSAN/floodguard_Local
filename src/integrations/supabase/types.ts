@@ -9,6 +9,27 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
+      area_populations: {
+        Row: {
+          area: string
+          created_at: string
+          id: string
+          total_population: number
+        }
+        Insert: {
+          area: string
+          created_at?: string
+          id?: string
+          total_population: number
+        }
+        Update: {
+          area?: string
+          created_at?: string
+          id?: string
+          total_population?: number
+        }
+        Relationships: []
+      }
       chat_messages: {
         Row: {
           content: string
