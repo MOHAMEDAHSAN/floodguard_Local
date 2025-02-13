@@ -31,13 +31,12 @@ const queryClient = new QueryClient();
 const AppContent = () => {
   const location = useLocation();
   const isAuthPage = location.pathname === '/auth';
-  const isGovDashboard = location.pathname === '/government';
 
   return (
     <div className="min-h-screen flex flex-col">
       <Toaster />
       <Sonner />
-      {!isAuthPage && !isGovDashboard && <NavBar />}
+      {!isAuthPage && <NavBar />}
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/about" element={<About />} />
@@ -46,8 +45,8 @@ const AppContent = () => {
         <Route path="/helpline" element={<Helpline />} />
         <Route path="/government" element={<GovernmentDashboard />} />
       </Routes>
-      {!isAuthPage && !isGovDashboard && <NovaChat />}
-      {!isAuthPage && !isGovDashboard && <Footer />}
+      {!isAuthPage && <NovaChat />}
+      {!isAuthPage && <Footer />}
     </div>
   );
 };
