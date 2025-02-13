@@ -103,6 +103,34 @@ const Helpline = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
+    // Validate input values
+    if (numElderly < 0) {
+      toast({
+        title: "Invalid Input",
+        description: "Number of elderly people cannot be negative.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (numAdults < 0) {
+      toast({
+        title: "Invalid Input",
+        description: "Number of adults cannot be negative.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (numChildren < 0) {
+      toast({
+        title: "Invalid Input",
+        description: "Number of children cannot be negative.",
+        variant: "destructive",
+      });
+      return;
+    }
+    
     try {
       const priorityScore = calculatePriorityScore();
       const disabilityCount = Number(wheelchairUser) + Number(blindness) + Number(otherDisabilities);
@@ -113,9 +141,9 @@ const Helpline = () => {
       const { error } = await supabase
         .from('helpline_responses')
         .insert({
-          num_adults: numAdults,
-          num_children: numChildren,
-          num_elderly: numElderly,
+          num_adults: Math.max(0, numAdults),
+          num_children: Math.max(0, numChildren),
+          num_elderly: Math.max(0, numElderly),
           wheelchair_user: wheelchairUser,
           blindness: blindness,
           other_disabilities: otherDisabilities,
@@ -138,7 +166,13 @@ const Helpline = () => {
           priority_score: priorityScore
         });
 
-      if (error) throw error;
+      if (error) {
+        // Handle specific constraint violation
+        if (error.message?.includes('helpline_responses_num_elderly_check')) {
+          throw new Error('Invalid number of elderly people. Please check the value.');
+        }
+        throw error;
+      }
 
       toast({
         title: "Help request submitted",
@@ -148,7 +182,7 @@ const Helpline = () => {
       console.error('Error:', error);
       toast({
         title: "Error",
-        description: "Failed to submit help request. Please try again.",
+        description: error.message || "Failed to submit help request. Please try again.",
         variant: "destructive",
       });
     }
