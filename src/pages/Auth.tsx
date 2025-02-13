@@ -1,4 +1,5 @@
-import { useState } from "react";
+
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -15,16 +16,51 @@ const Auth = () => {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
+  // Check if user is already logged in
+  useEffect(() => {
+    const checkSession = async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (session) {
+        // Get user's profile to check role
+        const { data: profile } = await supabase
+          .from('profiles')
+          .select('role')
+          .eq('id', session.user.id)
+          .single();
+
+        if (profile?.role === 'admin') {
+          navigate('/');
+        } else {
+          navigate('/helpline');
+        }
+      }
+    };
+
+    checkSession();
+  }, [navigate]);
+
   const handleLogin = async (isAdmin: boolean) => {
+    if (!email || !password) {
+      toast({
+        title: "Error",
+        description: "Please enter both email and password.",
+        variant: "destructive",
+      });
+      return;
+    }
+
     try {
       setLoading(true);
+
+      // Clear any existing session first
+      await supabase.auth.signOut();
+
       const { data: signInData, error: signInError } = await supabase.auth.signInWithPassword({
         email,
         password
       });
 
       if (signInError) {
-        // Check for specific error types
         if (signInError.message.includes("Email not confirmed")) {
           throw new Error(
             "Please confirm your email address before logging in. Check your inbox for a confirmation email."
@@ -36,6 +72,10 @@ const Auth = () => {
           );
         }
         throw signInError;
+      }
+
+      if (!signInData.user) {
+        throw new Error("No user data received");
       }
 
       // Fetch user's profile to check role
@@ -61,15 +101,15 @@ const Auth = () => {
         description: `Welcome ${isAdmin ? 'admin' : 'user'}!`,
       });
 
-      // Redirect admin to home page
+      // Redirect based on role
       if (isAdmin) {
         navigate('/');
       } else {
-        // Will implement user redirect in next prompt
-        navigate('/');
+        navigate('/helpline');
       }
 
     } catch (error: any) {
+      console.error('Login error:', error);
       toast({
         title: "Error",
         description: error.message,
@@ -91,7 +131,7 @@ const Auth = () => {
     >
       <div className="w-full max-w-md p-4">
         <Card className="p-6 space-y-6 backdrop-blur-lg bg-white/80 dark:bg-[#1A1F2C]/80 shadow-xl">
-          <Tabs defaultValue="admin" className="w-full">
+          <Tabs defaultValue="user" className="w-full">
             <TabsList className="grid w-full grid-cols-2">
               <TabsTrigger value="admin">Government Official</TabsTrigger>
               <TabsTrigger value="user">General Public</TabsTrigger>
