@@ -15,6 +15,7 @@ const Auth = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [isRegistering, setIsRegistering] = useState(false);
 
   // Check if user is already logged in
   useEffect(() => {
@@ -39,7 +40,7 @@ const Auth = () => {
     checkSession();
   }, [navigate]);
 
-  const handleLogin = async (isAdmin: boolean) => {
+  const handleAuth = async (isAdmin: boolean) => {
     if (!email || !password) {
       toast({
         title: "Error",
@@ -55,26 +56,49 @@ const Auth = () => {
       // Clear any existing session first
       await supabase.auth.signOut();
 
-      const { data: signInData, error: signInError } = await supabase.auth.signInWithPassword({
-        email,
-        password
-      });
+      let authResponse;
+      if (isRegistering) {
+        // Sign up
+        authResponse = await supabase.auth.signUp({
+          email,
+          password,
+          options: {
+            emailRedirectTo: window.location.origin
+          }
+        });
+      } else {
+        // Sign in
+        authResponse = await supabase.auth.signInWithPassword({
+          email,
+          password
+        });
+      }
 
-      if (signInError) {
-        if (signInError.message.includes("Email not confirmed")) {
+      const { data: userData, error: authError } = authResponse;
+
+      if (authError) {
+        if (authError.message.includes("Email not confirmed")) {
           throw new Error(
             "Please confirm your email address before logging in. Check your inbox for a confirmation email."
           );
         }
-        if (signInError.message.includes("Invalid login credentials")) {
+        if (authError.message.includes("Invalid login credentials")) {
           throw new Error(
             "Invalid email or password. Please check your credentials and try again."
           );
         }
-        throw signInError;
+        throw authError;
       }
 
-      if (!signInData.user) {
+      if (isRegistering) {
+        toast({
+          title: "Registration successful",
+          description: "Please check your email to confirm your account.",
+        });
+        return;
+      }
+
+      if (!userData.user) {
         throw new Error("No user data received");
       }
 
@@ -82,7 +106,7 @@ const Auth = () => {
       const { data: profile, error: profileError } = await supabase
         .from('profiles')
         .select('role')
-        .eq('id', signInData.user.id)
+        .eq('id', userData.user.id)
         .single();
 
       if (profileError) throw profileError;
@@ -109,7 +133,7 @@ const Auth = () => {
       }
 
     } catch (error: any) {
-      console.error('Login error:', error);
+      console.error('Auth error:', error);
       toast({
         title: "Error",
         description: error.message,
@@ -165,7 +189,7 @@ const Auth = () => {
                 </div>
                 <Button 
                   className="w-full" 
-                  onClick={() => handleLogin(true)}
+                  onClick={() => handleAuth(true)}
                   disabled={loading}
                 >
                   {loading ? "Loading..." : "Login as Official"}
@@ -201,11 +225,17 @@ const Auth = () => {
                 </div>
                 <Button 
                   className="w-full" 
-                  onClick={() => handleLogin(false)}
+                  onClick={() => handleAuth(false)}
                   disabled={loading}
                 >
-                  {loading ? "Loading..." : "Login as Public User"}
+                  {loading ? "Loading..." : (isRegistering ? "Sign Up" : "Login as Public User")}
                 </Button>
+                <button
+                  onClick={() => setIsRegistering(!isRegistering)}
+                  className="w-full text-sm text-blue-600 hover:text-blue-800"
+                >
+                  {isRegistering ? "Already have an account? Login" : "Need an account? Sign Up"}
+                </button>
               </div>
             </TabsContent>
           </Tabs>
