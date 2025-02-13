@@ -55,7 +55,6 @@ export type Database = {
           other_disabilities: boolean
           pregnancy_trimester: Database["public"]["Enums"]["pregnancy_trimester"]
           priority_score: number
-          region: string | null
           structural_damage: Database["public"]["Enums"]["structural_damage"]
           toilet_access: boolean
           vehicles_submerged: number
@@ -83,7 +82,6 @@ export type Database = {
           other_disabilities?: boolean
           pregnancy_trimester?: Database["public"]["Enums"]["pregnancy_trimester"]
           priority_score: number
-          region?: string | null
           structural_damage: Database["public"]["Enums"]["structural_damage"]
           toilet_access?: boolean
           vehicles_submerged: number
@@ -111,7 +109,6 @@ export type Database = {
           other_disabilities?: boolean
           pregnancy_trimester?: Database["public"]["Enums"]["pregnancy_trimester"]
           priority_score?: number
-          region?: string | null
           structural_damage?: Database["public"]["Enums"]["structural_damage"]
           toilet_access?: boolean
           vehicles_submerged?: number
