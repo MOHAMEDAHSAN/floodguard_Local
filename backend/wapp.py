@@ -5,21 +5,19 @@ import joblib
 from tensorflow.keras.models import load_model
 from tensorflow.keras.losses import MeanSquaredError
 
-from flask_cors import CORS
-
 app = Flask(__name__)
-CORS(app, resources={r"/predict": {"origins": "https://flood-20.vercel.app"}})
+CORS(app)  # Allow all origins for local development
 
-# Load the models
-rf_model = joblib.load('backend/rf_model.pkl')
-lstm_model = load_model('backend/lstm_model.h5', custom_objects={'mse': MeanSquaredError()})
+# Load models using relative paths (assuming models are in same directory)
+rf_model = joblib.load('backend\\rf_model.pkl')
+lstm_model = load_model('backend\\lstm_model.h5', custom_objects={'mse': MeanSquaredError()})
 
 @app.route('/predict', methods=['POST'])
 def predict():
     data = request.json
-    print("Received input data:", data)  # Keep original logging
+    print("Received input data:", data)
 
-    # Validate input data (original validation)
+    # Input validation remains the same
     required_fields = [
         "elevation", "impervious_pct", "drainage_capacity", "avg_slope",
         "rainfall", "temperature", "antecedent_precipitation", "river_level", "groundwater_depth"
@@ -28,7 +26,7 @@ def predict():
         if field not in data:
             return jsonify({'error': f'Missing required field: {field}'}), 400
 
-    # Keep original input processing
+    # Rest of your existing prediction logic remains unchanged
     static_input = np.array([[
         data['elevation'],
         data['impervious_pct'],
@@ -44,14 +42,9 @@ def predict():
         [data['rainfall'][4], data['temperature'][4], data['antecedent_precipitation'][4], data['river_level'][4], data['groundwater_depth'][4]]
     ]])
 
-    print("Static input:", static_input)
-    print("Temporal input:", temporal_input)
+    static_input_normalized = static_input
+    temporal_input_normalized = temporal_input
 
-    # Remove scaling but keep original structure
-    static_input_normalized = static_input  # Direct assignment
-    temporal_input_normalized = temporal_input  # Direct assignment
-
-    # Keep original prediction flow
     static_input_repeated = np.repeat(static_input_normalized, repeats=5, axis=0)
     static_pred = rf_model.predict(static_input_repeated).reshape((1, 5))
     
@@ -59,14 +52,11 @@ def predict():
     
     final_pred = static_pred + lstm_pred
 
-    print("Final prediction:", final_pred)
-
-    # Maintain original error checking
     if np.isnan(final_pred).any():
         return jsonify({'error': 'Model predictions resulted in NaN values'}), 500
 
-    # Return original format with 'prediction' key
     return jsonify({'prediction': final_pred.tolist()})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Run on localhost with debug mode
+    app.run(host='0.0.0.0', port=5000, debug=True)
