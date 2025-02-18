@@ -138,7 +138,7 @@ const Index = () => {
       console.log("Sending input data:", inputData);
 
       // Updated API endpoint to Render URL
-      const response = await fetch('https://flood-20.onrender.com', {
+      const response = await fetch('https://flood-20.onrender.com/predict', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
