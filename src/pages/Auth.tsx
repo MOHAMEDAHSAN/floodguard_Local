@@ -99,8 +99,12 @@ const Auth = () => {
         description: `Welcome back!`,
       });
 
-      // Redirect all users to helpline after login
-      navigate('/helpline');
+      // Redirect based on which portal was used for login
+      if (isAdmin) {
+        navigate('/'); // Government officials go to index page
+      } else {
+        navigate('/helpline'); // General public goes to helpline
+      }
 
     } catch (error: any) {
       console.error('Auth error:', error);
@@ -222,4 +226,3 @@ const Auth = () => {
 };
 
 export default Auth;
-
