@@ -23,18 +23,7 @@ const Auth = () => {
     const checkSession = async () => {
       const { data: { session } } = await supabase.auth.getSession();
       if (session) {
-        // Get user's profile to check role
-        const { data: profile } = await supabase
-          .from('profiles')
-          .select('role')
-          .eq('id', session.user.id)
-          .single();
-
-        if (profile?.role === 'admin') {
-          navigate('/');
-        } else {
-          navigate('/helpline');
-        }
+        navigate('/helpline');
       }
     };
 
@@ -66,9 +55,6 @@ const Auth = () => {
           email,
           password,
           options: {
-            data: {
-              role: isAdmin ? 'admin' : 'user'
-            },
             emailRedirectTo: window.location.origin
           }
         });
@@ -108,35 +94,13 @@ const Auth = () => {
         throw new Error("No user data received");
       }
 
-      // Fetch user's profile to check role
-      const { data: profile, error: profileError } = await supabase
-        .from('profiles')
-        .select('role')
-        .eq('id', userData.user.id)
-        .single();
-
-      if (profileError) throw profileError;
-
-      // Check if user is trying to access the correct portal
-      if (isAdmin && profile.role !== 'admin') {
-        throw new Error('Access denied. This portal is for government officials only.');
-      }
-
-      if (!isAdmin && profile.role === 'admin') {
-        throw new Error('Please use the admin portal to login.');
-      }
-
       toast({
         title: "Login successful",
-        description: `Welcome ${isAdmin ? 'admin' : 'user'}!`,
+        description: `Welcome back!`,
       });
 
-      // Redirect based on role
-      if (isAdmin) {
-        navigate('/');
-      } else {
-        navigate('/helpline');
-      }
+      // Redirect all users to helpline after login
+      navigate('/helpline');
 
     } catch (error: any) {
       console.error('Auth error:', error);
@@ -258,3 +222,4 @@ const Auth = () => {
 };
 
 export default Auth;
+
