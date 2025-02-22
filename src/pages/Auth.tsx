@@ -138,7 +138,7 @@ const Auth = () => {
             <TabsContent value="admin" className="space-y-4">
               <div className="space-y-2">
                 <h2 className="text-2xl font-bold text-center">Government Official Portal</h2>
-                <p className="text-center text-muted-foreground">Access the FloodGuard admin portal</p>
+                <p className="text-center text-muted-foreground">Access the FloodGuard admin portal using the placeholder credentials</p>
               </div>
               <div className="space-y-4">
                 <div className="space-y-2">
@@ -146,7 +146,7 @@ const Auth = () => {
                   <Input
                     id="admin-email"
                     type="email"
-                    placeholder="Enter your email"
+                    placeholder="abishaioff@gmail.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                   />
@@ -156,7 +156,7 @@ const Auth = () => {
                   <Input
                     id="admin-password"
                     type="password"
-                    placeholder="Enter your password"
+                    placeholder="abi866733"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                   />
