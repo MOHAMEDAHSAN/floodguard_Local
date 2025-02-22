@@ -71,17 +71,17 @@ FloodGuard is designed as a flood simulation and emergency response system with 
 ## Faster Local Version
 Since the deployed version has some response delays, you can use the **local version** for immediate results.
 
-**GitHub Repo:** [FloodGuard Local](https://github.com/MOHAMEDAHSAN/floodguard_local)
+**GitHub Repo:** [FloodGuard Local](https://github.com/MOHAMEDAHSAN/floodguard_Local)
 
 ### Setup Instructions
 #### Frontend
 1. Clone the repository:
    ```bash
-   git clone https://github.com/MOHAMEDAHSAN/floodguard_local.git
+   git clone https://github.com/MOHAMEDAHSAN/floodguard_Local.git
    ```
 2. Navigate to the project folder:
    ```bash
-   cd floodguard_local
+   cd floodguard_Local
    ```
 3. Install dependencies:
    ```bash
