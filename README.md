@@ -1,71 +1,93 @@
-# Welcome to your Lovable project
+# FloodGuard ~ Flood Simulation Model
 
-## Project info
+FloodGuard is a flood simulation and emergency response platform that predicts flood impact and assists in emergency resource allocation.
 
-**URL**: https://lovable.dev/projects/9ec3690b-24fa-4d73-8800-a46d34325027
+## Deployed Links
+- **Frontend App:** [FloodGuard on Vercel](https://floodguard-three.vercel.app/)
+- **Backend API:** [FloodGuard Backend on Render](https://flood-20.onrender.com)
 
-## How can I edit this code?
+## References & Features
+- **[Vanta.js](https://www.vantajs.com/)** for cloud-moving live wallpaper.
+- **[OpenCage API](https://opencagedata.com/)** for location insights such as latitude and longitude, used in weather prediction and chatbot alerts.
+- **[WeatherAPI](https://www.weatherapi.com/)** for weather/location insights such as temperature, UV index, rainfall, wind speed, etc.
+- **[Vercel](https://vercel.com/)** for hosting and deployment of the app.
+- **[Supabase](https://supabase.com/)** (via Vercel) for backend management and database relations for helpline forms submitted by the public and user authentication.
+- **Chatbot 'Nova'** using DeepSeek API and OpenCage location insights to assist users.
 
-There are several ways of editing your application.
+## Admin Credentials (for demo purposes)
+- **Email:** abishaioff@gmail.com  
+- **Password:** abi866733  
+*(New admin accounts cannot be created currently, but public users can sign up and fill the helpline form.)*
 
-**Use Lovable**
+## Backend Implementation
+- **Render + Flask (CORS)** for model execution without localhost dependencies, enabling usage anywhere.
+- Initial response may take up to 50 seconds due to free package limitations.
+- Model converted into `.h5` and `.pkl` formats for deployment.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/9ec3690b-24fa-4d73-8800-a46d34325027) and start prompting.
+## Technologies Used
+- **Frontend:** HTML, CSS, React, TypeScript
+- **Backend:** Flask, Supabase, OpenCage API, WeatherAPI
 
-Changes made via Lovable will be committed automatically to this repo.
+## Project Overview
+FloodGuard is designed as a flood simulation and emergency response system with two portals:
+1. **Admin Portal (Government Officials):**
+   - Predicts flood impact using an ensemble model of **Random Forest** and **LSTM**.
+   - Static Parameters (fixed over time):
+     - Elevation (cm)
+     - Impervious Percentage (%)
+     - Drainage Capacity (m³/h)
+     - Average Slope
+   - Temporal Parameters (vary daily):
+     - Rainfall (mm)
+     - Temperature (°C)
+     - Antecedent Precipitation (mm)
+     - River Level (m)
+     - Groundwater Depth (m)
+   - Predicts **Water Level Rise** for the next 5 cumulative days.
+   - The dataset is simulated for Tamil Nadu, India as a sample.
+   - Dashboard aggregates helpline form data, prioritizing responses based on severity.
 
-**Use your preferred IDE**
+2. **Public Portal (Citizens):**
+   - Helpline form to submit emergency details (e.g., number of people in the household, medical conditions, water level, etc.).
+   - Data is stored in the database and used for priority-based emergency responses.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## Faster Local Version
+Since the deployed version has some response delays, you can use the **local version** for immediate results.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+**GitHub Repo:** [FloodGuard Local](https://github.com/MOHAMEDAHSAN/floodguard_local)
 
-Follow these steps:
+### Setup Instructions
+#### Frontend
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/MOHAMEDAHSAN/floodguard_local.git
+   ```
+2. Navigate to the project folder:
+   ```bash
+   cd floodguard_local
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+#### Backend (Flask API)
+1. Navigate to the backend folder:
+   ```bash
+   cd backend
+   ```
+2. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. Run the model server:
+   ```bash
+   python backend/wapp.py
+   ```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+Now, you can explore FloodGuard locally with **faster response times**!
 
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with .
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/9ec3690b-24fa-4d73-8800-a46d34325027) and click on Share -> Publish.
-
-## I want to use a custom domain - is that possible?
-
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
-"# floodguard_local" 
-"# floodguard_local" 
