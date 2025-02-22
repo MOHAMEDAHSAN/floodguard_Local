@@ -188,7 +188,7 @@ const Auth = () => {
                   <Input
                     id="user-email"
                     type="email"
-                    placeholder="Enter your email"
+                    placeholder="abc@gmail.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                   />
@@ -198,7 +198,7 @@ const Auth = () => {
                   <Input
                     id="user-password"
                     type="password"
-                    placeholder="Enter your password"
+                    placeholder="abc123"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                   />
