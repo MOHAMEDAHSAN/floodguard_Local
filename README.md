@@ -7,6 +7,17 @@ This platform is structured into two main portals:
 - **Government/Admin Portal** – Designed for government officials to monitor flood predictions, assess emergency needs, and prioritize response efforts based on real-time public distress reports.
 - **Public Portal** – Allows citizens to submit emergency requests through a helpline form, ensuring authorities receive real-time data on affected areas and vulnerable individuals.
 
+## Preview
+![image](https://github.com/user-attachments/assets/5ca07210-6088-45cb-9bca-0b8baa2e5484)
+![image](https://github.com/user-attachments/assets/4e8f1682-b60c-4fc0-84d7-5810f23634f0)
+![image](https://github.com/user-attachments/assets/df3b31f4-b9df-4f3f-b409-3fe19464a039)
+![image](https://github.com/user-attachments/assets/5acd8a70-969e-4682-b294-523605610ce8)
+![image](https://github.com/user-attachments/assets/b1871428-ec97-474f-9a0c-c566775b0723)
+
+## Database Schema
+![supabase-schema-cuobetdigxenwftxtdhp (1)](https://github.com/user-attachments/assets/a5bd9883-e1ff-4449-adb6-97428cb68e50)
+
+
 ## Deployed Links
 - **Frontend App:** [FloodGuard on Vercel](https://floodguard-three.vercel.app/)
 - **Backend API:** [FloodGuard Backend on Render](https://flood-20.onrender.com)
