@@ -1,6 +1,11 @@
-# FloodGuard ~ Flood Simulation Model
+# 🌊 FloodGuard ~ Flood Simulation Model
 
-FloodGuard is a flood simulation and emergency response platform that predicts flood impact and assists in emergency resource allocation.
+FloodGuard is a flood simulation and emergency response platform that predicts flood impact and assists in emergency resource allocation.By leveraging advanced machine learning models and real-time data, FloodGuard provides crucial insights into flood severity and helps emergency responders take proactive measures to mitigate risks.
+
+This platform is structured into two main portals:
+
+- **Government/Admin Portal** – Designed for government officials to monitor flood predictions, assess emergency needs, and prioritize response efforts based on real-time public distress reports.
+- **Public Portal** – Allows citizens to submit emergency requests through a helpline form, ensuring authorities receive real-time data on affected areas and vulnerable individuals.
 
 ## Deployed Links
 - **Frontend App:** [FloodGuard on Vercel](https://floodguard-three.vercel.app/)
